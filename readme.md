@@ -3,8 +3,8 @@
 Clone the repo locally:
 
 ```sh
-git clone https://github.com/inertiajs/pingcrm.git pingcrm
-cd pingcrm
+git clone https://github.com/isaacdarcilla/hrms
+cd hrms
 ```
 
 Install PHP dependencies:
