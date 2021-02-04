@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mb-8 font-bold text-3xl">Dashboard</h1>
+    <h1 class="mb-8 font-bold text-3xl">Dashboard 🏠</h1>
     <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
       <div class="p-4 bg-white transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
         <div class="flex items-start justify-between">
@@ -12,7 +12,7 @@
         </div>
         <div>
           <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-          <span>from 2019</span>
+          <span>2019</span>
         </div>
       </div>
       <div class="p-4 bg-white transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
@@ -25,7 +25,7 @@
         </div>
         <div>
           <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-          <span>from 2019</span>
+          <span>2019</span>
         </div>
       </div>
       <div class="p-4 bg-white transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
@@ -38,7 +38,7 @@
         </div>
         <div>
           <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-          <span>from 2019</span>
+          <span>2019</span>
         </div>
       </div>
       <div class="p-4 bg-white transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
@@ -51,7 +51,7 @@
         </div>
         <div>
           <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-          <span>from 2019</span>
+          <span>2019</span>
         </div>
       </div>
     </div>
