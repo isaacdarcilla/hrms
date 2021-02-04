@@ -9,12 +9,12 @@
           <text-input v-model="form.email" :error="errors.email" class="mt-10" label="Email" type="text" autofocus autocapitalize="off" />
           <text-input v-model="form.password" class="mt-6" label="Password" type="password" />
           <label class="mt-6 select-none flex items-center" for="remember">
-            <input id="remember" v-model="form.remember" class="mr-1" type="checkbox">
-            <span class="text-sm">Remember Me</span>
+            <input id="remember" name="comments" type="checkbox" class="mr-1 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" v-model="form.remember">
+            <span class="text-sm">Remember login credentials</span>
           </label>
         </div>
-        <div class="px-10 py-4 bg-gray-100 border-t border-gray-200 flex justify-between items-center">
-          <a class="hover:underline" tabindex="-1" href="#reset-password">Forget password?</a>
+        <div class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex justify-between items-center">
+          <a class="hover:underline" tabindex="-1"></a>
           <loading-button :loading="sending" class="btn-indigo" type="submit">Login</loading-button>
         </div>
       </form>
