@@ -99,34 +99,34 @@ Route::put('organizations/{organization}/restore', [OrganizationsController::cla
     ->name('organizations.restore')
     ->middleware('auth');
 
-// Contacts
+// Employees
 
-Route::get('contacts', [ContactsController::class, 'index'])
-    ->name('contacts')
+Route::get('employees', [ContactsController::class, 'index'])
+    ->name('employees')
     ->middleware('remember', 'auth');
 
-Route::get('contacts/create', [ContactsController::class, 'create'])
-    ->name('contacts.create')
+Route::get('employees/create', [ContactsController::class, 'create'])
+    ->name('employees.create')
     ->middleware('auth');
 
-Route::post('contacts', [ContactsController::class, 'store'])
-    ->name('contacts.store')
+Route::post('employees', [ContactsController::class, 'store'])
+    ->name('employees.store')
     ->middleware('auth');
 
-Route::get('contacts/{contact}/edit', [ContactsController::class, 'edit'])
-    ->name('contacts.edit')
+Route::get('employees/{contact}/edit', [ContactsController::class, 'edit'])
+    ->name('employees.edit')
     ->middleware('auth');
 
-Route::put('contacts/{contact}', [ContactsController::class, 'update'])
-    ->name('contacts.update')
+Route::put('employees/{contact}', [ContactsController::class, 'update'])
+    ->name('employees.update')
     ->middleware('auth');
 
-Route::delete('contacts/{contact}', [ContactsController::class, 'destroy'])
-    ->name('contacts.destroy')
+Route::delete('employees/{contact}', [ContactsController::class, 'destroy'])
+    ->name('employees.destroy')
     ->middleware('auth');
 
-Route::put('contacts/{contact}/restore', [ContactsController::class, 'restore'])
-    ->name('contacts.restore')
+Route::put('employees/{contact}/restore', [ContactsController::class, 'restore'])
+    ->name('employees.restore')
     ->middleware('auth');
 
 // Reports
@@ -138,14 +138,3 @@ Route::get('reports', [ReportsController::class, 'index'])
 // Images
 
 Route::get('/img/{path}', [ImagesController::class, 'show'])->where('path', '.*');
-
-// 500 error
-
-Route::get('500', function () {
-    // Force debug mode for this endpoint in the demo environment
-    if (App::environment('demo')) {
-        Config::set('app.debug', true);
-    }
-
-    echo $fail;
-});

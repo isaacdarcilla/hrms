@@ -6,23 +6,43 @@
       </inertia-link>
     </div>
     <div class="mb-4">
-      <inertia-link class="flex items-center group py-3" :href="route('contacts')">
-        <div :class="isUrl('contacts') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">👥 Employees</div>
+      <inertia-link class="flex items-center group py-3" :href="route('employees')">
+        <div :class="isUrl('employees') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">👥 Employees</div>
       </inertia-link>
     </div>
     <div class="mb-4">
       <inertia-link class="flex items-center group py-3" :href="route('organizations')">
-        <div :class="isUrl('organizations') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">💰 Payroll</div>
+        <div :class="isUrl('organizations') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">💰 Payslip</div>
       </inertia-link>
     </div>
     <div class="mb-4">
       <inertia-link class="flex items-center group py-3" :href="route('organizations')">
-        <div :class="isUrl('organizations') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">⏰ Attendance</div>
+        <div :class="isUrl('organizations') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">👨‍🦰 Recruitments</div>
+      </inertia-link>
+    </div>
+    <div class="mb-4">
+      <inertia-link class="flex items-center group py-3" :href="route('organizations')">
+        <div :class="isUrl('organizations') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">👨‍💻 Job Posting</div>
+      </inertia-link>
+    </div>
+    <div class="mb-4">
+      <inertia-link class="flex items-center group py-3" :href="route('organizations')">
+        <div :class="isUrl('organizations') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">💼 Organization</div>
+      </inertia-link>
+    </div>
+    <div class="mb-4">
+      <inertia-link class="flex items-center group py-3" :href="route('reports')">
+        <div :class="isUrl('reports') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">😊 Profile</div>
       </inertia-link>
     </div>
     <div class="mb-4">
       <inertia-link class="flex items-center group py-3" :href="route('reports')">
         <div :class="isUrl('reports') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">📰 Reports</div>
+      </inertia-link>
+    </div>
+    <div class="mb-4">
+      <inertia-link class="flex items-center group py-3" :href="route('reports')">
+        <div :class="isUrl('reports') ? 'text-white font-bold' : 'text-indigo-300 font-bold group-hover:text-white'">⚙️ Settings</div>
       </inertia-link>
     </div>
   </div>

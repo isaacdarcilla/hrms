@@ -83,19 +83,19 @@ export default {
   },
   methods: {
     submit() {
-      this.$inertia.put(this.route('contacts.update', this.contact.id), this.form, {
+      this.$inertia.put(this.route('employees.update', this.contact.id), this.form, {
         onStart: () => this.sending = true,
         onFinish: () => this.sending = false,
       })
     },
     destroy() {
       if (confirm('Are you sure you want to delete this contact?')) {
-        this.$inertia.delete(this.route('contacts.destroy', this.contact.id))
+        this.$inertia.delete(this.route('employees.destroy', this.contact.id))
       }
     },
     restore() {
       if (confirm('Are you sure you want to restore this contact?')) {
-        this.$inertia.put(this.route('contacts.restore', this.contact.id))
+        this.$inertia.put(this.route('employees.restore', this.contact.id))
       }
     },
   },

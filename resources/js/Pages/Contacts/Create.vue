@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">
-      <inertia-link class="text-indigo-400 hover:text-indigo-600" :href="route('contacts')">Contacts</inertia-link>
+      <inertia-link class="text-indigo-400 hover:text-indigo-600" :href="route('employees')">Contacts</inertia-link>
       <span class="text-indigo-400 font-medium">/</span> Create
     </h1>
     <div class="bg-white rounded shadow overflow-hidden">
@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$inertia.post(this.route('contacts.store'), this.form, {
+      this.$inertia.post(this.route('employees.store'), this.form, {
         onStart: () => this.sending = true,
         onFinish: () => this.sending = false,
       })

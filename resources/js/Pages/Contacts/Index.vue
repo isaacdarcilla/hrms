@@ -10,7 +10,7 @@
           <option value="only">Only Trashed</option>
         </select>
       </search-filter>
-      <inertia-link class="btn-indigo" :href="route('contacts.create')">
+      <inertia-link class="btn-indigo" :href="route('employees.create')">
         <span>➕ Create</span>
         <span class="hidden md:inline">Employee</span>
       </inertia-link>
@@ -23,43 +23,62 @@
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Department</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Position</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
           <tr v-for="contact in contacts.data" :key="contact.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
             <td class="border-t">
-              <inertia-link class="px-6 py-4 flex items-center focus:text-indigo-500" :href="route('contacts.edit', contact.id)">
-                {{ contact.name }}
+              <inertia-link class="px-6 py-4 flex items-center focus:text-indigo-500" :href="route('employees.edit', contact.id)">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
+                  </div>
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                      {{ contact.name }}
+                    </div>
+                    <div class="text-sm text-gray-500">
+                      jane.cooper@example.com
+                    </div>
+                  </div>
+                </div>
                 <icon v-if="contact.deleted_at" name="trash" class="flex-shrink-0 w-3 h-3 fill-gray-400 ml-2" />
               </inertia-link>
             </td>
-            <td class="border-t">
-              <inertia-link class="px-6 py-4 flex items-center" :href="route('contacts.edit', contact.id)" tabindex="-1">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <inertia-link class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" :href="route('employees.edit', contact.id)" tabindex="-1">
                 <div v-if="contact.organization">
                   {{ contact.organization.name }}
                 </div>
+                <div class="text-sm text-gray-500">Job Order</div>
               </inertia-link>
             </td>
             <td class="border-t">
-              <inertia-link class="px-6 py-4 flex items-center" :href="route('contacts.edit', contact.id)" tabindex="-1">
+              <inertia-link class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" :href="route('employees.edit', contact.id)" tabindex="-1">
                 {{ contact.city }}
               </inertia-link>
             </td>
             <td class="border-t">
-              <inertia-link class="px-6 py-4 flex items-center" :href="route('contacts.edit', contact.id)" tabindex="-1">
+              <inertia-link class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" :href="route('employees.edit', contact.id)" tabindex="-1">
                 {{ contact.phone }}
               </inertia-link>
             </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800">
+                      Active
+              </span>
+            </td>
             <td class="border-t w-px">
-              <inertia-link class="px-4 flex items-center" :href="route('contacts.edit', contact.id)" tabindex="-1">
+              <inertia-link class="px-4 flex items-center" :href="route('employees.edit', contact.id)" tabindex="-1">
                 👁️‍🗨️
               </inertia-link>
             </td>
           </tr>
         </tbody>
         <tr v-if="contacts.data.length === 0">
-          <td class="border-t px-6 py-4" colspan="4">No contacts found.</td>
+          <td class="border-t px-6 py-4 font-bold" colspan="4">☹️ No employees found.</td>
         </tr>
       </table>
     </div>
@@ -77,7 +96,7 @@ import SearchFilter from '@/Shared/SearchFilter'
 import throttle from 'lodash/throttle'
 
 export default {
-  metaInfo: { title: 'Contacts' },
+  metaInfo: { title: 'Employees' },
   layout: Layout,
   components: {
     Icon,
@@ -100,7 +119,7 @@ export default {
     form: {
       handler: throttle(function() {
         let query = pickBy(this.form)
-        this.$inertia.replace(this.route('contacts', Object.keys(query).length ? query : { remember: 'forget' }))
+        this.$inertia.replace(this.route('employees', Object.keys(query).length ? query : { remember: 'forget' }))
       }, 150),
       deep: true,
     },
