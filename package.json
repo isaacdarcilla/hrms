@@ -28,5 +28,8 @@
         "vue": "^2.6.11",
         "vue-meta": "^2.3.1",
         "vue-template-compiler": "^2.6.11"
+    },
+    "devDependencies": {
+        "tailwind-scrollbar": "^1.2.3"
     }
 }
