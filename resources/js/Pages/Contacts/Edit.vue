@@ -17,10 +17,10 @@
     </div>
 
     <trashed-message v-if="contact.deleted_at" class="mb-6" @restore="restore">
-      This contact has been deleted.
+      This employee has been removed.
     </trashed-message>
     <div class="h-full">
-      <div class="border-b-2 block md:flex">
+      <div class="border-b-0 block md:flex">
         <div
           class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-xl bg-white shadow-md"
         >
@@ -82,7 +82,117 @@
         </div>
       </div>
     </div>
-    <div class="bg-white rounded shadow overflow-hidden">
+
+    <div class="flex flex-col mt-4">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div
+            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+          >
+            <div class="mx-6 my-5 font-semibold bg-white">
+              Educational Background
+            </div>
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-white">
+                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Level
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Name of School
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Course
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    From
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    To
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Units Earned
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Year Graduated
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Honors Received
+                  </th>
+                  <th scope="col" class="relative px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr
+                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                  v-for="education in educations"
+                  :key="education.id"
+                >
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span
+                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
+                    >
+                      {{ education.level }}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">
+                      Regional Paradigm Technician
+                    </div>
+                    <div class="text-sm text-gray-500">Optimization</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span
+                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
+                    >
+                      Active
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    Admin
+                  </td>
+                  <td
+                    class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
+                  >
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
+                      >Edit</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 bg-white rounded shadow overflow-hidden">
       <form @submit.prevent="submit">
         <div class="p-8 -mr-6 -mb-8 flex flex-wrap">
           <text-input
@@ -207,6 +317,7 @@ export default {
     errors: Object,
     contact: Object,
     organizations: Array,
+    educations: Array,
   },
   remember: "form",
   data() {

@@ -75,9 +75,38 @@ class ContactsController extends Controller
                 'first_name' => $contact->first_name,
                 'middle_name' => $contact->middle_name,
                 'last_name' => $contact->last_name,
-                'organization_id' => $contact->organization_id,
+                'name_extension' => $contact->name_extension,
+                'birth_date' => $contact->birth_date,
+                'birth_place' => $contact->birth_place,
+                'sex' => $contact->sex,
+                'civil_status' => $contact->civil_status,
+                'height' => $contact->height,
+                'weight' => $contact->weight,
+                'blood_type' => $contact->blood_type,
+                'gsis_id' => $contact->gsis_id,
+                'pagibig_id' => $contact->pagibig_id,
+                'philhealth_id' => $contact->philhealth_id,
+                'sss_id' => $contact->sss_id,
+                'tin_id' => $contact->tin_id,
+                'agency_employee_id' => $contact->agency_employee_id,
+                'citizenship' => $contact->citizenship,
                 'email' => $contact->email,
                 'phone' => $contact->phone,
+                'telephone' => $contact->telephone,
+                'permanent_block' => $contact->permanent_block,
+                'permanent_street' => $contact->permanent_street,
+                'permanent_village' => $contact->permanent_village,
+                'permanent_barangay' => $contact->permanent_barangay,
+                'permanent_city' => $contact->permanent_city,
+                'permanent_province' => $contact->permanent_province,
+                'permanent_zipcode' => $contact->permanent_zipcode,
+                'residential_block' => $contact->residential_block,
+                'residential_street' => $contact->residential_street,
+                'residential_village' => $contact->residential_village,
+                'residential_barangay' => $contact->residential_barangay,
+                'residential_city' => $contact->residential_city,
+                'residential_province' => $contact->residential_province,
+                'residential_zipcode' => $contact->residential_zipcode,
                 'deleted_at' => $contact->deleted_at,
             ],
             'organizations' => Auth::user()->account->organizations()
@@ -85,6 +114,9 @@ class ContactsController extends Controller
                 ->get()
                 ->map
                 ->only('id', 'name'),
+            'educations' => $contact->educations()
+                ->get()
+                ->map,
         ]);
     }
 
@@ -107,7 +139,7 @@ class ContactsController extends Controller
             ])
         );
 
-        return Redirect::back()->with('success', 'Contact updated.');
+        return Redirect::back()->with('success', 'Employee information updated.');
     }
 
     public function destroy(Contact $contact)

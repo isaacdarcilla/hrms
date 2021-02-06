@@ -12,4 +12,6 @@ class Education extends Model
     {
         return $this->belongsTo(Contact::class);
     }
+
+    protected $table = 'educations';
 }
