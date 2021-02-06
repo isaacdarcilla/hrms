@@ -1,20 +1,29 @@
 <template>
   <div>
-    <h1 class="mb-8 font-bold text-3xl">
-      <inertia-link
-        class="text-indigo-400 hover:text-indigo-600"
-        :href="route('employees')"
-        >Employees</inertia-link
-      >
-      <span class="text-indigo-400 font-medium">/</span>
-      {{ form.first_name }} {{ form.last_name }} 👥
-    </h1>
+    <div class="flex items-center justify-between mb-0">
+      <h1 class="mb-8 font-bold text-3xl">
+        <inertia-link
+          class="text-indigo-400 hover:text-indigo-600"
+          :href="route('employees')"
+          >Employee</inertia-link
+        >
+        <span class="text-indigo-400 font-medium">/</span>
+        {{ form.first_name }} {{ form.last_name }} 👥
+      </h1>
+      <inertia-link class="btn-indigo mb-8" :href="route('employees.create')">
+        <span>✏️ Edit</span>
+        <span class="hidden md:inline">Employee</span>
+      </inertia-link>
+    </div>
+
     <trashed-message v-if="contact.deleted_at" class="mb-6" @restore="restore">
       This contact has been deleted.
     </trashed-message>
     <div class="h-full">
       <div class="border-b-2 block md:flex">
-        <div class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-xl bg-white shadow-md">
+        <div
+          class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-xl bg-white shadow-md"
+        >
           <figure class="bg-white rounded-xl p-8">
             <img
               class="w-32 h-32 rounded-full mx-auto"
@@ -25,14 +34,20 @@
             />
             <div class="pt-6 text-center space-y-4">
               <figcaption class="text-lg font-large font-semibold">
-                <div class="text-cyan-600">{{ contact.first_name }} {{ contact.last_name }}</div>
-                <div class="text-gray-500">{{ contact.email }}</div>
+                <div class="text-cyan-600 block">
+                  {{ contact.first_name }} {{ contact.middle_name }}
+                  {{ contact.last_name }}
+                </div>
+                <div class="text-gray-500 block">{{ contact.email }}</div>
               </figcaption>
             </div>
           </figure>
         </div>
 
         <div class="w-full md:w-3/5 p-8 lg:ml-4 rounded-xl bg-white shadow-md">
+          <div class="flex items-center">
+            <div class="px-3 font-semibold">Personal Information</div>
+          </div>
           <div class="rounded p-3">
             <div class="pb-6">
               <label for="name" class="font-semibold text-gray-700 block pb-1"
@@ -203,11 +218,6 @@ export default {
         organization_id: this.contact.organization_id,
         email: this.contact.email,
         phone: this.contact.phone,
-        address: this.contact.address,
-        city: this.contact.city,
-        region: this.contact.region,
-        country: this.contact.country,
-        postal_code: this.contact.postal_code,
       },
     };
   },

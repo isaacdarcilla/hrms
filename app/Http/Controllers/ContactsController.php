@@ -73,15 +73,11 @@ class ContactsController extends Controller
             'contact' => [
                 'id' => $contact->id,
                 'first_name' => $contact->first_name,
+                'middle_name' => $contact->middle_name,
                 'last_name' => $contact->last_name,
                 'organization_id' => $contact->organization_id,
                 'email' => $contact->email,
                 'phone' => $contact->phone,
-                'address' => $contact->address,
-                'city' => $contact->city,
-                'region' => $contact->region,
-                'country' => $contact->country,
-                'postal_code' => $contact->postal_code,
                 'deleted_at' => $contact->deleted_at,
             ],
             'organizations' => Auth::user()->account->organizations()
