@@ -28,32 +28,32 @@ class Contact extends Model
         return $this->hasMany(Experience::class);
     }
 
-    public function membership()
+    public function memberships()
     {
         return $this->hasMany(Membership::class);
     }
 
-    public function recognition()
+    public function recognitions()
     {
         return $this->hasMany(Recognition::class);
     }
 
-    public function service()
+    public function services()
     {
         return $this->hasMany(Service::class);
     }
 
-    public function skill()
+    public function skills()
     {
         return $this->hasMany(Skill::class);
     }
 
-    public function training()
+    public function trainings()
     {
         return $this->hasMany(Training::class);
     }
 
-    public function volunteer()
+    public function volunteers()
     {
         return $this->hasMany(Volunteer::class);
     }
