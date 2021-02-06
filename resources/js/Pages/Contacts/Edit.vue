@@ -89,8 +89,16 @@
           <div
             class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
           >
-            <div class="mx-6 my-5 font-semibold bg-white">
-              Educational Background
+            <div class="flex items-center justify-between mb-0">
+              <h5 class="mx-6 my-5 font-semibold font bg-white">
+                Educational Background
+              </h5>
+              <inertia-link
+                class="btn-indigo mb-2 mx-6"
+                :href="route('employees.create')"
+              >
+                <span>➕ Add</span>
+              </inertia-link>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-white">
@@ -143,8 +151,11 @@
                   >
                     Honors Received
                   </th>
-                  <th scope="col" class="relative px-6 py-3">
-                    <span class="sr-only">Edit</span>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Action
                   </th>
                 </tr>
               </thead>
@@ -158,31 +169,55 @@
                     <span
                       class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
                     >
-                      {{ education.level }}
+                      {{ education.education_level }}
                     </span>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="text-sm text-gray-900">
-                      Regional Paradigm Technician
+                      {{ education.education_school_name }}
                     </div>
-                    <div class="text-sm text-gray-500">Optimization</div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    <span
-                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                    >
-                      Active
-                    </span>
+                    <div class="text-sm text-gray-900">
+                      {{ education.education_course }}
+                    </div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    Admin
+                    <div class="text-sm text-gray-900">
+                      {{ education.from }}
+                    </div>
                   </td>
-                  <td
-                    class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
-                  >
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                      >Edit</a
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ education.to }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ education.education_highest_level_earned }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ education.education_year_graduated }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ education.education_honors_received }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <inertia-link
+                      href="#"
+                      class="text-indigo-600 hover:text-indigo-900"
+                      >✏️ Edit</inertia-link
                     >
+                  </td>
+                </tr>
+                <tr v-if="educations.length === 0">
+                  <td class="border-t px-6 py-4 font-bold" colspan="4">
+                    ☹️ No educations added.
                   </td>
                 </tr>
               </tbody>

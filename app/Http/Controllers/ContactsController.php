@@ -115,8 +115,7 @@ class ContactsController extends Controller
                 ->map
                 ->only('id', 'name'),
             'educations' => $contact->educations()
-                ->get()
-                ->map,
+                ->get(),
         ]);
     }
 

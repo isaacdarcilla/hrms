@@ -133,13 +133,13 @@
                 Active
               </span>
             </td>
-            <td class="border-t w-px">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
               <inertia-link
-                class="px-4 flex items-center"
+                class="text-indigo-600 hover:text-indigo-900"
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                👁️‍🗨️
+                👁️‍🗨 View
               </inertia-link>
             </td>
           </tr>
