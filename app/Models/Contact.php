@@ -13,6 +13,51 @@ class Contact extends Model
         return $this->belongsTo(Organization::class);
     }
 
+    public function backgrounds()
+    {
+        return $this->hasMany(Background::class);
+    }
+
+    public function educations()
+    {
+        return $this->hasMany(Education::class);
+    }
+
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
+    public function membership()
+    {
+        return $this->hasMany(Membership::class);
+    }
+
+    public function recognition()
+    {
+        return $this->hasMany(Recognition::class);
+    }
+
+    public function service()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function skill()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    public function training()
+    {
+        return $this->hasMany(Training::class);
+    }
+
+    public function volunteer()
+    {
+        return $this->hasMany(Volunteer::class);
+    }
+
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;
