@@ -116,6 +116,8 @@ class ContactsController extends Controller
                 ->only('id', 'name'),
             'educations' => $contact->educations()
                 ->get(),
+            'experiences' => $contact->experiences()
+                ->get(),
         ]);
     }
 

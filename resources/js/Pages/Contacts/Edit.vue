@@ -94,10 +94,10 @@
                 Educational Background
               </h5>
               <inertia-link
-                class="btn-indigo mb-2 mx-6"
+                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
                 :href="route('employees.create')"
               >
-                <span>➕ Add</span>
+                ➕ Add Education
               </inertia-link>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
@@ -227,103 +227,146 @@
       </div>
     </div>
 
-    <div class="mt-4 bg-white rounded shadow overflow-hidden">
-      <form @submit.prevent="submit">
-        <div class="p-8 -mr-6 -mb-8 flex flex-wrap">
-          <text-input
-            v-model="form.first_name"
-            :error="errors.first_name"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="First name"
-          />
-          <text-input
-            v-model="form.last_name"
-            :error="errors.last_name"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Last name"
-          />
-          <select-input
-            v-model="form.organization_id"
-            :error="errors.organization_id"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Organization"
+    <div class="flex flex-col mt-4">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div
+            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
           >
-            <option :value="null" />
-            <option
-              v-for="organization in organizations"
-              :key="organization.id"
-              :value="organization.id"
-            >
-              {{ organization.name }}
-            </option>
-          </select-input>
-          <text-input
-            v-model="form.email"
-            :error="errors.email"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Email"
-          />
-          <text-input
-            v-model="form.phone"
-            :error="errors.phone"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Phone"
-          />
-          <text-input
-            v-model="form.address"
-            :error="errors.address"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Address"
-          />
-          <text-input
-            v-model="form.city"
-            :error="errors.city"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="City"
-          />
-          <text-input
-            v-model="form.region"
-            :error="errors.region"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Province/State"
-          />
-          <select-input
-            v-model="form.country"
-            :error="errors.country"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Country"
-          >
-            <option :value="null" />
-            <option value="CA">Canada</option>
-            <option value="US">United States</option>
-          </select-input>
-          <text-input
-            v-model="form.postal_code"
-            :error="errors.postal_code"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Postal code"
-          />
+            <div class="flex items-center justify-between mb-0">
+              <h5 class="mx-6 my-5 font-semibold font bg-white">
+                Work Experience
+              </h5>
+              <inertia-link
+                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+                :href="route('employees.create')"
+              >
+                ➕ Add Experience
+              </inertia-link>
+            </div>
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-white">
+                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Company Name
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                  Position
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Monthly Salary
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    From
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    To
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Salary Grade
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Status of Appointment
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Government Service
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr
+                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                  v-for="experience in experiences"
+                  :key="experience.id"
+                >
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_company }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_position }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_monthly_salary }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_from }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_to }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_salary_grade }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_status_of_appointment }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900">
+                      {{ experience.experiences_government }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <inertia-link
+                      href="#"
+                      class="text-indigo-600 hover:text-indigo-900"
+                      >✏️ Edit</inertia-link
+                    >
+                  </td>
+                </tr>
+                <tr v-if="educations.length === 0">
+                  <td class="border-t px-6 py-4 font-bold" colspan="4">
+                    ☹️ No educations added.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div
-          class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center"
-        >
-          <button
-            v-if="!contact.deleted_at"
-            class="text-red-600 hover:underline"
-            tabindex="-1"
-            type="button"
-            @click="destroy"
-          >
-            Delete Contact
-          </button>
-          <loading-button
-            :loading="sending"
-            class="btn-indigo ml-auto"
-            type="submit"
-            >Update Contact</loading-button
-          >
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -353,6 +396,7 @@ export default {
     contact: Object,
     organizations: Array,
     educations: Array,
+    experiences: Array,
   },
   remember: "form",
   data() {
