@@ -1,4 +1,4 @@
-## 🗒️ Human Resourse Management
+## 🗒️ Human Resourse Management System
 
 ```diff
 - High Priority Task
