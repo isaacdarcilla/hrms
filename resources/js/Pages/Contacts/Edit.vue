@@ -246,11 +246,17 @@
                 <label
                   for="name"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Birthday
-                  <span class="text-gray-500">{{
-                    contact.birth_date
-                  }}</span></label
-                >
+                  >Spouse
+                  <span v-if="family === null" class="text-gray-500">
+                    No data available
+                  </span>
+                  <span v-else class="text-gray-500">
+                    {{ family.spouse_first_name }}
+                    {{ family.spouse_middle_name }}
+                    {{ family.spouse_last_name }}
+                    {{ family.spouse_name_extension }}
+                  </span>
+                </label>
               </div>
               <div class="pb-1">
                 <label
@@ -556,6 +562,7 @@ export default {
     skills: Array,
     recognitions: Array,
     memberships: Array,
+    family: Object,
   },
   remember: "form",
   data() {

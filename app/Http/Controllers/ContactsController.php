@@ -109,6 +109,7 @@ class ContactsController extends Controller
                 'residential_zipcode' => $contact->residential_zipcode,
                 'deleted_at' => $contact->deleted_at,
             ],
+            'family' => $contact->backgrounds()->first(),
             'organizations' => Auth::user()->account->organizations()
                 ->orderBy('name')
                 ->get()
