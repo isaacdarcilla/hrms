@@ -7,7 +7,7 @@
         >
           <div class="flex items-center justify-between mb-0">
             <h5 class="mx-6 my-5 font-semibold font bg-white">
-              Educational Background
+              Learning and Development Programs Attended
             </h5>
             <inertia-link
               class="h-8 text-xs items-center btn-indigo my-2 mx-6"
@@ -23,19 +23,7 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Level
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Name of School
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Course
+                  Training Name
                 </th>
                 <th
                   scope="col"
@@ -53,19 +41,19 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Units Earned
+                  Number of Hours
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Year Graduated
+                  Type
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Honors Received
+                  Sponsored By
                 </th>
                 <th
                   scope="col"
@@ -78,49 +66,37 @@
             <tbody class="bg-white divide-y divide-gray-200">
               <tr
                 class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                v-for="education in educations"
-                :key="education.id"
+                v-for="t in trainings"
+                :key="t.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                  >
-                    {{ education.education_level }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_school_name }}
+                    {{ t.trainings_name }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_course }}
+                    {{ t.trainings_from }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ t.trainings_to }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.from }}
+                    {{ t.trainings_number_of_hours }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.to }}
+                    {{ t.trainings_type }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_highest_level_earned }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_year_graduated }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_honors_received }}
+                    {{ t.trainings_sponsored_by }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -131,9 +107,9 @@
                   >
                 </td>
               </tr>
-              <tr v-if="educations.length === 0">
+              <tr v-if="trainings.length === 0">
                 <td class="border-t px-6 py-4 font-bold" colspan="4">
-                  ☹️ No educations added.
+                  ☹️ No trainings added.
                 </td>
               </tr>
             </tbody>
@@ -143,11 +119,10 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
-    props: {
-        educations: Array,
-    }
-}
+  props: {
+    trainings: Array,
+  },
+};
 </script>

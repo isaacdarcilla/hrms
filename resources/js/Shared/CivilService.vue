@@ -7,7 +7,7 @@
         >
           <div class="flex items-center justify-between mb-0">
             <h5 class="mx-6 my-5 font-semibold font bg-white">
-              Educational Background
+              Civil Service Eligibility
             </h5>
             <inertia-link
               class="h-8 text-xs items-center btn-indigo my-2 mx-6"
@@ -23,49 +23,37 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Level
+                  Eligibility Name
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Name of School
+                  Rating
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Course
+                  Date of Exam
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  From
+                  Place of Exam
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  To
+                  License Number
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Units Earned
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Year Graduated
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Honors Received
+                  License Expiration
                 </th>
                 <th
                   scope="col"
@@ -78,49 +66,37 @@
             <tbody class="bg-white divide-y divide-gray-200">
               <tr
                 class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                v-for="education in educations"
-                :key="education.id"
+                v-for="eligibility in eligibilities"
+                :key="eligibility.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                  >
-                    {{ education.education_level }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_school_name }}
+                    {{ eligibility.eligibility_name }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_course }}
+                    {{ eligibility.eligibility_rating }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ eligibility.eligibility_date_of_exam }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.from }}
+                    {{ eligibility.eligibility_place_of_exam }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.to }}
+                    {{ eligibility.eligibility_license_number }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_highest_level_earned }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_year_graduated }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_honors_received }}
+                    {{ eligibility.eligibility_license_expiration }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -131,9 +107,9 @@
                   >
                 </td>
               </tr>
-              <tr v-if="educations.length === 0">
+              <tr v-if="eligibilities.length === 0">
                 <td class="border-t px-6 py-4 font-bold" colspan="4">
-                  ☹️ No educations added.
+                  ☹️ No eligibility added.
                 </td>
               </tr>
             </tbody>
@@ -143,11 +119,10 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
     props: {
-        educations: Array,
+        eligibilities: Array,
     }
 }
 </script>

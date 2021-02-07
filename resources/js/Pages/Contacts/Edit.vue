@@ -20,10 +20,8 @@
       This employee has been removed.
     </trashed-message>
     <div class="h-full">
-      <div class="border-b-0 block md:flex">
-        <div
-          class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-xl bg-white shadow-md"
-        >
+      <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
+        <div class="rounded-xl bg-white shadow-md">
           <figure class="bg-white rounded-xl p-8">
             <img
               class="w-32 h-32 rounded-full mx-auto"
@@ -44,9 +42,9 @@
           </figure>
         </div>
 
-        <div class="w-full md:w-3/5 p-8 lg:ml-4 rounded-xl bg-white shadow-md">
+        <div class="rounded-xl bg-white shadow-md">
           <div class="flex items-center">
-            <div class="px-3 font-semibold">Personal Information</div>
+            <div class="px-3 py-3 font-semibold">Personal Information</div>
           </div>
           <div class="rounded p-3">
             <div class="pb-6">
@@ -83,636 +81,221 @@
       </div>
     </div>
 
-    <div class="flex flex-col mt-4">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    <educational-background
+      :educations="educations"
+      class="flex"
+    ></educational-background>
+
+    <civil-service :eligibilities="eligibilities" class="flex"></civil-service>
+
+    <work-experience :experiences="experiences" class="flex"></work-experience>
+
+    <volunteer-work :volunteers="volunteers" class="flex"></volunteer-work>
+
+    <trainings :trainings="trainings" class="flex"></trainings>
+
+    <div class="grid gap-6 mb-8 md:grid-cols-3 xl:grid-cols-3">
+      <div class="flex flex-col mt-6">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
-            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
           >
-            <div class="flex items-center justify-between mb-0">
-              <h5 class="mx-6 my-5 font-semibold font bg-white">
-                Educational Background
-              </h5>
-              <inertia-link
-                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
-              >
-                ➕ Add
-              </inertia-link>
-            </div>
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-white">
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Level
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Name of School
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Course
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    From
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    To
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Units Earned
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Year Graduated
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Honors Received
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr
-                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                  v-for="education in educations"
-                  :key="education.id"
+            <div
+              class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+            >
+              <div class="flex items-center justify-between mb-0">
+                <h5 class="mx-6 my-5 font-semibold font bg-white">
+                  Skills and Hobbies
+                </h5>
+                <inertia-link
+                  class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+                  :href="route('employees.create')"
                 >
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <span
-                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
+                  ➕ Add
+                </inertia-link>
+              </div>
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-white">
+                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      {{ education.education_level }}
-                    </span>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ education.education_school_name }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ education.education_course }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ education.from }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ education.to }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ education.education_highest_level_earned }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ education.education_year_graduated }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ education.education_honors_received }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <inertia-link
-                      href="#"
-                      class="text-indigo-600 hover:text-indigo-900"
-                      >✏️ Edit</inertia-link
+                      Level
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                  </td>
-                </tr>
-                <tr v-if="educations.length === 0">
-                  <td class="border-t px-6 py-4 font-bold" colspan="4">
-                    ☹️ No educations added.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr
+                    class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                    v-for="education in educations"
+                    :key="education.id"
+                  >
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
+                      >
+                        {{ education.education_level }}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <inertia-link
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                        >✏️ Edit</inertia-link
+                      >
+                    </td>
+                  </tr>
+                  <tr v-if="educations.length === 0">
+                    <td class="border-t px-6 py-4 font-bold" colspan="4">
+                      ☹️ No educations added.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="flex flex-col mt-4">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="flex flex-col mt-6">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
-            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
           >
-            <div class="flex items-center justify-between mb-0">
-              <h5 class="mx-6 my-5 font-semibold font bg-white">
-                Civil Service Eligibility
-              </h5>
-              <inertia-link
-                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
-              >
-                ➕ Add
-              </inertia-link>
-            </div>
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-white">
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Eligibility Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Rating
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Date of Exam
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Place of Exam
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    License Number
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    License Expiration
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr
-                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                  v-for="eligibility in eligibilities"
-                  :key="eligibility.id"
+            <div
+              class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+            >
+              <div class="flex items-center justify-between mb-0">
+                <h5 class="mx-6 my-5 font-semibold font bg-white">
+                  Skills and Hobbies
+                </h5>
+                <inertia-link
+                  class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+                  :href="route('employees.create')"
                 >
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ eligibility.eligibility_name }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ eligibility.eligibility_rating }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ eligibility.eligibility_date_of_exam }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ eligibility.eligibility_place_of_exam }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ eligibility.eligibility_license_number }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ eligibility.eligibility_license_expiration }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <inertia-link
-                      href="#"
-                      class="text-indigo-600 hover:text-indigo-900"
-                      >✏️ Edit</inertia-link
+                  ➕ Add
+                </inertia-link>
+              </div>
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-white">
+                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                  </td>
-                </tr>
-                <tr v-if="eligibilities.length === 0">
-                  <td class="border-t px-6 py-4 font-bold" colspan="4">
-                    ☹️ No eligibility added.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                      Level
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr
+                    class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                    v-for="education in educations"
+                    :key="education.id"
+                  >
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
+                      >
+                        {{ education.education_level }}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <inertia-link
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                        >✏️ Edit</inertia-link
+                      >
+                    </td>
+                  </tr>
+                  <tr v-if="educations.length === 0">
+                    <td class="border-t px-6 py-4 font-bold" colspan="4">
+                      ☹️ No educations added.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="flex flex-col mt-4">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="flex flex-col mt-6">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
-            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
           >
-            <div class="flex items-center justify-between mb-0">
-              <h5 class="mx-6 my-5 font-semibold font bg-white">
-                Work Experience
-              </h5>
-              <inertia-link
-                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
-              >
-                ➕ Add
-              </inertia-link>
-            </div>
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-white">
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Company Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Position
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Monthly Salary
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    From
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    To
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Salary Grade
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Status of Appointment
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Government Service
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr
-                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                  v-for="experience in experiences"
-                  :key="experience.id"
+            <div
+              class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+            >
+              <div class="flex items-center justify-between mb-0">
+                <h5 class="mx-6 my-5 font-semibold font bg-white">
+                  Skills and Hobbies
+                </h5>
+                <inertia-link
+                  class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+                  :href="route('employees.create')"
                 >
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_company }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_position }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      PHP {{ experience.experiences_monthly_salary }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_from }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_to }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_salary_grade }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_status_of_appointment }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ experience.experiences_government }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <inertia-link
-                      href="#"
-                      class="text-indigo-600 hover:text-indigo-900"
-                      >✏️ Edit</inertia-link
+                  ➕ Add
+                </inertia-link>
+              </div>
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-white">
+                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                  </td>
-                </tr>
-                <tr v-if="educations.length === 0">
-                  <td class="border-t px-6 py-4 font-bold" colspan="4">
-                    ☹️ No experiences added.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex flex-col mt-4">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div
-            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
-          >
-            <div class="flex items-center justify-between mb-0">
-              <h5 class="mx-6 my-5 font-semibold font bg-white">
-                Voluntary Work Involvement
-              </h5>
-              <inertia-link
-                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
-              >
-                ➕ Add
-              </inertia-link>
+                      Level
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr
+                    class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                    v-for="education in educations"
+                    :key="education.id"
+                  >
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
+                      >
+                        {{ education.education_level }}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <inertia-link
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                        >✏️ Edit</inertia-link
+                      >
+                    </td>
+                  </tr>
+                  <tr v-if="educations.length === 0">
+                    <td class="border-t px-6 py-4 font-bold" colspan="4">
+                      ☹️ No educations added.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-white">
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Organization Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    From
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    To
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Number of Hours
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Nature of Work
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr
-                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                  v-for="volunteer in volunteers"
-                  :key="volunteer.id"
-                >
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ volunteer.volunteers_organization }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ volunteer.volunteers_from }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                       {{ volunteer.volunteers_to }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ volunteer.volunteers_number_of_hours }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ volunteer.volunteers_nature_of_work }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <inertia-link
-                      href="#"
-                      class="text-indigo-600 hover:text-indigo-900"
-                      >✏️ Edit</inertia-link
-                    >
-                  </td>
-                </tr>
-                <tr v-if="volunteers.length === 0">
-                  <td class="border-t px-6 py-4 font-bold" colspan="4">
-                    ☹️ No voluntary work added.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex flex-col mt-4">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div
-            class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
-          >
-            <div class="flex items-center justify-between mb-0">
-              <h5 class="mx-6 my-5 font-semibold font bg-white">
-                Learning and Development Programs Attended
-              </h5>
-              <inertia-link
-                class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
-              >
-                ➕ Add
-              </inertia-link>
-            </div>
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-white">
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Training Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    From
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    To
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Number of Hours
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Type
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Sponsored By
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr
-                  class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                  v-for="t in trainings"
-                  :key="t.id"
-                >
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ t.trainings_name }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                      {{ t.trainings_from }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">
-                       {{ t.trainings_to }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ t.trainings_number_of_hours }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ t.trainings_type }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
-                      {{ t.trainings_sponsored_by }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <inertia-link
-                      href="#"
-                      class="text-indigo-600 hover:text-indigo-900"
-                      >✏️ Edit</inertia-link
-                    >
-                  </td>
-                </tr>
-                <tr v-if="trainings.length === 0">
-                  <td class="border-t px-6 py-4 font-bold" colspan="4">
-                    ☹️ No trainings added.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
@@ -726,6 +309,11 @@ import LoadingButton from "@/Shared/LoadingButton";
 import SelectInput from "@/Shared/SelectInput";
 import TextInput from "@/Shared/TextInput";
 import TrashedMessage from "@/Shared/TrashedMessage";
+import EducationalBackground from "@/Shared/EducationalBackground.vue";
+import CivilService from "@/Shared/CivilService.vue";
+import WorkExperience from "@/Shared/WorkExperience.vue";
+import VolunteerWork from "@/Shared/VolunteerWork.vue";
+import Trainings from "@/Shared/Trainings.vue";
 
 export default {
   metaInfo() {
@@ -739,12 +327,17 @@ export default {
     SelectInput,
     TextInput,
     TrashedMessage,
+    EducationalBackground,
+    CivilService,
+    WorkExperience,
+    VolunteerWork,
+    Trainings,
   },
   props: {
     errors: Object,
     contact: Object,
-    organizations: Array,
     educations: Array,
+    organizations: Array,
     experiences: Array,
     eligibilities: Array,
     volunteers: Array,

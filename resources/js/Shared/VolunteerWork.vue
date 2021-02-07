@@ -7,7 +7,7 @@
         >
           <div class="flex items-center justify-between mb-0">
             <h5 class="mx-6 my-5 font-semibold font bg-white">
-              Educational Background
+              Voluntary Work Involvement
             </h5>
             <inertia-link
               class="h-8 text-xs items-center btn-indigo my-2 mx-6"
@@ -23,19 +23,7 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Level
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Name of School
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Course
+                  Organization Name
                 </th>
                 <th
                   scope="col"
@@ -53,19 +41,13 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Units Earned
+                  Number of Hours
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Year Graduated
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Honors Received
+                  Nature of Work
                 </th>
                 <th
                   scope="col"
@@ -78,49 +60,32 @@
             <tbody class="bg-white divide-y divide-gray-200">
               <tr
                 class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                v-for="education in educations"
-                :key="education.id"
+                v-for="volunteer in volunteers"
+                :key="volunteer.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                  >
-                    {{ education.education_level }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_school_name }}
+                    {{ volunteer.volunteers_organization }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_course }}
+                    {{ volunteer.volunteers_from }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ volunteer.volunteers_to }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.from }}
+                    {{ volunteer.volunteers_number_of_hours }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.to }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_highest_level_earned }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_year_graduated }}
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ education.education_honors_received }}
+                    {{ volunteer.volunteers_nature_of_work }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -131,9 +96,9 @@
                   >
                 </td>
               </tr>
-              <tr v-if="educations.length === 0">
+              <tr v-if="volunteers.length === 0">
                 <td class="border-t px-6 py-4 font-bold" colspan="4">
-                  ☹️ No educations added.
+                  ☹️ No voluntary work added.
                 </td>
               </tr>
             </tbody>
@@ -143,11 +108,8 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
-    props: {
-        educations: Array,
-    }
-}
+  props: { volunteers: Array },
+};
 </script>

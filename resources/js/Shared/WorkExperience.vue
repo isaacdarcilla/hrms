@@ -7,7 +7,7 @@
         >
           <div class="flex items-center justify-between mb-0">
             <h5 class="mx-6 my-5 font-semibold font bg-white">
-              Educational Background
+              Work Experience
             </h5>
             <inertia-link
               class="h-8 text-xs items-center btn-indigo my-2 mx-6"
@@ -23,19 +23,19 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Level
+                  Company Name
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Name of School
+                  Position
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Course
+                  Monthly Salary
                 </th>
                 <th
                   scope="col"
@@ -53,19 +53,19 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Units Earned
+                  Salary Grade
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Year Graduated
+                  Status of Appointment
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Honors Received
+                  Government Service
                 </th>
                 <th
                   scope="col"
@@ -78,49 +78,47 @@
             <tbody class="bg-white divide-y divide-gray-200">
               <tr
                 class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                v-for="education in educations"
-                :key="education.id"
+                v-for="experience in experiences"
+                :key="experience.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                  >
-                    {{ education.education_level }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_school_name }}
+                    {{ experience.experiences_company }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_course }}
+                    {{ experience.experiences_position }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    PHP {{ experience.experiences_monthly_salary }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.from }}
+                    {{ experience.experiences_from }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.to }}
+                    {{ experience.experiences_to }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_highest_level_earned }}
+                    {{ experience.experiences_salary_grade }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_year_graduated }}
+                    {{ experience.experiences_status_of_appointment }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.education_honors_received }}
+                    {{ experience.experiences_government }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -131,9 +129,9 @@
                   >
                 </td>
               </tr>
-              <tr v-if="educations.length === 0">
+              <tr v-if="experiences.length === 0">
                 <td class="border-t px-6 py-4 font-bold" colspan="4">
-                  ☹️ No educations added.
+                  ☹️ No experiences added.
                 </td>
               </tr>
             </tbody>
@@ -143,11 +141,10 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
     props: {
-        educations: Array,
+        experiences: Array,
     }
 }
 </script>
