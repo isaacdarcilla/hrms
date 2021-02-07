@@ -124,6 +124,8 @@ class ContactsController extends Controller
                 ->get(),
             'trainings' => $contact->trainings()
                 ->get(),
+            'skills' => $contact->skills()
+                ->get(),
         ]);
     }
 
