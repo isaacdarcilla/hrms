@@ -37,7 +37,13 @@
                   {{ contact.last_name }} {{ contact.name_extension }}
                 </div>
                 <div class="text-gray-600 block">{{ contact.email }}</div>
-                <div class="text-gray-500 block pt-2">
+                <div
+                  v-if="contact.agency_employee_id === null"
+                  class="text-gray-500 block pt-2"
+                >
+                  No data available
+                </div>
+                <div v-else class="text-gray-500 block pt-2">
                   #{{ contact.agency_employee_id }}
                 </div>
               </figcaption>
@@ -56,36 +62,25 @@
                   for="name"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Birthday
-                  <span class="text-gray-500">{{
-                    contact.birth_date
-                  }}</span></label
-                >
+                  <span
+                    v-if="contact.birth_date !== null"
+                    class="text-gray-500"
+                    >{{ contact.birth_date }}</span
+                  >
+                  <span v-else class="text-red-500">No data available</span>
+                </label>
               </div>
               <div class="pb-1">
                 <label
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Birth Place
-                  <span class="text-gray-500">{{
-                    contact.birth_place
-                  }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Sex
-                  <span class="text-gray-500">{{ contact.sex }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Height
-                  <span class="text-gray-500"
-                    >{{ contact.height }} CM</span
+                  <span
+                    v-if="contact.birth_place !== null"
+                    class="text-gray-500"
+                    >{{ contact.birth_place }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
                   ></label
                 >
               </div>
@@ -93,9 +88,34 @@
                 <label
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Sex
+                  <span v-if="contact.sex !== null" class="text-gray-500">{{
+                    contact.sex
+                  }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Height
+                  <span v-if="contact.height !== null" class="text-gray-500"
+                    >{{ contact.height }} CM</span
+                  ><span v-else class="text-red-500">No data available</span>
+                </label>
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
                   >Weight
-                  <span class="text-gray-500"
+                  <span v-if="contact.weight !== null" class="text-gray-500"
                     >{{ contact.weight }} KG</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
                   ></label
                 >
               </div>
@@ -104,9 +124,13 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Blood Type
-                  <span class="text-gray-500">{{
-                    contact.blood_type
-                  }}</span></label
+                  <span
+                    v-if="contact.blood_type !== null"
+                    class="text-gray-500"
+                    >{{ contact.blood_type }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
               <div class="pb-1">
@@ -114,9 +138,12 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >GSIS
-                  <span class="text-gray-500">{{
+                  <span v-if="contact.gsis_id !== null" class="text-gray-500">{{
                     contact.gsis_id
-                  }}</span></label
+                  }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
               <div class="pb-1">
@@ -124,7 +151,12 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >SSS
-                  <span class="text-gray-500">{{ contact.sss_id }}</span></label
+                  <span v-if="contact.sss_id !== null" class="text-gray-500">{{
+                    contact.sss_id
+                  }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
               <div class="pb-1">
@@ -132,9 +164,13 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Pagibig
-                  <span class="text-gray-500">{{
-                    contact.pagibig_id
-                  }}</span></label
+                  <span
+                    v-if="contact.pagibig_id !== null"
+                    class="text-gray-500"
+                    >{{ contact.pagibig_id }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
               <div class="pb-1">
@@ -142,9 +178,13 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >PhilHealth
-                  <span class="text-gray-500">{{
-                    contact.philhealth_id
-                  }}</span></label
+                  <span
+                    v-if="contact.philhealth_id !== null"
+                    class="text-gray-500"
+                    >{{ contact.philhealth_id }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
             </div>
@@ -154,9 +194,13 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Civil Status
-                  <span class="text-gray-500">{{
-                    contact.civil_status
-                  }}</span></label
+                  <span
+                    v-if="contact.civil_status !== null"
+                    class="text-gray-500"
+                    >{{ contact.civil_status }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
 
@@ -165,9 +209,13 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Citizenship
-                  <span class="text-gray-500">{{
-                    contact.citizenship
-                  }}</span></label
+                  <span
+                    v-if="contact.citizenship !== null"
+                    class="text-gray-500"
+                    >{{ contact.citizenship }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
               <div class="pb-1">
@@ -207,9 +255,13 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Telephone
-                  <span class="text-gray-500">{{
-                    contact.telephone
-                  }}</span></label
+                  <span
+                    v-if="contact.telephone !== null"
+                    class="text-gray-500"
+                    >{{ contact.telephone }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
               <div class="pb-1">
@@ -217,7 +269,12 @@
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Mobile Number
-                  <span class="text-gray-500">{{ contact.phone }}</span></label
+                  <span v-if="contact.phone !== null" class="text-gray-500">{{
+                    contact.phone
+                  }}</span
+                  ><span v-else class="text-red-500"
+                    >No data available</span
+                  ></label
                 >
               </div>
             </div>
@@ -240,17 +297,21 @@
               ✏️ Edit
             </inertia-link>
           </div>
-          <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
-            <div class="rounded pl-4 pt-4">
+          <div v-if="family === null">
+            <figcaption
+              class="text-lg text-center pt-4 font-large font-semibold"
+            >
+              😟 No data available.
+            </figcaption>
+          </div>
+          <div v-else class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
+            <div class="rounded pl-4 pt-4 mx-4">
               <div class="pb-1">
                 <label
                   for="name"
                   class="font-semibold text-gray-700 text-sm block pb-1"
                   >Spouse
-                  <span v-if="family === null" class="text-gray-500">
-                    No data available
-                  </span>
-                  <span v-else class="text-gray-500">
+                  <span class="text-gray-500">
                     {{ family.spouse_first_name }}
                     {{ family.spouse_middle_name }}
                     {{ family.spouse_last_name }}
@@ -262,9 +323,9 @@
                 <label
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Birth Place
+                  >Spouse Occupation
                   <span class="text-gray-500">{{
-                    contact.birth_place
+                    family.spouse_occupation
                   }}</span></label
                 >
               </div>
@@ -272,37 +333,9 @@
                 <label
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Sex
-                  <span class="text-gray-500">{{ contact.sex }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Height
-                  <span class="text-gray-500"
-                    >{{ contact.height }} CM</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Weight
-                  <span class="text-gray-500"
-                    >{{ contact.weight }} KG</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Blood Type
+                  >Spouse Business
                   <span class="text-gray-500">{{
-                    contact.blood_type
+                    family.spouse_business_name
                   }}</span></label
                 >
               </div>
@@ -310,9 +343,9 @@
                 <label
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >GSIS
+                  >Spouse Address
                   <span class="text-gray-500">{{
-                    contact.gsis_id
+                    family.spouse_business_address
                   }}</span></label
                 >
               </div>
@@ -320,27 +353,9 @@
                 <label
                   for="about"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >SSS
-                  <span class="text-gray-500">{{ contact.sss_id }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Pagibig
+                  >Spouse Telephone
                   <span class="text-gray-500">{{
-                    contact.pagibig_id
-                  }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >PhilHealth
-                  <span class="text-gray-500">{{
-                    contact.philhealth_id
+                    family.spouse_telephone
                   }}</span></label
                 >
               </div>
@@ -348,74 +363,28 @@
             <div class="rounded pl-4 pt-4 mx-4">
               <div class="pb-1">
                 <label
-                  for="about"
+                  for="name"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Civil Status
-                  <span class="text-gray-500">{{
-                    contact.civil_status
-                  }}</span></label
-                >
-              </div>
-
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Citizenship
-                  <span class="text-gray-500">{{
-                    contact.citizenship
-                  }}</span></label
-                >
+                  >Father
+                  <span class="text-gray-500">
+                    {{ family.father_first_name }}
+                    {{ family.father_middle_name }}
+                    {{ family.father_last_name }}
+                    {{ family.father_name_extension }}
+                  </span>
+                </label>
               </div>
               <div class="pb-1">
                 <label
-                  for="about"
+                  for="name"
                   class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Residential Address
-                  <span class="text-gray-500"
-                    >{{ contact.residential_block }}
-                    {{ contact.residential_street }}
-                    {{ contact.residential_village }}
-                    {{ contact.residential_barangay }}
-                    {{ contact.residential_city }}
-                    {{ contact.residential_province }}
-                    {{ contact.residential_zipcode }}
-                  </span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Permanent Address
-                  <span class="text-gray-500"
-                    >{{ contact.permanent_block }}
-                    {{ contact.permanent_street }}
-                    {{ contact.permanent_village }}
-                    {{ contact.permanent_barangay }}
-                    {{ contact.permanent_city }}
-                    {{ contact.permanent_province }}
-                    {{ contact.permanent_zipcode }}
-                  </span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Telephone
-                  <span class="text-gray-500">{{
-                    contact.telephone
-                  }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Mobile Number
-                  <span class="text-gray-500">{{ contact.phone }}</span></label
-                >
+                  >Mother
+                  <span class="text-gray-500">
+                    {{ family.mother_first_name }}
+                    {{ family.mother_middle_name }}
+                    {{ family.mother_last_name }}
+                  </span>
+                </label>
               </div>
             </div>
           </div>
@@ -449,7 +418,13 @@
                         scope="col"
                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
-                        Recognition
+                        Name of Children
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Date of Birth
                       </th>
                       <th
                         scope="col"
