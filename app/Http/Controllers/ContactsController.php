@@ -25,7 +25,11 @@ class ContactsController extends Controller
                         'id' => $contact->id,
                         'name' => $contact->name,
                         'phone' => $contact->phone,
-                        'city' => $contact->city,
+                        'email' => $contact->email,
+                        'department' => $contact->department,
+                        'status_of_appointment' => $contact->status_of_appointment,
+                        'position' => $contact->position,
+                        'status' => $contact->status,
                         'deleted_at' => $contact->deleted_at,
                         'organization' => $contact->organization ? $contact->organization->only('name') : null,
                     ];

@@ -85,7 +85,7 @@
                       {{ contact.name }}
                     </div>
                     <div class="text-sm text-gray-500">
-                      jane.cooper@example.com
+                      {{ contact.email }}
                     </div>
                   </div>
                 </div>
@@ -102,10 +102,10 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <div v-if="contact.organization">
-                  {{ contact.organization.name }}
+                <div>
+                  {{ contact.department }}
                 </div>
-                <div class="text-sm text-gray-500">Job Order</div>
+                <div class="text-sm text-gray-500">{{ contact.status_of_appointment }}</div>
               </inertia-link>
             </td>
             <td class="border-t">
@@ -114,7 +114,7 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                {{ contact.city }}
+                {{ contact.position }}
               </inertia-link>
             </td>
             <td class="border-t">
@@ -130,7 +130,7 @@
               <span
                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
               >
-                Active
+                {{ contact.status }}
               </span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
