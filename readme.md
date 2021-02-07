@@ -1,3 +1,5 @@
+![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot.png)
+
 ## 🗒️ Human Resourse Management
 
 ```diff
