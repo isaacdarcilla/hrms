@@ -34,9 +34,12 @@
               <figcaption class="text-lg font-large font-semibold">
                 <div class="text-cyan-600 block">
                   {{ contact.first_name }} {{ contact.middle_name }}
-                  {{ contact.last_name }}
+                  {{ contact.last_name }} {{ contact.name_extension }}
                 </div>
-                <div class="text-gray-500 block">{{ contact.email }}</div>
+                <div class="text-gray-600 block">{{ contact.email }}</div>
+                <div class="text-gray-500 block pt-2">
+                  #{{ contact.agency_employee_id }}
+                </div>
               </figcaption>
             </div>
           </figure>
@@ -44,37 +47,443 @@
 
         <div class="rounded-xl bg-white shadow-md">
           <div class="flex items-center">
-            <div class="px-3 py-3 font-semibold">Personal Information</div>
+            <div class="px-4 pt-4 font-semibold">🥳 Personal Information</div>
           </div>
-          <div class="rounded p-3">
-            <div class="pb-6">
-              <label for="name" class="font-semibold text-gray-700 block pb-1"
-                >Name</label
-              >
-              <div class="flex">
-                <input
-                  disabled
-                  id="username"
-                  class="border-1 rounded-r px-4 py-2 w-full"
-                  type="text"
-                  value="Jane Name"
-                />
+          <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
+            <div class="rounded pl-4 pt-4">
+              <div class="pb-1">
+                <label
+                  for="name"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Birthday
+                  <span class="text-gray-500">{{
+                    contact.birth_date
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Birth Place
+                  <span class="text-gray-500">{{
+                    contact.birth_place
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Sex
+                  <span class="text-gray-500">{{ contact.sex }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Height
+                  <span class="text-gray-500"
+                    >{{ contact.height }} CM</span
+                  ></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Weight
+                  <span class="text-gray-500"
+                    >{{ contact.weight }} KG</span
+                  ></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Blood Type
+                  <span class="text-gray-500">{{
+                    contact.blood_type
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >GSIS
+                  <span class="text-gray-500">{{
+                    contact.gsis_id
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >SSS
+                  <span class="text-gray-500">{{ contact.sss_id }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Pagibig
+                  <span class="text-gray-500">{{
+                    contact.pagibig_id
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >PhilHealth
+                  <span class="text-gray-500">{{
+                    contact.philhealth_id
+                  }}</span></label
+                >
               </div>
             </div>
-            <div class="pb-4">
-              <label for="about" class="font-semibold text-gray-700 block pb-1"
-                >Email</label
+            <div class="rounded pl-4 pt-4 mx-4">
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Civil Status
+                  <span class="text-gray-500">{{
+                    contact.civil_status
+                  }}</span></label
+                >
+              </div>
+
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Citizenship
+                  <span class="text-gray-500">{{
+                    contact.citizenship
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Residential Address
+                  <span class="text-gray-500"
+                    >{{ contact.residential_block }}
+                    {{ contact.residential_street }}
+                    {{ contact.residential_village }}
+                    {{ contact.residential_barangay }}
+                    {{ contact.residential_city }}
+                    {{ contact.residential_province }}
+                    {{ contact.residential_zipcode }}
+                  </span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Permanent Address
+                  <span class="text-gray-500"
+                    >{{ contact.permanent_block }}
+                    {{ contact.permanent_street }}
+                    {{ contact.permanent_village }}
+                    {{ contact.permanent_barangay }}
+                    {{ contact.permanent_city }}
+                    {{ contact.permanent_province }}
+                    {{ contact.permanent_zipcode }}
+                  </span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Telephone
+                  <span class="text-gray-500">{{
+                    contact.telephone
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Mobile Number
+                  <span class="text-gray-500">{{ contact.phone }}</span></label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-full pt-3">
+      <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
+        <div class="rounded-xl bg-white shadow-md">
+          <div class="flex items-center justify-between mb-0">
+            <h5 class="mx-6 my-5 font-semibold font bg-white">
+              👨‍👩‍👧‍👦 Family Background
+            </h5>
+            <inertia-link
+              class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+              :href="route('employees.create')"
+            >
+              ✏️ Edit
+            </inertia-link>
+          </div>
+          <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
+            <div class="rounded pl-4 pt-4">
+              <div class="pb-1">
+                <label
+                  for="name"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Birthday
+                  <span class="text-gray-500">{{
+                    contact.birth_date
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Birth Place
+                  <span class="text-gray-500">{{
+                    contact.birth_place
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Sex
+                  <span class="text-gray-500">{{ contact.sex }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Height
+                  <span class="text-gray-500"
+                    >{{ contact.height }} CM</span
+                  ></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Weight
+                  <span class="text-gray-500"
+                    >{{ contact.weight }} KG</span
+                  ></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Blood Type
+                  <span class="text-gray-500">{{
+                    contact.blood_type
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >GSIS
+                  <span class="text-gray-500">{{
+                    contact.gsis_id
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >SSS
+                  <span class="text-gray-500">{{ contact.sss_id }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Pagibig
+                  <span class="text-gray-500">{{
+                    contact.pagibig_id
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >PhilHealth
+                  <span class="text-gray-500">{{
+                    contact.philhealth_id
+                  }}</span></label
+                >
+              </div>
+            </div>
+            <div class="rounded pl-4 pt-4 mx-4">
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Civil Status
+                  <span class="text-gray-500">{{
+                    contact.civil_status
+                  }}</span></label
+                >
+              </div>
+
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Citizenship
+                  <span class="text-gray-500">{{
+                    contact.citizenship
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Residential Address
+                  <span class="text-gray-500"
+                    >{{ contact.residential_block }}
+                    {{ contact.residential_street }}
+                    {{ contact.residential_village }}
+                    {{ contact.residential_barangay }}
+                    {{ contact.residential_city }}
+                    {{ contact.residential_province }}
+                    {{ contact.residential_zipcode }}
+                  </span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Permanent Address
+                  <span class="text-gray-500"
+                    >{{ contact.permanent_block }}
+                    {{ contact.permanent_street }}
+                    {{ contact.permanent_village }}
+                    {{ contact.permanent_barangay }}
+                    {{ contact.permanent_city }}
+                    {{ contact.permanent_province }}
+                    {{ contact.permanent_zipcode }}
+                  </span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Telephone
+                  <span class="text-gray-500">{{
+                    contact.telephone
+                  }}</span></label
+                >
+              </div>
+              <div class="pb-1">
+                <label
+                  for="about"
+                  class="font-semibold text-gray-700 text-sm block pb-1"
+                  >Mobile Number
+                  <span class="text-gray-500">{{ contact.phone }}</span></label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-0">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div
+              class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+            >
+              <div
+                class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
               >
-              <input
-                disabled
-                id="email"
-                class="border-1 rounded-r px-4 py-2 w-full"
-                type="email"
-                value="example@example.com"
-              />
-              <span class="text-gray-600 pt-4 block opacity-70"
-                >Personal login information of your account</span
-              >
+                <div class="flex items-center justify-between mb-0">
+                  <h5 class="mx-6 my-5 font-semibold font bg-white">
+                    👶 Name of Childrens
+                  </h5>
+                  <inertia-link
+                    class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+                    :href="route('employees.create')"
+                  >
+                    ➕ Add
+                  </inertia-link>
+                </div>
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-white">
+                    <tr
+                      class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                    >
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Recognition
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr
+                      class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                      v-for="recognition in recognitions"
+                      :key="recognition.id"
+                    >
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        <div class="text-sm text-gray-900">
+                          {{ recognition.recognitions_name }}
+                        </div>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium"
+                      >
+                        <inertia-link
+                          href="#"
+                          class="text-indigo-600 hover:text-indigo-900"
+                          >✏️ Edit</inertia-link
+                        >
+                      </td>
+                    </tr>
+                    <tr v-if="recognitions.length === 0">
+                      <td class="border-t px-6 py-4 font-bold" colspan="4">
+                        ☹️ No recognitions added.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -94,212 +503,12 @@
 
     <trainings :trainings="trainings" class="flex"></trainings>
 
-    <div class="grid gap-6 mb-8 md:grid-cols-3 xl:grid-cols-3">
-      <div class="flex flex-col mt-6">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div
-            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
-          >
-            <div
-              class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
-            >
-              <div class="flex items-center justify-between mb-0">
-                <h5 class="mx-6 my-5 font-semibold font bg-white">
-                  Special Skills and Hobbies
-                </h5>
-                <inertia-link
-                  class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                  :href="route('employees.create')"
-                >
-                  ➕ Add
-                </inertia-link>
-              </div>
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-white">
-                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Skill and Hobbies
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr
-                    class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                    v-for="skill in skills"
-                    :key="skill.id"
-                  >
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                      >
-                        {{ skill.skills_name }}
-                      </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <inertia-link
-                        href="#"
-                        class="text-indigo-600 hover:text-indigo-900"
-                        >✏️ Edit</inertia-link
-                      >
-                    </td>
-                  </tr>
-                  <tr v-if="educations.length === 0">
-                    <td class="border-t px-6 py-4 font-bold" colspan="4">
-                      ☹️ No skills or hobbies added.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col mt-6">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div
-            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
-          >
-            <div
-              class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
-            >
-              <div class="flex items-center justify-between mb-0">
-                <h5 class="mx-6 my-5 font-semibold font bg-white">
-                  Non-Academic Recognitions
-                </h5>
-                <inertia-link
-                  class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                  :href="route('employees.create')"
-                >
-                  ➕ Add
-                </inertia-link>
-              </div>
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-white">
-                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Level
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr
-                    class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                    v-for="education in educations"
-                    :key="education.id"
-                  >
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                      >
-                        {{ education.education_level }}
-                      </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <inertia-link
-                        href="#"
-                        class="text-indigo-600 hover:text-indigo-900"
-                        >✏️ Edit</inertia-link
-                      >
-                    </td>
-                  </tr>
-                  <tr v-if="educations.length === 0">
-                    <td class="border-t px-6 py-4 font-bold" colspan="4">
-                      ☹️ No educations added.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col mt-6">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div
-            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
-          >
-            <div
-              class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
-            >
-              <div class="flex items-center justify-between mb-0">
-                <h5 class="mx-6 my-5 font-semibold font bg-white">
-                  Membership in Organizations
-                </h5>
-                <inertia-link
-                  class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                  :href="route('employees.create')"
-                >
-                  ➕ Add
-                </inertia-link>
-              </div>
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-white">
-                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Level
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr
-                    class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                    v-for="education in educations"
-                    :key="education.id"
-                  >
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
-                      >
-                        {{ education.education_level }}
-                      </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <inertia-link
-                        href="#"
-                        class="text-indigo-600 hover:text-indigo-900"
-                        >✏️ Edit</inertia-link
-                      >
-                    </td>
-                  </tr>
-                  <tr v-if="educations.length === 0">
-                    <td class="border-t px-6 py-4 font-bold" colspan="4">
-                      ☹️ No educations added.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <other-informations
+      :skills="skills"
+      :memberships="memberships"
+      :recognitions="recognitions"
+      class="flex"
+    ></other-informations>
   </div>
 </template>
 
@@ -314,6 +523,7 @@ import CivilService from "@/Shared/CivilService.vue";
 import WorkExperience from "@/Shared/WorkExperience.vue";
 import VolunteerWork from "@/Shared/VolunteerWork.vue";
 import Trainings from "@/Shared/Trainings.vue";
+import OtherInformations from "@/Shared/OtherInformations.vue";
 
 export default {
   metaInfo() {
@@ -332,6 +542,7 @@ export default {
     WorkExperience,
     VolunteerWork,
     Trainings,
+    OtherInformations,
   },
   props: {
     errors: Object,
@@ -343,6 +554,8 @@ export default {
     volunteers: Array,
     trainings: Array,
     skills: Array,
+    recognitions: Array,
+    memberships: Array,
   },
   remember: "form",
   data() {
