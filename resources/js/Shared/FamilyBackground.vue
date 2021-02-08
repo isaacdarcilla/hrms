@@ -5,14 +5,14 @@
         👨‍👩‍👧‍👦 Family Background
       </h5>
       <inertia-link
-        class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+        class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
         :href="route('employees.create')"
       >
         ✏️ Edit
       </inertia-link>
     </div>
     <div v-if="family === null">
-      <figcaption class="text-lg text-center pt-4 font-large font-semibold">
+      <figcaption class="text-lg text-center text-red-500 pt-4 font-large font-semibold">
         😟 No data available.
       </figcaption>
     </div>

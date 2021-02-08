@@ -75,6 +75,7 @@ class Contact extends Model
                 $query->where('first_name', 'like', '%'.$search.'%')
                     ->orWhere('last_name', 'like', '%'.$search.'%')
                     ->orWhere('email', 'like', '%'.$search.'%')
+                    ->orWhere('agency_employee_id', 'like', '%'.$search.'%')
                     ->orWhereHas('organization', function ($query) use ($search) {
                         $query->where('name', 'like', '%'.$search.'%');
                     });

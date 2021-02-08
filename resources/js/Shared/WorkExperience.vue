@@ -163,7 +163,7 @@
                             </tr>
                             <tr v-if="experiences.length === 0">
                                 <td
-                                    class="border-t px-6 py-4 font-bold"
+                                    class="border-t px-6 text-red-500 text-sm py-4 font-bold"
                                     colspan="4"
                                 >
                                     ☹️ No experiences added.

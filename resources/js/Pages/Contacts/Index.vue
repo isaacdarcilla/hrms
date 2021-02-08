@@ -172,7 +172,7 @@
           </tr>
         </tbody>
         <tr v-if="contacts.data.length === 0">
-          <td class="border-t px-6 py-4 font-bold" colspan="4">
+          <td class="border-t px-6 py-4 text-red-500 font-bold" colspan="4">
             ☹️ No employees found.
           </td>
         </tr>

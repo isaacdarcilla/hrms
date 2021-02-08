@@ -85,7 +85,7 @@
                                 "
                             >
                                 <td
-                                    class="border-t px-6 py-4 font-bold"
+                                    class="border-t text-red-500 text-sm px-6 py-4 font-bold"
                                     colspan="4"
                                 >
                                     ☹️ No childrens added.

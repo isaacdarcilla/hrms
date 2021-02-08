@@ -72,7 +72,7 @@
                                 </tr>
                                 <tr v-if="skills.length === 0">
                                     <td
-                                        class="border-t px-6 py-4 font-bold"
+                                        class="border-t px-6 py-4 text-red-500 text-sm font-bold"
                                         colspan="4"
                                     >
                                         ☹️ No skills or hobbies added.
@@ -156,7 +156,7 @@
                                 </tr>
                                 <tr v-if="recognitions.length === 0">
                                     <td
-                                        class="border-t px-6 py-4 font-bold"
+                                        class="border-t px-6 text-red-500 text-sm py-4 font-bold"
                                         colspan="4"
                                     >
                                         ☹️ No recognitions added.
@@ -240,7 +240,7 @@
                                 </tr>
                                 <tr v-if="memberships.length === 0">
                                     <td
-                                        class="border-t px-6 py-4 font-bold"
+                                        class="border-t px-6 text-red-500 text-sm py-4 font-bold"
                                         colspan="4"
                                     >
                                         ☹️ No memberships added.
