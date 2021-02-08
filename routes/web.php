@@ -7,6 +7,12 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Employee\ChildrenController;
+use App\Http\Controllers\Employee\EducationController;
+use App\Http\Controllers\Employee\EligibilityController;
+use App\Http\Controllers\Employee\ExperienceController;
+use App\Http\Controllers\Employee\VolunteerController;
+use App\Http\Controllers\Employee\TrainingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -127,6 +133,42 @@ Route::delete('employees/{contact}', [ContactsController::class, 'destroy'])
 
 Route::put('employees/{contact}/restore', [ContactsController::class, 'restore'])
     ->name('employees.restore')
+    ->middleware('auth');
+
+// Childrens
+
+Route::delete('children/{children}', [ChildrenController::class, 'destroy'])
+    ->name('children.destroy')
+    ->middleware('auth');
+
+// Educations
+
+Route::delete('education/{education}', [EducationController::class, 'destroy'])
+    ->name('education.destroy')
+    ->middleware('auth');
+
+// Elgibility
+
+Route::delete('eligibility/{eligibility}', [EligibilityController::class, 'destroy'])
+    ->name('eligibility.destroy')
+    ->middleware('auth');
+
+// Experience
+
+Route::delete('experience/{experience}', [ExperienceController::class, 'destroy'])
+    ->name('experience.destroy')
+    ->middleware('auth');
+
+// Volunteer
+
+Route::delete('volunteer/{volunteer}', [VolunteerController::class, 'destroy'])
+    ->name('volunteer.destroy')
+    ->middleware('auth');
+
+// Training
+
+Route::delete('training/{training}', [TrainingController::class, 'destroy'])
+    ->name('training.destroy')
     ->middleware('auth');
 
 // Reports
