@@ -75,7 +75,6 @@ class ContactsController extends Controller
     public function edit(Contact $contact)
     {
         $family = $contact->backgrounds()->first();
-        $childrens = Children::find($family->id);
 
         return Inertia::render('Contacts/Edit', [
             'contact' => [
@@ -118,7 +117,8 @@ class ContactsController extends Controller
                 'deleted_at' => $contact->deleted_at,
             ],
             'family' => $family,
-            'childrens' => $childrens,
+            'childrens' => !empty($family->id) ? Children::where('background_id', $family->id)
+                ->get() : null,
             'organizations' => Auth::user()->account->organizations()
                 ->orderBy('name')
                 ->get()

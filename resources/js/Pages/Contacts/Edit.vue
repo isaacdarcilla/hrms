@@ -3,14 +3,17 @@
     <div class="flex items-center justify-between mb-0">
       <h1 class="mb-8 font-bold text-3xl">
         <inertia-link
-          class="text-indigo-400 hover:text-indigo-600"
+          class="text-blue-400 hover:text-blue-600"
           :href="route('employees')"
           >Employee</inertia-link
         >
         <span class="text-indigo-400 font-medium">/</span>
         {{ form.first_name }} {{ form.last_name }} 👥
       </h1>
-      <inertia-link class="btn-indigo mb-8" :href="route('employees.create')">
+      <inertia-link
+        class="btn-indigo rounded-lg mb-8"
+        :href="route('employees.create')"
+      >
         <span>✏️ Edit</span>
         <span class="hidden md:inline">Employee</span>
       </inertia-link>
@@ -57,91 +60,7 @@
     <div class="h-full pt-3">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
         <family-background :family="family"></family-background>
-        <div class="flex flex-col mt-0">
-          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div
-              class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
-            >
-              <div
-                class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
-              >
-                <div class="flex items-center justify-between mb-0">
-                  <h5 class="mx-6 my-5 font-semibold font bg-white">
-                    👶 Name of Childrens
-                  </h5>
-                  <inertia-link
-                    class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-                    :href="route('employees.create')"
-                  >
-                    ➕ Add
-                  </inertia-link>
-                </div>
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead class="bg-white">
-                    <tr
-                      class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                    >
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Name of Children
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Date of Birth
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Action
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                    <tr
-                      class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                      v-for="c in childrens"
-                      :key="c.id"
-                    >
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                      >
-                        <div class="text-sm text-gray-900">
-                          {{ c.children_name }}
-                        </div>
-                      </td>
-                       <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                      >
-                        <div class="text-sm text-gray-900">
-                          {{ c.children_birth_date }}
-                        </div>
-                      </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm font-medium"
-                      >
-                        <inertia-link
-                          href="#"
-                          class="text-indigo-600 hover:text-indigo-900"
-                          >✏️ Edit</inertia-link
-                        >
-                      </td>
-                    </tr>
-                    <tr v-if="recognitions.length === 0">
-                      <td class="border-t px-6 py-4 font-bold" colspan="4">
-                        ☹️ No recognitions added.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        <childrens :childrens="childrens" :family="family"></childrens>
       </div>
     </div>
 
@@ -181,6 +100,7 @@ import Trainings from "@/Shared/Trainings.vue";
 import OtherInformations from "@/Shared/OtherInformations.vue";
 import PersonalInformation from "@/Shared/PersonalInformation.vue";
 import FamilyBackground from "@/Shared/FamilyBackground.vue";
+import Childrens from "@/Shared/Childrens.vue";
 
 export default {
   metaInfo() {
@@ -202,6 +122,7 @@ export default {
     OtherInformations,
     PersonalInformation,
     FamilyBackground,
+    Childrens,
   },
   props: {
     errors: Object,
