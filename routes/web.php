@@ -13,6 +13,7 @@ use App\Http\Controllers\Employee\EligibilityController;
 use App\Http\Controllers\Employee\ExperienceController;
 use App\Http\Controllers\Employee\VolunteerController;
 use App\Http\Controllers\Employee\TrainingController;
+use App\Http\Controllers\Employee\OtherInformationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -169,6 +170,24 @@ Route::delete('volunteer/{volunteer}', [VolunteerController::class, 'destroy'])
 
 Route::delete('training/{training}', [TrainingController::class, 'destroy'])
     ->name('training.destroy')
+    ->middleware('auth');
+
+// Skill
+
+Route::delete('skill/{skill}', [OtherInformationController::class, 'destroy_skill'])
+    ->name('skill.destroy')
+    ->middleware('auth');
+
+// Recognition
+
+Route::delete('recognition/{recognition}', [OtherInformationController::class, 'destroy_recognition'])
+    ->name('recognition.destroy')
+    ->middleware('auth');
+
+// Membership
+
+Route::delete('membership/{membership}', [OtherInformationController::class, 'destroy_membership'])
+    ->name('membership.destroy')
     ->middleware('auth');
 
 // Reports
