@@ -50,346 +50,13 @@
             </div>
           </figure>
         </div>
-
-        <div class="rounded-xl bg-white shadow-md">
-          <div class="flex items-center">
-            <div class="px-4 pt-4 font-semibold">🥳 Personal Information</div>
-          </div>
-          <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
-            <div class="rounded pl-4 pt-4">
-              <div class="pb-1">
-                <label
-                  for="name"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Birthday
-                  <span
-                    v-if="contact.birth_date !== null"
-                    class="text-gray-500"
-                    >{{ contact.birth_date }}</span
-                  >
-                  <span v-else class="text-red-500">No data available</span>
-                </label>
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Birth Place
-                  <span
-                    v-if="contact.birth_place !== null"
-                    class="text-gray-500"
-                    >{{ contact.birth_place }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Sex
-                  <span v-if="contact.sex !== null" class="text-gray-500">{{
-                    contact.sex
-                  }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Height
-                  <span v-if="contact.height !== null" class="text-gray-500"
-                    >{{ contact.height }} CM</span
-                  ><span v-else class="text-red-500">No data available</span>
-                </label>
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Weight
-                  <span v-if="contact.weight !== null" class="text-gray-500"
-                    >{{ contact.weight }} KG</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Blood Type
-                  <span
-                    v-if="contact.blood_type !== null"
-                    class="text-gray-500"
-                    >{{ contact.blood_type }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >GSIS
-                  <span v-if="contact.gsis_id !== null" class="text-gray-500">{{
-                    contact.gsis_id
-                  }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >SSS
-                  <span v-if="contact.sss_id !== null" class="text-gray-500">{{
-                    contact.sss_id
-                  }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Pagibig
-                  <span
-                    v-if="contact.pagibig_id !== null"
-                    class="text-gray-500"
-                    >{{ contact.pagibig_id }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >PhilHealth
-                  <span
-                    v-if="contact.philhealth_id !== null"
-                    class="text-gray-500"
-                    >{{ contact.philhealth_id }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-            </div>
-            <div class="rounded pl-4 pt-4 mx-4">
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Civil Status
-                  <span
-                    v-if="contact.civil_status !== null"
-                    class="text-gray-500"
-                    >{{ contact.civil_status }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Citizenship
-                  <span
-                    v-if="contact.citizenship !== null"
-                    class="text-gray-500"
-                    >{{ contact.citizenship }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Residential Address
-                  <span class="text-gray-500"
-                    >{{ contact.residential_block }}
-                    {{ contact.residential_street }}
-                    {{ contact.residential_village }}
-                    {{ contact.residential_barangay }}
-                    {{ contact.residential_city }}
-                    {{ contact.residential_province }}
-                    {{ contact.residential_zipcode }}
-                  </span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Permanent Address
-                  <span class="text-gray-500"
-                    >{{ contact.permanent_block }}
-                    {{ contact.permanent_street }}
-                    {{ contact.permanent_village }}
-                    {{ contact.permanent_barangay }}
-                    {{ contact.permanent_city }}
-                    {{ contact.permanent_province }}
-                    {{ contact.permanent_zipcode }}
-                  </span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Telephone
-                  <span
-                    v-if="contact.telephone !== null"
-                    class="text-gray-500"
-                    >{{ contact.telephone }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Mobile Number
-                  <span v-if="contact.phone !== null" class="text-gray-500">{{
-                    contact.phone
-                  }}</span
-                  ><span v-else class="text-red-500"
-                    >No data available</span
-                  ></label
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+        <personal-information :contact="contact"></personal-information>
       </div>
     </div>
 
     <div class="h-full pt-3">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
-        <div class="rounded-xl bg-white shadow-md">
-          <div class="flex items-center justify-between mb-0">
-            <h5 class="mx-6 my-5 font-semibold font bg-white">
-              👨‍👩‍👧‍👦 Family Background
-            </h5>
-            <inertia-link
-              class="h-8 text-xs items-center btn-indigo my-2 mx-6"
-              :href="route('employees.create')"
-            >
-              ✏️ Edit
-            </inertia-link>
-          </div>
-          <div v-if="family === null">
-            <figcaption
-              class="text-lg text-center pt-4 font-large font-semibold"
-            >
-              😟 No data available.
-            </figcaption>
-          </div>
-          <div v-else class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
-            <div class="rounded pl-4 pt-4 mx-4">
-              <div class="pb-1">
-                <label
-                  for="name"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Spouse
-                  <span class="text-gray-500">
-                    {{ family.spouse_first_name }}
-                    {{ family.spouse_middle_name }}
-                    {{ family.spouse_last_name }}
-                    {{ family.spouse_name_extension }}
-                  </span>
-                </label>
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Spouse Occupation
-                  <span class="text-gray-500">{{
-                    family.spouse_occupation
-                  }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Spouse Business
-                  <span class="text-gray-500">{{
-                    family.spouse_business_name
-                  }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Spouse Address
-                  <span class="text-gray-500">{{
-                    family.spouse_business_address
-                  }}</span></label
-                >
-              </div>
-              <div class="pb-1">
-                <label
-                  for="about"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Spouse Telephone
-                  <span class="text-gray-500">{{
-                    family.spouse_telephone
-                  }}</span></label
-                >
-              </div>
-            </div>
-            <div class="rounded pl-4 pt-4 mx-4">
-              <div class="pb-1">
-                <label
-                  for="name"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Father
-                  <span class="text-gray-500">
-                    {{ family.father_first_name }}
-                    {{ family.father_middle_name }}
-                    {{ family.father_last_name }}
-                    {{ family.father_name_extension }}
-                  </span>
-                </label>
-              </div>
-              <div class="pb-1">
-                <label
-                  for="name"
-                  class="font-semibold text-gray-700 text-sm block pb-1"
-                  >Mother
-                  <span class="text-gray-500">
-                    {{ family.mother_first_name }}
-                    {{ family.mother_middle_name }}
-                    {{ family.mother_last_name }}
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <family-background :family="family"></family-background>
         <div class="flex flex-col mt-0">
           <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div
@@ -437,14 +104,21 @@
                   <tbody class="bg-white divide-y divide-gray-200">
                     <tr
                       class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                      v-for="recognition in recognitions"
-                      :key="recognition.id"
+                      v-for="c in childrens"
+                      :key="c.id"
                     >
                       <td
                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                       >
                         <div class="text-sm text-gray-900">
-                          {{ recognition.recognitions_name }}
+                          {{ c.children_name }}
+                        </div>
+                      </td>
+                       <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                      >
+                        <div class="text-sm text-gray-900">
+                          {{ c.children_birth_date }}
                         </div>
                       </td>
                       <td
@@ -505,6 +179,8 @@ import WorkExperience from "@/Shared/WorkExperience.vue";
 import VolunteerWork from "@/Shared/VolunteerWork.vue";
 import Trainings from "@/Shared/Trainings.vue";
 import OtherInformations from "@/Shared/OtherInformations.vue";
+import PersonalInformation from "@/Shared/PersonalInformation.vue";
+import FamilyBackground from "@/Shared/FamilyBackground.vue";
 
 export default {
   metaInfo() {
@@ -524,6 +200,8 @@ export default {
     VolunteerWork,
     Trainings,
     OtherInformations,
+    PersonalInformation,
+    FamilyBackground,
   },
   props: {
     errors: Object,
@@ -538,6 +216,7 @@ export default {
     recognitions: Array,
     memberships: Array,
     family: Object,
+    childrens: Array,
   },
   remember: "form",
   data() {

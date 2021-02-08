@@ -1,0 +1,205 @@
+<template>
+  <div class="rounded-xl bg-white shadow-md">
+    <div class="flex items-center">
+      <div class="px-4 pt-4 font-semibold">🥳 Personal Information</div>
+    </div>
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
+      <div class="rounded pl-4 pt-4">
+        <div class="pb-1">
+          <label
+            for="name"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Birthday
+            <span v-if="contact.birth_date !== null" class="text-gray-500">{{
+              contact.birth_date
+            }}</span>
+            <span v-else class="text-red-500">No data available</span>
+          </label>
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Birth Place
+            <span v-if="contact.birth_place !== null" class="text-gray-500">{{
+              contact.birth_place
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Sex
+            <span v-if="contact.sex !== null" class="text-gray-500">{{
+              contact.sex
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Height
+            <span v-if="contact.height !== null" class="text-gray-500"
+              >{{ contact.height }} CM</span
+            ><span v-else class="text-red-500">No data available</span>
+          </label>
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Weight
+            <span v-if="contact.weight !== null" class="text-gray-500"
+              >{{ contact.weight }} KG</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Blood Type
+            <span v-if="contact.blood_type !== null" class="text-gray-500">{{
+              contact.blood_type
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >GSIS
+            <span v-if="contact.gsis_id !== null" class="text-gray-500">{{
+              contact.gsis_id
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >SSS
+            <span v-if="contact.sss_id !== null" class="text-gray-500">{{
+              contact.sss_id
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Pagibig
+            <span v-if="contact.pagibig_id !== null" class="text-gray-500">{{
+              contact.pagibig_id
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >PhilHealth
+            <span v-if="contact.philhealth_id !== null" class="text-gray-500">{{
+              contact.philhealth_id
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+      </div>
+      <div class="rounded pl-4 pt-4 mx-4">
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Civil Status
+            <span v-if="contact.civil_status !== null" class="text-gray-500">{{
+              contact.civil_status
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Citizenship
+            <span v-if="contact.citizenship !== null" class="text-gray-500">{{
+              contact.citizenship
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Residential Address
+            <span class="text-gray-500"
+              >{{ contact.residential_block }}
+              {{ contact.residential_street }}
+              {{ contact.residential_village }}
+              {{ contact.residential_barangay }}
+              {{ contact.residential_city }}
+              {{ contact.residential_province }}
+              {{ contact.residential_zipcode }}
+            </span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Permanent Address
+            <span class="text-gray-500"
+              >{{ contact.permanent_block }}
+              {{ contact.permanent_street }}
+              {{ contact.permanent_village }}
+              {{ contact.permanent_barangay }}
+              {{ contact.permanent_city }}
+              {{ contact.permanent_province }}
+              {{ contact.permanent_zipcode }}
+            </span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Telephone
+            <span v-if="contact.telephone !== null" class="text-gray-500">{{
+              contact.telephone
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Mobile Number
+            <span v-if="contact.phone !== null" class="text-gray-500">{{
+              contact.phone
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+    props: {
+        contact: Object,
+    }
+};
+</script>

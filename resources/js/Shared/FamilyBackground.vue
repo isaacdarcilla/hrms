@@ -1,0 +1,111 @@
+<template>
+  <div class="rounded-xl bg-white shadow-md">
+    <div class="flex items-center justify-between mb-0">
+      <h5 class="mx-6 my-5 font-semibold font bg-white">
+        👨‍👩‍👧‍👦 Family Background
+      </h5>
+      <inertia-link
+        class="h-8 text-xs items-center btn-indigo my-2 mx-6"
+        :href="route('employees.create')"
+      >
+        ✏️ Edit
+      </inertia-link>
+    </div>
+    <div v-if="family === null">
+      <figcaption class="text-lg text-center pt-4 font-large font-semibold">
+        😟 No data available.
+      </figcaption>
+    </div>
+    <div v-else class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
+      <div class="rounded pl-4 pt-4 mx-4">
+        <div class="pb-1">
+          <label
+            for="name"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Spouse
+            <span class="text-gray-500">
+              {{ family.spouse_first_name }}
+              {{ family.spouse_middle_name }}
+              {{ family.spouse_last_name }}
+              {{ family.spouse_name_extension }}
+            </span>
+          </label>
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Spouse Occupation
+            <span class="text-gray-500">{{
+              family.spouse_occupation
+            }}</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Spouse Business
+            <span class="text-gray-500">{{
+              family.spouse_business_name
+            }}</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Spouse Address
+            <span class="text-gray-500">{{
+              family.spouse_business_address
+            }}</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Spouse Telephone
+            <span class="text-gray-500">{{
+              family.spouse_telephone
+            }}</span></label
+          >
+        </div>
+      </div>
+      <div class="rounded pl-4 pt-4 mx-4">
+        <div class="pb-1">
+          <label
+            for="name"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Father
+            <span class="text-gray-500">
+              {{ family.father_first_name }}
+              {{ family.father_middle_name }}
+              {{ family.father_last_name }}
+              {{ family.father_name_extension }}
+            </span>
+          </label>
+        </div>
+        <div class="pb-1">
+          <label
+            for="name"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Mother
+            <span class="text-gray-500">
+              {{ family.mother_first_name }}
+              {{ family.mother_middle_name }}
+              {{ family.mother_last_name }}
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    family: Object,
+  },
+};
+</script>

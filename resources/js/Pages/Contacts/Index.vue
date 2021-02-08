@@ -14,7 +14,7 @@
           <option value="only">Only Trashed</option>
         </select>
       </search-filter>
-      <inertia-link class="btn-indigo" :href="route('employees.create')">
+      <inertia-link class="btn-indigo rounded-lg" :href="route('employees.create')">
         <span>➕ Create</span>
         <span class="hidden md:inline">Employee</span>
       </inertia-link>
@@ -84,8 +84,14 @@
                     <div class="text-sm font-medium text-gray-900">
                       {{ contact.name }}
                     </div>
-                    <div class="text-sm text-gray-500">
+                    <div
+                      v-if="contact.email !== null"
+                      class="text-sm text-gray-500"
+                    >
                       {{ contact.email }}
+                    </div>
+                    <div v-else class="text-sm text-gray-500">
+                      No data available
                     </div>
                   </div>
                 </div>
@@ -102,36 +108,57 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <div>
+                <div v-if="contact.department !== null">
                   {{ contact.department }}
                 </div>
-                <div class="text-sm text-gray-500">{{ contact.status_of_appointment }}</div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
+                <div class="text-sm text-gray-500">
+                  {{ contact.status_of_appointment }}
+                </div>
               </inertia-link>
             </td>
             <td class="border-t">
               <inertia-link
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                {{ contact.position }}
+                <div v-if="contact.position !== null">
+                  {{ contact.position }}
+                </div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
               </inertia-link>
             </td>
             <td class="border-t">
               <inertia-link
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                {{ contact.phone }}
+                <div v-if="contact.phone !== null">{{ contact.phone }}</div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
               </inertia-link>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
-              <span
+              <span v-if="contact.status === '1'"
                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
               >
-                {{ contact.status }}
+                Active
               </span>
+              <span v-else-if="contact.status === '0'"
+                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800"
+              >
+                Inactive
+              </span>
+              <span v-else class="text-sm text-gray-500">
+                  No data available
+                </span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
               <inertia-link

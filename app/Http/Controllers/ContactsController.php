@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Children;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -73,6 +74,9 @@ class ContactsController extends Controller
 
     public function edit(Contact $contact)
     {
+        $family = $contact->backgrounds()->first();
+        $childrens = Children::find($family->id);
+
         return Inertia::render('Contacts/Edit', [
             'contact' => [
                 'id' => $contact->id,
@@ -113,7 +117,8 @@ class ContactsController extends Controller
                 'residential_zipcode' => $contact->residential_zipcode,
                 'deleted_at' => $contact->deleted_at,
             ],
-            'family' => $contact->backgrounds()->first(),
+            'family' => $family,
+            'childrens' => $childrens,
             'organizations' => Auth::user()->account->organizations()
                 ->orderBy('name')
                 ->get()
