@@ -128,6 +128,10 @@ Route::put('employees/{contact}', [ContactsController::class, 'update'])
     ->name('employees.update')
     ->middleware('auth');
 
+Route::put('employees/{contact}', [ContactsController::class, 'update_photo'])
+    ->name('employees.update.photo')
+    ->middleware('auth');
+
 Route::delete('employees/{contact}', [ContactsController::class, 'destroy'])
     ->name('employees.destroy')
     ->middleware('auth');

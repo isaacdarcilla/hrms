@@ -83,6 +83,7 @@ class ContactsController extends Controller
                 'middle_name' => $contact->middle_name,
                 'last_name' => $contact->last_name,
                 'name_extension' => $contact->name_extension,
+                'photo' => $contact->photo,
                 'birth_date' => $contact->birth_date,
                 'birth_place' => $contact->birth_place,
                 'sex' => $contact->sex,
@@ -163,6 +164,19 @@ class ContactsController extends Controller
         );
 
         return Redirect::back()->with('success', 'Employee information updated.');
+    }
+
+    public function update_photo(Contact $contact)
+    {
+        Request::validate([
+            'photo' => ['required', 'image'],
+        ]);
+
+        $contact->update([
+            'photo' => Request::file('photo') ? Request::file('photo')->store('photo', 'public') : $contact->photo
+        ]);
+
+        return Redirect::back()->with('success', 'Employee photo updated.');
     }
 
     public function destroy(Contact $contact)

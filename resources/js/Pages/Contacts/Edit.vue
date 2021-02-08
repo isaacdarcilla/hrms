@@ -29,23 +29,57 @@
         <div class="h-full">
             <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
                 <div class="rounded-xl bg-white shadow-md">
-                    <div class="flex items-center justify-between mb-0">
-                        <h5 class="mx-8 mt-5 text-sm text-red-600 font bg-white">
-                            Remove
+                    <div
+                        :class="
+                            hidden
+                                ? 'hidden'
+                                : 'flex items-center justify-between mb-0'
+                        "
+                    >
+                        <h5
+                            @click="cancel()"
+                            class="mx-8 mt-5 text-sm cursor-pointer text-yellow-600 font bg-white"
+                        >
+                            Cancel
                         </h5>
-                        <h5 class="mx-8 mt-5 text-sm text-blue-600 font bg-white">
+                        <h5
+                            @click="save()"
+                            class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
+                        >
                             Save
                         </h5>
                     </div>
-                    <figure class="bg-white rounded-xl p-3">
-                        <img
+                    <figure class="bg-white rounded-xl p-6">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            class="hidden"
+                            ref="file"
+                            @change="change"
+                        />
+                        <img v-if="contact.photo === null"
                             class="w-32 h-32 rounded-full mx-auto"
                             :src="image"
                             alt=""
                             width="384"
                             height="512"
                         />
-                        <div class="pt-6 text-center space-y-4">
+                        <img v-else
+                            class="w-32 h-32 rounded-full mx-auto"
+                            :src="image"
+                            alt=""
+                            width="384"
+                            height="512"
+                        />
+                        <div class="text-center pt-2">
+                            <button
+                                @click="browse()"
+                                class="rounded-full hover:bg-gray-700 hover:bg-opacity-50 font-semibold p-2 focus:outline-none text-sm text-gray transition duration-200"
+                            >
+                                Update Photo
+                            </button>
+                        </div>
+                        <div class="pt-2 text-center space-y-4">
                             <figcaption
                                 class="text-lg font-large font-semibold"
                             >
@@ -166,7 +200,9 @@ export default {
     remember: "form",
     data() {
         return {
+            hidden: true,
             sending: false,
+            file: null,
             image: "/img/user.png",
             form: {
                 first_name: this.contact.first_name,
@@ -178,29 +214,37 @@ export default {
         };
     },
     methods: {
-        submit() {
-            this.$inertia.put(
-                this.route("employees.update", this.contact.id),
-                this.form,
+        browse() {
+            this.hidden = false;
+            this.$refs.file.click();
+        },
+        change(event) {
+            this.file = event.target.files[0];
+            this.$emit("input", this.file);
+            let reader = new FileReader();
+            reader.readAsDataURL(this.file);
+            reader.onload = event => {
+                this.image = event.target.result;
+            };
+        },
+        cancel() {
+            (this.file = null), (this.hidden = true);
+            this.image = "/img/user.png";
+            this.$emit("input", this.file);
+        },
+        save() {
+            let data = new FormData();
+            data.append("photo", this.file);
+            data.append("_method", "PUT");
+
+            this.$inertia.post(
+                this.route("employees.update.photo", this.contact.id),
+                data,
                 {
                     onStart: () => (this.sending = true),
                     onFinish: () => (this.sending = false)
                 }
             );
-        },
-        destroy() {
-            if (confirm("Are you sure you want to delete this contact?")) {
-                this.$inertia.delete(
-                    this.route("employees.destroy", this.contact.id)
-                );
-            }
-        },
-        restore() {
-            if (confirm("Are you sure you want to restore this contact?")) {
-                this.$inertia.put(
-                    this.route("employees.restore", this.contact.id)
-                );
-            }
         }
     }
 };
