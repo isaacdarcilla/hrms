@@ -9,7 +9,7 @@
                 >
                     <div class="flex items-center justify-between mb-0">
                         <h5 class="mx-6 my-5 font-semibold font bg-white">
-                            🧑‍🎓 Educational Background
+                            🎓 Educational Background
                         </h5>
                         <inertia-link
                             class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"

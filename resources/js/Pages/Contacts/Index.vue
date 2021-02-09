@@ -205,6 +205,7 @@ export default {
   },
   data() {
     return {
+      childrenModal: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,

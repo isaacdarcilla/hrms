@@ -44,3 +44,7 @@
     box-shadow: 0 0 0 1px theme('colors.red.600');
   }
 }
+
+.swal-text {
+    text-align: center;
+}

@@ -133,9 +133,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.swal-text {
-    text-align: center;
-}
-</style>

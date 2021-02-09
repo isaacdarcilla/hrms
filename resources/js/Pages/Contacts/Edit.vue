@@ -43,10 +43,17 @@
                             Cancel
                         </h5>
                         <h5
+                            v-if="!sending"
                             @click="save()"
                             class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
                         >
                             Save
+                        </h5>
+                        <h5
+                            v-else
+                            class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
+                        >
+                            Saving...
                         </h5>
                     </div>
                     <figure class="bg-white rounded-xl p-6">
@@ -66,7 +73,7 @@
                         />
                         <img v-else
                             class="w-32 h-32 rounded-full mx-auto"
-                            :src="image"
+                            :src="`/storage/`+contact.photo"
                             alt=""
                             width="384"
                             height="512"
