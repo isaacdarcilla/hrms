@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <children-modal :showing="showModal" :children="children"></children-modal>
+        <children-modal :showing="showModal" :child="children" :modal.sync="showModal" ></children-modal>
     </div>
 </template>
 <script>
@@ -118,8 +118,8 @@ export default {
     },
     methods: {
         showChildrenModal(item) {
-            this.showModal = true;
             this.children = item;
+            this.showModal = true;
         },
         destroy(id, name) {
             swal({
