@@ -20,10 +20,6 @@ mix.js('resources/js/app.js', 'public/js')
   .postCss('resources/css/app.css', 'public/css/app.css')
   .options({
     postCss: [
-      require('autoprefixer'),
-      require('postcss-easy-import')(),
-      require('postcss-css-variables')(),
-      require('postcss-preset-env')(),
       cssImport(),
       cssNesting(),
       tailwindcss('tailwind.config.js'),
