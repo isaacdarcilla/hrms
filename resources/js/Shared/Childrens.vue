@@ -68,7 +68,7 @@
                                     class="px-6 py-4 whitespace-nowrap text-sm font-medium"
                                 >
                                     <span
-                                        href="#"
+                                        @click="showChildrenModal({id: c.id, name: c.children_name, birthday: c.children_birth_date})"
                                         class="text-indigo-600 mx-2 cursor-pointer hover:text-indigo-900"
                                         >✏️ Edit</span
                                     >
@@ -96,15 +96,31 @@
                 </div>
             </div>
         </div>
+        <children-modal :showing="showModal" :children="children"></children-modal>
     </div>
 </template>
 <script>
+import ChildrenModal from "@/Shared/Modals/ChildrenModal.vue";
+
 export default {
     props: {
         childrens: Array,
         family: Object
     },
+    components: {
+        ChildrenModal
+    },
+    data() {
+        return {
+            showModal: false,
+            children: null,
+        };
+    },
     methods: {
+        showChildrenModal(item) {
+            this.showModal = true;
+            this.children = item;
+        },
         destroy(id, name) {
             swal({
                 title: "Delete",
