@@ -61,6 +61,7 @@ export default {
             default: false,
         },
         errors: Object,
+        background: Object,
 		showing:Boolean,
 	},
 	directives: { mask },
@@ -75,16 +76,23 @@ export default {
 	},
 	methods: {
 		save() {
-			this.$inertia.put(this.route("children.store"), this.form,
+			this.$inertia.post(this.route("children.store", [this.background.contact_id, this.background.id]), this.form,
                 {
                     onStart: () => (this.sending = true),
-                    onFinish: () => (this.sending = false)
+                    onFinish: () => {
+                    	this.sending = false;
+                    	this.reset();
+                    },
                 }
             );
 		},
         closeModal() { 
             this.$emit('update:modal');
             this.form.children_name = null;
+            this.form.children_birth_date = null;
+        },
+        reset() {
+        	this.form.children_name = null;
             this.form.children_birth_date = null;
         },
     },

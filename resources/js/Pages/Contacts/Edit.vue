@@ -10,13 +10,6 @@
                 <span class="text-indigo-400 font-medium">/</span>
                 {{ form.first_name }} {{ form.last_name }} 👥
             </h1>
-            <inertia-link
-                class="btn-indigo rounded-lg mb-8"
-                :href="route('employees.create')"
-            >
-                <span>✏️ Edit</span>
-                <span class="hidden md:inline">Employee</span>
-            </inertia-link>
         </div>
 
         <trashed-message

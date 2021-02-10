@@ -146,7 +146,7 @@ Route::put('children/{children}', [ChildrenController::class, 'update'])
     ->name('children.update')
     ->middleware('auth');
 
-Route::post('children', [ChildrenController::class, 'store'])
+Route::post('children/{contact}/{background}', [ChildrenController::class, 'store'])
     ->name('children.store')
     ->middleware('auth');
 

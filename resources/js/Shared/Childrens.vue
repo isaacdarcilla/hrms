@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <children-add-modal :showing="showAdd" :modal.sync="showAdd" ></children-add-modal>
+        <children-add-modal :showing="showAdd" :background='family' :modal.sync="showAdd" ></children-add-modal>
         <children-edit-modal :showing="showModal" :child.sync="children" :modal.sync="showModal" ></children-edit-modal>
     </div>
 </template>

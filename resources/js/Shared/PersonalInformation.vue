@@ -1,7 +1,15 @@
 <template>
   <div class="rounded-xl bg-white shadow-md">
-    <div class="flex items-center">
-      <div class="px-4 pt-4 font-semibold">🥳 Personal Information</div>
+    <div class="flex items-center justify-between mb-0">
+      <h5 class="mx-6 my-5 font-semibold font bg-white">
+        🥳 Personal Information
+      </h5>
+      <button
+        @click="showChildrenModal"
+        class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+      >
+        ✏️ Edit
+      </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
       <div class="rounded pl-4 pt-4">
@@ -194,12 +202,29 @@
         </div>
       </div>
     </div>
+    <employee-edit-modal :showing="showModal" :employee="contact" :modal.sync="showModal" ></employee-edit-modal>
   </div>
 </template>
 <script>
+import EmployeeEditModal from "@/Shared/Modals/EmployeeEditModal.vue";
+
 export default {
+    components: {
+        EmployeeEditModal,
+    },
     props: {
         contact: Object,
-    }
+    },
+    data() {
+        return {
+            showModal: false,
+            employee: null,
+        };
+    },
+    methods: {
+        showChildrenModal() {
+            this.showModal = true;
+        },
+    },
 };
 </script>
