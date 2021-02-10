@@ -44,7 +44,7 @@
                         </h5>
                         <h5
                             v-if="!sending"
-                            @click="save()"
+                            @click.prevent="save()"
                             class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
                         >
                             Save

@@ -11,13 +11,13 @@
                         <h5 class="mx-6 my-5 font-semibold font bg-white">
                             👶 Name of Childrens
                         </h5>
-                        <inertia-link
+                        <button
+                            @click="showAddModal"
                             v-if="family !== null"
                             class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-                            :href="route('employees.create')"
                         >
                             ➕ Add
-                        </inertia-link>
+                        </button>
                     </div>
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-white">
@@ -96,11 +96,13 @@
                 </div>
             </div>
         </div>
-        <children-modal :showing="showModal" :child="children" :modal.sync="showModal" ></children-modal>
+        <children-add-modal :showing="showAdd" :modal.sync="showAdd" ></children-add-modal>
+        <children-edit-modal :showing="showModal" :child.sync="children" :modal.sync="showModal" ></children-edit-modal>
     </div>
 </template>
 <script>
-import ChildrenModal from "@/Shared/Modals/ChildrenModal.vue";
+import ChildrenEditModal from "@/Shared/Modals/ChildrenEditModal.vue";
+import ChildrenAddModal from "@/Shared/Modals/ChildrenAddModal.vue";
 
 export default {
     props: {
@@ -108,11 +110,13 @@ export default {
         family: Object
     },
     components: {
-        ChildrenModal
+        ChildrenEditModal,
+        ChildrenAddModal,
     },
     data() {
         return {
             showModal: false,
+            showAdd: false,
             children: null,
         };
     },
@@ -120,6 +124,9 @@ export default {
         showChildrenModal(item) {
             this.children = item;
             this.showModal = true;
+        },
+        showAddModal() {
+            this.showAdd = true;
         },
         destroy(id, name) {
             swal({

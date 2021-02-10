@@ -142,6 +142,14 @@ Route::put('employees/{contact}/restore', [ContactsController::class, 'restore']
 
 // Childrens
 
+Route::put('children/{children}', [ChildrenController::class, 'update'])
+    ->name('children.update')
+    ->middleware('auth');
+
+Route::post('children', [ChildrenController::class, 'store'])
+    ->name('children.store')
+    ->middleware('auth');
+
 Route::delete('children/{children}', [ChildrenController::class, 'destroy'])
     ->name('children.destroy')
     ->middleware('auth');
