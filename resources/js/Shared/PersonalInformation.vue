@@ -103,6 +103,17 @@
           <label
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
+            >SSS
+            <span v-if="contact.tin_id !== null" class="text-gray-500">{{
+              contact.tin_id
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
             >Pagibig
             <span v-if="contact.pagibig_id !== null" class="text-gray-500">{{
               contact.pagibig_id
@@ -150,7 +161,7 @@
           <label
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
-            >Residential Address
+            >Residential Address <span class="text-indigo-600 mx-2 text-sm cursor-pointer hover:text-indigo-900">✏️ Edit</span>
             <span class="text-gray-500"
               >{{ contact.residential_block }}
               {{ contact.residential_street }}

@@ -124,7 +124,7 @@ Route::get('employees/{contact}/edit', [ContactsController::class, 'edit'])
     ->name('employees.edit')
     ->middleware('auth');
 
-Route::put('employees/{contact}', [ContactsController::class, 'update'])
+Route::post('employees/{contact}', [ContactsController::class, 'update'])
     ->name('employees.update')
     ->middleware('auth');
 
