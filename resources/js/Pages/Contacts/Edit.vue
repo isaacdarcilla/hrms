@@ -44,7 +44,7 @@
                         </h5>
                         <h5
                             v-else
-                            class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
+                            class="mx-8 mt-5 cursor-wait text-sm text-blue-600 font bg-white"
                         >
                             Saving...
                         </h5>
