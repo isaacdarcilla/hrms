@@ -11,7 +11,7 @@
 		        <div>
 		          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
 		            <h3 class="text-lg leading-6 font-medium text-gray-900 capitalize" id="modal-headline">
-		              ✏️ Edit {{ employee.first_name }} Personal Information
+		              ✏️ Add Employee
 		            </h3>
 		            <form class="w-full max-w-lg pr-4 pt-5">
 			            <div class="flex flex-wrap -mx-3 mb-6">
@@ -369,46 +369,46 @@ export default {
 			checked: null,
 			sending: false,
 			form: {
-				first_name: this.employee.first_name,
-				middle_name: this.employee.middle_name,
-				last_name: this.employee.last_name,
-				name_extension: this.employee.name_extension,
-				email: this.employee.email,
-				phone: this.employee.phone,
-				telephone: this.employee.telephone,
-				department: this.employee.department,
-				position: this.employee.position,
-				status_of_appointment: this.employee.status_of_appointment,
-				sex: this.employee.sex,
-				height: this.employee.height,
-				weight: this.employee.weight,
-				birth_date: this.employee.birth_date,
-				birth_place: this.employee.birth_place,
-				blood_type: this.employee.blood_type,
-				gsis_id: this.employee.gsis_id,
-				sss_id: this.employee.sss_id,
-				philhealth_id: this.employee.philhealth_id,
-				agency_employee_id: this.employee.agency_employee_id,
-				tin_id: this.employee.tin_id,
-				pagibig_id: this.employee.pagibig_id,
-				tin_id: this.employee.tin_id,
-				birth_place: this.employee.birth_place,
-				civil_status: this.employee.civil_status,
-				citizenship: this.employee.citizenship,
-				residential_block: this.employee.residential_block,
-                residential_village: this.employee.residential_village,
-                residential_street: this.employee.residential_street,
-                residential_barangay: this.employee.residential_barangay,
-                residential_city: this.employee.residential_city,
-                residential_province: this.employee.residential_province,
-                residential_zipcode: this.employee.residential_zipcode,
-                permanent_block: this.employee.permanent_block,
-                permanent_village: this.employee.permanent_village,
-                permanent_street: this.employee.permanent_street,
-                permanent_barangay: this.employee.permanent_barangay,
-                permanent_city: this.employee.permanent_city,
-                permanent_province: this.employee.permanent_province,
-                permanent_zipcode: this.employee.permanent_zipcode,
+				first_name: null,
+				middle_name: null,
+				last_name: null,
+				name_extension: null,
+				email: null,
+				phone: null,
+				telephone: null,
+				department: null,
+				position: null,
+				status_of_appointment: null,
+				sex: null,
+				height: null,
+				weight: null,
+				birth_date: null,
+				birth_place: null,
+				blood_type: null,
+				gsis_id: null,
+				sss_id: null,
+				philhealth_id: null,
+				agency_employee_id: null,
+				tin_id: null,
+				pagibig_id: null,
+				tin_id: null,
+				birth_place: null,
+				civil_status: null,
+				citizenship: null,
+				residential_block: null,
+                residential_village: null,
+                residential_street: null,
+                residential_barangay: null,
+                residential_city: null,
+                residential_province: null,
+                residential_zipcode: null,
+                permanent_block: null,
+                permanent_village: null,
+                permanent_street: null,
+                permanent_barangay: null,
+                permanent_city: null,
+                permanent_province: null,
+                permanent_zipcode: null,
 			},
 		};
 	},
@@ -425,19 +425,11 @@ export default {
                 this.form.permanent_city = this.form.residential_city;
                 this.form.permanent_province = this.form.residential_province;
                 this.form.permanent_zipcode = this.form.residential_zipcode;
-			} else {
-				this.permanent_block = this.employee.permanent_block;
-                this.permanent_village = this.employee.permanent_village;
-                this.permanent_street = this.employee.permanent_street;
-                this.permanent_barangay = this.employee.permanent_barangay;
-                this.permanent_city = this.employee.permanent_city;
-                this.permanent_province = this.employee.permanent_province;
-                this.permanent_zipcode = this.employee.permanent_zipcode;
-			}
+			} 
 		},
 		save() {
 			this.$inertia.post(
-                this.route("employees.update", this.employee.id), this.form, {
+                this.route("employees.store"), this.form, {
                     onStart: () => (this.sending = true),
                     onFinish: () => (this.sending = false)
                 }

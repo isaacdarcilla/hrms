@@ -29,23 +29,13 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Birth Place
-            <span v-if="contact.birth_place !== null" class="text-gray-500">{{
+            <span v-if="contact.birth_place !== null" class="text-gray-500 capitalize">{{
               contact.birth_place
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
-        <div class="pb-1">
-          <label
-            for="about"
-            class="font-semibold text-gray-700 text-sm block pb-1"
-            >Sex
-            <span v-if="contact.sex !== null" class="text-gray-500">{{
-              contact.sex
-            }}</span
-            ><span v-else class="text-red-500">No data available</span></label
-          >
-        </div>
+        
         <div class="pb-1">
           <label
             for="about"
@@ -71,7 +61,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Blood Type
-            <span v-if="contact.blood_type !== null" class="text-gray-500">{{
+            <span v-if="contact.blood_type !== null" class="text-gray-500 capitalize">{{
               contact.blood_type
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -103,7 +93,7 @@
           <label
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
-            >SSS
+            >TIN
             <span v-if="contact.tin_id !== null" class="text-gray-500">{{
               contact.tin_id
             }}</span
@@ -139,19 +129,29 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Civil Status
-            <span v-if="contact.civil_status !== null" class="text-gray-500">{{
+            <span v-if="contact.civil_status !== null" class="text-gray-500 capitalize">{{
               contact.civil_status
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
-
+        <div class="pb-1">
+          <label
+            for="about"
+            class="font-semibold text-gray-700 text-sm block pb-1"
+            >Sex
+            <span v-if="contact.sex !== null" class="text-gray-500 capitalize">{{
+              contact.sex
+            }}</span
+            ><span v-else class="text-red-500">No data available</span></label
+          >
+        </div>
         <div class="pb-1">
           <label
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Citizenship
-            <span v-if="contact.citizenship !== null" class="text-gray-500">{{
+            <span v-if="contact.citizenship !== null" class="text-gray-500 capitalize">{{
               contact.citizenship
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -161,8 +161,8 @@
           <label
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
-            >Residential Address <span class="text-indigo-600 mx-2 text-sm cursor-pointer hover:text-indigo-900">✏️ Edit</span>
-            <span class="text-gray-500"
+            >Residential Address
+            <span class="text-gray-500 capitalize"
               >{{ contact.residential_block }}
               {{ contact.residential_street }}
               {{ contact.residential_village }}
@@ -178,7 +178,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Permanent Address
-            <span class="text-gray-500"
+            <span class="text-gray-500 capitalize"
               >{{ contact.permanent_block }}
               {{ contact.permanent_street }}
               {{ contact.permanent_village }}
@@ -235,6 +235,11 @@ export default {
     methods: {
         showChildrenModal() {
             this.showModal = true;
+        },
+        capitalize: function(value) {
+            return value.toLowerCase().replace(/\b./g, function(a) {
+                return a.toUpperCase();
+            });
         },
     },
 };

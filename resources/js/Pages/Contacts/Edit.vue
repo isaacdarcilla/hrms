@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex items-center justify-between mb-0">
-            <h1 class="mb-8 font-bold text-3xl">
+            <h1 class="capitalize mb-8 font-bold text-3xl">
                 <inertia-link
                     class="text-blue-400 hover:text-blue-600"
                     :href="route('employees')"
@@ -57,17 +57,10 @@
                             ref="file"
                             @change="change"
                         />
-                        <img v-if="contact.photo === null"
+                        <img
                             class="w-32 h-32 rounded-full mx-auto"
-                            :src="image"
-                            alt=""
-                            width="384"
-                            height="512"
-                        />
-                        <img v-else
-                            class="w-32 h-32 rounded-full mx-auto"
-                            :src="`/storage/`+contact.photo"
-                            alt=""
+                            :src="contact.photo === null ? image : `/storage/`+contact.photo"
+                            :alt="contact.first_name"
                             width="384"
                             height="512"
                         />
@@ -83,13 +76,13 @@
                             <figcaption
                                 class="text-lg font-large font-semibold"
                             >
-                                <div class="text-cyan-600 block">
+                                <div class="text-cyan-600 block capitalize">
                                     {{ contact.first_name }}
                                     {{ contact.middle_name }}
                                     {{ contact.last_name }}
                                     {{ contact.name_extension }}
                                 </div>
-                                <div class="text-gray-600 block">
+                                <div class="text-gray-600 block lowercase">
                                     {{ contact.email }}
                                 </div>
                                 <div
@@ -98,7 +91,7 @@
                                 >
                                     No data available
                                 </div>
-                                <div v-else class="text-gray-500 block pt-2">
+                                <div v-else class="text-gray-500 block uppercase pt-2">
                                     #{{ contact.agency_employee_id }}
                                 </div>
                             </figcaption>
@@ -214,6 +207,11 @@ export default {
         };
     },
     methods: {
+        capitalize: function(value) {
+            return value.toLowerCase().replace(/\b./g, function(a) {
+                return a.toUpperCase();
+            });
+        },
         browse() {
             this.hidden = false;
             this.$refs.file.click();

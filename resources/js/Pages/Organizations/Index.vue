@@ -51,6 +51,7 @@
       </table>
     </div>
     <pagination :links="organizations.links" />
+    <employee-add-modal :showing="showModal" :modal.sync="showModal" ></employee-add-modal>
   </div>
 </template>
 
@@ -61,6 +62,7 @@ import mapValues from 'lodash/mapValues'
 import Pagination from '@/Shared/Pagination'
 import pickBy from 'lodash/pickBy'
 import SearchFilter from '@/Shared/SearchFilter'
+import EmployeeAddModal from '@/Shared/Modals/EmployeeAddModal'
 import throttle from 'lodash/throttle'
 
 export default {
@@ -70,6 +72,7 @@ export default {
     Icon,
     Pagination,
     SearchFilter,
+    EmployeeAddModal,
   },
   props: {
     organizations: Object,
@@ -77,6 +80,7 @@ export default {
   },
   data() {
     return {
+      showModal: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
@@ -93,9 +97,12 @@ export default {
     },
   },
   methods: {
+    showModal() {
+      this.showModal = true;
+    },
     reset() {
       this.form = mapValues(this.form, () => null)
     },
   },
-}
+};
 </script>
