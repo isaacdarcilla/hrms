@@ -24,7 +24,10 @@ class ContactsController extends Controller
                 ->transform(function ($contact) {
                     return [
                         'id' => $contact->id,
-                        'name' => $contact->name,
+                        'first_name' => $contact->first_name,
+                        'middle_name' => $contact->middle_name,
+                        'last_name' => $contact->last_name,
+                        'name_extension' => $contact->name_extension,
                         'phone' => $contact->phone,
                         'email' => $contact->email,
                         'department' => $contact->department,
@@ -55,22 +58,56 @@ class ContactsController extends Controller
     {
         Auth::user()->account->contacts()->create(
             Request::validate([
-                'first_name' => ['required', 'max:50'],
-                'last_name' => ['required', 'max:50'],
-                'organization_id' => ['nullable', Rule::exists('organizations', 'id')->where(function ($query) {
-                    $query->where('account_id', Auth::user()->account_id);
-                })],
-                'email' => ['nullable', 'max:50', 'email'],
-                'phone' => ['nullable', 'max:50'],
-                'address' => ['nullable', 'max:150'],
-                'city' => ['nullable', 'max:50'],
-                'region' => ['nullable', 'max:50'],
-                'country' => ['nullable', 'max:2'],
-                'postal_code' => ['nullable', 'max:25'],
+                'first_name' => ['required', 'max:25', 'min:2'],
+                'last_name' => ['required', 'max:25', 'min:2'],
+                'middle_name' => ['required', 'max:25', 'min:2'],
+                'email' => ['required', 'max:50', 'email'],
+                'phone' => ['required', 'min:11'],
+                'name_extension' => ['nullable', 'max:4'],
+                'telephone' => ['nullable', 'max:25', 'regex:/^[0-9+]+$/'],
+                'department' => ['required', 'max:50'],
+                'position' => ['required', 'max:50'],
+                'status_of_appointment' => ['required', 'max:50'],
+                'sex' => ['required', 'max:10', 'min:4'],
+                'height' => ['required', 'max:3', 'regex:/^[0-9.]+$/'],
+                'weight' => ['required', 'max:3', 'regex:/^[0-9.]+$/'],
+                'birth_date' => ['required', 'min:10'],
+                'birth_place' => ['required', 'max:50'],
+                'blood_type' => ['required', 'max:5'],
+                'gsis_id' => ['nullable', 'min:11'],
+                'sss_id' => ['nullable', 'min:10'],
+                'philhealth_id' => ['nullable', 'min:12'],
+                'agency_employee_id' => ['nullable', 'max:50'],
+                'tin_id' => ['nullable', 'required', 'max:50'],
+                'pagibig_id' => ['nullable', 'min:12'],
+                'tin_id' => ['nullable', 'min:9'],
+                'birth_place' => ['required', 'max:50'],
+                'civil_status' => ['required', 'max:25'],
+                'citizenship' => ['required', 'max:25'],
+                'residential_block' => ['required', 'max:25', 'min:2'],
+                'residential_village' => ['nullable', 'max:25', 'min:2'],
+                'residential_street' => ['required', 'max:25', 'min:2'],
+                'residential_barangay' => ['required', 'max:25', 'min:2'],
+                'residential_city' => ['required', 'max:25', 'min:2'],
+                'residential_province' => ['required', 'max:25', 'min:2'],
+                'residential_zipcode' => ['required', 'max:25', 'min:2', 'regex:/^[0-9.]+$/'],
+                'permanent_block' => ['required', 'max:25', 'min:2'],
+                'permanent_village' => ['nullable', 'max:25', 'min:2'],
+                'permanent_street' => ['required', 'max:25', 'min:2'],
+                'permanent_barangay' => ['required', 'max:25', 'min:2'],
+                'permanent_city' => ['required', 'max:25', 'min:2'],
+                'permanent_province' => ['required', 'max:25', 'min:2'],
+                'permanent_zipcode' => ['required', 'max:25', 'min:2', 'regex:/^[0-9.]+$/'],
+            ],[
+                'gsis_id.min' => 'The GSIS identification must be at least 12 characters.',
+                'sss_id.min' => 'The SSS identification must be at least 10 characters.',
+                'philhealth_id.min' => 'The TIN identification must be at least 12 characters.',
+                'tin_id.min' => 'The PhilHealth identification must be at least 9 characters.',
+                'pagibig_id.min' => 'The PAGIBIG identification must be at least 12 characters.',
             ])
         );
 
-        return Redirect::route('contacts')->with('success', 'Contact created.');
+        return Redirect::route('employees')->with('success', 'Employee created.');
     }
 
     public function edit(Contact $contact)

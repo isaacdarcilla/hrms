@@ -29,13 +29,14 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Birth Place
-            <span v-if="contact.birth_place !== null" class="text-gray-500 capitalize">{{
-              contact.birth_place
-            }}</span
+            <span
+              v-if="contact.birth_place !== null"
+              class="text-gray-500 capitalize"
+              >{{ contact.birth_place }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
-        
+
         <div class="pb-1">
           <label
             for="about"
@@ -61,9 +62,10 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Blood Type
-            <span v-if="contact.blood_type !== null" class="text-gray-500 capitalize">{{
-              contact.blood_type
-            }}</span
+            <span
+              v-if="contact.blood_type !== null"
+              class="text-gray-500 capitalize"
+              >{{ contact.blood_type }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
@@ -129,9 +131,10 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Civil Status
-            <span v-if="contact.civil_status !== null" class="text-gray-500 capitalize">{{
-              contact.civil_status
-            }}</span
+            <span
+              v-if="contact.civil_status !== null"
+              class="text-gray-500 capitalize"
+              >{{ contact.civil_status }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
@@ -140,9 +143,10 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Sex
-            <span v-if="contact.sex !== null" class="text-gray-500 capitalize">{{
-              contact.sex
-            }}</span
+            <span
+              v-if="contact.sex !== null"
+              class="text-gray-500 capitalize"
+              >{{ contact.sex }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
@@ -151,9 +155,10 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Citizenship
-            <span v-if="contact.citizenship !== null" class="text-gray-500 capitalize">{{
-              contact.citizenship
-            }}</span
+            <span
+              v-if="contact.citizenship !== null"
+              class="text-gray-500 capitalize"
+              >{{ contact.citizenship }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
         </div>
@@ -213,34 +218,38 @@
         </div>
       </div>
     </div>
-    <employee-edit-modal :showing="showModal" :employee="contact" :modal.sync="showModal" ></employee-edit-modal>
+    <employee-edit-modal
+      :showing="showModal"
+      :employee="contact"
+      :modal.sync="showModal"
+    ></employee-edit-modal>
   </div>
 </template>
 <script>
 import EmployeeEditModal from "@/Shared/Modals/EmployeeEditModal.vue";
 
 export default {
-    components: {
-        EmployeeEditModal,
+  components: {
+    EmployeeEditModal,
+  },
+  props: {
+    contact: Object,
+  },
+  data() {
+    return {
+      showModal: false,
+      employee: null,
+    };
+  },
+  methods: {
+    showChildrenModal() {
+      this.showModal = true;
     },
-    props: {
-        contact: Object,
+    capitalize: function (value) {
+      return value.toLowerCase().replace(/\b./g, function (a) {
+        return a.toUpperCase();
+      });
     },
-    data() {
-        return {
-            showModal: false,
-            employee: null,
-        };
-    },
-    methods: {
-        showChildrenModal() {
-            this.showModal = true;
-        },
-        capitalize: function(value) {
-            return value.toLowerCase().replace(/\b./g, function(a) {
-                return a.toUpperCase();
-            });
-        },
-    },
+  },
 };
 </script>

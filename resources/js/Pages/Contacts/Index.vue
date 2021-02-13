@@ -76,12 +76,17 @@
                   <div class="flex-shrink-0 h-10 w-10">
                     <img
                       class="h-10 w-10 rounded-full"
-                      :src="contact.photo === null ? `/img/user.png` : `/storage/`+contact.photo"
+                      :src="
+                        contact.photo === null
+                          ? `/img/user.png`
+                          : `/storage/` + contact.photo
+                      "
                     />
                   </div>
                   <div class="ml-4">
                     <div class="text-sm font-medium capitalize text-gray-900">
-                      {{ contact.name }}
+                      {{ contact.first_name }} {{ contact.middle_name }}
+                      {{ contact.last_name }} {{ contact.name_extension }}
                     </div>
                     <div
                       v-if="contact.email !== null"
@@ -145,19 +150,21 @@
               </inertia-link>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
-              <span v-if="contact.status === '1'"
+              <span
+                v-if="contact.status === '1'"
                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
               >
                 Active
               </span>
-              <span v-else-if="contact.status === '0'"
+              <span
+                v-else-if="contact.status === '0'"
                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800"
               >
                 Inactive
               </span>
               <span v-else class="text-sm text-gray-500">
-                  No data available
-                </span>
+                No data available
+              </span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
               <inertia-link
@@ -177,7 +184,10 @@
         </tr>
       </table>
     </div>
-    <employee-add-modal :showing="showEmployeeAddModal" :modal.sync="showEmployeeAddModal" ></employee-add-modal>
+    <employee-add-modal
+      :showing="showEmployeeAddModal"
+      :modal.sync="showEmployeeAddModal"
+    ></employee-add-modal>
     <pagination :links="contacts.links" />
   </div>
 </template>
@@ -189,7 +199,7 @@ import mapValues from "lodash/mapValues";
 import Pagination from "@/Shared/Pagination";
 import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
-import EmployeeAddModal from '@/Shared/Modals/EmployeeAddModal'
+import EmployeeAddModal from "@/Shared/Modals/EmployeeAddModal";
 import throttle from "lodash/throttle";
 
 export default {

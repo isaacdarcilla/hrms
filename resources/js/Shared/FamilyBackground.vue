@@ -4,15 +4,25 @@
       <h5 class="mx-6 my-5 font-semibold font bg-white">
         👨‍👩‍👧‍👦 Family Background
       </h5>
-      <inertia-link
+      <button
+        v-if="family !== null"
+        @click="showFamilyEditModal"
         class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-        :href="route('employees.create')"
       >
         ✏️ Edit
-      </inertia-link>
+      </button>
+      <button
+        v-else
+        @click="showFamilyModal"
+        class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+      >
+        ➕ Add
+      </button>
     </div>
     <div v-if="family === null">
-      <figcaption class="text-lg text-center text-red-500 pt-4 font-large font-semibold">
+      <figcaption
+        class="text-md text-center text-red-500 pt-4 font-large font-semibold"
+      >
         😟 No data available.
       </figcaption>
     </div>
@@ -100,12 +110,45 @@
         </div>
       </div>
     </div>
+    <family-add-modal
+      :showing="showFamily"
+      :employee="employeeId"
+      :modal.sync="showFamily"
+    ></family-add-modal>
+    <family-edit-modal
+      :showing="showEditFamily"
+      :employee="employeeId"
+      :family="familyObject"
+      :modal.sync="showEditFamily"
+    ></family-edit-modal>
   </div>
 </template>
 <script>
+import FamilyAddModal from "@/Shared/Modals/FamilyAddModal.vue";
+import FamilyEditModal from "@/Shared/Modals/FamilyEditModal.vue";
+
 export default {
-  props: {
-    family: Object,
+  components: {
+      FamilyAddModal,
+      FamilyEditModal,
   },
+  props: {
+      family: Object,
+  },
+  inject: ["employeeId", "familyObject"],
+  data() {
+    return {
+      showFamily: false,
+      showEditFamily: false,
+    };
+  },
+  methods: {
+    showFamilyModal() {
+      this.showFamily = true;
+    },
+    showFamilyEditModal() {
+      this.showEditFamily = true;
+    },
+  }
 };
 </script>

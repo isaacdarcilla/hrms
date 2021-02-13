@@ -1,140 +1,128 @@
 <template>
-    <div>
-        <div class="flex items-center justify-between mb-0">
-            <h1 class="capitalize mb-8 font-bold text-3xl">
-                <inertia-link
-                    class="text-blue-400 hover:text-blue-600"
-                    :href="route('employees')"
-                    >Employee</inertia-link
-                >
-                <span class="text-indigo-400 font-medium">/</span>
-                {{ form.first_name }} {{ form.last_name }} 👥
-            </h1>
-        </div>
-
-        <trashed-message
-            v-if="contact.deleted_at"
-            class="mb-6"
-            @restore="restore"
+  <div>
+    <div class="flex items-center justify-between mb-0">
+      <h1 class="capitalize mb-8 font-bold text-3xl">
+        <inertia-link
+          class="text-blue-400 hover:text-blue-600"
+          :href="route('employees')"
+          >Employee</inertia-link
         >
-            This employee has been removed.
-        </trashed-message>
-        <div class="h-full">
-            <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
-                <div class="rounded-xl bg-white shadow-md">
-                    <div
-                        :class="
-                            hidden
-                                ? 'hidden'
-                                : 'flex items-center justify-between mb-0'
-                        "
-                    >
-                        <h5
-                            @click="cancel()"
-                            class="mx-8 mt-5 text-sm cursor-pointer text-yellow-600 font bg-white"
-                        >
-                            Cancel
-                        </h5>
-                        <h5
-                            v-if="!sending"
-                            @click.prevent="save()"
-                            class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
-                        >
-                            Save
-                        </h5>
-                        <h5
-                            v-else
-                            class="mx-8 mt-5 cursor-wait text-sm text-blue-600 font bg-white"
-                        >
-                            Saving...
-                        </h5>
-                    </div>
-                    <figure class="bg-white rounded-xl p-6">
-                        <input
-                            type="file"
-                            accept="image/*"
-                            class="hidden"
-                            ref="file"
-                            @change="change"
-                        />
-                        <img
-                            class="w-32 h-32 rounded-full mx-auto"
-                            :src="contact.photo === null ? image : `/storage/`+contact.photo"
-                            :alt="contact.first_name"
-                            width="384"
-                            height="512"
-                        />
-                        <div class="text-center pt-2">
-                            <button
-                                @click="browse()"
-                                class="rounded-full hover:bg-gray-700 hover:bg-opacity-50 font-semibold p-2 focus:outline-none text-sm text-gray transition duration-200"
-                            >
-                                Update Photo
-                            </button>
-                        </div>
-                        <div class="pt-2 text-center space-y-4">
-                            <figcaption
-                                class="text-lg font-large font-semibold"
-                            >
-                                <div class="text-cyan-600 block capitalize">
-                                    {{ contact.first_name }}
-                                    {{ contact.middle_name }}
-                                    {{ contact.last_name }}
-                                    {{ contact.name_extension }}
-                                </div>
-                                <div class="text-gray-600 block lowercase">
-                                    {{ contact.email }}
-                                </div>
-                                <div
-                                    v-if="contact.agency_employee_id === null"
-                                    class="text-gray-500 block pt-2"
-                                >
-                                    No data available
-                                </div>
-                                <div v-else class="text-gray-500 block uppercase pt-2">
-                                    #{{ contact.agency_employee_id }}
-                                </div>
-                            </figcaption>
-                        </div>
-                    </figure>
-                </div>
-                <personal-information :contact="contact"></personal-information>
-            </div>
-        </div>
-
-        <div class="h-full pt-3">
-            <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
-                <family-background :family="family"></family-background>
-                <childrens :childrens="childrens" :family="family"></childrens>
-            </div>
-        </div>
-
-        <educational-background
-            :educations="educations"
-            class="flex"
-        ></educational-background>
-
-        <civil-service
-            :eligibilities="eligibilities"
-            class="flex"
-        ></civil-service>
-
-        <work-experience
-            :experiences="experiences"
-            class="flex"
-        ></work-experience>
-
-        <volunteer-work :volunteers="volunteers" class="flex"></volunteer-work>
-
-        <trainings :trainings="trainings" class="flex"></trainings>
-
-        <other-informations
-            :skills="skills"
-            :memberships="memberships"
-            :recognitions="recognitions"
-            class="flex"
-        ></other-informations>
+        <span class="text-indigo-400 font-medium">/</span>
+        {{ form.first_name }} {{ form.last_name }} 👥
+      </h1>
     </div>
+
+    <trashed-message v-if="contact.deleted_at" class="mb-6" @restore="restore">
+      This employee has been removed.
+    </trashed-message>
+    <div class="h-full">
+      <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
+        <div class="rounded-xl bg-white shadow-md">
+          <div
+            :class="
+              hidden ? 'hidden' : 'flex items-center justify-between mb-0'
+            "
+          >
+            <h5
+              @click="cancel()"
+              class="mx-8 mt-5 text-sm cursor-pointer text-yellow-600 font bg-white"
+            >
+              Cancel
+            </h5>
+            <h5
+              v-if="!sending"
+              @click.prevent="save()"
+              class="mx-8 mt-5 cursor-pointer text-sm text-blue-600 font bg-white"
+            >
+              Save
+            </h5>
+            <h5
+              v-else
+              class="mx-8 mt-5 cursor-wait text-sm text-blue-600 font bg-white"
+            >
+              Saving...
+            </h5>
+          </div>
+          <figure class="bg-white rounded-xl p-6">
+            <input
+              type="file"
+              accept="image/*"
+              class="hidden"
+              ref="file"
+              @change="change"
+            />
+            <img
+              class="w-32 h-32 rounded-full mx-auto"
+              :src="
+                contact.photo === null ? image : `/storage/` + contact.photo
+              "
+              :alt="contact.first_name"
+              width="384"
+              height="512"
+            />
+            <div class="text-center pt-2">
+              <button
+                @click="browse()"
+                class="rounded-full text-blue-600 hover:bg-gray-700 hover:bg-opacity-50 font-semibold p-2 focus:outline-none text-sm text-gray transition duration-200"
+              >
+                Update Photo
+              </button>
+            </div>
+            <div class="pt-2 text-center space-y-4">
+              <figcaption class="text-lg font-large font-semibold">
+                <div class="text-cyan-600 block capitalize">
+                  {{ contact.first_name }}
+                  {{ contact.middle_name }}
+                  {{ contact.last_name }}
+                  {{ contact.name_extension }}
+                </div>
+                <div class="text-gray-600 block lowercase">
+                  {{ contact.email }}
+                </div>
+                <div
+                  v-if="contact.agency_employee_id === null"
+                  class="text-gray-500 block pt-2"
+                >
+                  No data available
+                </div>
+                <div v-else class="text-gray-500 block uppercase pt-2">
+                  #{{ contact.agency_employee_id }}
+                </div>
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+        <personal-information :contact="contact"></personal-information>
+      </div>
+    </div>
+
+    <div class="h-full pt-3">
+      <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
+        <family-background :family="family"></family-background>
+        <childrens :childrens="childrens" :family="family"></childrens>
+      </div>
+    </div>
+
+    <educational-background
+      :educations="educations"
+      class="flex"
+    ></educational-background>
+
+    <civil-service :eligibilities="eligibilities" class="flex"></civil-service>
+
+    <work-experience :experiences="experiences" class="flex"></work-experience>
+
+    <volunteer-work :volunteers="volunteers" class="flex"></volunteer-work>
+
+    <trainings :trainings="trainings" class="flex"></trainings>
+
+    <other-informations
+      :skills="skills"
+      :memberships="memberships"
+      :recognitions="recognitions"
+      class="flex"
+    ></other-informations>
+  </div>
 </template>
 
 <script>
@@ -154,96 +142,99 @@ import FamilyBackground from "@/Shared/FamilyBackground.vue";
 import Childrens from "@/Shared/Childrens.vue";
 
 export default {
-    metaInfo() {
-        return {
-            title: `${this.form.first_name} ${this.form.last_name}`
-        };
+  metaInfo() {
+    return {
+      title: `${this.form.first_name} ${this.form.last_name}`,
+    };
+  },
+  layout: Layout,
+  components: {
+    LoadingButton,
+    SelectInput,
+    TextInput,
+    TrashedMessage,
+    EducationalBackground,
+    CivilService,
+    WorkExperience,
+    VolunteerWork,
+    Trainings,
+    OtherInformations,
+    PersonalInformation,
+    FamilyBackground,
+    Childrens,
+  },
+  provide() {
+    return { employeeId: this.contact, familyObject: this.family };
+  },
+  props: {
+    errors: Object,
+    contact: Object,
+    educations: Array,
+    organizations: Array,
+    experiences: Array,
+    eligibilities: Array,
+    volunteers: Array,
+    trainings: Array,
+    skills: Array,
+    recognitions: Array,
+    memberships: Array,
+    family: Object,
+    childrens: Array,
+  },
+  remember: "form",
+  data() {
+    return {
+      hidden: true,
+      sending: false,
+      file: null,
+      image: "/img/user.png",
+      form: {
+        first_name: this.contact.first_name,
+        last_name: this.contact.last_name,
+        organization_id: this.contact.organization_id,
+        email: this.contact.email,
+        phone: this.contact.phone,
+      },
+    };
+  },
+  methods: {
+    capitalize: function (value) {
+      return value.toLowerCase().replace(/\b./g, function (a) {
+        return a.toUpperCase();
+      });
     },
-    layout: Layout,
-    components: {
-        LoadingButton,
-        SelectInput,
-        TextInput,
-        TrashedMessage,
-        EducationalBackground,
-        CivilService,
-        WorkExperience,
-        VolunteerWork,
-        Trainings,
-        OtherInformations,
-        PersonalInformation,
-        FamilyBackground,
-        Childrens
+    browse() {
+      this.hidden = false;
+      this.$refs.file.click();
     },
-    props: {
-        errors: Object,
-        contact: Object,
-        educations: Array,
-        organizations: Array,
-        experiences: Array,
-        eligibilities: Array,
-        volunteers: Array,
-        trainings: Array,
-        skills: Array,
-        recognitions: Array,
-        memberships: Array,
-        family: Object,
-        childrens: Array
+    change(event) {
+      this.file = event.target.files[0];
+      this.$emit("input", this.file);
+      let reader = new FileReader();
+      reader.readAsDataURL(this.file);
+      reader.onload = (event) => {
+        this.image = event.target.result;
+      };
     },
-    remember: "form",
-    data() {
-        return {
-            hidden: true,
-            sending: false,
-            file: null,
-            image: "/img/user.png",
-            form: {
-                first_name: this.contact.first_name,
-                last_name: this.contact.last_name,
-                organization_id: this.contact.organization_id,
-                email: this.contact.email,
-                phone: this.contact.phone
-            }
-        };
+    cancel() {
+      (this.file = null), (this.hidden = true);
+      this.image = "/img/user.png";
+      this.$emit("input", this.file);
     },
-    methods: {
-        capitalize: function(value) {
-            return value.toLowerCase().replace(/\b./g, function(a) {
-                return a.toUpperCase();
-            });
-        },
-        browse() {
-            this.hidden = false;
-            this.$refs.file.click();
-        },
-        change(event) {
-            this.file = event.target.files[0];
-            this.$emit("input", this.file);
-            let reader = new FileReader();
-            reader.readAsDataURL(this.file);
-            reader.onload = event => {
-                this.image = event.target.result;
-            };
-        },
-        cancel() {
-            (this.file = null), (this.hidden = true);
-            this.image = "/img/user.png";
-            this.$emit("input", this.file);
-        },
-        save() {
-            let data = new FormData();
-            data.append("photo", this.file);
-            data.append("_method", "PUT");
+    save() {
+      let data = new FormData();
+      data.append("photo", this.file);
+      data.append("_method", "PUT");
 
-            this.$inertia.post(
-                this.route("employees.update.photo", this.contact.id),
-                data,
-                {
-                    onStart: () => (this.sending = true),
-                    onFinish: () => (this.sending = false)
-                }
-            );
+      this.$inertia.post(
+        this.route("employees.update.photo", this.contact.id),
+        data,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
         }
-    }
+      );
+    },
+  },
 };
 </script>

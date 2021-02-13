@@ -10,14 +10,22 @@
 		      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 		        <div>
 		          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-		            <h3 class="text-lg leading-6 font-medium text-gray-900 capitalize" id="modal-headline">
-		              ✏️ Edit {{ employee.first_name }} Personal Information
-		            </h3>
+                      <div class="flex items-center justify-between mb-0">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900 capitalize" id="modal-headline">
+                        ✏️ Edit {{ employee.first_name }} Personal Information
+                        </h3>
+                        <button
+                            @click="closeModal"
+                            class="text-sm pr-5 text-red-600"
+                        >
+                            Close
+                        </button>
+                      </div>
 		            <form class="w-full max-w-lg pr-4 pt-5">
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">First Name</label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter first name" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter first name"
 							    v-model="form.first_name"
 							    />
 							    <div v-if="$page.errors.first_name !== null" class="form-error">{{ $page.errors.first_name }}</div>
@@ -51,14 +59,14 @@
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">Email Address</label>
 							    <input autofocus="true" class="form-input block w-full" placeholder="Enter email address" v-model="form.email"
-							    /> 
+							    />
 							    <div v-if="$page.errors.email !== null" class="form-error">{{ $page.errors.email }}</div>
 							</div>
 			            </div>
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">Phone</label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter phone number" v-model="form.phone" v-mask="'###########'" type="tel" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter phone number" v-model="form.phone" v-mask="'###########'" type="tel"
 							    />
 							    <div v-if="$page.errors.phone !== null" class="form-error">{{ $page.errors.phone }}</div>
 							</div>
@@ -75,7 +83,7 @@
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">Department</label>
 							    <input autofocus="true" class="form-input block w-full" placeholder="Enter department" v-model="form.department"
-							    /> 
+							    />
 							    <div v-if="$page.errors.department !== null" class="form-error">{{ $page.errors.department }}</div>
 							</div>
 			            </div>
@@ -130,7 +138,7 @@
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">GSIS Identification <span class="font-medium">(Optional)</span></label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter GSIS identification" v-model="form.gsis_id" v-mask="'###########'" type="tel" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter GSIS identification" v-model="form.gsis_id" v-mask="'###########'" type="tel"
 							    />
 							    <div v-if="$page.errors.gsis_id !== null" class="form-error">{{ $page.errors.gsis_id }}</div>
 							</div>
@@ -138,7 +146,7 @@
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">SSS Identification <span class="font-medium">(Optional)</span></label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter SSS identification" v-model="form.sss_id" v-mask="'##########'" type="tel" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter SSS identification" v-model="form.sss_id" v-mask="'##########'" type="tel"
 							    />
 							    <div v-if="$page.errors.sss_id !== null" class="form-error">{{ $page.errors.sss_id }}</div>
 							</div>
@@ -146,7 +154,7 @@
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">Pagibig Identification <span class="font-medium">(Optional)</span></label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter Pagibig identification" v-model="form.pagibig_id" v-mask="'############'" type="tel" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter Pagibig identification" v-model="form.pagibig_id" v-mask="'############'" type="tel"
 							    />
 							    <div v-if="$page.errors.pagibig_id !== null" class="form-error">{{ $page.errors.pagibig_id }}</div>
 							</div>
@@ -154,7 +162,7 @@
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">TIN Identification <span class="font-medium">(Optional)</span></label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter TIN identification" v-model="form.tin_id" v-mask="'#########'" type="tel" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter TIN identification" v-model="form.tin_id" v-mask="'#########'" type="tel"
 							    />
 							    <div v-if="$page.errors.tin_id !== null" class="form-error">{{ $page.errors.tin_id }}</div>
 							</div>
@@ -162,7 +170,7 @@
 			            <div class="flex flex-wrap -mx-3 mb-6">
 	    					<div class="w-full px-3">
 				            	<label class="form-label font-bold">PhilHealth Identification <span class="font-medium">(Optional)</span></label>
-							    <input autofocus="true" class="form-input block w-full" placeholder="Enter PhilHealth identification" v-model="form.philhealth_id" v-mask="'############'" type="tel" 
+							    <input autofocus="true" class="form-input block w-full" placeholder="Enter PhilHealth identification" v-model="form.philhealth_id" v-mask="'############'" type="tel"
 							    />
 							    <div v-if="$page.errors.philhealth_id !== null" class="form-error">{{ $page.errors.philhealth_id }}</div>
 							</div>
@@ -364,7 +372,7 @@ export default {
 	    	this.$emit('input', checked);
 	    },
 	},
-	data() { 
+	data() {
 		return {
 			checked: null,
 			sending: false,
@@ -443,7 +451,7 @@ export default {
                 }
             );
 		},
-        closeModal() { 
+        closeModal() {
             this.$emit('update:modal');
         },
     },

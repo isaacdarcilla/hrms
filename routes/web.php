@@ -12,6 +12,7 @@ use App\Http\Controllers\Employee\EducationController;
 use App\Http\Controllers\Employee\EligibilityController;
 use App\Http\Controllers\Employee\ExperienceController;
 use App\Http\Controllers\Employee\VolunteerController;
+use App\Http\Controllers\Employee\FamilyController;
 use App\Http\Controllers\Employee\TrainingController;
 use App\Http\Controllers\Employee\OtherInformationController;
 use Illuminate\Support\Facades\Route;
@@ -138,6 +139,16 @@ Route::delete('employees/{contact}', [ContactsController::class, 'destroy'])
 
 Route::put('employees/{contact}/restore', [ContactsController::class, 'restore'])
     ->name('employees.restore')
+    ->middleware('auth');
+
+// Family Background
+
+Route::post('family', [FamilyController::class, 'store'])
+    ->name('family.store')
+    ->middleware('auth');
+
+Route::put('family/{employee}', [FamilyController::class, 'update'])
+    ->name('family.update')
     ->middleware('auth');
 
 // Childrens
