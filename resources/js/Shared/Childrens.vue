@@ -56,7 +56,7 @@
                     {{ c.children_birth_date }}
                   </div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
                   <span
                     @click="
                       showChildrenModal({

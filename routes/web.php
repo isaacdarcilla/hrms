@@ -167,6 +167,10 @@ Route::delete('children/{children}', [ChildrenController::class, 'destroy'])
 
 // Educations
 
+Route::post('education', [EducationController::class, 'store'])
+    ->name('education.store')
+    ->middleware('auth');
+
 Route::delete('education/{education}', [EducationController::class, 'destroy'])
     ->name('education.destroy')
     ->middleware('auth');

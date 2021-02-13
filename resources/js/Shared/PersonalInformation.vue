@@ -18,7 +18,7 @@
             for="name"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Birthday
-            <span v-if="contact.birth_date !== null" class="text-gray-500">{{
+            <span v-if="contact.birth_date !== null" class="text-blue-600">{{
               contact.birth_date
             }}</span>
             <span v-else class="text-red-500">No data available</span>
@@ -31,7 +31,7 @@
             >Birth Place
             <span
               v-if="contact.birth_place !== null"
-              class="text-gray-500 capitalize"
+              class="text-blue-600 capitalize"
               >{{ contact.birth_place }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
@@ -42,7 +42,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Height
-            <span v-if="contact.height !== null" class="text-gray-500"
+            <span v-if="contact.height !== null" class="text-blue-600"
               >{{ contact.height }} CM</span
             ><span v-else class="text-red-500">No data available</span>
           </label>
@@ -52,7 +52,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Weight
-            <span v-if="contact.weight !== null" class="text-gray-500"
+            <span v-if="contact.weight !== null" class="text-blue-600"
               >{{ contact.weight }} KG</span
             ><span v-else class="text-red-500">No data available</span></label
           >
@@ -64,7 +64,7 @@
             >Blood Type
             <span
               v-if="contact.blood_type !== null"
-              class="text-gray-500 capitalize"
+              class="text-blue-600 capitalize"
               >{{ contact.blood_type }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
@@ -74,7 +74,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >GSIS
-            <span v-if="contact.gsis_id !== null" class="text-gray-500">{{
+            <span v-if="contact.gsis_id !== null" class="text-blue-600">{{
               contact.gsis_id
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -85,7 +85,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >SSS
-            <span v-if="contact.sss_id !== null" class="text-gray-500">{{
+            <span v-if="contact.sss_id !== null" class="text-blue-600">{{
               contact.sss_id
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -96,7 +96,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >TIN
-            <span v-if="contact.tin_id !== null" class="text-gray-500">{{
+            <span v-if="contact.tin_id !== null" class="text-blue-600">{{
               contact.tin_id
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -107,7 +107,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Pagibig
-            <span v-if="contact.pagibig_id !== null" class="text-gray-500">{{
+            <span v-if="contact.pagibig_id !== null" class="text-blue-600">{{
               contact.pagibig_id
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -118,7 +118,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >PhilHealth
-            <span v-if="contact.philhealth_id !== null" class="text-gray-500">{{
+            <span v-if="contact.philhealth_id !== null" class="text-blue-600">{{
               contact.philhealth_id
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -133,7 +133,7 @@
             >Civil Status
             <span
               v-if="contact.civil_status !== null"
-              class="text-gray-500 capitalize"
+              class="text-blue-600 capitalize"
               >{{ contact.civil_status }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
@@ -145,7 +145,7 @@
             >Sex
             <span
               v-if="contact.sex !== null"
-              class="text-gray-500 capitalize"
+              class="text-blue-600 capitalize"
               >{{ contact.sex }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
@@ -157,7 +157,7 @@
             >Citizenship
             <span
               v-if="contact.citizenship !== null"
-              class="text-gray-500 capitalize"
+              class="text-blue-600 capitalize"
               >{{ contact.citizenship }}</span
             ><span v-else class="text-red-500">No data available</span></label
           >
@@ -167,7 +167,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Residential Address
-            <span class="text-gray-500 capitalize"
+            <span class="text-blue-600 capitalize"
               >{{ contact.residential_block }}
               {{ contact.residential_street }}
               {{ contact.residential_village }}
@@ -183,7 +183,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Permanent Address
-            <span class="text-gray-500 capitalize"
+            <span class="text-blue-600 capitalize"
               >{{ contact.permanent_block }}
               {{ contact.permanent_street }}
               {{ contact.permanent_village }}
@@ -199,7 +199,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Telephone
-            <span v-if="contact.telephone !== null" class="text-gray-500">{{
+            <span v-if="contact.telephone !== null" class="text-blue-600">{{
               contact.telephone
             }}</span
             ><span v-else class="text-red-500">No data available</span></label
@@ -210,7 +210,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Mobile Number
-            <span v-if="contact.phone !== null" class="text-gray-500">{{
+            <span v-if="contact.phone !== null" class="text-blue-600">{{
               contact.phone
             }}</span
             ><span v-else class="text-red-500">No data available</span></label

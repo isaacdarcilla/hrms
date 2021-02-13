@@ -33,7 +33,7 @@
             for="name"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Spouse
-            <span class="text-gray-500">
+            <span class="text-blue-600 capitalize">
               {{ family.spouse_first_name }}
               {{ family.spouse_middle_name }}
               {{ family.spouse_last_name }}
@@ -46,7 +46,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Spouse Occupation
-            <span class="text-gray-500">{{
+            <span class="text-blue-600 capitalize">{{
               family.spouse_occupation
             }}</span></label
           >
@@ -56,7 +56,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Spouse Business
-            <span class="text-gray-500">{{
+            <span class="text-blue-600 capitalize">{{
               family.spouse_business_name
             }}</span></label
           >
@@ -66,7 +66,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Spouse Address
-            <span class="text-gray-500">{{
+            <span class="text-blue-600 capitalize">{{
               family.spouse_business_address
             }}</span></label
           >
@@ -76,7 +76,7 @@
             for="about"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Spouse Telephone
-            <span class="text-gray-500">{{
+            <span class="text-blue-600 capitalize">{{
               family.spouse_telephone
             }}</span></label
           >
@@ -88,7 +88,7 @@
             for="name"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Father
-            <span class="text-gray-500">
+            <span class="text-blue-600 capitalize">
               {{ family.father_first_name }}
               {{ family.father_middle_name }}
               {{ family.father_last_name }}
@@ -101,7 +101,7 @@
             for="name"
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Mother
-            <span class="text-gray-500">
+            <span class="text-blue-600 capitalize">
               {{ family.mother_first_name }}
               {{ family.mother_middle_name }}
               {{ family.mother_last_name }}
