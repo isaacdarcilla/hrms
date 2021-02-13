@@ -171,11 +171,23 @@ Route::post('education', [EducationController::class, 'store'])
     ->name('education.store')
     ->middleware('auth');
 
+Route::put('education/{education}', [EducationController::class, 'update'])
+    ->name('education.update')
+    ->middleware('auth');
+
 Route::delete('education/{education}', [EducationController::class, 'destroy'])
     ->name('education.destroy')
     ->middleware('auth');
 
 // Elgibility
+
+Route::post('eligibility', [EligibilityController::class, 'store'])
+    ->name('eligibility.store')
+    ->middleware('auth');
+
+Route::put('eligibility/{eligibility}', [EligibilityController::class, 'update'])
+    ->name('eligibility.update')
+    ->middleware('auth');
 
 Route::delete('eligibility/{eligibility}', [EligibilityController::class, 'destroy'])
     ->name('eligibility.destroy')

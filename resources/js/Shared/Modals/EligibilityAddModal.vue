@@ -25,162 +25,130 @@
                   class="text-lg leading-6 font-medium text-gray-900"
                   id="modal-headline"
                 >
-                  ✏️ Edit {{ employeeId.first_name }} Education
+                  ➕ Add Civil Service Eligibility
                 </h3>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Name of School</label>
+                      <label class="form-label font-bold"
+                        >Name of Eligibility</label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        :placeholder="education.education_school_name"
-                        v-model="form.education_school_name"
+                        placeholder="Enter eligibility name"
+                        v-model="form.eligibility_name"
                       />
                       <div
-                        v-if="$page.errors.education_school_name !== null"
+                        v-if="$page.errors.eligibility_name !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.education_school_name }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold">Course/Degree</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        :placeholder="education.education_course"
-                        v-model="form.education_course"
-                      />
-                      <div
-                        v-if="$page.errors.education_course !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.education_course }}
+                        {{ $page.errors.eligibility_name }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Level of Education</label
-                      >
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        :placeholder="education.education_level"
-                        v-model="form.education_level"
-                      />
-                      <div
-                        v-if="$page.errors.education_level !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.education_level }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Period of Attendance
-                        <span class="font-medium">(From)</span></label
-                      >
+                        >Place of Examination
+                      </label>
                       <input
                         ref="birthday"
                         class="form-input block w-full"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.from"
-                        :placeholder="education.from"
+                        placeholder="Enter examination place"
+                        v-model="form.eligibility_place_of_exam"
                       />
-                      <div v-if="$page.errors.from !== null" class="form-error">
-                        {{ $page.errors.from }}
+                      <div
+                        v-if="$page.errors.eligibility_place_of_exam !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.eligibility_place_of_exam }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Period of Attendance
-                        <span class="font-medium">(To)</span></label
-                      >
+                        >Date of Examination
+                      </label>
                       <input
                         ref="birthday"
                         class="form-input block w-full"
+                        placeholder="Enter examination date"
                         type="tel"
                         v-mask="'##/##/####'"
-                        v-model="form.to"
-                        :placeholder="education.to"
+                        v-model="form.eligibility_date_of_exam"
                       />
-                      <div v-if="$page.errors.to !== null" class="form-error">
-                        {{ $page.errors.to }}
+                      <div
+                        v-if="$page.errors.eligibility_date_of_exam !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.eligibility_date_of_exam }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Highest Units Earned
+                        >Rating
                         <span class="font-medium">(Optional)</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        :placeholder="
-                          education.education_highest_level_earned === null
-                            ? `Enter highest units earned`
-                            : education.education_highest_level_earned
-                        "
-                        v-model="form.education_highest_level_earned"
+                        placeholder="Enter rating or score"
+                        v-model="form.eligibility_rating"
                       />
                       <div
-                        v-if="
-                          $page.errors.education_highest_level_earned !== null
-                        "
+                        v-if="$page.errors.eligibility_rating !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.education_highest_level_earned }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold">Year Graduated</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        :placeholder="education.education_year_graduated"
-                        v-model="form.education_year_graduated"
-                        v-mask="'####'"
-                        type="tel"
-                        ref="name"
-                      />
-                      <div
-                        v-if="$page.errors.education_year_graduated !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.education_year_graduated }}
+                        {{ $page.errors.eligibility_rating }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Honors Received</label
+                        >License Number
+                        <span class="font-medium">(Optional)</span></label
                       >
                       <input
-                        autofocus="true"
+                        ref="birthday"
                         class="form-input block w-full"
-                        :placeholder="education.education_honors_received"
-                        v-model="form.education_honors_received"
+                        placeholder="Enter license number"
+                        type="tel"
+                        v-model="form.eligibility_license_number"
                       />
                       <div
-                        v-if="$page.errors.education_honors_received !== null"
+                        v-if="$page.errors.eligibility_license_number !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.education_honors_received }}
+                        {{ $page.errors.eligibility_license_number }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Date of Expiration
+                        <span class="font-medium">(Optional)</span>
+                      </label>
+                      <input
+                        ref="birthday"
+                        class="form-input block w-full"
+                        placeholder="Enter expiration date"
+                        type="tel"
+                        v-mask="'##/##/####'"
+                        v-model="form.eligibility_license_expiration"
+                      />
+                      <div
+                        v-if="
+                          $page.errors.eligibility_license_expiration !== null
+                        "
+                        class="form-error"
+                      >
+                        {{ $page.errors.eligibility_license_expiration }}
                       </div>
                     </div>
                   </div>
@@ -225,51 +193,45 @@ export default {
       default: false,
     },
     employee: String | Number,
-    education: Object,
     errors: Object,
     showing: Boolean,
   },
   directives: { mask },
-  inject: ["employeeId"],
   data() {
     return {
       sending: false,
       form: {
-        education_level: null,
-        education_school_name: null,
-        education_course: null,
-        from: null,
-        to: null,
-        education_highest_level_earned: null,
-        education_year_graduated: null,
-        education_honors_received: null,
+        contact_id: this.employee.id,
+        eligibility_name: null,
+        eligibility_rating: null,
+        eligibility_date_of_exam: null,
+        eligibility_place_of_exam: null,
+        eligibility_license_number: null,
+        eligibility_license_expiration: null,
       },
     };
   },
   methods: {
     save() {
-      this.$inertia.put(
-        this.route("education.update", this.education.id),
-        this.form,
-        {
-          onStart: () => (this.sending = true),
-          onFinish: () => (this.sending = false),
-        }
-      );
+      this.$inertia.post(this.route("eligibility.store"), this.form, {
+        onStart: () => (this.sending = true),
+        onFinish: () => {
+          this.sending = false;
+          this.reset();
+        },
+      });
     },
     closeModal() {
       this.$emit("update:modal");
       this.reset();
     },
     reset() {
-      this.form.education_level = null;
-      this.form.education_school_name = null;
-      this.form.education_course = null;
-      this.form.from = null;
-      this.form.to = null;
-      this.form.education_highest_level_earned = null;
-      this.form.education_year_graduated = null;
-      this.form.education_honors_received = null;
+      this.form.eligibility_name = null;
+      this.form.eligibility_rating = null;
+      this.form.eligibility_date_of_exam = null;
+      this.form.eligibility_place_of_exam = null;
+      this.form.eligibility_license_number = null;
+      this.form.eligibility_license_expiration = null;
     },
   },
 };

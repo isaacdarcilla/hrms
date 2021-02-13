@@ -10,7 +10,7 @@
               🎓 Educational Background
             </h5>
             <button
-            @click="showEducationModal"
+              @click="showEducationModal"
               class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
             >
               ➕ Add
@@ -107,8 +107,11 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div v-if="education.education_highest_level_earned !== null" class="text-sm text-gray-900">
                     {{ education.education_highest_level_earned }}
+                  </div>
+                  <div v-else class="text-sm text-red-600">
+                    No data available
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -122,7 +125,9 @@
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span class="text-indigo-600 hover:text-indigo-900"
+                  <span
+                    @click="showEducationEditModal(education)"
+                    class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                     >✏️ Edit</span
                   >
                   <span
@@ -152,15 +157,23 @@
       :employee="employeeId"
       :modal.sync="showEducation"
     ></education-add-modal>
+    <education-edit-modal
+      :showing="showEducationEdit"
+      :employee="employeeId"
+      :education="educationItems"
+      :modal.sync="showEducationEdit"
+    ></education-edit-modal>
   </div>
 </template>
 
 <script>
 import EducationAddModal from "@/Shared/Modals/EducationAddModal.vue";
+import EducationEditModal from "@/Shared/Modals/EducationEditModal.vue";
 
 export default {
   components: {
     EducationAddModal,
+    EducationEditModal,
   },
   inject: ["employeeId"],
   props: {
@@ -168,12 +181,18 @@ export default {
   },
   data() {
     return {
+      educationItems: null,
       showEducation: false,
+      showEducationEdit: false,
     };
   },
   methods: {
     showEducationModal() {
       this.showEducation = true;
+    },
+    showEducationEditModal(item) {
+      this.educationItems = item;
+      this.showEducationEdit = true;
     },
     destroy(id, name) {
       swal({

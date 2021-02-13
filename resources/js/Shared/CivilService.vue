@@ -9,12 +9,12 @@
             <h5 class="mx-6 my-5 font-semibold font bg-white">
               👮‍♀️ Civil Service Eligibility
             </h5>
-            <inertia-link
+            <button
+              @click="showEligibilityModal"
               class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-              :href="route('employees.create')"
             >
               ➕ Add
-            </inertia-link>
+            </button>
           </div>
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-white">
@@ -35,13 +35,13 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Date of Exam
+                  Date of Examination
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Place of Exam
+                  Place of Examination
                 </th>
                 <th
                   scope="col"
@@ -75,8 +75,14 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div
+                    v-if="eligibility.eligibility_rating !== null"
+                    class="text-sm text-gray-900"
+                  >
                     {{ eligibility.eligibility_rating }}
+                  </div>
+                  <div v-else class="text-sm text-red-600">
+                    No data available
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -90,17 +96,31 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div
+                    v-if="eligibility.eligibility_license_number !== null"
+                    class="text-sm text-gray-900"
+                  >
                     {{ eligibility.eligibility_license_number }}
+                  </div>
+                  <div v-else class="text-sm text-red-600">
+                    No data available
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div
+                    v-if="eligibility.eligibility_license_number !== null"
+                    class="text-sm text-gray-900"
+                  >
                     {{ eligibility.eligibility_license_expiration }}
+                  </div>
+                  <div v-else class="text-sm text-red-600">
+                    No data available
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span class="text-indigo-600 hover:text-indigo-900"
+                  <span
+                    @click="showEditEligibilityModal(eligibility)"
+                    class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                     >✏️ Edit</span
                   >
                   <span
@@ -125,14 +145,47 @@
         </div>
       </div>
     </div>
+    <eligibility-add-modal
+      :showing="showEligibility"
+      :employee="employeeId"
+      :modal.sync="showEligibility"
+    ></eligibility-add-modal>
+    <eligibility-edit-modal
+      :showing="showEditEligibility"
+      :employee="employeeId"
+      :eligibility="eligibility"
+      :modal.sync="showEditEligibility"
+    ></eligibility-edit-modal>
   </div>
 </template>
 <script>
+import EligibilityAddModal from "@/Shared/Modals/EligibilityAddModal.vue";
+import EligibilityEditModal from "@/Shared/Modals/EligibilityEditModal.vue";
+
 export default {
+  components: {
+    EligibilityAddModal,
+    EligibilityEditModal,
+  },
+  inject: ["employeeId"],
   props: {
     eligibilities: Array,
   },
+  data() {
+    return {
+      eligibility: null,
+      showEligibility: false,
+      showEditEligibility: false,
+    };
+  },
   methods: {
+    showEligibilityModal() {
+      this.showEligibility = true;
+    },
+    showEditEligibilityModal(item) {
+      this.eligibility = item;
+      this.showEditEligibility = true;
+    },
     destroy(id, name) {
       swal({
         title: "Delete",
