@@ -98,7 +98,7 @@ class ContactsController extends Controller
                 'permanent_city' => ['required', 'max:25', 'min:2'],
                 'permanent_province' => ['required', 'max:25', 'min:2'],
                 'permanent_zipcode' => ['required', 'max:25', 'min:2', 'regex:/^[0-9.]+$/'],
-            ],[
+            ], [
                 'gsis_id.min' => 'The GSIS identification must be at least 12 characters.',
                 'sss_id.min' => 'The SSS identification must be at least 10 characters.',
                 'philhealth_id.min' => 'The TIN identification must be at least 12 characters.',
@@ -131,6 +131,7 @@ class ContactsController extends Controller
                 'status_of_appointment' => $contact->status_of_appointment,
                 'height' => $contact->height,
                 'weight' => $contact->weight,
+                'status' => $contact->status,
                 'blood_type' => $contact->blood_type,
                 'gsis_id' => $contact->gsis_id,
                 'pagibig_id' => $contact->pagibig_id,
@@ -229,7 +230,7 @@ class ContactsController extends Controller
                 'permanent_city' => ['required', 'max:25', 'min:2'],
                 'permanent_province' => ['required', 'max:25', 'min:2'],
                 'permanent_zipcode' => ['required', 'max:25', 'min:2', 'regex:/^[0-9.]+$/'],
-            ],[
+            ], [
                 'gsis_id.min' => 'The GSIS identification must be at least 12 characters.',
                 'sss_id.min' => 'The SSS identification must be at least 10 characters.',
                 'philhealth_id.min' => 'The TIN identification must be at least 12 characters.',
@@ -252,6 +253,20 @@ class ContactsController extends Controller
         ]);
 
         return Redirect::back()->with('success', 'Employee photo updated.');
+    }
+
+    public function update_status(Contact $contact)
+    {
+        Request::input('status') == "1" ?
+            $contact->restore()
+            :
+            $contact->delete();
+
+        $contact->update([
+            'status' => Request::input('status'),
+        ]);
+
+        return Redirect::back()->with('success', 'Employee status updated.');
     }
 
     public function destroy(Contact $contact)

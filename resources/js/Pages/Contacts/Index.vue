@@ -102,7 +102,7 @@
                 <icon
                   v-if="contact.deleted_at"
                   name="trash"
-                  class="flex-shrink-0 w-3 h-3 fill-gray-400 ml-2"
+                  class="flex-shrink-0 w-3 h-3 fill-gray-600 ml-2"
                 />
               </inertia-link>
             </td>

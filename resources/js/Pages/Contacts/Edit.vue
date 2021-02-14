@@ -12,8 +12,8 @@
       </h1>
     </div>
 
-    <trashed-message v-if="contact.deleted_at" class="mb-6" @restore="restore">
-      This employee has been removed.
+    <trashed-message v-if="contact.deleted_at" class="mb-6">
+      This employee has been marked as inactive. Click on the toogle button to set active status.
     </trashed-message>
     <div class="h-full">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
@@ -60,7 +60,8 @@
               width="384"
               height="512"
             />
-            <div class="text-center pt-2">
+            <div v-if="contact.deleted_at" class="pt-2"></div>
+            <div v-else class="text-center pt-2">
               <button
                 @click="browse()"
                 class="rounded-full text-blue-600 hover:bg-gray-700 hover:bg-opacity-50 font-semibold p-2 focus:outline-none text-sm text-gray transition duration-200"
@@ -87,6 +88,15 @@
                 </div>
                 <div v-else class="text-gray-500 block uppercase pt-2">
                   #{{ contact.agency_employee_id }}
+                </div>
+                <div class="pt-5">
+                  <toggle-button
+                    :value="status"
+                    :width="67"
+                    :height="25"
+                    :labels="{ checked: 'Active', unchecked: '' }"
+                    v-model="status"
+                  />
                 </div>
               </figcaption>
             </div>
@@ -126,6 +136,7 @@
 </template>
 
 <script>
+import { ToggleButton } from "vue-js-toggle-button";
 import Layout from "@/Shared/Layout";
 import LoadingButton from "@/Shared/LoadingButton";
 import SelectInput from "@/Shared/SelectInput";
@@ -149,6 +160,7 @@ export default {
   },
   layout: Layout,
   components: {
+    ToggleButton,
     LoadingButton,
     SelectInput,
     TextInput,
@@ -188,6 +200,7 @@ export default {
       sending: false,
       file: null,
       image: "/img/user.png",
+      status: this.contact.status === "1" ? true : false,
       form: {
         first_name: this.contact.first_name,
         last_name: this.contact.last_name,
@@ -197,11 +210,32 @@ export default {
       },
     };
   },
+  watch: {
+    status(status) {
+      this.$emit("input", status);
+      this.active(status);
+    },
+  },
   methods: {
     capitalize: function (value) {
       return value.toLowerCase().replace(/\b./g, function (a) {
         return a.toUpperCase();
       });
+    },
+    active(active) {
+      let status = active ? "1" : "0";
+      let data = new FormData();
+      data.append("status", status);
+      data.append("_method", "PUT");
+
+      this.$inertia.post(
+        this.route("employees.update.status", this.contact.id),
+        data,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
     browse() {
       this.hidden = false;
