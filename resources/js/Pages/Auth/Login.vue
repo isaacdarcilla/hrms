@@ -48,7 +48,7 @@
               <div class="flex items-center justify-between">
                 <label
                   for="password"
-                  class="text-sm font-semibold text-gray-500"
+                  class="text-sm font-semibold pb-2 text-gray-500"
                   >Password</label
                 >
               </div>
@@ -74,7 +74,7 @@
             <div class="items-center text-right">
               <loading-button
                 :loading="sending"
-                class="btn-indigo"
+                class="btn-indigo h-8 align-middle"
                 type="submit"
                 >Login</loading-button
               >
@@ -107,7 +107,7 @@ export default {
       form: {
         email: "",
         password: "",
-        remember: null,
+        remember: true,
       },
     };
   },
