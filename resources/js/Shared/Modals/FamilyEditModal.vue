@@ -23,7 +23,7 @@
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <div class="flex items-center justify-between mb-0">
                   <h3
-                    class="text-lg leading-6 font-medium text-gray-900"
+                    class="text-lg leading-6 font-medium text-gray-900 capitalize"
                     id="modal-headline"
                   >
                     ✏️ Edit {{ employee.first_name }} Family Background

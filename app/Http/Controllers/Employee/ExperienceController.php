@@ -34,4 +34,22 @@ class ExperienceController extends Controller
 
         return Redirect::back()->with('success', 'Work experience added.');
     }
+
+    public function update($experience)
+    {
+        Experience::where('id', $experience)->update(
+            Request::validate([
+                'experiences_from' => ['required', 'max:50', 'min:10', 'date'],
+		        'experiences_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'experiences_position' => ['required', 'max:50', 'min:4'],
+		        'experiences_company' => ['required', 'max:50', 'min:4'],
+		        'experiences_monthly_salary' => ['nullable', 'max:50', 'min:4', 'regex:/^[0-9]+$/'],
+		        'experiences_salary_grade' => ['nullable', 'max:50', 'min:2', 'regex:/^[0-9]+$/'],
+		        'experiences_status_of_appointment' => ['required', 'max:50', 'min:4'],
+		        'experiences_government' => ['required'],
+            ])
+        );
+
+        return Redirect::back()->with('success', 'Work experience updated.');
+    }
 }

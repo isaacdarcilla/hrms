@@ -132,8 +132,10 @@
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span class="text-indigo-600 hover:text-indigo-900"
-                    >✏️ Edit</span
+                  <span 
+                    @click="showExperienceEditModal(experience)"
+                    class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                    >✏️ Edit</span</span
                   >
                   <span
                     @click="
@@ -162,14 +164,22 @@
       :employee="employeeId"
       :modal.sync="showExperience"
     ></experience-add-modal>
+    <experience-edit-modal
+      :showing="showExperienceEdit"
+      :employee="employeeId"
+      :experience="experienceItems"
+      :modal.sync="showExperienceEdit"
+    ></experience-edit-modal>
   </div>
 </template>
 <script>
 import ExperienceAddModal from "@/Shared/Modals/ExperienceAddModal.vue";
+import ExperienceEditModal from "@/Shared/Modals/ExperienceEditModal.vue";
 
 export default {
   components: {
     ExperienceAddModal,
+    ExperienceEditModal,
   },
   inject: ["employeeId"],
   props: {
@@ -185,6 +195,10 @@ export default {
   methods: {
     showExperienceModal() {
       this.showExperience = true;
+    },
+    showExperienceEditModal(item) {
+      this.experienceItems = item;
+      this.showExperienceEdit = true;
     },
     destroy(id, name) {
       swal({

@@ -203,6 +203,10 @@ Route::post('experience', [ExperienceController::class, 'store'])
     ->name('experience.store')
     ->middleware('auth');
 
+Route::put('experience/{experience}', [ExperienceController::class, 'update'])
+    ->name('experience.update')
+    ->middleware('auth');
+
 Route::delete('experience/{experience}', [ExperienceController::class, 'destroy'])
     ->name('experience.destroy')
     ->middleware('auth');
