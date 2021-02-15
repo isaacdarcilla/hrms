@@ -4,10 +4,10 @@
 - High Priority Task
 ```
 
-- [X] Setup development environment (Jan 4)
-- [X] Design database for employee module (Jan 20)
-- [X] Design interface for employee module (Jan 25)
-- [X] Add functionality in employee module (Feb 1)
+- [X] <s>Setup development environment</s> (Jan 4)
+- [X] <s>Design database for employee module</s> (Jan 20)
+- [X] <s>Design interface for employee module</s> (Jan 25)
+- [X] <s>Add functionality in employee module</s> (Feb 1)
 - [ ] Add documents upload to employee profile
 - [ ] Add payslip module
 
