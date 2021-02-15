@@ -11,9 +11,9 @@
 - [ ] Add documents upload to employee profile
 - [ ] Add payslip module
 
-## 🔖 LICENSE
+## 🔖 License
 [Apache-2.0](https://github.com/isaacdarcilla/hrms/blob/master/LICENSE)
 
 
-## 🚀 DEVELOPER
+## 🚀 Developer
 [Isaac Arcilla](https://facebook.com/isaacdarcilla)
