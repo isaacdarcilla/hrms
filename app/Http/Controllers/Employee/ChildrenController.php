@@ -24,7 +24,7 @@ class ChildrenController extends Controller
         $children->update(
             Request::validate([
                 'children_name' => ['required', 'max:50', 'min:6'],
-                'children_birth_date' => ['required', 'min:10'],
+                'children_birth_date' => ['required', 'min:10', 'date'],
             ])
         );
 
@@ -36,7 +36,7 @@ class ChildrenController extends Controller
 
 		Request::validate([
             'children_name' => ['required', 'max:50', 'min:6'],
-            'children_birth_date' => ['required', 'min:10'],
+            'children_birth_date' => ['required', 'min:10', 'date'],
         ]);
 
     	Children::where('contact_id', $contact)->where('background_id', $background)->create([

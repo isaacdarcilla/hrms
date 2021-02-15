@@ -199,6 +199,10 @@ Route::delete('eligibility/{eligibility}', [EligibilityController::class, 'destr
 
 // Experience
 
+Route::post('experience', [ExperienceController::class, 'store'])
+    ->name('experience.store')
+    ->middleware('auth');
+
 Route::delete('experience/{experience}', [ExperienceController::class, 'destroy'])
     ->name('experience.destroy')
     ->middleware('auth');

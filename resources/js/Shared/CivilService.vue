@@ -70,14 +70,14 @@
                 :key="eligibility.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ eligibility.eligibility_name }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div
                     v-if="eligibility.eligibility_rating !== null"
-                    class="text-sm text-gray-900"
+                    class="text-sm text-gray-900 capitalize"
                   >
                     {{ eligibility.eligibility_rating }}
                   </div>
@@ -91,14 +91,14 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ eligibility.eligibility_place_of_exam }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div
                     v-if="eligibility.eligibility_license_number !== null"
-                    class="text-sm text-gray-900"
+                    class="text-sm text-gray-900 uppercase"
                   >
                     {{ eligibility.eligibility_license_number }}
                   </div>

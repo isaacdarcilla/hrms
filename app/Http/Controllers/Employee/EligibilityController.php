@@ -16,10 +16,10 @@ class EligibilityController extends Controller
                 'contact_id' => ['required'],
                 'eligibility_name' => ['required', 'max:50', 'min:2'],
                 'eligibility_rating' => ['nullable', 'max:50', 'min:2', 'regex:/^[0-9.]+$/'],
-                'eligibility_date_of_exam' => ['required', 'max:50', 'min:2'],
-                'eligibility_place_of_exam' => ['required', 'max:50', 'min:2'],
+                'eligibility_date_of_exam' => ['required', 'max:50', 'min:2', 'date'],
+                'eligibility_place_of_exam' => ['required', 'max:50', 'min:2', 'date'],
                 'eligibility_license_number' => ['nullable', 'max:50', 'min:2'],
-                'eligibility_license_expiration' => ['nullable', 'max:50', 'min:2'],
+                'eligibility_license_expiration' => ['nullable', 'max:50', 'min:2', 'date'],
             ])
         );
 
@@ -32,10 +32,10 @@ class EligibilityController extends Controller
             Request::validate([
                 'eligibility_name' => ['required', 'max:50', 'min:2'],
                 'eligibility_rating' => ['nullable', 'max:50', 'min:2', 'regex:/^[0-9.]+$/'],
-                'eligibility_date_of_exam' => ['required', 'max:50', 'min:2'],
-                'eligibility_place_of_exam' => ['required', 'max:50', 'min:2'],
+                'eligibility_date_of_exam' => ['required', 'max:50', 'min:2', 'date'],
+                'eligibility_place_of_exam' => ['required', 'max:50', 'min:2', 'date'],
                 'eligibility_license_number' => ['nullable', 'max:50', 'min:2'],
-                'eligibility_license_expiration' => ['nullable', 'max:50', 'min:2'],
+                'eligibility_license_expiration' => ['nullable', 'max:50', 'min:2', 'date'],
             ])
         );
 

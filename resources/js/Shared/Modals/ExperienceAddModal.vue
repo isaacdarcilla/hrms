@@ -25,130 +25,158 @@
                   class="text-lg leading-6 font-medium text-gray-900"
                   id="modal-headline"
                 >
-                  ➕ Add Civil Service Eligibility
+                  ➕ Add Work Experience
                 </h3>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
+                      <label class="form-label font-bold">Name of Company</label>
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter company name"
+                        v-model="form.experiences_company"
+                      />
+                      <div
+                        v-if="$page.errors.experiences_company !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.experiences_company }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold">Position</label>
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter position"
+                        v-model="form.experiences_position"
+                      />
+                      <div
+                        v-if="$page.errors.experiences_position !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.experiences_position }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Name of Eligibility</label
+                        >Monthly Salary <span class="font-medium">(Optional)</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter eligibility name"
-                        v-model="form.eligibility_name"
+                        placeholder="Enter monthly salary"
+                        v-model="form.experiences_monthly_salary"
                       />
                       <div
-                        v-if="$page.errors.eligibility_name !== null"
+                        v-if="$page.errors.experiences_monthly_salary !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.eligibility_name }}
+                        {{ $page.errors.experiences_monthly_salary }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Place of Examination
-                      </label>
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter examination place"
-                        v-model="form.eligibility_place_of_exam"
-                      />
-                      <div
-                        v-if="$page.errors.eligibility_place_of_exam !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.eligibility_place_of_exam }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Date of Examination
-                      </label>
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter examination date"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.eligibility_date_of_exam"
-                      />
-                      <div
-                        v-if="$page.errors.eligibility_date_of_exam !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.eligibility_date_of_exam }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Rating
-                        <span class="font-medium">(Optional)</span></label
+                        >Salary Grade <span class="font-medium">(Optional)</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter rating or score"
-                        v-model="form.eligibility_rating"
+                        placeholder="Enter salary grade"
+                        v-model="form.experiences_salary_grade"
+                        ref="name"
                       />
                       <div
-                        v-if="$page.errors.eligibility_rating !== null"
+                        v-if="$page.errors.experiences_salary_grade !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.eligibility_rating }}
+                        {{ $page.errors.experiences_salary_grade }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >License Number
-                        <span class="font-medium">(Optional)</span></label
+                        >Inclusive Date
+                        <span class="font-medium">(From)</span></label
                       >
                       <input
                         ref="birthday"
                         class="form-input block w-full"
-                        placeholder="Enter license number"
-                        type="tel"
-                        v-model="form.eligibility_license_number"
-                      />
-                      <div
-                        v-if="$page.errors.eligibility_license_number !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.eligibility_license_number }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Date of Expiration
-                        <span class="font-medium">(Optional)</span>
-                      </label>
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter expiration date"
+                        placeholder="Enter start of period of attendance"
                         type="tel"
                         v-mask="'##/##/####'"
-                        v-model="form.eligibility_license_expiration"
+                        v-model="form.experiences_from"
+                      />
+                      <div v-if="$page.errors.experiences_from !== null" class="form-error">
+                        {{ $page.errors.experiences_from }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Inclusive Date
+                        <span class="font-medium">(To)</span></label
+                      >
+                      <input
+                        ref="birthday"
+                        class="form-input block w-full"
+                        placeholder="Enter end of period of attendance"
+                        type="tel"
+                        v-mask="'##/##/####'"
+                        v-model="form.experiences_to"
+                      />
+                      <div v-if="$page.errors.experiences_to !== null" class="form-error">
+                        {{ $page.errors.experiences_to }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Status of Appoinment</label
+                      >
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter status of appointment"
+                        v-model="form.experiences_status_of_appointment"
+                        ref="name"
                       />
                       <div
                         v-if="
-                          $page.errors.eligibility_license_expiration !== null
+                          $page.errors.experiences_status_of_appointment !== null
                         "
                         class="form-error"
                       >
-                        {{ $page.errors.eligibility_license_expiration }}
+                        {{ $page.errors.experiences_status_of_appointment }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <toggle-button
+                        :value="form.experiences_government"
+                        :width="50"
+                        :height="25"
+                        :labels="{ checked: 'Yes', unchecked: 'No' }"
+                        v-model="form.experiences_government"
+                      /><span class="mx-2 font-semibold">Is this a government service?</span>
+                      <div
+                        v-if="
+                          $page.errors.experiences_government !== null
+                        "
+                        class="form-error"
+                      >
+                        {{ $page.errors.experiences_government }}
                       </div>
                     </div>
                   </div>
@@ -186,8 +214,12 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import { ToggleButton } from "vue-js-toggle-button";
 
 export default {
+  components: {
+    ToggleButton,
+  },
   props: {
     modal: {
       default: false,
@@ -202,22 +234,22 @@ export default {
       sending: false,
       form: {
         contact_id: this.employee.id,
-        eligibility_name: null,
-        eligibility_rating: null,
-        eligibility_date_of_exam: null,
-        eligibility_place_of_exam: null,
-        eligibility_license_number: null,
-        eligibility_license_expiration: null,
+        experiences_from: null,
+        experiences_to: null,  
+        experiences_position: null,  
+        experiences_company: null, 
+        experiences_monthly_salary: null,  
+        experiences_salary_grade: null,  
+        experiences_status_of_appointment: null, 
+        experiences_government: null,  
       },
     };
   },
   methods: {
     save() {
-      this.$inertia.post(this.route("eligibility.store"), this.form, {
+      this.$inertia.post(this.route("experience.store"), this.form, {
         onStart: () => (this.sending = true),
-        onFinish: () => {
-          this.sending = false;
-        },
+        onFinish: () => (this.sending = false),
       });
     },
     closeModal() {
@@ -225,12 +257,14 @@ export default {
       this.reset();
     },
     reset() {
-      this.form.eligibility_name = null;
-      this.form.eligibility_rating = null;
-      this.form.eligibility_date_of_exam = null;
-      this.form.eligibility_place_of_exam = null;
-      this.form.eligibility_license_number = null;
-      this.form.eligibility_license_expiration = null;
+      this.form.experiences_from = null;
+      this.form.experiences_to = null; 
+      this.form.experiences_position = null; 
+      this.form.experiences_company = null;
+      this.form.experiences_monthly_salary = null; 
+      this.form.experiences_salary_grade = null;  
+      this.form.experiences_status_of_appointment = null; 
+      this.form.experiences_government = null;
     },
   },
 };

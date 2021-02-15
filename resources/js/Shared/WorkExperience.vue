@@ -9,12 +9,12 @@
             <h5 class="mx-6 my-5 font-semibold font bg-white">
               💼 Work Experience
             </h5>
-            <inertia-link
+            <button
+              @click="showExperienceModal"
               class="h-8 text-xs rounded-lg items-center btn-indigo my-2 mx-6"
-              :href="route('employees.create')"
             >
               ➕ Add
-            </inertia-link>
+            </button>
           </div>
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-white">
@@ -82,19 +82,22 @@
                 :key="experience.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ experience.experiences_company }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ experience.experiences_position }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div v-if="experience.experiences_monthly_salary !== null" class="text-sm text-gray-900">
                     PHP
                     {{ experience.experiences_monthly_salary }}
+                  </div>
+                  <div v-else class="text-sm text-red-600">
+                    No data available
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -108,18 +111,24 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div v-if="experience.experiences_salary_grade !== null" class="text-sm text-gray-900">
                     {{ experience.experiences_salary_grade }}
+                  </div>
+                  <div v-else class="text-sm text-red-600">
+                    No data available
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ experience.experiences_status_of_appointment }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
-                    {{ experience.experiences_government }}
+                  <div v-if="experience.experiences_government === '1'" class="text-sm text-gray-900 capitalize">
+                    Yes
+                  </div>
+                  <div v-else class="text-sm text-gray-900 capitalize">
+                    No
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
@@ -148,14 +157,35 @@
         </div>
       </div>
     </div>
+    <experience-add-modal
+      :showing="showExperience"
+      :employee="employeeId"
+      :modal.sync="showExperience"
+    ></experience-add-modal>
   </div>
 </template>
 <script>
+import ExperienceAddModal from "@/Shared/Modals/ExperienceAddModal.vue";
+
 export default {
+  components: {
+    ExperienceAddModal,
+  },
+  inject: ["employeeId"],
   props: {
     experiences: Array,
   },
+  data() {
+    return {
+      experienceItems: null,
+      showExperience: false,
+      showExperienceEdit: false,
+    };
+  },
   methods: {
+    showExperienceModal() {
+      this.showExperience = true;
+    },
     destroy(id, name) {
       swal({
         title: "Delete",

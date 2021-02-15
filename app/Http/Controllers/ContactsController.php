@@ -71,7 +71,7 @@ class ContactsController extends Controller
                 'sex' => ['required', 'max:10', 'min:4'],
                 'height' => ['required', 'max:3', 'regex:/^[0-9.]+$/'],
                 'weight' => ['required', 'max:3', 'regex:/^[0-9.]+$/'],
-                'birth_date' => ['required', 'min:10'],
+                'birth_date' => ['required', 'min:10', 'date'],
                 'birth_place' => ['required', 'max:50'],
                 'blood_type' => ['required', 'max:5'],
                 'gsis_id' => ['nullable', 'min:11'],

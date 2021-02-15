@@ -131,7 +131,6 @@ export default {
           onStart: () => (this.sending = true),
           onFinish: () => {
             this.sending = false;
-            this.reset();
           },
         }
       );

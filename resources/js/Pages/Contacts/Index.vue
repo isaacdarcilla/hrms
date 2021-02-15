@@ -7,11 +7,11 @@
         class="w-full max-w-md mr-4"
         @reset="reset"
       >
-        <label class="block text-gray-700">Trashed:</label>
+        <label class="block text-gray-700">Filter Employee</label>
         <select v-model="form.trashed" class="mt-1 w-full form-select">
           <option :value="null" />
-          <option value="with">With Trashed</option>
-          <option value="only">Only Trashed</option>
+          <option value="with">Active</option>
+          <option value="only">Inactive</option>
         </select>
       </search-filter>
       <button @click="showModal" class="btn-indigo rounded-lg">
@@ -172,7 +172,7 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                👁️‍🗨 View
+                <span>👁️‍🗨️ View</span>
               </inertia-link>
             </td>
           </tr>

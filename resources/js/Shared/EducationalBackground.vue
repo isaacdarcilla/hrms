@@ -82,17 +82,17 @@
                 :key="education.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ education.education_level }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ education.education_school_name }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ education.education_course }}
                   </div>
                 </td>
@@ -107,7 +107,7 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div v-if="education.education_highest_level_earned !== null" class="text-sm text-gray-900">
+                  <div v-if="education.education_highest_level_earned !== null" class="text-sm text-gray-900 capitalize">
                     {{ education.education_highest_level_earned }}
                   </div>
                   <div v-else class="text-sm text-red-600">
@@ -120,7 +120,7 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ education.education_honors_received }}
                   </div>
                 </td>
