@@ -25,24 +25,24 @@
                   class="text-lg leading-6 font-medium text-gray-900"
                   id="modal-headline"
                 >
-                  ➕ Add Voluntary Work Involvement
+                  ➕ Add Training Program
 
                 </h3>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Name of Organization</label>
+                      <label class="form-label font-bold">Name of Training</label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter organization name"
-                        v-model="form.volunteers_organization"
+                        placeholder="Enter training name"
+                        v-model="form.trainings_name"
                       />
                       <div
-                        v-if="$page.errors.volunteers_organization !== null"
+                        v-if="$page.errors.trainings_name !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.volunteers_organization }}
+                        {{ $page.errors.trainings_name }}
                       </div>
                     </div>
                   </div>
@@ -55,13 +55,13 @@
                         autofocus="true"
                         class="form-input block w-full"
                         placeholder="Enter number of hours"
-                        v-model="form.volunteers_number_of_hours"
+                        v-model="form.trainings_number_of_hours"
                       />
                       <div
-                        v-if="$page.errors.volunteers_number_of_hours !== null"
+                        v-if="$page.errors.trainings_number_of_hours !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.volunteers_number_of_hours }}
+                        {{ $page.errors.trainings_number_of_hours }}
                       </div>
                     </div>
                   </div>
@@ -77,10 +77,10 @@
                         placeholder="Enter start of period of attendance"
                         type="tel"
                         v-mask="'##/##/####'"
-                        v-model="form.volunteers_from"
+                        v-model="form.trainings_from"
                       />
-                      <div v-if="$page.errors.volunteers_from !== null" class="form-error">
-                        {{ $page.errors.volunteers_from }}
+                      <div v-if="$page.errors.trainings_from !== null" class="form-error">
+                        {{ $page.errors.trainings_from }}
                       </div>
                     </div>
                   </div>
@@ -96,32 +96,54 @@
                         placeholder="Enter end of period of attendance"
                         type="tel"
                         v-mask="'##/##/####'"
-                        v-model="form.volunteers_to"
+                        v-model="form.trainings_to"
                       />
-                      <div v-if="$page.errors.volunteers_to !== null" class="form-error">
-                        {{ $page.errors.volunteers_to }}
+                      <div v-if="$page.errors.trainings_to !== null" class="form-error">
+                        {{ $page.errors.trainings_to }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Nature of Work</label
+                        >Training Type</label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter nature of work"
-                        v-model="form.volunteers_nature_of_work"
+                        placeholder="Enter training type"
+                        v-model="form.trainings_type"
                         ref="name"
                       />
                       <div
                         v-if="
-                          $page.errors.volunteers_nature_of_work !== null
+                          $page.errors.trainings_type !== null
                         "
                         class="form-error"
                       >
-                        {{ $page.errors.volunteers_nature_of_work }}
+                        {{ $page.errors.trainings_type }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Sponsor</label
+                      >
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter training sponsor"
+                        v-model="form.trainings_sponsored_by"
+                        ref="name"
+                      />
+                      <div
+                        v-if="
+                          $page.errors.trainings_sponsored_by !== null
+                        "
+                        class="form-error"
+                      >
+                        {{ $page.errors.trainings_sponsored_by }}
                       </div>
                     </div>
                   </div>
@@ -179,17 +201,18 @@ export default {
       sending: false,
       form: {
         contact_id: this.employee.id,
-        volunteers_organization: null,
-        volunteers_from: null,
-        volunteers_to: null,
-        volunteers_number_of_hours: null,
-        volunteers_nature_of_work: null,
+        trainings_name: null,
+        trainings_from: null,
+        trainings_to: null,
+        trainings_number_of_hours: null,
+        trainings_type: null,
+        trainings_sponsored_by: null,
       },
     };
   },
   methods: {
     save() {
-      this.$inertia.post(this.route("volunteer.store"), this.form, {
+      this.$inertia.post(this.route("training.store"), this.form, {
         onStart: () => (this.sending = true),
         onFinish: () => (this.sending = false),
       });
@@ -199,11 +222,12 @@ export default {
       this.reset();
     },
     reset() {
-      this.form.volunteers_organization = null;
-      this.form.volunteers_from = null;
-      this.form.volunteers_to = null;
-      this.form.volunteers_number_of_hours = null;
-      this.form.volunteers_nature_of_work = null;
+      this.form.trainings_name = null;
+      this.form.trainings_from = null;
+      this.form.trainings_to = null;
+      this.form.trainings_number_of_hours = null;
+      this.form.trainings_type = null;
+      this.form.trainings_sponsored_by = null;
     },
   },
 };

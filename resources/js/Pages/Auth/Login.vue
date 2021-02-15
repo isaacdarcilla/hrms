@@ -1,7 +1,7 @@
 <template>
-  <div class="p-6 bg-gray-100 min-h-screen flex justify-center items-center">
+  <div class="p-6 bg-gray-200 min-h-screen flex justify-center items-center">
     <div
-      class="flex items-center min-h-screen p-4 bg-gray-100 lg:justify-center"
+      class="flex items-center min-h-screen p-4 bg-gray-200 lg:justify-center"
     >
       <div
         class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"

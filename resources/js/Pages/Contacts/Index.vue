@@ -108,17 +108,17 @@
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <inertia-link
-                class="px-6 capitalize py-4 whitespace-nowrap text-sm text-gray-900"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <div v-if="contact.department !== null">
+                <div class="capitalize" v-if="contact.department !== null">
                   {{ contact.department }}
                 </div>
                 <div v-else class="text-sm text-gray-500">
                   No data available
                 </div>
-                <div class="text-sm text-blue-500">
+                <div class="capitalize text-sm text-blue-500">
                   {{ contact.status_of_appointment }}
                 </div>
               </inertia-link>

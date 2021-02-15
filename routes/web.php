@@ -213,11 +213,27 @@ Route::delete('experience/{experience}', [ExperienceController::class, 'destroy'
 
 // Volunteer
 
+Route::post('volunteer', [VolunteerController::class, 'store'])
+    ->name('volunteer.store')
+    ->middleware('auth');
+
+Route::put('volunteer/{volunteer}', [VolunteerController::class, 'update'])
+    ->name('volunteer.update')
+    ->middleware('auth');
+
 Route::delete('volunteer/{volunteer}', [VolunteerController::class, 'destroy'])
     ->name('volunteer.destroy')
     ->middleware('auth');
 
 // Training
+
+Route::post('training', [TrainingController::class, 'store'])
+    ->name('training.store')
+    ->middleware('auth');
+
+Route::put('training/{training}', [TrainingController::class, 'update'])
+    ->name('training.update')
+    ->middleware('auth');
 
 Route::delete('training/{training}', [TrainingController::class, 'destroy'])
     ->name('training.destroy')
@@ -225,11 +241,27 @@ Route::delete('training/{training}', [TrainingController::class, 'destroy'])
 
 // Skill
 
+Route::post('skill', [OtherInformationController::class, 'store'])
+    ->name('skill.store')
+    ->middleware('auth');
+
+Route::put('skill/{skill}', [OtherInformationController::class, 'update'])
+    ->name('skill.update')
+    ->middleware('auth');
+
 Route::delete('skill/{skill}', [OtherInformationController::class, 'destroy_skill'])
     ->name('skill.destroy')
     ->middleware('auth');
 
 // Recognition
+
+Route::post('recognition', [OtherInformationController::class, 'store_recognition'])
+    ->name('recognition.store')
+    ->middleware('auth');
+
+Route::put('recognition/{recognition}', [OtherInformationController::class, 'update_recognition'])
+    ->name('recognition.update')
+    ->middleware('auth');
 
 Route::delete('recognition/{recognition}', [OtherInformationController::class, 'destroy_recognition'])
     ->name('recognition.destroy')
@@ -237,6 +269,14 @@ Route::delete('recognition/{recognition}', [OtherInformationController::class, '
 
 // Membership
 
+Route::post('membership', [OtherInformationController::class, 'store_membership'])
+    ->name('membership.store')
+    ->middleware('auth');
+
+Route::put('membership/{membership}', [OtherInformationController::class, 'update_membership'])
+    ->name('membership.update')
+    ->middleware('auth');
+    
 Route::delete('membership/{membership}', [OtherInformationController::class, 'destroy_membership'])
     ->name('membership.destroy')
     ->middleware('auth');

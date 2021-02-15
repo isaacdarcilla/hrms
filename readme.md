@@ -7,7 +7,7 @@
 - [X] Setup development environment (Jan 4)
 - [X] Design database for employee module (Jan 20)
 - [X] Design interface for employee module (Jan 25)
-- [ ] Add functionality in employee module (Feb 1)
+- [X] Add functionality in employee module (Feb 1)
 - [ ] Add documents upload to employee profile
 - [ ] Add payslip module
 

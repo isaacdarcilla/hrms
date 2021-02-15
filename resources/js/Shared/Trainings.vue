@@ -9,12 +9,12 @@
             <h5 class="mx-6 my-5 font-semibold font bg-white">
               📚 Learning and Development Programs Attended
             </h5>
-            <inertia-link
+            <button
+              @click="showTrainingModal"
               class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-              :href="route('employees.create')"
             >
               ➕ Add
-            </inertia-link>
+            </button>
           </div>
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-white">
@@ -70,7 +70,7 @@
                 :key="t.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ t.trainings_name }}
                   </div>
                 </td>
@@ -90,18 +90,20 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ t.trainings_type }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ t.trainings_sponsored_by }}
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span class="text-indigo-600 hover:text-indigo-900"
-                    >✏️ Edit</span
+                  <span 
+                    @click="showTrainingEditModal(t)"
+                    class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                    >✏️ Edit</span</span
                   >
                   <span
                     @click="destroy(t.id, t.trainings_name)"
@@ -123,14 +125,47 @@
         </div>
       </div>
     </div>
+    <training-add-modal
+      :showing="showTraining"
+      :employee="employeeId"
+      :modal.sync="showTraining"
+    ></training-add-modal>
+    <training-edit-modal
+      :showing="showTrainingEdit"
+      :employee="employeeId"
+      :training="trainingItems"
+      :modal.sync="showTrainingEdit"
+    ></training-edit-modal>
   </div>
 </template>
 <script>
+import TrainingAddModal from "@/Shared/Modals/TrainingAddModal.vue";
+import TrainingEditModal from "@/Shared/Modals/TrainingEditModal.vue";
+
 export default {
+  components: { 
+    TrainingAddModal,
+    TrainingEditModal
+  },
+  inject: ["employeeId"],
   props: {
     trainings: Array,
   },
+  data() {
+    return {
+      trainingItems: null,
+      showTraining: false,
+      showTrainingEdit: false,
+    };
+  },
   methods: {
+    showTrainingModal() {
+      this.showTraining = true;
+    },
+    showTrainingEditModal(item) {
+      this.trainingItems = item;
+      this.showTrainingEdit = true;
+    },
     destroy(id, name) {
       swal({
         title: "Delete",

@@ -22,11 +22,10 @@
             <div>
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <h3
-                  class="text-lg leading-6 font-medium text-gray-900"
+                  class="text-lg leading-6 font-medium text-gray-900 capitalize"
                   id="modal-headline"
                 >
-                  ➕ Add Voluntary Work Involvement
-
+                  ✏️ Edit {{ employeeId.first_name }} Voluntary Work Involvement
                 </h3>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
@@ -35,7 +34,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter organization name"
+                        :placeholder="volunteer.volunteers_organization"
                         v-model="form.volunteers_organization"
                       />
                       <div
@@ -54,7 +53,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter number of hours"
+                        :placeholder="volunteer.volunteers_number_of_hours"
                         v-model="form.volunteers_number_of_hours"
                       />
                       <div
@@ -74,7 +73,7 @@
                       <input
                         ref="birthday"
                         class="form-input block w-full"
-                        placeholder="Enter start of period of attendance"
+                        :placeholder="volunteer.volunteers_from"
                         type="tel"
                         v-mask="'##/##/####'"
                         v-model="form.volunteers_from"
@@ -93,7 +92,7 @@
                       <input
                         ref="birthday"
                         class="form-input block w-full"
-                        placeholder="Enter end of period of attendance"
+                        :placeholder="volunteer.volunteers_to"
                         type="tel"
                         v-mask="'##/##/####'"
                         v-model="form.volunteers_to"
@@ -111,7 +110,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter nature of work"
+                        :placeholder="volunteer.volunteers_nature_of_work"
                         v-model="form.volunteers_nature_of_work"
                         ref="name"
                       />
@@ -171,14 +170,15 @@ export default {
     },
     employee: String | Number,
     errors: Object,
+    volunteer: Object,
     showing: Boolean,
   },
+  inject: ["employeeId"],
   directives: { mask },
   data() {
     return {
       sending: false,
       form: {
-        contact_id: this.employee.id,
         volunteers_organization: null,
         volunteers_from: null,
         volunteers_to: null,
@@ -189,21 +189,17 @@ export default {
   },
   methods: {
     save() {
-      this.$inertia.post(this.route("volunteer.store"), this.form, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-      });
+      this.$inertia.put(
+        this.route("volunteer.update", this.volunteer.id),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
     closeModal() {
       this.$emit("update:modal");
-      this.reset();
-    },
-    reset() {
-      this.form.volunteers_organization = null;
-      this.form.volunteers_from = null;
-      this.form.volunteers_to = null;
-      this.form.volunteers_number_of_hours = null;
-      this.form.volunteers_nature_of_work = null;
     },
   },
 };

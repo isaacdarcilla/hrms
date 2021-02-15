@@ -10,12 +10,12 @@
               <h5 class="mx-6 my-5 font-semibold font bg-white">
                 🤹 Special Skills and Hobbies
               </h5>
-              <inertia-link
+              <button
+                @click="showSkillModal"
                 class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
               >
                 ➕ Add
-              </inertia-link>
+              </button>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-white">
@@ -41,12 +41,14 @@
                   :key="skill.id"
                 >
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
+                    <div class="text-sm text-gray-900 capitalize">
                       {{ skill.skills_name }}
                     </div>
                   </td>
                   <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                    <span class="text-indigo-600 hover:text-indigo-900"
+                    <span
+                      @click="showEditSkillModal(skill)"
+                      class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                       >✏️ Edit</span
                     >
                     <span
@@ -80,12 +82,12 @@
               <h5 class="mx-6 my-5 font-semibold font bg-white">
                 📣 Non-Academic Recognitions
               </h5>
-              <inertia-link
+              <button
+                @click="showRecognitionModal"
                 class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
               >
                 ➕ Add
-              </inertia-link>
+              </button>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-white">
@@ -111,12 +113,14 @@
                   :key="recognition.id"
                 >
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
+                    <div class="text-sm text-gray-900 capitalize">
                       {{ recognition.recognitions_name }}
                     </div>
                   </td>
                   <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                    <span class="text-indigo-600 hover:text-indigo-900"
+                    <span
+                      @click="showEditRecognitionModal(recognition)"
+                      class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                       >✏️ Edit</span
                     >
                     <span
@@ -155,12 +159,12 @@
               <h5 class="mx-6 my-5 font-semibold font bg-white">
                 🤝 Membership in Organizations
               </h5>
-              <inertia-link
+              <button
+                @click="showMembershipModal"
                 class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-                :href="route('employees.create')"
               >
                 ➕ Add
-              </inertia-link>
+              </button>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-white">
@@ -186,12 +190,14 @@
                   :key="membership.id"
                 >
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-900">
+                    <div class="text-sm text-gray-900 capitalize">
                       {{ membership.memberships_name }}
                     </div>
                   </td>
                   <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                    <span class="text-indigo-600 hover:text-indigo-900"
+                    <span
+                      @click="showEditMembershipModal(membership)"
+                      class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                       >✏️ Edit</span
                     >
                     <span
@@ -220,16 +226,99 @@
         </div>
       </div>
     </div>
+    <skill-add-modal
+      :showing="showSkill"
+      :employee="employeeId"
+      :modal.sync="showSkill"
+    ></skill-add-modal>
+    <skill-edit-modal
+      :showing="showEditSkill"
+      :employee="employeeId"
+      :skill="skill"
+      :modal.sync="showEditSkill"
+    ></skill-edit-modal>
+    <recognition-add-modal
+      :showing="showRecognition"
+      :employee="employeeId"
+      :modal.sync="showRecognition"
+    ></recognition-add-modal>
+    <recognition-edit-modal
+      :showing="showEditRecognition"
+      :employee="employeeId"
+      :recognition="recognition"
+      :modal.sync="showEditRecognition"
+    ></recognition-edit-modal>
+    <membership-add-modal
+      :showing="showMembership"
+      :employee="employeeId"
+      :modal.sync="showMembership"
+    ></membership-add-modal>
+    <membership-edit-modal
+      :showing="showEditMembership"
+      :employee="employeeId"
+      :membership="membership"
+      :modal.sync="showEditMembership"
+    ></membership-edit-modal>
   </div>
 </template>
 <script>
+import SkillAddModal from "@/Shared/Modals/SkillAddModal.vue";
+import SkillEditModal from "@/Shared/Modals/SkillEditModal.vue";
+import RecognitionAddModal from "@/Shared/Modals/RecognitionAddModal.vue";
+import RecognitionEditModal from "@/Shared/Modals/RecognitionEditModal.vue";
+import MembershipAddModal from "@/Shared/Modals/MembershipAddModal.vue";
+import MembershipEditModal from "@/Shared/Modals/MembershipEditModal.vue";
+
 export default {
+  components: {
+    SkillAddModal,
+    SkillEditModal,
+    RecognitionAddModal,
+    RecognitionEditModal,
+    MembershipAddModal,
+    MembershipEditModal,
+  },
+  inject: ["employeeId"],
   props: {
     skills: Array,
     recognitions: Array,
     memberships: Array,
   },
+  data() {
+    return {
+      skill: null,
+      showSkill: false,
+      showEditSkill: false,
+      recognition: null,
+      showRecognition: false,
+      showEditRecognition: false,
+      membership: null,
+      showMembership: false,
+      showEditMembership: false,
+    };
+  },
   methods: {
+    showSkillModal() {
+      this.showSkill = true;
+    },
+    showRecognitionModal() {
+      this.showRecognition = true;
+    },
+    showMembershipModal() {
+      this.showMembership = true;
+    },
+    showEditSkillModal(item) {
+      this.skill = item;
+      this.showEditSkill = true;
+    },
+    showEditRecognitionModal(item) {
+      this.recognition = item;
+      this.showEditRecognition = true;
+    },
+    showEditMembershipModal(item) {
+      this.membership = item;
+      this.showEditMembership = true;
+    },
     destroySkill(id, name) {
       swal({
         title: "Delete",

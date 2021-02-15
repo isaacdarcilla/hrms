@@ -9,12 +9,12 @@
             <h5 class="mx-6 my-5 font-semibold font bg-white">
               ⛑️ Voluntary Work Involvement
             </h5>
-            <inertia-link
+            <button
+              @click="showVolunteerModal"
               class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
-              :href="route('employees.create')"
             >
               ➕ Add
-            </inertia-link>
+            </button>
           </div>
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-white">
@@ -64,7 +64,7 @@
                 :key="volunteer.id"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ volunteer.volunteers_organization }}
                   </div>
                 </td>
@@ -84,13 +84,15 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div class="text-sm text-gray-900">
+                  <div class="text-sm text-gray-900 capitalize">
                     {{ volunteer.volunteers_nature_of_work }}
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span class="text-indigo-600 hover:text-indigo-900"
-                    >✏️ Edit</span
+                  <span 
+                    @click="showVolunteerEditModal(volunteer)"
+                    class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                    >✏️ Edit</span</span
                   >
                   <span
                     @click="
@@ -114,12 +116,45 @@
         </div>
       </div>
     </div>
+    <volunteer-add-modal
+      :showing="showVolunteer"
+      :employee="employeeId"
+      :modal.sync="showVolunteer"
+    ></volunteer-add-modal>
+    <volunteer-edit-modal
+      :showing="showVolunteerEdit"
+      :employee="employeeId"
+      :volunteer="volunteerItems"
+      :modal.sync="showVolunteerEdit"
+    ></volunteer-edit-modal>
   </div>
 </template>
 <script>
+import VolunteerAddModal from "@/Shared/Modals/VolunteerAddModal.vue";
+import VolunteerEditModal from "@/Shared/Modals/VolunteerEditModal.vue";
+
 export default {
+  components: { 
+    VolunteerAddModal, 
+    VolunteerEditModal
+  },
+  inject: ["employeeId"],
   props: { volunteers: Array },
+  data() {
+    return {
+      volunteerItems: null,
+      showVolunteer: false,
+      showVolunteerEdit: false,
+    };
+  },
   methods: {
+    showVolunteerModal() {
+      this.showVolunteer = true;
+    },
+    showVolunteerEditModal(item) {
+      this.volunteerItems = item;
+      this.showVolunteerEdit = true;
+    },
     destroy(id, name) {
       swal({
         title: "Delete",
