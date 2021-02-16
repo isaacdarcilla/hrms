@@ -11,7 +11,7 @@
             </h5>
             <button
               @click="showExperienceModal"
-              class="h-8 text-xs rounded-lg items-center btn-indigo my-2 mx-6"
+              class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
             >
               ➕ Add
             </button>

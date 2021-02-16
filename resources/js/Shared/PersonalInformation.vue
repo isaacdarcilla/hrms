@@ -6,7 +6,7 @@
       </h5>
       <button
         @click="showChildrenModal"
-        class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+        class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
       >
         ✏️ Edit
       </button>

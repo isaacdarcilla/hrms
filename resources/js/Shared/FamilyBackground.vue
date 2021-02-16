@@ -7,14 +7,14 @@
       <button
         v-if="family !== null"
         @click="showFamilyEditModal"
-        class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+        class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
       >
         ✏️ Edit
       </button>
       <button
         v-else
         @click="showFamilyModal"
-        class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+        class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
       >
         ➕ Add
       </button>

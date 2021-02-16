@@ -58,6 +58,11 @@ class Contact extends Model
         return $this->hasMany(Volunteer::class);
     }
 
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
+
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;

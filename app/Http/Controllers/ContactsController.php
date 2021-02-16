@@ -183,6 +183,8 @@ class ContactsController extends Controller
                 ->get(),
             'memberships' => $contact->memberships()
                 ->get(),
+            'documents' => $contact->documents()
+                ->get(),
         ]);
     }
 

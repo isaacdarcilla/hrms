@@ -132,6 +132,49 @@
       :recognitions="recognitions"
       class="flex"
     ></other-informations>
+
+    <div id="documents" class="w-full lg:w-1/3 px-0">
+      <div class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg">
+          <div class="flex items-center justify-between mb-0">
+            <h5 class="mx-6 my-5 font-semibold font bg-white">📑 Documents</h5>
+            <button
+              @click="showDocumentModal"
+              class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
+            >
+              ➕ Add
+            </button>
+          </div>
+          <ul v-for="document in documents" :key="document.id">
+            <li class="px-6 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
+              <a class="flex items-center text-gray-600 cursor-pointer">
+                <span class="inline-block h-4 w-4 bg-green-300 mr-3"></span>
+                  {{ document.document_name }}
+                  <div class="ml-auto">
+                    <span
+                    class="text-indigo-600 cursor-pointer text-sm hover:text-indigo-900"
+                    >💾 Download</span
+                    >
+                    <span
+                      @click="destroy(document.id, document.document_name)"
+                      class="text-red-600 inline cursor-pointer text-sm hover:text-red-900"
+                      >🗑️ Delete</span
+                    >
+                  </div>
+              </a>
+            </li>
+        </ul>
+        <ul v-if="documents.length === 0">
+          <li class="border-t text-red-500 text-sm px-6 py-4 font-bold">
+            ☹️ No documents added.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <document-add-modal
+      :showing="showDocument"
+      :employee="contact.id"
+      :modal.sync="showDocument"
+    ></document-add-modal>
   </div>
 </template>
 
@@ -151,6 +194,7 @@ import OtherInformations from "@/Shared/OtherInformations.vue";
 import PersonalInformation from "@/Shared/PersonalInformation.vue";
 import FamilyBackground from "@/Shared/FamilyBackground.vue";
 import Childrens from "@/Shared/Childrens.vue";
+import DocumentAddModal from "@/Shared/Modals/DocumentAddModal.vue";
 
 export default {
   metaInfo() {
@@ -174,6 +218,7 @@ export default {
     PersonalInformation,
     FamilyBackground,
     Childrens,
+    DocumentAddModal,
   },
   provide() {
     return { employeeId: this.contact, familyObject: this.family };
@@ -192,10 +237,12 @@ export default {
     memberships: Array,
     family: Object,
     childrens: Array,
+    documents: Array,
   },
   remember: "form",
   data() {
     return {
+      showDocument: false,
       hidden: true,
       sending: false,
       file: null,
@@ -217,6 +264,9 @@ export default {
     },
   },
   methods: {
+    showDocumentModal() {
+      this.showDocument = true;
+    },
     capitalize: function (value) {
       return value.toLowerCase().replace(/\b./g, function (a) {
         return a.toUpperCase();
@@ -268,6 +318,18 @@ export default {
           onFinish: () => (this.sending = false),
         }
       );
+    },
+    destroy(id, name) {
+      swal({
+        title: "Delete",
+        text: `Are you sure you want to delete ${name}?`,
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          this.$inertia.delete(this.route("document.destroy", id));
+        }
+      });
     },
   },
 };

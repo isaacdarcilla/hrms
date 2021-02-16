@@ -15,6 +15,7 @@ use App\Http\Controllers\Employee\VolunteerController;
 use App\Http\Controllers\Employee\FamilyController;
 use App\Http\Controllers\Employee\TrainingController;
 use App\Http\Controllers\Employee\OtherInformationController;
+use App\Http\Controllers\Employee\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -129,11 +130,11 @@ Route::post('employees/{contact}', [ContactsController::class, 'update'])
     ->name('employees.update')
     ->middleware('auth');
 
-Route::put('employees/{contact}', [ContactsController::class, 'update_photo'])
+Route::put('employees/{contact}/photo', [ContactsController::class, 'update_photo'])
     ->name('employees.update.photo')
     ->middleware('auth');
 
-Route::put('employees/{contact}', [ContactsController::class, 'update_status'])
+Route::put('employees/{contact}/status', [ContactsController::class, 'update_status'])
     ->name('employees.update.status')
     ->middleware('auth');
 
@@ -279,6 +280,16 @@ Route::put('membership/{membership}', [OtherInformationController::class, 'updat
     
 Route::delete('membership/{membership}', [OtherInformationController::class, 'destroy_membership'])
     ->name('membership.destroy')
+    ->middleware('auth');
+
+// Document
+
+Route::post('document', [DocumentController::class, 'store'])
+    ->name('document.store')
+    ->middleware('auth');
+
+Route::delete('document/{document}', [DocumentController::class, 'destroy'])
+    ->name('document.destroy')
     ->middleware('auth');
 
 // Reports

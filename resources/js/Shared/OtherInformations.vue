@@ -12,7 +12,7 @@
               </h5>
               <button
                 @click="showSkillModal"
-                class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+                class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
                 ➕ Add
               </button>
@@ -84,7 +84,7 @@
               </h5>
               <button
                 @click="showRecognitionModal"
-                class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+                class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
                 ➕ Add
               </button>
@@ -161,7 +161,7 @@
               </h5>
               <button
                 @click="showMembershipModal"
-                class="h-8 text-xs items-center rounded-lg btn-indigo my-2 mx-6"
+                class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
                 ➕ Add
               </button>
