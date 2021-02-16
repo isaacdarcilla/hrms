@@ -29,35 +29,16 @@
                 </h3>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3 mb-6">
-                      <label class="form-label font-bold">Name of Document</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter document name"
-                        v-model="form.document_name"
-                      />
-                      <div
-                        v-if="$page.errors.document_name !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.document_name }}
-                      </div>
-                    </div>
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Browse Document</label>
-                      <input
-                        type="file"
-                        class="form-input block w-full"
-                        placeholder="Browse document file"
-                        ref="document"
-                      />
-                      <div
-                        v-if="$page.errors.document_file !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.document_file }}
-                      </div>
+                      <header class="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center">
+                        <p class="mb-3 font-semibold text-gray-900 flex flex-wrap justify-center">
+                          <span>Drag and drop your</span>&nbsp;<span>files anywhere or</span>
+                        </p>
+                        <input id="hidden-input" type="file" multiple class="hidden" @change="change" />
+                        <button id="button" class="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
+                          Upload a file
+                        </button>
+                      </header>
                     </div>
                   </div>
                 </form>
@@ -104,7 +85,7 @@ export default {
     modal: {
       default: false,
     },
-    employee: String | Number,
+    employee: Object,
     errors: Object,
     showing: Boolean,
   },
@@ -120,8 +101,18 @@ export default {
     };
   },
   methods: {
+    change(event) {
+      this.form.document_file = event.target.files[0];
+      this.$emit("input", this.form.document_file);
+    },
     save() {
-      this.$inertia.post(this.route("document.store"), this.form, {
+      let data = new FormData();
+      data.append("contact_id", this.employee.id);
+      data.append("document_name", this.form.document_name);
+      data.append("document_file", this.form.document_file);
+      data.append("_method", "PUT");
+
+      this.$inertia.post(this.route("document.store"), data,{
         onStart: () => (this.sending = true),
         onFinish: () => (this.sending = false),
       });

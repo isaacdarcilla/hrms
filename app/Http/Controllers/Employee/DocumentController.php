@@ -18,12 +18,16 @@ class DocumentController extends Controller
 
     public function store(Document $document)
     {
+    	Request::validate([
+    		'contact_id' => ['required'],
+    		'document_name' => ['required', 'max:50', 'min:4'],
+        	'document_file' => ['required', 'max:10240', 'min:1', 'mimes:xls,xlsx,pdf'],
+    	]);
+
     	$document->create(
-    		Request::validate([
-    			'contact_id' => ['required'],
-    			'document_name' => ['required', 'max:50', 'min:4'],
-        		'document_file' => ['required', 'max:50', 'min:1', 'mimes:xls,xlsx,pdf'],
-    		])
+    		
     	);
+
+    	return Redirect::back()->with('success', 'Document added.');
     }
 }

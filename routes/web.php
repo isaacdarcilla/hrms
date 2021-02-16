@@ -284,7 +284,7 @@ Route::delete('membership/{membership}', [OtherInformationController::class, 'de
 
 // Document
 
-Route::post('document', [DocumentController::class, 'store'])
+Route::put('document', [DocumentController::class, 'store'])
     ->name('document.store')
     ->middleware('auth');
 

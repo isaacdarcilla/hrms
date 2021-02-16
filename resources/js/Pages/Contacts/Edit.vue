@@ -172,7 +172,7 @@
     </div>
     <document-add-modal
       :showing="showDocument"
-      :employee="contact.id"
+      :employee="contact"
       :modal.sync="showDocument"
     ></document-add-modal>
   </div>
