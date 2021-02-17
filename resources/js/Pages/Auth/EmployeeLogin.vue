@@ -21,33 +21,31 @@
           >
             <span>Login to get started.</span>
           </p>
-          <inertia-link :href="route('login.employee')"
+          <inertia-link :href="route('login')"
             class="flex flex-col items-center justify-center mt-6 text-center"
           >
-            <span class="underline">Go to Employee panel</span>
+            <span class="underline">Go to Admin panel</span>
           </inertia-link>
         </div>
         <div class="p-5 bg-white md:flex-1">
           <h3 class="my-4 mx-5 text-2xl font-semibold text-gray-700">
-            Admin Panel
+            Employee Panel
           </h3>
           <form
             @submit.prevent="submit"
             class="flex flex-col space-y-5 mx-5 pb-5"
           >
             <div class="flex flex-col space-y-1">
-              <label for="email" class="text-sm font-semibold text-gray-500"
+              <label for="email" class="text-sm pb-2 font-semibold text-gray-500"
                 >Email address</label
               >
-              <text-input
+              <input
                 v-model="form.email"
-                :error="errors.email"
                 type="text"
-                autofocus
                 placeholder="Enter your email address"
-                autocapitalize="off"
-                class="px-0 py-2 transition duration-300 border-0 border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
               />
+              <div v-if="errors" class="form-error">{{ errors.message }}</div>
             </div>
             <div class="flex flex-col space-y-1">
               <div class="flex items-center justify-between">
@@ -62,7 +60,7 @@
                 type="password"
                 id="password"
                 placeholder="Enter your password"
-                class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                class="px-4 py-3 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
               />
             </div>
             <div class="flex items-center space-x-2">
@@ -121,10 +119,9 @@ export default {
       const data = {
         email: this.form.email,
         password: this.form.password,
-        remember: this.form.remember,
       };
 
-      this.$inertia.post(this.route("login.attempt"), data, {
+      this.$inertia.post(this.route("login.attempt.employee"), data, {
         onStart: () => (this.sending = true),
         onFinish: () => (this.sending = false),
       });

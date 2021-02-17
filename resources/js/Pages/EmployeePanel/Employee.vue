@@ -1,14 +1,8 @@
 <template>
-  <div>
+  <div class="mx-12 my-12">
     <div class="flex items-center justify-between mb-0">
       <h1 class="capitalize mb-8 font-bold text-3xl">
-        <inertia-link
-          class="text-blue-400 hover:text-blue-600"
-          :href="route('employees')"
-          >Employee</inertia-link
-        >
-        <span class="text-indigo-400 font-medium">/</span>
-        {{ form.first_name }} {{ form.last_name }} 👥
+          My Profile 👥
       </h1>
     </div>
 
@@ -202,7 +196,6 @@ export default {
       title: `${this.form.first_name} ${this.form.last_name}`,
     };
   },
-  layout: Layout,
   components: {
     ToggleButton,
     LoadingButton,

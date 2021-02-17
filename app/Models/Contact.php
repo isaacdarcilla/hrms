@@ -8,6 +8,8 @@ class Contact extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'contacts';
+
     public function organization()
     {
         return $this->belongsTo(Organization::class);

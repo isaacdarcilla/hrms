@@ -16,6 +16,7 @@ use App\Http\Controllers\Employee\FamilyController;
 use App\Http\Controllers\Employee\TrainingController;
 use App\Http\Controllers\Employee\OtherInformationController;
 use App\Http\Controllers\Employee\DocumentController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +36,16 @@ Route::get('login', [LoginController::class, 'showLoginForm'])
     ->name('login')
     ->middleware('guest');
 
+Route::get('login/employee', [LoginController::class, 'showLoginFormEmployee'])
+    ->name('login.employee')
+    ->middleware('guest');
+
 Route::post('login', [LoginController::class, 'login'])
     ->name('login.attempt')
+    ->middleware('guest');
+
+Route::post('login/employee', [LoginController::class, 'loginEmployee'])
+    ->name('login.attempt.employee')
     ->middleware('guest');
 
 Route::post('logout', [LoginController::class, 'logout'])
@@ -47,6 +56,10 @@ Route::post('logout', [LoginController::class, 'logout'])
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth');
+
+Route::get('/employee/dashboard', [EmployeeController::class, 'index'])
+    ->name('employee.dashboard')
+    ->middleware('guest');
 
 // Users
 
@@ -277,7 +290,7 @@ Route::post('membership', [OtherInformationController::class, 'store_membership'
 Route::put('membership/{membership}', [OtherInformationController::class, 'update_membership'])
     ->name('membership.update')
     ->middleware('auth');
-    
+
 Route::delete('membership/{membership}', [OtherInformationController::class, 'destroy_membership'])
     ->name('membership.destroy')
     ->middleware('auth');
