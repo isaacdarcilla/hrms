@@ -193,7 +193,7 @@
                 <div v-else class="text-sm text-gray-700">None required</div>
               </inertia-link>
             </td>
-            <td v-if="!job.deleted_at" class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <td v-if="!job.deleted_at" class="px-1 py-4 whitespace-nowrap text-sm font-medium">
               <span v-if="!job.deleted_at" class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >✏️ Edit</span
               >
