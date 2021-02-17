@@ -17,6 +17,7 @@ use App\Http\Controllers\Employee\TrainingController;
 use App\Http\Controllers\Employee\OtherInformationController;
 use App\Http\Controllers\Employee\DocumentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,7 +60,7 @@ Route::get('/', [DashboardController::class, 'index'])
 
 Route::get('/employee/dashboard', [EmployeeController::class, 'index'])
     ->name('employee.dashboard')
-    ->middleware('guest');
+    ->middleware('auth');
 
 // Users
 
@@ -314,3 +315,21 @@ Route::get('reports', [ReportsController::class, 'index'])
 // Images
 
 Route::get('/img/{path}', [ImagesController::class, 'show'])->where('path', '.*');
+
+// Jobs
+
+Route::get('jobs', [JobController::class, 'index'])
+    ->name('jobs')
+    ->middleware('auth');
+
+Route::post('jobs', [JobController::class, 'store'])
+    ->name('jobs.store')
+    ->middleware('auth');
+
+Route::delete('jobs/{jobs}', [JobController::class, 'destroy'])
+    ->name('jobs.destroy')
+    ->middleware('auth');
+
+Route::put('jobs/{jobs}/restore', [JobController::class, 'restore'])
+    ->name('jobs.restore')
+    ->middleware('auth');

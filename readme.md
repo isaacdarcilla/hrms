@@ -8,6 +8,7 @@
 - [X] <s>Design database for employee module</s> (Jan 20)
 - [X] <s>Design interface for employee module</s> (Jan 25)
 - [X] <s>Add functionality in employee module</s> (Feb 1)
+- [ ] Add job posting module (Feb 17)
 - [ ] Add documents upload to employee profile
 - [ ] Add payslip module
 

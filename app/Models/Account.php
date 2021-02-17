@@ -18,4 +18,9 @@ class Account extends Model
     {
         return $this->hasMany(Contact::class);
     }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }
