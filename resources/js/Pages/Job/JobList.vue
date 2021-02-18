@@ -18,13 +18,12 @@
                   class="max-w-4xl container mx-auto px-10 py-6 bg-white rounded-lg shadow-md"
                 >
                   <div class="flex justify-between items-center">
-                    <span class="font-normal text-sm text-gray-600">Posted on {{
-                      format(job.created_at)
-                    }}</span
+                    <span class="font-normal text-sm text-gray-600"
+                      >Posted on {{ format(job.created_at) }}</span
                     ><a
                       href="#"
                       class="px-2 py-2 bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500"
-                      >Apply</a
+                      >Easy Apply</a
                     >
                   </div>
                   <div class="mt-2">
@@ -52,7 +51,7 @@
                           <li class="pl-3 mb-1">
                             • Experience:
                             <span class="text-gray-600 normal-case">{{
-                              job.experience ? job.experience : 'None required'
+                              job.experience ? job.experience : "None required"
                             }}</span>
                           </li>
                         </ol>
@@ -62,13 +61,15 @@
                           <li class="pl-3 mb-1">
                             • Training:
                             <span class="text-gray-600 normal-case">{{
-                              job.training  ? job.training : 'None required'
+                              job.training ? job.training : "None required"
                             }}</span>
                           </li>
                           <li class="pl-3 mb-1">
                             • Eligibility:
                             <span class="text-gray-600 normal-case">{{
-                              job.eligibility  ? job.eligibility : 'None required'
+                              job.eligibility
+                                ? job.eligibility
+                                : "None required"
                             }}</span>
                           </li>
                         </ol>
@@ -83,8 +84,24 @@
                       SG-{{ job.salary_grade }}
                     </p>
                   </div>
-                  <div class="flex justify-between items-center mt-4">
-                    <a class="text-blue-500 hover:underline">Easy Apply</a>
+                  <div class="flex justify-between items-center mt-6">
+                    <a
+                      class="text-blue-500 cursor-pointer font-semibold hover:underline"
+                      ><svg
+                        class="w-6 h-6 inline-block"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                        ></path></svg
+                      > Share link</a
+                    >
                     <div>
                       <a href="#" class="flex items-center"
                         ><img
