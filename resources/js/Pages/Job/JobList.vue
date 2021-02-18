@@ -52,7 +52,7 @@
                           <li class="pl-3 mb-1">
                             • Experience:
                             <span class="text-gray-600 normal-case">{{
-                              job.experience
+                              job.experience ? job.experience : 'None required'
                             }}</span>
                           </li>
                         </ol>
@@ -62,13 +62,13 @@
                           <li class="pl-3 mb-1">
                             • Training:
                             <span class="text-gray-600 normal-case">{{
-                              job.training
+                              job.training  ? job.training : 'None required'
                             }}</span>
                           </li>
                           <li class="pl-3 mb-1">
                             • Eligibility:
                             <span class="text-gray-600 normal-case">{{
-                              job.eligibility
+                              job.eligibility  ? job.eligibility : 'None required'
                             }}</span>
                           </li>
                         </ol>
