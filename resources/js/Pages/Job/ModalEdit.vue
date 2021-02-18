@@ -34,7 +34,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter item number"
+                        :placeholder="job.item_number"
                         v-model="form.item_number"
                         ref="name"
                       />
@@ -52,7 +52,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter name of position"
+                        :placeholder="job.position"
                         v-model="form.position"
                       />
                       <div
@@ -69,7 +69,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter name of department"
+                        :placeholder="job.department"
                         v-model="form.department"
                       />
                       <div
@@ -88,7 +88,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter education qualification standard"
+                        :placeholder="job.education"
                         v-model="form.education"
                       />
                       <div
@@ -108,7 +108,11 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter eligibility qualification standard"
+                        :placeholder="
+                          job.eligibility === null
+                            ? `Enter eligibility qualification standard`
+                            : job.eligibility
+                        "
                         v-model="form.eligibility"
                       />
                       <div
@@ -128,7 +132,11 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter experience qualification standard"
+                        :placeholder="
+                          job.experience === null
+                            ? `Enter experience qualification standard`
+                            : job.experience
+                        "
                         v-model="form.experience"
                       />
                       <div
@@ -148,7 +156,11 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter training qualification standard"
+                        :placeholder="
+                          job.training === null
+                            ? `Enter training qualification standard`
+                            : job.training
+                        "
                         v-model="form.training"
                       />
                       <div
@@ -165,7 +177,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter salary grade"
+                        :placeholder="job.salary_grade"
                         v-model="form.salary_grade"
                       />
                       <div
@@ -185,7 +197,11 @@
                       <textarea
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter job description"
+                        :placeholder="
+                          job.job_description === null
+                            ? `Enter job description`
+                            : job.job_description
+                        "
                         v-model="form.job_description"
                         rows="4"
                       />
@@ -241,6 +257,7 @@ export default {
     modal: {
       default: false,
     },
+    job: Object,
     errors: Object,
     showing: Boolean,
   },
@@ -267,7 +284,7 @@ export default {
   },
   methods: {
     save() {
-      this.$inertia.post(this.route("jobs.store"), this.form, {
+      this.$inertia.put(this.route("jobs.update", this.job.id), this.form, {
         onStart: () => (this.sending = true),
         onFinish: () => (this.sending = false),
       });

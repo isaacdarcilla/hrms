@@ -322,12 +322,19 @@ Route::get('jobs', [JobController::class, 'index'])
     ->name('jobs')
     ->middleware('auth');
 
+Route::get('/lists/jobs', [JobController::class, 'list'])
+    ->name('jobs.list');
+
 Route::post('jobs', [JobController::class, 'store'])
     ->name('jobs.store')
     ->middleware('auth');
 
 Route::delete('jobs/{jobs}', [JobController::class, 'destroy'])
     ->name('jobs.destroy')
+    ->middleware('auth');
+
+Route::put('jobs/{jobs}', [JobController::class, 'update'])
+    ->name('jobs.update')
     ->middleware('auth');
 
 Route::put('jobs/{jobs}/restore', [JobController::class, 'restore'])

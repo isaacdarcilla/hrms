@@ -55,8 +55,8 @@ class JobController extends Controller
                 'experience' => ['nullable', 'max:255', 'min:2'],
                 'training' => ['nullable', 'max:255', 'min:2'],
                 'eligibility' => ['nullable', 'max:255', 'min:2'],
-                'salary_grade' => ['required', 'max:255', 'min:2'],
-                'job_description' => ['nullable', 'max:255', 'min:6'],
+                'salary_grade' => ['required', 'max:255', 'min:2', 'regex:/^[0-9+]+$/'],
+                'job_description' => ['required', 'min:6'],
             ])
         );
 
@@ -92,9 +92,23 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        Job::where('id', $id)->update(
+            Request::validate([
+                'position' => ['required', 'max:255', 'min:2'],
+                'department' => ['required', 'max:255', 'min:2'],
+                'item_number' => ['required', 'max:50', 'min:2'],
+                'education' => ['required', 'max:255', 'min:2'],
+                'experience' => ['nullable', 'max:255', 'min:2'],
+                'training' => ['nullable', 'max:255', 'min:2'],
+                'eligibility' => ['nullable', 'max:255', 'min:2'],
+                'salary_grade' => ['required', 'max:255', 'min:2', 'regex:/^[0-9+]+$/'],
+                'job_description' => ['required', 'min:6'],
+            ])
+        );
+
+        return Redirect::back()->with('success', 'Job updated.');
     }
 
     /**
@@ -110,10 +124,20 @@ class JobController extends Controller
         return Redirect::back()->with('success', 'Job deleted.');
     }
 
-    public function restore(Job $job)
+    public function restore($id)
     {
-        $job->restore();
+        Job::where('id', $id)->restore([
+            'deleted_at' => null,
+        ]);
 
         return Redirect::back()->with('success', 'Job restored.');
+    }
+
+    public function list() {
+        $jobs = Job::all();
+
+        return Inertia::render('Job/JobList', [
+            'jobs' => $jobs,
+        ]);
     }
 }

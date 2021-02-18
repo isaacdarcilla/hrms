@@ -193,8 +193,11 @@
                 <div v-else class="text-sm text-gray-700">None required</div>
               </inertia-link>
             </td>
-            <td v-if="!job.deleted_at" class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-              <span v-if="!job.deleted_at" class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+            <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+              <span
+                v-if="!job.deleted_at"
+                @click="showEditModal(job)"
+                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >✏️ Edit</span
               >
               <span
@@ -210,7 +213,6 @@
                 >♻️ Restore</span
               >
             </td>
-            <td v-else class="px-6 py-4 whitespace-nowrap text-sm font-medium"></td>
           </tr>
         </tbody>
         <tr v-if="jobs.data.length === 0">
@@ -221,6 +223,11 @@
       </table>
     </div>
     <modal-create :showing="showAddJob" :modal.sync="showAddJob"></modal-create>
+    <modal-edit
+      :showing="showEditJob"
+      :job="job"
+      :modal.sync="showEditJob"
+    ></modal-edit>
     <pagination :links="jobs.links" />
   </div>
 </template>
@@ -233,6 +240,7 @@ import Pagination from "@/Shared/Pagination";
 import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import ModalCreate from "@/Pages/Job/ModalCreate";
+import ModalEdit from "@/Pages/Job/ModalEdit";
 import throttle from "lodash/throttle";
 
 export default {
@@ -243,6 +251,7 @@ export default {
     Pagination,
     SearchFilter,
     ModalCreate,
+    ModalEdit,
   },
   props: {
     jobs: Object,
@@ -250,7 +259,9 @@ export default {
   },
   data() {
     return {
+      job: null,
       showAddJob: false,
+      showEditJob: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
@@ -274,6 +285,10 @@ export default {
   methods: {
     showModal() {
       this.showAddJob = true;
+    },
+    showEditModal(item) {
+      this.job = item;
+      this.showEditJob = true;
     },
     reset() {
       this.form = mapValues(this.form, () => null);
