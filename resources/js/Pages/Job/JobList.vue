@@ -5,7 +5,7 @@
         <div class="w-full">
           <div class="my-10 items-center justify-between">
             <p class="mt-10 text-xl font-bold text-gray-700 md:text-2xl">
-              💼 Job Listings
+              💼 CatSU Job Listings
             </p>
             <p class="font-semibold text-sm mt-1">
               Browse and apply for vacant jobs
