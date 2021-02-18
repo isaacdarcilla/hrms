@@ -112,8 +112,11 @@
                           alt="avatar"
                           class="mx-2 w-5 h-5 object-cover rounded-full hidden sm:block"
                         />
-                        <h1 class="text-gray-700 font-bold hover:underline">
-                          There are 2 applicants
+                        <h1 v-if="applicants[0].length > 0" class="text-gray-700 font-bold hover:underline">
+                          There are {{ applicants[0] }} applicants
+                        </h1>
+                        <h1 v-else class="text-gray-700 font-bold hover:underline">
+                          There are only {{ applicants[0] }} applicant
                         </h1>
                       </a>
                     </div>
