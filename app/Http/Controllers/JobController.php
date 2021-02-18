@@ -145,8 +145,10 @@ class JobController extends Controller
         }
 
         return Inertia::render('Job/JobList', [
-            'jobs' => $jobs,
-            'applicants' => $myArray,
+            'jobs' => [
+                'jobs' => $jobs,
+                'applicants' => $myArray,
+            ],
         ]);
     }
 }

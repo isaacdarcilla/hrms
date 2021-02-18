@@ -12,7 +12,7 @@
             </p>
           </div>
           <flash-messages/>
-          <ul v-for="job in jobs" :key="job.id">
+          <ul v-for="job in jobs.jobs" :key="job.id">
             <li>
               <div :id="job.item_number" class="mt-6 mx-auto">
                 <div
@@ -88,9 +88,9 @@
                   <div class="flex justify-between items-center mt-6">
                     <a
                       :href="'#' + job.item_number"
-                      class="text-blue-500 cursor-pointer font-semibold hover:underline"
+                      class="text-blue-500 cursor-pointer text-sm font-bold hover:underline"
                       ><svg
-                        class="w-6 h-6 inline-block"
+                        class="w-5 h-5 inline-block"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -112,11 +112,8 @@
                           alt="avatar"
                           class="mx-2 w-5 h-5 object-cover rounded-full hidden sm:block"
                         />
-                        <h1 v-if="applicants[0].length > 0" class="text-gray-700 font-bold hover:underline">
-                          There are {{ applicants[0] }} applicants
-                        </h1>
-                        <h1 v-else class="text-gray-700 font-bold hover:underline">
-                          There are only {{ applicants[0] }} applicant
+                        <h1 class="text-gray-700 text-sm font-bold hover:underline">
+                          There are only {{ jobs.applicants[0] }} applicant
                         </h1>
                       </a>
                     </div>
@@ -125,6 +122,9 @@
               </div>
             </li>
           </ul>
+          <div v-if="jobs.jobs.length === 0">
+            <p>There's no job post yet.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -147,8 +147,7 @@ export default {
     ModalApply,
   },
   props: {
-    jobs: Array,
-    applicants: Array,
+    jobs: Object,
   },
   data() {
     return {
