@@ -145,7 +145,6 @@ export default {
   },
   props: {
     jobs: Array,
-    applicants: Array,
   },
   data() {
     return {

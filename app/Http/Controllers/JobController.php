@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use App\Models\Contact;
 use App\Models\Job;
+use Illuminate\Support\Facades\DB;
 
 class JobController extends Controller
 {
@@ -135,11 +136,13 @@ class JobController extends Controller
     }
 
     public function list() {
-        $jobs = Job::all();
+        $jobs = DB::table('jobs')
+            ->join('applicants', 'jobs.id', '=', 'applicants.job_id')
+            ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get();
 
         return Inertia::render('Job/JobList', [
             'jobs' => $jobs,
-            'applicants' => Applicant::where('job_id', $jobs->id)->count(),
         ]);
     }
 }
