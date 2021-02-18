@@ -18,6 +18,7 @@ use App\Http\Controllers\Employee\OtherInformationController;
 use App\Http\Controllers\Employee\DocumentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ApplicantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -322,7 +323,7 @@ Route::get('jobs', [JobController::class, 'index'])
     ->name('jobs')
     ->middleware('auth');
 
-Route::get('/lists/jobs', [JobController::class, 'list'])
+Route::get('lists/jobs', [JobController::class, 'list'])
     ->name('jobs.list');
 
 Route::post('jobs', [JobController::class, 'store'])
@@ -340,3 +341,8 @@ Route::put('jobs/{jobs}', [JobController::class, 'update'])
 Route::put('jobs/{jobs}/restore', [JobController::class, 'restore'])
     ->name('jobs.restore')
     ->middleware('auth');
+
+// Applicant
+
+Route::post('applicant/{job}', [ApplicantController::class, 'store'])
+    ->name('applicant.store');

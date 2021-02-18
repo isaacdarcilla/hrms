@@ -11,6 +11,7 @@
               Browse and apply for vacant jobs
             </p>
           </div>
+          <flash-messages/>
           <ul v-for="job in jobs" :key="job.id">
             <li>
               <div :id="job.item_number" class="mt-6 mx-auto">
@@ -21,8 +22,8 @@
                     <span class="font-normal text-sm text-gray-600"
                       >Posted on {{ format(job.created_at) }}</span
                     ><a
-                      href="#"
-                      class="px-2 py-2 bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500"
+                      @click="showApplyModal(job)"
+                      class="px-2 py-2 cursor-pointer bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500"
                       >Easy Apply</a
                     >
                   </div>
@@ -124,16 +125,44 @@
         </div>
       </div>
     </div>
+    <modal-apply
+      :showing="showApply"
+      :job="job"
+      :applied="applied"
+      :modal.sync="showApply"
+    ></modal-apply>
   </div>
 </template>
 <script>
+import ModalApply from "@/Pages/Job/ModalApply";
 import moment from "moment";
+import FlashMessages from "@/Shared/FlashMessages";
 
 export default {
+  components: {
+    FlashMessages,
+    ModalApply,
+  },
   props: {
     jobs: Array,
+    applicants: Array,
+  },
+  data() {
+    return {
+      job: null,
+      applied: false,
+      showApply: false,
+    };
   },
   methods: {
+    showApplyModal(item) {
+      this.job = item;
+      this.showApply = true;
+
+      localStorage.getItem(item.id)
+        ? (this.applied = true)
+        : (this.applied = false);
+    },
     format(value) {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY, h:mm a");

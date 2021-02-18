@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -138,6 +139,7 @@ class JobController extends Controller
 
         return Inertia::render('Job/JobList', [
             'jobs' => $jobs,
+            'applicants' => Applicant::where('job_id', $jobs->id)->count(),
         ]);
     }
 }
