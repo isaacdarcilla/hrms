@@ -137,8 +137,16 @@ class JobController extends Controller
     public function list() {
         $jobs = Job::all();
 
+        $myArray = array();
+
+        foreach ($jobs as $key) {
+            $applicants = Applicant::where('job_id', $key->id)->count();
+            array_push($myArray, $applicants);
+        }
+
         return Inertia::render('Job/JobList', [
             'jobs' => $jobs,
+            'applicants' => $$myArray,
         ]);
     }
 }
