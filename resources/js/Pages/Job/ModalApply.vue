@@ -200,6 +200,39 @@
                       </div>
                     </div>
                   </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <input
+                        id="resume"
+                        type="file"
+                        accept="pdf/*"
+                        class="hidden"
+                        ref="file"
+                        @change="change"
+                      />
+                      <div
+                        @click="browse()"
+                        class="border-4 border-dashed bg-gray-200 hover:bg-gray-400 cursor-pointer"
+                      >
+                        <div v-if="!file_name"
+                          class="my-6 mx-auto text-center font-normal hover:font-semibold"
+                        >
+                          Attach your resume
+                        </div>
+                        <div v-else
+                          class="my-6 mx-auto text-center font-normal hover:font-semibold"
+                        >
+                          {{ file_name }}
+                        </div>
+                      </div>
+                      <div
+                        v-if="$page.errors.resume !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.resume }}
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -316,30 +349,63 @@ export default {
     return {
       show: false,
       sending: false,
+      file: null,
+      file_name: null,
       form: {
+        resume: null,
         first_name: null,
         middle_name: null,
         sur_name: null,
         email: null,
         phone: null,
-        qualification_experience: null,
-        qualification_eligibility: null,
-        qualification_education: null,
-        qualification_training: null,
+        qualification_experience: false,
+        qualification_eligibility: false,
+        qualification_education: false,
+        qualification_training: false,
       },
     };
   },
   methods: {
     save(key, value) {
-      this.$inertia.post(
-        this.route("applicants.store", this.job.id),
-        this.form,
-        {
-          onStart: () => (this.sending = true),
-          onFinish: () => (this.sending = false),
-        }
+      const data = new FormData();
+      data.append("resume", this.form.resume || "");
+      data.append("first_name", this.form.first_name || "");
+      data.append("middle_name", this.form.middle_name || "");
+      data.append("sur_name", this.form.sur_name || "");
+      data.append("email", this.form.email || "");
+      data.append("phone", this.form.phone || "");
+      data.append(
+        "qualification_experience",
+        this.form.qualification_experience ? "1" : "0"
       );
+      data.append(
+        "qualification_eligibility",
+        this.form.qualification_eligibility ? "1" : "0"
+      );
+      data.append(
+        "qualification_education",
+        this.form.qualification_education ? "1" : "0"
+      );
+      data.append(
+        "qualification_training",
+        this.form.qualification_training ? "1" : "0"
+      );
+      data.append("_method", "PUT");
+
+      this.$inertia.post(this.route("applicants.store", this.job.id), data, {
+        onStart: () => (this.sending = true),
+        onFinish: () => (this.sending = false),
+      });
       //   this.show ? localStorage.setItem(key, value) : console.log(this.show);
+    },
+    browse() {
+      this.$refs.file.click();
+    },
+    change(event) {
+      var data = event.target.files[0];
+      this.form.resume = event.target.files[0];
+      this.file_name = data.name;
+      this.$emit("input", this.form.resume);
     },
     closeModal() {
       this.$emit("update:modal");

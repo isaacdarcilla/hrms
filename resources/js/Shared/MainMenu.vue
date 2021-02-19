@@ -64,6 +64,22 @@
         </div>
       </inertia-link>
     </div>
+    <div class="mb-4">
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('notices')"
+      >
+        <div
+          :class="
+            isUrl('notices')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          📢 Notice Board
+        </div>
+      </inertia-link>
+    </div>
   </div>
 </template>
 

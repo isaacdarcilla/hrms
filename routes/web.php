@@ -348,5 +348,14 @@ Route::get('applicants', [ApplicantController::class, 'index'])
     ->name('applicants')
     ->middleware('auth');
 
-Route::post('applicants/{job}', [ApplicantController::class, 'store'])
+Route::put('applicants/{job}', [ApplicantController::class, 'store'])
     ->name('applicants.store');
+
+Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recruit'])
+    ->name('applicants.recruit');
+
+// Notice Board
+
+Route::get('notices', [NoticeController::class, 'index'])
+    ->name('notices')
+    ->middleware('auth');

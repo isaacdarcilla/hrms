@@ -21,11 +21,11 @@
           >
             <span>Login to get started.</span>
           </p>
-          <inertia-link :href="route('login.employee')"
+          <!-- <inertia-link :href="route('login.employee')"
             class="flex flex-col items-center justify-center mt-6 text-center"
           >
             <span class="underline">Go to Employee panel</span>
-          </inertia-link>
+          </inertia-link> -->
         </div>
         <div class="p-5 bg-white md:flex-1">
           <h3 class="my-4 mx-5 text-2xl font-semibold text-gray-700">

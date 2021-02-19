@@ -9,7 +9,7 @@
 - [X] <s>Design interface for employee module</s> (Jan 25)
 - [X] <s>Add functionality in employee module</s> (Feb 1)
 - [X] <s>Add job posting module</s> (Feb 17)
-- [X] <s>Add apply and job page<s> (Feb 18)
+- [X] <s>Add apply and job page</s> (Feb 18)
 - [X] <s>Add recruitment</s> (Feb 19)
 - [ ] Add notice board
 - [ ] Add documents upload to employee profile

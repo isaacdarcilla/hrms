@@ -65,6 +65,12 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
+              Resume
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
               Action
             </th>
           </tr>
@@ -86,9 +92,7 @@
                       {{ applicant.first_name }} {{ applicant.middle_name }}
                       {{ applicant.sur_name }}
                     </div>
-                    <div
-                      class="text-sm lowercase text-blue-500"
-                    >
+                    <div class="text-sm lowercase text-blue-500">
                       {{ applicant.email }}
                     </div>
                   </div>
@@ -101,8 +105,18 @@
                 :href="route('applicants')"
                 tabindex="-1"
               >
-                <div v-if="applicant.position !== null" class="capitalize text-gray-900">
-                  {{ applicant.position.position }}
+                <div
+                  v-if="applicant.position !== null"
+                  class="flex items-center"
+                >
+                  <div class="ml-0">
+                    <div class="text-sm font-medium capitalize text-gray-900">
+                      {{ applicant.position.position }}
+                    </div>
+                    <div class="text-sm text-yellow-600">
+                      Applied on {{ format(applicant.created_at) }}
+                    </div>
+                  </div>
                 </div>
                 <div v-else class="capitalize text-red-600">
                   No data available
@@ -117,7 +131,7 @@
               >
                 <a
                   :href="'tel:' + applicant.phone"
-                  class="lowercase text-blue-600"
+                  class="lowercase text-gray-900"
                 >
                   {{ applicant.phone }}
                 </a>
@@ -129,16 +143,13 @@
                 :href="route('applicants')"
                 tabindex="-1"
               >
-                <a v-if="applicant.qualification_experience === '1'"
+                <a
+                  v-if="applicant.qualification_experience === '1'"
                   class="capitalize text-blue-600"
                 >
                   Yes
                 </a>
-                <a v-else
-                  class="capitalize text-red-600"
-                >
-                  No
-                </a>
+                <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
@@ -147,16 +158,13 @@
                 :href="route('applicants')"
                 tabindex="-1"
               >
-                <a v-if="applicant.qualification_education === '1'"
+                <a
+                  v-if="applicant.qualification_education === '1'"
                   class="capitalize text-blue-600"
                 >
                   Yes
                 </a>
-                <a v-else
-                  class="capitalize text-red-600"
-                >
-                  No
-                </a>
+                <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
@@ -165,16 +173,13 @@
                 :href="route('applicants')"
                 tabindex="-1"
               >
-                <a v-if="applicant.qualification_eligibility === '1'"
+                <a
+                  v-if="applicant.qualification_eligibility === '1'"
                   class="capitalize text-blue-600"
                 >
                   Yes
                 </a>
-                <a v-else
-                  class="capitalize text-red-600"
-                >
-                  No
-                </a>
+                <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
@@ -183,36 +188,63 @@
                 :href="route('applicants')"
                 tabindex="-1"
               >
-                <a v-if="applicant.qualification_training === '1'"
+                <a
+                  v-if="applicant.qualification_training === '1'"
                   class="capitalize text-blue-600"
                 >
                   Yes
                 </a>
-                <a v-else
-                  class="capitalize text-red-600"
-                >
-                  No
-                </a>
+                <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
-            <td v-if="applicant.position !== null" class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <td class="px-6 py-4 whitespace-nowrap font-medium">
+              <div
+                class="whitespace-nowrap text-sm text-gray-900"
+                tabindex="-1"
+              >
+                <a
+                  target="_blank"
+                  :href="'storage/' + applicant.resume"
+                  class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                  >👁️‍🗨️ View Resume</a
+                >
+              </div>
+            </td>
+            <td
+              v-if="applicant.position !== null"
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium"
+            >
               <a
+                @click="
+                  recruit(
+                    applicant.id,
+                    applicant.position.id,
+                    applicant.first_name,
+                    applicant.position.position
+                  )
+                "
                 class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 tabindex="-1"
               >
-                <span>👏 Recruit</span>
+                ➕ Recruit
               </a>
             </td>
             <td v-else class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-              <a title="This position has been filled"
+              <a
+                title="This position has been filled"
                 class="text-gray-600"
                 tabindex="-1"
               >
-                <span>👏 Recruit</span>
+                <span>➕ Recruit</span>
               </a>
             </td>
           </tr>
         </tbody>
+        <tr v-if="applicants.data.length === 0">
+          <td class="border-t px-6 py-4 text-red-500 font-bold" colspan="4">
+            ☹️ No applicants found.
+          </td>
+        </tr>
       </table>
     </div>
     <pagination :links="applicants.links" />
@@ -227,6 +259,7 @@ import Pagination from "@/Shared/Pagination";
 import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
+import moment from "moment";
 
 export default {
   metaInfo: { title: "Recruitments" },
@@ -263,6 +296,25 @@ export default {
     },
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
+    recruit(applicant_id, job_id, name, position) {
+      swal({
+        title: "Recruitment Process",
+        text: `Are you sure you want to recruit ${name} as ${position}?\n\n ${name} will be added to the list of employees and an account will be automatically created. Other applicant for this job will be removed.`,
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          this.$inertia.put(
+            this.route("applicants.recruit", applicant_id, job_id)
+          );
+        }
+      });
+    },
     reset() {
       this.form = mapValues(this.form, () => null);
     },

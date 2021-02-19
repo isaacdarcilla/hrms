@@ -28,16 +28,19 @@ class ApplicantController extends Controller
                 ->paginate()
                 ->transform(function ($job) {
                     return [
+                        'id' => $job->id,
                         'first_name' => $job->first_name,
                         'middle_name' => $job->middle_name,
+                        'resume' => $job->resume,
                         'sur_name' => $job->sur_name,
                         'email' => $job->email,
                         'phone' => $job->phone,
+                        'created_at' => $job->created_at,
                         'qualification_experience' => $job->qualification_experience,
                         'qualification_eligibility' => $job->qualification_eligibility,
                         'qualification_education' => $job->qualification_education,
                         'qualification_training' => $job->qualification_training,
-                        'position' => $job->job ? $job->job->only('position') : null,
+                        'position' => $job->job ? $job->job->only('position', 'id') : null,
                     ];
                 }),
         ]);
@@ -76,11 +79,10 @@ class ApplicantController extends Controller
             'qualification_eligibility' => ['required', 'max:255'],
             'qualification_education' => ['required', 'max:255'],
             'qualification_training' => ['required', 'max:255'],
-            'resume' => ['nullable'],
+            'resume' => ['required', 'mimes:pdf,docx,doc', 'max:10240'],
         ]);
 
         if (!$applied) {
-
             Applicant::create([
                 'job_id' => $job_id,
                 'first_name' => Request::input('first_name'),
@@ -92,7 +94,7 @@ class ApplicantController extends Controller
                 'qualification_eligibility' => Request::input('qualification_eligibility'),
                 'qualification_education' => Request::input('qualification_education'),
                 'qualification_training' => Request::input('qualification_training'),
-                'resume' => 'No data available',
+                'resume' => Request::file('resume') ? Request::file('resume')->store('resume', 'public') : null,
             ]);
 
             return Redirect::back()->with('success', 'You application for ' . $job->position . ' has been submitted. We will contact you using the phone number you provided.');
