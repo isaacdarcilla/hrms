@@ -48,6 +48,22 @@
         </div>
       </inertia-link>
     </div>
+    <div class="mb-4">
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('applicants')"
+      >
+        <div
+          :class="
+            isUrl('applicants')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          🤝 Recruitment
+        </div>
+      </inertia-link>
+    </div>
   </div>
 </template>
 

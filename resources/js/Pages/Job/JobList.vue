@@ -4,15 +4,16 @@
       <div class="flex justify-between container">
         <div class="w-full">
           <div class="my-10 items-center justify-between">
+
             <p class="mt-10 text-xl font-bold text-gray-700 md:text-2xl">
-              💼 CatSU Job Listings
+              <img width="60" class="my-3" src="/img/logo.png" /> <span>CatSU Job Listings</span>
             </p>
             <p class="font-semibold text-sm mt-1">
               Browse and apply for vacant jobs
             </p>
           </div>
-          <flash-messages/>
-          <ul v-for="job in jobs.jobs" :key="job.id">
+          <flash-messages />
+          <ul v-for="(job, index) in jobs" :key="job.id">
             <li>
               <div :id="job.item_number" class="mt-6 mx-auto">
                 <div
@@ -112,8 +113,17 @@
                           alt="avatar"
                           class="mx-2 w-5 h-5 object-cover rounded-full hidden sm:block"
                         />
-                        <h1 class="text-gray-700 text-sm font-bold hover:underline">
-                          There are only {{ jobs.applicants[0] }} applicant
+                        <h1
+                          v-if="applicants.length === 0"
+                          class="text-gray-700 text-sm font-bold hover:underline"
+                        >
+                          There are no applications yet
+                        </h1>
+                        <h1
+                          v-else
+                          class="text-gray-700 text-sm font-bold hover:underline"
+                        >
+                          {{ applicants[index].count }} applied for this job
                         </h1>
                       </a>
                     </div>
@@ -122,7 +132,7 @@
               </div>
             </li>
           </ul>
-          <div v-if="jobs.jobs.length === 0">
+          <div v-if="jobs.length === 0">
             <p>There's no job post yet.</p>
           </div>
         </div>
@@ -147,7 +157,8 @@ export default {
     ModalApply,
   },
   props: {
-    jobs: Object,
+    jobs: Array,
+    applicants: Array,
   },
   data() {
     return {
@@ -167,7 +178,7 @@ export default {
     },
     format(value) {
       if (value) {
-        return moment(String(value)).format("MMMM D, YYYY, h:mm a");
+        return moment(String(value)).format("MMMM D, YYYY h:mm A");
       }
     },
   },

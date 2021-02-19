@@ -141,14 +141,12 @@ class JobController extends Controller
 
         foreach ($jobs as $key) {
             $applicants = Applicant::where('job_id', $key->id)->count();
-            array_push($myArray, $applicants);
+            array_push($myArray, ['count' => $applicants]);
         }
 
         return Inertia::render('Job/JobList', [
-            'jobs' => [
-                'jobs' => $jobs,
-                'applicants' => $myArray,
-            ],
+            'jobs' => $jobs,
+            'applicants' => $myArray,
         ]);
     }
 }

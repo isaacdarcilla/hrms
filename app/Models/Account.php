@@ -23,4 +23,9 @@ class Account extends Model
     {
         return $this->hasMany(Job::class);
     }
+
+    public function applicants()
+    {
+        return $this->hasMany(Applicant::class);
+    }
 }

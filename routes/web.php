@@ -344,5 +344,9 @@ Route::put('jobs/{jobs}/restore', [JobController::class, 'restore'])
 
 // Applicant
 
-Route::post('applicant/{job}', [ApplicantController::class, 'store'])
-    ->name('applicant.store');
+Route::get('applicants', [ApplicantController::class, 'index'])
+    ->name('applicants')
+    ->middleware('auth');
+
+Route::post('applicants/{job}', [ApplicantController::class, 'store'])
+    ->name('applicants.store');

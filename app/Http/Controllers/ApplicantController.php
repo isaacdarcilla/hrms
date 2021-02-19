@@ -19,7 +19,28 @@ class ApplicantController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Applicant/Index', [
+            'filters' => Request::all('search', 'trashed'),
+            'applicants' => Auth::user()->account->applicants()
+                ->with('job')
+                ->orderBy('created_at', 'DESC')
+                ->filter(Request::only('search', 'trashed'))
+                ->paginate()
+                ->transform(function ($job) {
+                    return [
+                        'first_name' => $job->first_name,
+                        'middle_name' => $job->middle_name,
+                        'sur_name' => $job->sur_name,
+                        'email' => $job->email,
+                        'phone' => $job->phone,
+                        'qualification_experience' => $job->qualification_experience,
+                        'qualification_eligibility' => $job->qualification_eligibility,
+                        'qualification_education' => $job->qualification_education,
+                        'qualification_training' => $job->qualification_training,
+                        'position' => $job->job ? $job->job->only('position') : null,
+                    ];
+                }),
+        ]);
     }
 
     /**
@@ -53,6 +74,8 @@ class ApplicantController extends Controller
             'phone' => ['required', 'max:255', 'min:2',  'regex:/^[0-9+]+$/'],
             'qualification_experience' => ['required', 'max:255'],
             'qualification_eligibility' => ['required', 'max:255'],
+            'qualification_education' => ['required', 'max:255'],
+            'qualification_training' => ['required', 'max:255'],
             'resume' => ['nullable'],
         ]);
 
@@ -67,6 +90,8 @@ class ApplicantController extends Controller
                 'phone' => Request::input('phone'),
                 'qualification_experience' => Request::input('qualification_experience'),
                 'qualification_eligibility' => Request::input('qualification_eligibility'),
+                'qualification_education' => Request::input('qualification_education'),
+                'qualification_training' => Request::input('qualification_training'),
                 'resume' => 'No data available',
             ]);
 

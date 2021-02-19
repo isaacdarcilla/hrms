@@ -7,7 +7,7 @@
         class="w-full max-w-md mr-4"
         @reset="reset"
       >
-        <label class="block text-gray-700">Filter Employee</label>
+        <label class="block text-gray-700">Filter Jobs</label>
         <select v-model="form.trashed" class="mt-1 w-full form-select">
           <option :value="null" />
           <option value="with">Active</option>

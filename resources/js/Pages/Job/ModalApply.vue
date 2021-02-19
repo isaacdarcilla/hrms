@@ -162,6 +162,44 @@
                       </div>
                     </div>
                   </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <toggle-button
+                        :value="form.qualification_education"
+                        :width="55"
+                        :height="25"
+                        :labels="{ checked: 'Yes', unchecked: 'No' }"
+                        v-model="form.qualification_education"
+                      /><span class="mx-2 font-semibold"
+                        >Are you a college graduate?</span
+                      >
+                      <div
+                        v-if="$page.errors.qualification_education !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.qualification_education }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <toggle-button
+                        :value="form.qualification_training"
+                        :width="55"
+                        :height="25"
+                        :labels="{ checked: 'Yes', unchecked: 'No' }"
+                        v-model="form.qualification_training"
+                      /><span class="mx-2 font-semibold"
+                        >Do you have trainings relevant to the position?</span
+                      >
+                      <div
+                        v-if="$page.errors.qualification_training !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.qualification_training }}
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -286,13 +324,15 @@ export default {
         phone: null,
         qualification_experience: null,
         qualification_eligibility: null,
+        qualification_education: null,
+        qualification_training: null,
       },
     };
   },
   methods: {
     save(key, value) {
       this.$inertia.post(
-        this.route("applicant.store", this.job.id),
+        this.route("applicants.store", this.job.id),
         this.form,
         {
           onStart: () => (this.sending = true),
@@ -310,6 +350,8 @@ export default {
       this.form.phone = null;
       this.form.qualification_experience = null;
       this.form.qualification_eligibility = null;
+      this.form.qualification_education = null;
+      this.form.qualification_training = null;
     },
     reset() {},
   },
