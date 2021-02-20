@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use App\Models\Job;
 use App\Models\Applicant;
+use App\Models\Contact;
 
 class ApplicantController extends Controller
 {
@@ -67,6 +68,7 @@ class ApplicantController extends Controller
         $job = Job::find($job_id);
         $applied = Applicant::where('job_id', $job_id)
             ->where('phone', Request::input('phone'))
+            ->orWhere('email', Request::input('email'))
             ->first();
 
         Request::validate([
@@ -146,5 +148,27 @@ class ApplicantController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function recruit(Applicant $applicant, Job $job)
+    {
+        Contact::create([
+            'account_id' => 1,
+            'first_name' => $applicant->first_name,
+            'middle_name' => $applicant->middle_name,
+            'last_name' => $applicant->sur_name,
+            'email' => $applicant->email,
+            'phone' => $applicant->phone,
+            'position' => $job->position,
+            'department' => $job->department,
+            'status' => 1,
+            'password' => md5('catsu'),
+        ]);
+
+        $job->delete();
+        
+        Applicant::where('job_id', $job->id)->delete();
+
+        return Redirect::back()->with('success', 'Employee added.');
     }
 }

@@ -309,8 +309,8 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          this.$inertia.put(
-            this.route("applicants.recruit", applicant_id, job_id)
+          this.$inertia.post(
+            this.route("applicants.recruit", [applicant_id, job_id])
           );
         }
       });
