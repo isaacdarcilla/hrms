@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Children;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Auth;
 
 class EmployeeController extends Controller
 {
@@ -16,7 +17,14 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return Inertia::render('EmployeePanel/Employee');
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/Employee', [
+                'employee' => $employee,
+            ]);
+        else 
+            return redirect()->route('login.employee');
     }
 
     /**

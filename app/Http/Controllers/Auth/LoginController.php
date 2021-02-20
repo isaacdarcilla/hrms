@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use Session;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -64,11 +64,9 @@ class LoginController extends Controller
         ];
 
         if (Auth::guard('employee')->attempt($credentials)) {
-            return Inertia::render('EmployeePanel/Employee',[
-                'employee' => Auth::guard('employee')->user(),
-            ]);
+            return Redirect::intended('employee.dashboard');
         } else {
-            return redirect()->back();
+            return Redirect::back();
         }
     }
 }

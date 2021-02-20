@@ -355,3 +355,9 @@ Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recrui
 Route::get('notices', [NoticeController::class, 'index'])
     ->name('notices')
     ->middleware('auth');
+
+// Employees
+
+Route::get('employee/dashboard', [EmployeeController::class, 'index'])
+    ->name('employee.dashboard')
+    ->middleware('employee');
