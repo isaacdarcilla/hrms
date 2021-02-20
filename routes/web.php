@@ -57,11 +57,7 @@ Route::post('logout', [LoginController::class, 'logout'])
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard')
-    ->middleware('auth');
-
-Route::get('/employee/dashboard', [EmployeeController::class, 'index'])
-    ->name('employee.dashboard')
-    ->middleware('auth');
+    ->middleware('auth', 'employee');
 
 // Users
 

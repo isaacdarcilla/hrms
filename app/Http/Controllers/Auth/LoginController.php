@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use Session;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -57,25 +58,17 @@ class LoginController extends Controller
 
     public function loginEmployee(Request $request)
     {
-        $employee = Contact::where('email', $request->input('email'))
-                ->where('password', md5($request->input('password')))
-                ->first();
-        $token = md5(Str::random(10));
+        $credentials = [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
 
-        if(!$employee) {
-            return Inertia::render('Auth/EmployeeLogin', [
-                'errors' => [
-                    'message' => 'These credentials do not match our records.',
-                ],
+        if (Auth::guard('employee')->attempt($credentials)) {
+            return Inertia::render('EmployeePanel/Employee',[
+                'employee' => Auth::guard('employee')->user(),
             ]);
         } else {
-            $employee->update([
-                'token' => $token,
-            ]);
-
-            session(['token' => $token]);
-
-            return redirect()->route('employee.dashboard');
+            return redirect()->back();
         }
     }
 }

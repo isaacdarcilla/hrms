@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use App\Models\Job;
@@ -162,7 +163,7 @@ class ApplicantController extends Controller
             'position' => $job->position,
             'department' => $job->department,
             'status' => 1,
-            'password' => md5('catsu'),
+            'password' => Hash::make('catsu'),
         ]);
 
         $job->delete();

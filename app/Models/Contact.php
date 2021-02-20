@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 
-class Contact extends Model
+class Contact extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    use SoftDeletes;
+    use SoftDeletes, Authenticatable, Authorizable;
 
     protected $table = 'contacts';
 

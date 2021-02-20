@@ -22,7 +22,7 @@
             <span>Login to get started.</span>
           </p>
           <inertia-link :href="route('login')"
-            class="flex flex-col items-center justify-center mt-6 text-center"
+            class="flex flex-col items-center justify-center mt-6 font-semibold text-center"
           >
             <span class="underline">Go to Admin panel</span>
           </inertia-link>
