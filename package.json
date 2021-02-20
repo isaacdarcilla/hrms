@@ -19,6 +19,7 @@
         "dayjs": "^1.10.4",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
+        "jquery": "^3.5.1",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.15",
         "moment": "^2.29.1",
@@ -36,7 +37,8 @@
         "vue-tailwind-picker": "^1.1.6",
         "vue-template-compiler": "^2.6.11",
         "vue-the-mask": "^0.11.1",
-        "vue2-editor": "^2.10.2"
+        "vue2-editor": "^2.10.2",
+        "vue2-selectize": "^1.1.7"
     },
     "devDependencies": {
         "tailwind-scrollbar": "^1.2.3"
