@@ -14,10 +14,18 @@
           <option value="only">Inactive</option>
         </select>
       </search-filter>
-      <button @click="showModal" class="btn-indigo rounded-lg">
-        <span>➕ Create</span>
-        <span class="hidden md:inline">Job Posting</span>
-      </button>
+      <div class="inline">
+        <inertia-link
+          class="btn-blue mr-4 rounded-lg"
+          :href="route('jobs.list')"
+        >
+          <span class="font-semibold">💼 View Listing</span>
+        </inertia-link>
+        <button @click="showModal" class="btn-indigo rounded-lg">
+          <span>➕ Create</span>
+          <span class="hidden md:inline">Job Posting</span>
+        </button>
+      </div>
     </div>
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
