@@ -34,6 +34,7 @@
         "vue": "^2.6.11",
         "vue-js-toggle-button": "^1.3.3",
         "vue-meta": "^2.3.1",
+        "vue-tailwind": "^2.1.2",
         "vue-tailwind-picker": "^1.1.6",
         "vue-template-compiler": "^2.6.11",
         "vue-the-mask": "^0.11.1",

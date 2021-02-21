@@ -19,6 +19,7 @@ use App\Http\Controllers\Employee\DocumentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\NoticeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +58,7 @@ Route::post('logout', [LoginController::class, 'logout'])
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard')
-    ->middleware('auth', 'employee');
+    ->middleware('auth');
 
 // Users
 
@@ -360,4 +361,4 @@ Route::get('notices', [NoticeController::class, 'index'])
 
 Route::get('employee/dashboard', [EmployeeController::class, 'index'])
     ->name('employee.dashboard')
-    ->middleware('employee');
+    ->middleware('web', 'employee');

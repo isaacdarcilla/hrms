@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use Session;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -64,9 +64,13 @@ class LoginController extends Controller
         ];
 
         if (Auth::guard('employee')->attempt($credentials)) {
-            return Redirect::intended('employee.dashboard');
+            return Redirect::route('employee.dashboard');
         } else {
-            return Redirect::back();
+            return Inertia::render('Auth/EmployeeLogin', [
+                'errors' => [
+                    'message' => 'These credentials do not match our records.'
+                ],
+            ]);
         }
     }
 }
