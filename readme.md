@@ -11,7 +11,7 @@
 - [X] <s>Add job posting module</s> (Feb 17)
 - [X] <s>Add apply and job page</s> (Feb 18)
 - [X] <s>Add recruitment</s> (Feb 19)
-- [ ] Add notice board
+- [X] <s>Add notice board</s> (Feb 22)
 - [ ] Add documents upload to employee profile
 - [ ] Add HR staff manager
 - [ ] Add payslip module
