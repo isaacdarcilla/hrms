@@ -357,6 +357,22 @@ Route::get('notices', [NoticeController::class, 'index'])
     ->name('notices')
     ->middleware('auth');
 
+Route::post('notices', [NoticeController::class, 'store'])
+    ->name('notices.store')
+    ->middleware('auth');
+
+Route::put('notices/{notices}', [NoticeController::class, 'update'])
+    ->name('notices.update')
+    ->middleware('auth');
+
+Route::delete('notices/{notices}', [NoticeController::class, 'destroy'])
+    ->name('notices.destroy')
+    ->middleware('auth');
+
+Route::put('notices/{notices}/restore', [NoticeController::class, 'restore'])
+    ->name('notices.restore')
+    ->middleware('auth');
+
 // Employees
 
 Route::get('employee/dashboard', [EmployeeController::class, 'index'])

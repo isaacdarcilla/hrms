@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Notice;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Validation\Rule;
+use Inertia\Inertia;
 
 class NoticeController extends Controller
 {
@@ -13,7 +18,13 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Notice/Index', [
+            'filters' => Request::all('search', 'trashed'),
+            'notices' => Auth::user()->account->notices()
+                ->orderBy('created_at', 'DESC')
+                ->filter(Request::only('search', 'trashed'))
+                ->paginate()
+        ]);
     }
 
     /**
@@ -32,9 +43,17 @@ class NoticeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Notice $notice)
     {
-        //
+        $notice->create(
+            Request::validate([
+                'notice_type' => ['required', 'max:255', 'min:2'],
+                'notice_subject' => ['required', 'max:255', 'min:2'],
+                'notice_description' => ['required', 'min:12'],
+            ])
+        );
+
+        return Redirect::back()->with('success', 'Notice added.');
     }
 
     /**
@@ -68,7 +87,15 @@ class NoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Notice::where('id', $id)->update(
+            Request::validate([
+                'notice_type' => ['required', 'max:255', 'min:2'],
+                'notice_subject' => ['required', 'max:255', 'min:2'],
+                'notice_description' => ['required', 'min:12'],
+            ])
+        );
+
+        return Redirect::back()->with('success', 'Notice updated.');
     }
 
     /**
@@ -79,6 +106,17 @@ class NoticeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Notice::find($id)->delete();
+
+        return Redirect::back()->with('success', 'Notice deleted.');
+    }
+
+    public function restore($id)
+    {
+        Notice::where('id', $id)->restore([
+            'deleted_at' => null,
+        ]);
+
+        return Redirect::back()->with('success', 'Notice restored.');
     }
 }
