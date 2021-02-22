@@ -66,27 +66,29 @@
           />
         </div>
         <div
-          v-if="owner.owner === true"
           class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center"
         >
-          <button
-            v-if="!user.deleted_at"
-            class="text-red-600 font-semibold hover:underline"
-            tabindex="-1"
-            type="button"
-            @click="destroy"
-          >
-            Delete
-          </button>
-          <button
-            v-else
-            class="text-yellow-600 font-semibold hover:underline"
-            tabindex="-1"
-            type="button"
-            @click="restore"
-          >
-            Restore
-          </button>
+          <div v-if="owner.owner === true">
+            <button
+              v-if="!user.deleted_at"
+              class="text-red-600 font-semibold hover:underline"
+              tabindex="-1"
+              type="button"
+              @click="destroy"
+            >
+              Delete
+            </button>
+            <button
+              v-else
+              class="text-yellow-600 font-semibold hover:underline"
+              tabindex="-1"
+              type="button"
+              @click="restore"
+            >
+              Restore
+            </button>
+          </div>
+
           <loading-button
             :loading="sending"
             class="btn-indigo ml-auto"
