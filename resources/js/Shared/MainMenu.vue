@@ -92,7 +92,7 @@
               : 'text-indigo-300 font-bold group-hover:text-white'
           "
         >
-          🏫 HR Staffs
+          👤 HR Staffs
         </div>
       </inertia-link>
     </div>

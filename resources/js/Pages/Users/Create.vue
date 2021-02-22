@@ -6,7 +6,7 @@
         :href="route('users')"
         >Staff</inertia-link
       >
-      <span class="text-indigo-400 font-medium">/</span> Create 🏫
+      <span class="text-indigo-400 font-medium">/</span> Create 👤
     </h1>
     <div class="bg-white rounded shadow overflow-hidden">
       <form @submit.prevent="submit">

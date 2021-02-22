@@ -8,7 +8,7 @@
           >Staff</inertia-link
         >
         <span class="text-indigo-400 font-medium">/</span>
-        {{ form.first_name }} {{ form.last_name }} 🏫
+        {{ form.first_name }} {{ form.last_name }} 👤
       </h1>
     </div>
     <trashed-message v-if="user.deleted_at" class="mb-6" @restore="restore">
