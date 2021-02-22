@@ -135,7 +135,7 @@ class JobController extends Controller
     }
 
     public function list() {
-        $jobs = Job::all();
+        $jobs = Job::orderBy('created_at', 'DESC')->get();
 
         $myArray = array();
 

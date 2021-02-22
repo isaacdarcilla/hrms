@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\User;
+use App\Models\Notice;
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,8 @@ class DashboardController extends Controller
                 'jobs' => Job::count(),
                 'applicants' => Applicant::count(),
                 'staffs' => User::count(),
-            ]
+            ],
+            'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
         ]);
     }
 }

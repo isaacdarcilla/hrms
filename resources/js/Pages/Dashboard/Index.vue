@@ -1,6 +1,15 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">Dashboard 🏠</h1>
+    <div v-if="notices" class="mb-4 flex items-center justify-between rounded">
+    <div class="flex items-center">
+          <div class="mx-4 pb-4">📢</div>
+          <div class="pb-4 text-gray text-sm font-medium">
+            {{ notices[0].notice_type }} • {{ notices[0].notice_subject }} •
+            {{ notices[0].notice_description }}
+          </div>
+        </div>
+    </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <inertia-link
         :href="route('employees')"
@@ -10,9 +19,14 @@
           <div
             class="p-3 rounded-full text-orange-500 dark:text-orange-100 bg-orange-100 dark:bg-orange-500 mr-4"
           >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
               ></path>
             </svg>
           </div>
@@ -36,11 +50,19 @@
           <div
             class="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4"
           >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 fill-rule="evenodd"
-                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
                 clip-rule="evenodd"
+              ></path>
+              <path
+                d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
               ></path>
             </svg>
           </div>
@@ -64,9 +86,19 @@
           <div
             class="p-3 rounded-full text-blue-500 dark:text-blue-100 bg-blue-100 dark:bg-blue-500 mr-4"
           >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2h-1.528A6 6 0 004 9.528V4z"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                d="M8 10a4 4 0 00-3.446 6.032l-1.261 1.26a1 1 0 101.414 1.415l1.261-1.261A4 4 0 108 10zm-2 4a2 2 0 114 0 2 2 0 01-4 0z"
+                clip-rule="evenodd"
               ></path>
             </svg>
           </div>
@@ -90,10 +122,15 @@
           <div
             class="p-3 rounded-full text-teal-500 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 mr-4"
           >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 fill-rule="evenodd"
-                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                 clip-rule="evenodd"
               ></path>
             </svg>
@@ -111,6 +148,41 @@
         </div>
       </inertia-link>
     </div>
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+      <div class="container flex min-w-0">
+        <ul class="flex flex-col bg-white rounded-lg p-4">
+          <div class="mb-4 flex justify-between items-center">
+            <div class="font-semibold">Announcements</div>
+            <inertia-link
+              :href="route('notices')"
+              class="text-blue-600 text-sm font-semibold hover:text-blue-700"
+              >View more</inertia-link
+            >
+          </div>
+          <li
+            v-for="notice in notices"
+            :key="notice.id"
+            class="border-gray-400 flex flex-row mb-2"
+          >
+            <div
+              class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <div
+                class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+              >
+                📢
+              </div>
+              <div class="flex-1 pl-1 mr-5">
+                <div class="font-medium">{{ notice.notice_subject }}</div>
+                <div class="text-gray-600 text-sm">
+                  {{ notice.notice_description }}
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -122,6 +194,7 @@ export default {
   layout: Layout,
   props: {
     total: Object,
+    notices: Array,
   },
 };
 </script>
