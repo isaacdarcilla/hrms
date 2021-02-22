@@ -66,6 +66,7 @@
           />
         </div>
         <div
+          v-if="owner.owner === true"
           class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center"
         >
           <button
@@ -123,6 +124,7 @@ export default {
   props: {
     errors: Object,
     user: Object,
+    owner: Object,
   },
   remember: "form",
   data() {

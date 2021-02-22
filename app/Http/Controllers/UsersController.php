@@ -73,6 +73,7 @@ class UsersController extends Controller
                 'photo' => $user->photoUrl(['w' => 60, 'h' => 60, 'fit' => 'crop']),
                 'deleted_at' => $user->deleted_at,
             ],
+            'owner' => Auth::user(),
         ]);
     }
 
