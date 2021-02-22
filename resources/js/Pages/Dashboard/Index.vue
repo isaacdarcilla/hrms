@@ -82,8 +82,9 @@
           </div>
         </div>
       </inertia-link>
-      <div
-        class="min-w-0 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800"
+      <inertia-link
+        :href="route('users')"
+        class="min-w-0 cursor-pointer hover:bg-gray-200 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800"
       >
         <div class="p-4 flex items-center">
           <div
@@ -101,14 +102,14 @@
             <p
               class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
             >
-              Pending contacts
+              Total HR staffs
             </p>
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-              35
+              {{ total.staffs }} <span class="text-xs">active</span>
             </p>
           </div>
         </div>
-      </div>
+      </inertia-link>
     </div>
   </div>
 </template>
@@ -120,7 +121,7 @@ export default {
   metaInfo: { title: "Dashboard" },
   layout: Layout,
   props: {
-      total: Object,
+    total: Object,
   },
 };
 </script>

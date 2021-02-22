@@ -44,9 +44,9 @@ class UsersController extends Controller
             'first_name' => ['required', 'max:50'],
             'last_name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')],
-            'password' => ['nullable'],
+            'password' => ['required', 'min:8'],
             'owner' => ['required', 'boolean'],
-            'photo' => ['nullable', 'image'],
+            'photo' => ['required', 'image', 'mimes:png,jpeg,jpg'],
         ]);
 
         Auth::user()->account->users()->create([
@@ -58,7 +58,7 @@ class UsersController extends Controller
             'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
         ]);
 
-        return Redirect::route('users')->with('success', 'User created.');
+        return Redirect::route('users')->with('success', 'Staff created.');
     }
 
     public function edit(User $user)
@@ -101,7 +101,7 @@ class UsersController extends Controller
             $user->update(['password' => Request::get('password')]);
         }
 
-        return Redirect::back()->with('success', 'User updated.');
+        return Redirect::back()->with('success', 'Staff updated.');
     }
 
     public function destroy(User $user)
@@ -112,13 +112,13 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return Redirect::back()->with('success', 'User deleted.');
+        return Redirect::back()->with('success', 'Staff deleted.');
     }
 
     public function restore(User $user)
     {
         $user->restore();
 
-        return Redirect::back()->with('success', 'User restored.');
+        return Redirect::back()->with('success', 'Staff restored.');
     }
 }

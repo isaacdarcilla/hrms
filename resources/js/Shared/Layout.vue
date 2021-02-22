@@ -60,7 +60,7 @@
                 <inertia-link
                   class="block px-6 py-2 hover:bg-indigo-500 font-bold hover:text-white"
                   :href="route('users')"
-                  >Manage Users</inertia-link
+                  >Manage Staffs</inertia-link
                 >
                 <inertia-link
                   class="block font-bold px-6 py-2 hover:bg-indigo-500 hover:text-white"

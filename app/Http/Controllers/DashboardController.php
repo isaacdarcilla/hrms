@@ -6,6 +6,8 @@ use Inertia\Inertia;
 use App\Models\Contact;
 use App\Models\Job;
 use App\Models\Applicant;
+use App\Models\User;
+
 class DashboardController extends Controller
 {
     public function index()
@@ -15,6 +17,7 @@ class DashboardController extends Controller
                 'employees' => Contact::count(),
                 'jobs' => Job::count(),
                 'applicants' => Applicant::count(),
+                'staffs' => User::count(),
             ]
         ]);
     }
