@@ -13,7 +13,8 @@
     </div>
 
     <trashed-message v-if="contact.deleted_at" class="mb-6">
-      This employee has been marked as inactive. Click on the toogle button to set active status.
+      This employee has been marked as inactive. Click on the toogle button to
+      set active status.
     </trashed-message>
     <div class="h-full">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
@@ -126,6 +127,84 @@
 
     <trainings :trainings="trainings" class="flex"></trainings>
 
+    <div id="documents" class="w-full h-full mt-6">
+      <div
+        class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+      >
+        <div class="flex items-center justify-between mb-0">
+          <h5 class="mx-6 my-5 font-semibold font bg-white">📑 Documents</h5>
+          <button
+            @click="showDocumentModal"
+            class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
+          >
+            ➕ Add
+          </button>
+        </div>
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-white">
+            <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Document Name
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Document Type
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr
+              class="transition-all hover:bg-gray-100 hover:shadow-lg"
+              v-for="document in documents"
+              :key="document.id"
+            >
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="text-sm text-gray-900 normal-case">
+                  {{ document.document_name }}
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="text-sm text-gray-900 capitalize">
+                  {{ document.document_type }}
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <a
+                  :href="'/storage/'+document.document_file"
+                  class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                  >💾 Download</a
+                >
+                <span
+                  @click="destroy(document.id, document.document_name)"
+                  class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
+                  >🗑️ Delete</span
+                >
+              </td>
+            </tr>
+            <tr v-if="documents.length === 0">
+              <td
+                class="border-t px-6 py-4 text-red-500 text-sm font-bold"
+                colspan="4"
+              >
+                ☹️ No documents added.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <other-informations
       :skills="skills"
       :memberships="memberships"
@@ -133,48 +212,11 @@
       class="flex"
     ></other-informations>
 
-    <!-- <div id="documents" class="w-full lg:w-1/3 px-0">
-      <div class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg">
-          <div class="flex items-center justify-between mb-0">
-            <h5 class="mx-6 my-5 font-semibold font bg-white">📑 Documents</h5>
-            <button
-              @click="showDocumentModal"
-              class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
-            >
-              ➕ Add
-            </button>
-          </div>
-          <ul v-for="document in documents" :key="document.id">
-            <li class="px-6 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
-              <a class="flex items-center text-gray-600 cursor-pointer">
-                <span class="inline-block h-4 w-4 bg-green-300 mr-3"></span>
-                  {{ document.document_name }}
-                  <div class="ml-auto">
-                    <span
-                    class="text-indigo-600 cursor-pointer text-sm hover:text-indigo-900"
-                    >💾 Download</span
-                    >
-                    <span
-                      @click="destroy(document.id, document.document_name)"
-                      class="text-red-600 inline cursor-pointer text-sm hover:text-red-900"
-                      >🗑️ Delete</span
-                    >
-                  </div>
-              </a>
-            </li>
-        </ul>
-        <ul v-if="documents.length === 0">
-          <li class="border-t text-red-500 text-sm px-6 py-4 font-bold">
-            ☹️ No documents added.
-          </li>
-        </ul>
-      </div>
-    </div> -->
-    <!-- <document-add-modal
+    <document-add-modal
       :showing="showDocument"
       :employee="contact"
       :modal.sync="showDocument"
-    ></document-add-modal> -->
+    ></document-add-modal>
   </div>
 </template>
 

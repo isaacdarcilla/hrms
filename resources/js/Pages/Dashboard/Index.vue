@@ -1,19 +1,27 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">Dashboard 🏠</h1>
-    <div v-if="notices" class="mb-4 flex items-center justify-between rounded">
-    <div class="flex items-center">
-          <div class="mx-4 pb-4">📢</div>
-          <div class="pb-4 text-gray text-sm font-medium">
-            {{ notices[0].notice_type }} • {{ notices[0].notice_subject }} •
-            {{ notices[0].notice_description }}
-          </div>
+    <div v-if="notices.length !== 0" class="mb-4 flex items-center justify-between rounded">
+      <div class="flex items-center">
+        <div class="mx-4 pb-4">📢</div>
+        <div class="pb-4 text-gray text-sm font-medium">
+          {{ format(notices[0].created_at) }} • 
+          {{ notices[0].notice_type }} • {{ notices[0].notice_subject }} •
+          {{ notices[0].notice_description }}
         </div>
+      </div>
+      <button type="button" class="group mr-2 pb-4">
+        <inertia-link
+          :href="route('notices')"
+          class="text-xs font-medium text-blue-600 hover:text-blue-700"
+          >Read more</inertia-link
+        >
+      </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <inertia-link
         :href="route('employees')"
-        class="min-w-0 cursor-pointer hover:bg-gray-200 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
       >
         <div class="p-4 flex items-center">
           <div
@@ -44,7 +52,7 @@
       </inertia-link>
       <inertia-link
         :href="route('jobs')"
-        class="min-w-0 cursor-pointer hover:bg-gray-200 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
       >
         <div class="p-4 flex items-center">
           <div
@@ -80,7 +88,7 @@
       </inertia-link>
       <inertia-link
         :href="route('applicants')"
-        class="min-w-0 cursor-pointer hover:bg-gray-200 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
       >
         <div class="p-4 flex items-center">
           <div
@@ -116,7 +124,7 @@
       </inertia-link>
       <inertia-link
         :href="route('users')"
-        class="min-w-0 cursor-pointer hover:bg-gray-200 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
       >
         <div class="p-4 flex items-center">
           <div
@@ -148,10 +156,10 @@
         </div>
       </inertia-link>
     </div>
-    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-      <div class="container flex min-w-0">
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
+      <div class="h-full">
         <ul class="flex flex-col bg-white rounded-lg p-4">
-          <div class="mb-4 flex justify-between items-center">
+          <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Announcements</div>
             <inertia-link
               :href="route('notices')"
@@ -188,6 +196,7 @@
 
 <script>
 import Layout from "@/Shared/Layout";
+import moment from "moment";
 
 export default {
   metaInfo: { title: "Dashboard" },
@@ -195,6 +204,13 @@ export default {
   props: {
     total: Object,
     notices: Array,
+  },
+  methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
   },
 };
 </script>
