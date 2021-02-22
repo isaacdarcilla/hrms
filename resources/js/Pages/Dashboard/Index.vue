@@ -251,7 +251,7 @@
                 <input
                   class="form-input block w-full"
                   placeholder="Type new task and press Enter to add."
-                  v-model="form.task"
+                  v-model="form.description"
                 />
               </div>
             </div>
@@ -300,7 +300,7 @@ export default {
   data() {
     return {
       form: {
-        task: null,
+        description: null,
       },
     };
   },
@@ -316,7 +316,10 @@ export default {
         this.form,
         {
           onStart: () => (this.sending = true),
-          onFinish: () => (this.sending = false),
+          onFinish: () => {
+            this.sending = false;
+            this.form.description = null;
+          },
         }
       );
     },

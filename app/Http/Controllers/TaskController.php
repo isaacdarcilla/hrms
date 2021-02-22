@@ -11,15 +11,13 @@ use Inertia\Inertia;
 
 class TaskController extends Controller
 {
-    public function store(Task $task)
+    public function store($user)
     {
-        $task->create(
-            Request::validate([
-                'notice_type' => ['required', 'max:255', 'min:2'],
-                'notice_subject' => ['required', 'max:255', 'min:2'],
-                'notice_description' => ['required', 'min:12'],
-            ])
-        );
+        Task::create([
+            'account_id' => 1,
+            'user_id' => $user,
+            'description' => Request::input('description')
+        ]);
 
         return Redirect::back()->with('success', 'Task added.');
     }

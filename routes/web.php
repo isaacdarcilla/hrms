@@ -20,6 +20,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -352,7 +353,7 @@ Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recrui
     ->name('applicants.recruit');
 
 // Task 
-Route::post('task', [TaskController::class, 'store'])
+Route::post('task/{user}', [TaskController::class, 'store'])
     ->name('task.store')
     ->middleware('auth');
 
