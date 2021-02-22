@@ -378,3 +378,7 @@ Route::put('notices/{notices}/restore', [NoticeController::class, 'restore'])
 Route::get('employee/dashboard', [EmployeeController::class, 'index'])
     ->name('employee.dashboard')
     ->middleware('web', 'employee');
+
+Route::get('employee/logout', [EmployeeController::class, 'employee_logout'])
+    ->name('employee.logout')
+    ->middleware('web', 'employee');

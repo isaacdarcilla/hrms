@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Job;
+use App\Models\Applicant;
+use App\Models\User;
+use App\Models\Notice;
 use App\Models\Children;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -22,6 +26,14 @@ class EmployeeController extends Controller
         if($employee)
             return Inertia::render('EmployeePanel/Employee', [
                 'employee' => $employee,
+                'total' => [
+                    'employees' => Contact::count(),
+                    'jobs' => Job::count(),
+                    'applicants' => Applicant::count(),
+                    'staffs' => User::count(),
+                ],
+                'notices' => Notice::orderBy('created_at', 'DESC')->take(5)->get(),
+                'jobs' => Job::orderBy('created_at', 'DESC')->take(5)->get(),
             ]);
         else 
             return redirect()->route('login.employee');
@@ -91,5 +103,12 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function employee_logout() 
+    {
+        Auth::guard('employee')->logout();
+
+        return redirect()->route('login.employee');
     }
 }

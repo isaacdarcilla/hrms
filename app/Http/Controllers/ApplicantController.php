@@ -163,7 +163,7 @@ class ApplicantController extends Controller
             'position' => $job->position,
             'department' => $job->department,
             'status' => 1,
-            'password' => Hash::make('catsu'),
+            'password' => Hash::make($applicant->sur_name,),
         ]);
 
         $job->delete();

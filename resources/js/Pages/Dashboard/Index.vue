@@ -21,7 +21,7 @@
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <inertia-link
         :href="route('employees')"
-        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
         <div class="p-4 flex items-center">
           <div
@@ -52,7 +52,7 @@
       </inertia-link>
       <inertia-link
         :href="route('jobs')"
-        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
         <div class="p-4 flex items-center">
           <div
@@ -88,7 +88,7 @@
       </inertia-link>
       <inertia-link
         :href="route('applicants')"
-        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
         <div class="p-4 flex items-center">
           <div
@@ -124,7 +124,7 @@
       </inertia-link>
       <inertia-link
         :href="route('users')"
-        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
         <div class="p-4 flex items-center">
           <div
@@ -190,6 +190,39 @@
           </li>
         </ul>
       </div>
+      <div class="h-full">
+        <ul class="flex flex-col bg-white rounded-lg p-4">
+          <div class="mb-4 mx-4 flex justify-between items-center">
+            <div class="font-semibold">Vacant Jobs</div>
+            <inertia-link
+              :href="route('jobs')"
+              class="text-blue-600 text-sm font-semibold hover:text-blue-700"
+              >View more</inertia-link
+            >
+          </div>
+          <li
+            v-for="job in jobs"
+            :key="job.id"
+            class="border-gray-400 flex flex-row mb-2"
+          >
+            <div
+              class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <div
+                class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+              >
+                💼
+              </div>
+              <div class="flex-1 pl-1 mr-5">
+                <div class="font-medium">{{ job.position }} at {{ job.department }}</div>
+                <div class="text-gray-600 text-sm">
+                  {{ job.job_description }}
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -204,6 +237,7 @@ export default {
   props: {
     total: Object,
     notices: Array,
+    jobs: Array,
   },
   methods: {
     format(value) {

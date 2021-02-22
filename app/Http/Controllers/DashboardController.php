@@ -21,6 +21,7 @@ class DashboardController extends Controller
                 'staffs' => User::count(),
             ],
             'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
+            'jobs' => Job::orderBy('created_at', 'DESC')->take(3)->get(),
         ]);
     }
 }
