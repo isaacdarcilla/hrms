@@ -14,7 +14,8 @@
 - [X] <s>Add notice board</s> (Feb 22)
 - [X] <s>Add HR staff manager</s> (Feb 23)
 - [X] <s>Add documents upload to employee profile</s>  (Feb 23)
-- [ ] Add employee dashboard
+- [X] <s>Add employee dashboard</s>  (Feb 23)
+- [ ] Add editing of employee's profile
 - [ ] Add payslip module
 
 ## 🔖 License
