@@ -351,6 +351,11 @@ Route::put('applicants/{job}', [ApplicantController::class, 'store'])
 Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recruit'])
     ->name('applicants.recruit');
 
+// Task 
+Route::post('task', [TaskController::class, 'store'])
+    ->name('task.store')
+    ->middleware('auth');
+
 // Notice Board
 
 Route::get('notices', [NoticeController::class, 'index'])

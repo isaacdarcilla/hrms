@@ -1,12 +1,15 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">Dashboard 🏠</h1>
-    <div v-if="notices.length !== 0" class="mb-4 flex items-center justify-between rounded">
+    <div
+      v-if="notices.length !== 0"
+      class="mb-4 flex items-center justify-between rounded"
+    >
       <div class="flex items-center">
         <div class="mx-4 pb-4">📢</div>
         <div class="pb-4 text-gray text-sm font-medium">
-          {{ format(notices[0].created_at) }} • 
-          {{ notices[0].notice_type }} • {{ notices[0].notice_subject }} •
+          {{ format(notices[0].created_at) }} • {{ notices[0].notice_type }} •
+          {{ notices[0].notice_subject }} •
           {{ notices[0].notice_description }}
         </div>
       </div>
@@ -188,6 +191,12 @@
               </div>
             </div>
           </li>
+          <div v-if="notices.length === 0">
+            <div class="mx-auto my-3 text-center items-center">
+              <h1 class="text-3xl mb-2">☹️</h1>
+              Nothing here yet.
+            </div>
+          </div>
         </ul>
       </div>
       <div class="h-full">
@@ -214,7 +223,56 @@
                 💼
               </div>
               <div class="flex-1 pl-1 mr-5">
-                <div class="font-medium">{{ job.position }} at {{ job.department }}</div>
+                <div class="font-medium">
+                  {{ job.position }} at {{ job.department }}
+                </div>
+                <div class="text-gray-600 text-sm">
+                  {{ job.job_description }}
+                </div>
+              </div>
+            </div>
+          </li>
+          <div v-if="jobs.length === 0">
+            <div class="mx-auto my-3 text-center items-center">
+              <h1 class="text-3xl mb-2">☹️</h1>
+              Nothing here yet.
+            </div>
+          </div>
+        </ul>
+      </div>
+      <div class="h-full">
+        <ul class="flex flex-col bg-white rounded-lg p-4">
+          <div class="mb-4 mx-4 flex justify-between items-center">
+            <div class="font-semibold">My Tasks</div>
+          </div>
+          <form @submit.prevent="addTask" class="w-full max-w-lg">
+            <div class="flex flex-wrap">
+              <div class="w-full px-3 mb-3">
+                <input
+                  class="form-input block w-full"
+                  placeholder="Type new task and press Enter to add."
+                  v-model="form.task"
+                />
+              </div>
+            </div>
+          </form>
+          <li
+            v-for="job in jobs"
+            :key="job.id"
+            class="border-gray-400 flex flex-row mb-2"
+          >
+            <div
+              class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <div
+                class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+              >
+                💼
+              </div>
+              <div class="flex-1 pl-1 mr-5">
+                <div class="font-medium">
+                  {{ job.position }} at {{ job.department }}
+                </div>
                 <div class="text-gray-600 text-sm">
                   {{ job.job_description }}
                 </div>
@@ -239,11 +297,28 @@ export default {
     notices: Array,
     jobs: Array,
   },
+  data() {
+    return {
+      form: {
+        task: null,
+      },
+    };
+  },
   methods: {
     format(value) {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");
       }
+    },
+    addTask() {
+      this.$inertia.post(
+        this.route("task.store", this.$page.auth.user.id),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
   },
 };
