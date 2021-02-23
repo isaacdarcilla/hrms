@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col mt-6">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="-my-2 sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div
-          class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
+          class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg overflow-x-auto"
         >
           <div class="flex items-center justify-between mb-0">
             <h5 class="mx-6 my-5 font-semibold font bg-white">
@@ -107,7 +107,10 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div v-if="education.education_highest_level_earned !== null" class="text-sm text-gray-900 capitalize">
+                  <div
+                    v-if="education.education_highest_level_earned !== null"
+                    class="text-sm text-gray-900 capitalize"
+                  >
                     {{ education.education_highest_level_earned }}
                   </div>
                   <div v-else class="text-sm text-red-600">

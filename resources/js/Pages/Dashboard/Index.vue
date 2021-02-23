@@ -160,7 +160,7 @@
       </inertia-link>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
-      <div class="h-full">
+      <div class="h-40">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Announcements</div>
@@ -170,29 +170,31 @@
               >View more</inertia-link
             >
           </div>
-          <li
-            v-for="notice in notices"
-            :key="notice.id"
-            class="border-gray-400 flex flex-row mb-2"
-          >
-            <div
-              class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
+          <div class="overflow-y-auto h-32">
+            <li
+              v-for="notice in notices"
+              :key="notice.id"
+              class="border-gray-400 flex flex-row mb-2"
             >
               <div
-                class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+                class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
-                📢
-              </div>
-              <div class="flex-1 pl-1 mr-5">
-                <div class="font-medium capitalize">
-                  {{ notice.notice_subject }}
+                <div
+                  class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+                >
+                  📢
                 </div>
-                <div class="text-gray-600 text-sm">
-                  {{ truncate(notice.notice_description) }}
+                <div class="flex-1 pl-1 mr-5">
+                  <div class="font-medium capitalize">
+                    {{ notice.notice_subject }}
+                  </div>
+                  <div class="text-gray-600 text-sm">
+                    {{ truncate(notice.notice_description) }}
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </div>
           <div v-if="notices.length === 0">
             <div class="mx-auto my-3 text-center items-center">
               <h1 class="text-3xl mb-2">☹️</h1>
@@ -201,7 +203,7 @@
           </div>
         </ul>
       </div>
-      <div class="h-full">
+      <div class="h-40">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Vacant Jobs</div>
@@ -211,29 +213,31 @@
               >View more</inertia-link
             >
           </div>
-          <li
-            v-for="job in jobs"
-            :key="job.id"
-            class="border-gray-400 flex flex-row mb-2"
-          >
-            <div
-              class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
+          <div class="overflow-y-auto h-32">
+            <li
+              v-for="job in jobs"
+              :key="job.id"
+              class="border-gray-400 flex flex-row mb-2"
             >
               <div
-                class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+                class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
-                💼
-              </div>
-              <div class="flex-1 pl-1 mr-5">
-                <div class="font-medium capitalize">
-                  {{ job.position }} at {{ job.department }}
+                <div
+                  class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+                >
+                  💼
                 </div>
-                <div class="text-gray-600 text-sm">
-                  {{ truncate(job.job_description) }}
+                <div class="flex-1 pl-1 mr-5">
+                  <div class="font-medium capitalize">
+                    {{ job.position }} at {{ job.department }}
+                  </div>
+                  <div class="text-gray-600 text-sm">
+                    {{ truncate(job.job_description) }}
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </div>
           <div v-if="jobs.length === 0">
             <div class="mx-auto my-3 text-center items-center">
               <h1 class="text-3xl mb-2">☹️</h1>
@@ -242,85 +246,87 @@
           </div>
         </ul>
       </div>
-      <div class="h-full">
+      <div class="h-40">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">My Tasks</div>
           </div>
           <form @submit.prevent="addTask" class="w-full max-w-lg">
             <div class="flex flex-wrap">
-              <div class="w-full px-3 mb-3">
+              <div class="w-full px-3 mb-1">
                 <input
-                  class="form-input block w-full"
-                  placeholder="Type new task and press Enter to add."
+                  class="form-input block w-full h-8"
+                  placeholder="Type new task and press Enter"
                   v-model="form.description"
                 />
               </div>
             </div>
           </form>
-          <li
-            v-for="task in tasks"
-            :key="task.id"
-            class="border-gray-400 flex flex-row mb-2"
-          >
-            <div
-              class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
+          <div class="overflow-y-auto h-16">
+            <li
+              v-for="task in tasks"
+              :key="task.id"
+              class="border-gray-400 flex flex-row mb-2"
             >
               <div
-                class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
+                class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
-                ⚡
-              </div>
-              <div class="flex-1 justify-between items-center">
-                <div v-if="!task.cleared_at" class="font-medium inline">
-                  {{ task.description }}
-                </div>
-                <div v-else class="font-semibold line-through inline">
-                  {{ task.description }}
-                </div>
-              </div>
-              <div
-                v-if="!task.cleared_at"
-                @click.prevent="doneTask(task.id)"
-                class="text-sm text-green-600"
-                title="Mark as done"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="flex flex-col rounded-md w-10 h-10 bg-gray-300 justify-center items-center mr-4"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-              <div
-                v-else
-                @click.prevent="undoneTask(task.id)"
-                class="text-sm text-green-600"
-                title="Mark as undone"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                  ⚡
+                </div>
+                <div class="flex-1 justify-between items-center">
+                  <div v-if="!task.cleared_at" class="font-medium inline">
+                    {{ task.description }}
+                  </div>
+                  <div v-else class="font-semibold line-through inline">
+                    {{ task.description }}
+                  </div>
+                </div>
+                <div
+                  v-if="!task.cleared_at"
+                  @click.prevent="doneTask(task.id)"
+                  class="text-sm text-green-600"
+                  title="Mark as done"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  v-else
+                  @click.prevent="undoneTask(task.id)"
+                  class="text-sm text-green-600"
+                  title="Mark as undone"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </div>
           <div class="mx-4 my-2 flex justify-between items-center">
             <div class="text-sm font-semibold inline">
               {{ total.tasks }} task left
