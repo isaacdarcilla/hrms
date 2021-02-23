@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -20,5 +21,30 @@ class TaskController extends Controller
         ]);
 
         return Redirect::back()->with('success', 'Task added.');
+    }
+
+    public function update(Task $task)
+    {
+        $task->update([
+            'cleared_at' => Carbon::now(),
+        ]);
+
+        return Redirect::back()->with('success', 'Task marked as done.');
+    }
+
+    public function update_undone(Task $task)
+    {
+        $task->update([
+            'cleared_at' => null,
+        ]);
+
+        return Redirect::back()->with('success', 'Task marked as undone.');
+    }
+
+    public function destroy($id)
+    {
+        Task::where('user_id', $id)->delete();
+
+        return Redirect::back()->with('success', 'Tasks cleared.');
     }
 }

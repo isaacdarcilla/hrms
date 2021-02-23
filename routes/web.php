@@ -352,9 +352,22 @@ Route::put('applicants/{job}', [ApplicantController::class, 'store'])
 Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recruit'])
     ->name('applicants.recruit');
 
-// Task 
+// Task
+
 Route::post('task/{user}', [TaskController::class, 'store'])
     ->name('task.store')
+    ->middleware('auth');
+
+Route::put('task/{task}', [TaskController::class, 'update'])
+    ->name('task.update')
+    ->middleware('auth');
+
+Route::put('task/{task}/undone', [TaskController::class, 'update_undone'])
+    ->name('task.update.undone')
+    ->middleware('auth');
+
+Route::delete('task/{user}', [TaskController::class, 'destroy'])
+    ->name('task.destroy')
     ->middleware('auth');
 
 // Notice Board
