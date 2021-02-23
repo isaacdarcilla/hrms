@@ -21,7 +21,7 @@
         >
           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div>
-              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                 <h3
                   class="text-lg leading-6 font-medium text-gray-900 capitalize"
                   id="modal-headline"
@@ -124,7 +124,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="flex flex-wrap -mx-3 mb-6 text-sm sm:text-md">
                     <div class="w-full px-3">
                       <toggle-button
                         :value="form.qualification_experience"
@@ -143,7 +143,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="flex flex-wrap -mx-3 mb-6 text-sm sm:text-md">
                     <div class="w-full px-3">
                       <toggle-button
                         :value="form.qualification_eligibility"
@@ -162,7 +162,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="flex flex-wrap -mx-3 mb-6 text-sm sm:text-md">
                     <div class="w-full px-3">
                       <toggle-button
                         :value="form.qualification_education"
@@ -181,7 +181,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="flex flex-wrap -mx-3 mb-6 text-sm sm:text-md">
                     <div class="w-full px-3">
                       <toggle-button
                         :value="form.qualification_training"

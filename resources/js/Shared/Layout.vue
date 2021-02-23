@@ -35,11 +35,18 @@
             <dropdown class="mt-1" placement="bottom-end">
               <div class="flex items-center cursor-pointer select-none group">
                 <div
-                  class="text-gray-700 group-hover:text-indigo-600 focus:text-indigo-600 mr-1 whitespace-no-wrap font-bold"
+                  class="text-gray-700 flex items-center group-hover:text-indigo-600 focus:text-indigo-600 mr-1 whitespace-no-wrap font-bold"
                 >
-                  😊
+                  <img
+                    class="w-5 h-5 mx-2"
+                    :src="
+                      $page.auth.user.photo
+                        ? $page.auth.user.photo
+                        : '/img/user.png'
+                    "
+                  />
                   <span> {{ $page.auth.user.first_name }}</span>
-                  <span class="hidden md:inline">{{
+                  <span class="hidden md:inline ml-1">{{
                     $page.auth.user.last_name
                   }}</span>
                 </div>

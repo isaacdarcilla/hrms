@@ -1,12 +1,12 @@
 <template>
   <div class="items-center">
-    <div class="max-w-4xl mx-auto px-10 py-8">
+    <div class="max-w-4xl mx-auto px-10 py-6">
       <div class="flex justify-between container">
         <div class="w-full">
           <div class="my-10 items-center justify-between">
-
-            <p class="mt-10 text-xl font-bold text-gray-700 md:text-2xl">
-              <img width="60" class="my-3" src="/img/logo.png" /> <span>CatSU Job Listings</span>
+            <p class="mt-8 text-xl font-bold text-gray-700 md:text-2xl">
+              <img width="60" class="my-3" src="/img/logo.png" />
+              <span>CatSU Job Listings</span>
             </p>
             <p class="font-semibold text-sm mt-1">
               Browse and apply for vacant jobs
@@ -25,7 +25,7 @@
                     ><a
                       @click="showApplyModal(job)"
                       class="px-2 py-2 cursor-pointer bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500 transition duration-500 ease-in-out transform hover:-translate-y-1"
-                      >Easy Apply</a
+                      >Apply</a
                     >
                   </div>
                   <div class="mt-2">
