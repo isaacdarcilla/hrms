@@ -33,7 +33,7 @@
           </li>
           <li class="mr-3">
             <inertia-link
-              :href="route('employee.logouts')"
+              :href="route('employee.logout')"
               class="text-red-500 cursor-pointer font-medium hover:font-semibold hover:text-red-600"
               >Logout</inertia-link
             >
