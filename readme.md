@@ -15,7 +15,7 @@
 - [X] <s>Add HR staff manager</s> (Feb 23)
 - [X] <s>Add documents upload to employee profile</s>  (Feb 23)
 - [X] <s>Add employee dashboard</s>  (Feb 23)
-- [ ] Add tasklist for staff and employee
+- [X] <s>Add tasklist for staff and employee</s>  (Feb 24)
 - [ ] Add editing of employee's profile
 - [ ] Add payslip module
 
