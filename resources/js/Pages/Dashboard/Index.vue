@@ -160,7 +160,7 @@
       </inertia-link>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
-      <div class="h-40">
+      <div class="h-64">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Announcements</div>
@@ -170,7 +170,7 @@
               >View more</inertia-link
             >
           </div>
-          <div class="overflow-y-auto h-32">
+          <div class="overflow-y-auto h-48">
             <li
               v-for="notice in notices"
               :key="notice.id"
@@ -213,7 +213,7 @@
               >View more</inertia-link
             >
           </div>
-          <div class="overflow-y-auto h-32">
+          <div class="overflow-y-auto h-48">
             <li
               v-for="job in jobs"
               :key="job.id"
@@ -262,7 +262,7 @@
               </div>
             </div>
           </form>
-          <div class="overflow-y-auto h-16">
+          <div class="overflow-y-auto h-32">
             <li
               v-for="task in tasks"
               :key="task.id"
