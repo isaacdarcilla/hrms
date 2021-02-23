@@ -47,4 +47,42 @@ class TaskController extends Controller
 
         return Redirect::back()->with('success', 'Tasks cleared.');
     }
+
+    // Employee
+
+    public function store_employee($user)
+    {
+        Task::create([
+            'account_id' => 1,
+            'contact_id' => $user,
+            'description' => Request::input('description')
+        ]);
+
+        return Redirect::back()->with('success', 'Task added.');
+    }
+
+    public function update_employee(Task $task)
+    {
+        $task->update([
+            'cleared_at' => Carbon::now(),
+        ]);
+
+        return Redirect::back()->with('success', 'Task marked as done.');
+    }
+
+    public function update_undone_employee(Task $task)
+    {
+        $task->update([
+            'cleared_at' => null,
+        ]);
+
+        return Redirect::back()->with('success', 'Task marked as undone.');
+    }
+
+    public function destroy_employee($id)
+    {
+        Task::where('contact_id', $id)->delete();
+
+        return Redirect::back()->with('success', 'Tasks cleared.');
+    }
 }

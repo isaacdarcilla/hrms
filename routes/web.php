@@ -370,6 +370,20 @@ Route::delete('task/{user}', [TaskController::class, 'destroy'])
     ->name('task.destroy')
     ->middleware('auth');
 
+// Employee Task
+
+Route::post('employee/task/{user}', [TaskController::class, 'store_employee'])
+    ->name('task.store.employee');
+
+Route::put('employee/task/{task}', [TaskController::class, 'update_employee'])
+    ->name('task.update.employee');
+
+Route::put('employee/task/{task}/undone', [TaskController::class, 'update_undone_employee'])
+    ->name('task.update.undone.employee');
+
+Route::delete('employee/task/{user}', [TaskController::class, 'destroy_employee'])
+    ->name('task.destroy.employee');
+
 // Notice Board
 
 Route::get('notices', [NoticeController::class, 'index'])
@@ -401,3 +415,5 @@ Route::get('employee/dashboard', [EmployeeController::class, 'index'])
 Route::get('employee/logout', [EmployeeController::class, 'employee_logout'])
     ->name('employee.logout')
     ->middleware('web', 'employee');
+
+

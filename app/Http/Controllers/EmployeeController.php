@@ -7,18 +7,13 @@ use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\User;
 use App\Models\Notice;
-use App\Models\Children;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $employee =  Auth::guard('employee')->user();
@@ -31,81 +26,17 @@ class EmployeeController extends Controller
                     'jobs' => Job::count(),
                     'applicants' => Applicant::count(),
                     'staffs' => User::count(),
+                    'tasks' => Task::where('contact_id', $employee->id)->where('cleared_at', NULL)->count(),
                 ],
                 'notices' => Notice::orderBy('created_at', 'DESC')->take(5)->get(),
                 'jobs' => Job::orderBy('created_at', 'DESC')->take(5)->get(),
+                'tasks' => Task::where('contact_id', $employee->id)->orderBy('created_at', 'DESC')->get(),
             ]);
-        else 
+        else
             return redirect()->route('login.employee');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function employee_logout() 
+    public function employee_logout()
     {
         Auth::guard('employee')->logout();
 

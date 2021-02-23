@@ -2,7 +2,7 @@
   <div class="mb-4 mr-4 flex justify-between items-center">
     <h1 class="mb-6 font-bold text-3xl flex items-center">
       <img
-        class="w-8 h-8 mx-3"
+        class="w-8 h-8 mx-3 rounded-full"
         :src="
           employee.photo !== null
             ? '/storage/' + employee.photo
