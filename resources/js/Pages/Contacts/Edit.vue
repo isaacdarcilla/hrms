@@ -18,7 +18,9 @@
     </trashed-message>
     <div class="h-full">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
-        <div class="rounded-xl bg-white shadow-md">
+        <div
+          class="rounded-xl bg-white shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1"
+        >
           <div
             :class="
               hidden ? 'hidden' : 'flex items-center justify-between mb-0'
@@ -103,31 +105,56 @@
             </div>
           </figure>
         </div>
-        <personal-information :contact="contact"></personal-information>
+        <personal-information
+          :contact="contact"
+          class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+        ></personal-information>
       </div>
     </div>
 
     <div class="h-full pt-3">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
-        <family-background :family="family"></family-background>
-        <childrens :childrens="childrens" :family="family"></childrens>
+        <family-background
+          :family="family"
+          class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+        ></family-background>
+        <childrens
+          :childrens="childrens"
+          :family="family"
+          class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+        ></childrens>
       </div>
     </div>
 
     <educational-background
       :educations="educations"
-      class="flex"
+      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
     ></educational-background>
 
-    <civil-service :eligibilities="eligibilities" class="flex"></civil-service>
+    <civil-service
+      :eligibilities="eligibilities"
+      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+    ></civil-service>
 
-    <work-experience :experiences="experiences" class="flex"></work-experience>
+    <work-experience
+      :experiences="experiences"
+      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+    ></work-experience>
 
-    <volunteer-work :volunteers="volunteers" class="flex"></volunteer-work>
+    <volunteer-work
+      :volunteers="volunteers"
+      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+    ></volunteer-work>
 
-    <trainings :trainings="trainings" class="flex"></trainings>
+    <trainings
+      :trainings="trainings"
+      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
+    ></trainings>
 
-    <div id="documents" class="w-full h-full mt-6">
+    <div
+      id="documents"
+      class="w-full h-full mt-6 transition duration-500 ease-in-out transform hover:-translate-y-1"
+    >
       <div
         class="shadow overflow-hidden border-b bg-white border-gray-200 sm:rounded-lg"
       >
@@ -181,7 +208,7 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <a
-                  :href="'/storage/'+document.document_file"
+                  :href="'/storage/' + document.document_file"
                   class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                   >💾 Download</a
                 >

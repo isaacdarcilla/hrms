@@ -1,6 +1,8 @@
 <template>
   <div class="grid gap-8 mb-8 md:grid-cols-3 xl:grid-cols-3">
-    <div class="flex flex-col mt-6">
+    <div
+      class="flex flex-col mt-6 transition duration-500 ease-in-out transform hover:-translate-y-1"
+    >
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div
@@ -72,7 +74,9 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col mt-6">
+    <div
+      class="flex flex-col mt-6 transition duration-500 ease-in-out transform hover:-translate-y-1"
+    >
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div
@@ -149,7 +153,9 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col mt-6">
+    <div
+      class="flex flex-col mt-6 transition duration-500 ease-in-out transform hover:-translate-y-1"
+    >
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div

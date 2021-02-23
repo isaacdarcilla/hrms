@@ -16,12 +16,12 @@
       </search-filter>
       <div class="inline">
         <inertia-link
-          class="btn-blue mr-4 rounded-lg"
+          class="btn-blue mr-4 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
           :href="route('jobs.list')"
         >
           <span class="font-semibold">💼 View Listing</span>
         </inertia-link>
-        <button @click="showModal" class="btn-indigo rounded-lg">
+        <button @click="showModal" class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1">
           <span>➕ Create</span>
           <span class="hidden md:inline">Job Posting</span>
         </button>
@@ -93,7 +93,7 @@
             :key="job.id"
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -110,7 +110,7 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -124,7 +124,7 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -138,7 +138,7 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -152,7 +152,7 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -165,7 +165,7 @@
               </inertia-link>
             </td>
 
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -177,7 +177,7 @@
                 <div v-else class="text-sm text-gray-700">None required</div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -189,7 +189,7 @@
                 <div v-else class="text-sm text-gray-700">None required</div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('jobs')"
@@ -201,7 +201,7 @@
                 <div v-else class="text-sm text-gray-700">None required</div>
               </inertia-link>
             </td>
-            <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+            <td class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1">
               <span
                 v-if="!job.deleted_at"
                 @click="showEditModal(job)"

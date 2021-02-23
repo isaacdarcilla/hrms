@@ -24,7 +24,7 @@
                       >Posted on {{ format(job.created_at) }}</span
                     ><a
                       @click="showApplyModal(job)"
-                      class="px-2 py-2 cursor-pointer bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500"
+                      class="px-2 py-2 cursor-pointer bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500 transition duration-500 ease-in-out transform hover:-translate-y-1"
                       >Easy Apply</a
                     >
                   </div>

@@ -91,7 +91,7 @@
 
           <loading-button
             :loading="sending"
-            class="btn-indigo ml-auto"
+            class="btn-indigo ml-auto rounded-lg"
             type="submit"
             >Update</loading-button
           >

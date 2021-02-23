@@ -14,7 +14,10 @@
           <option value="only">Inactive</option>
         </select>
       </search-filter>
-      <inertia-link class="btn-indigo" :href="route('users.create')">
+      <inertia-link
+        class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+        :href="route('users.create')"
+      >
         <span>➕ Create</span>
         <span class="hidden md:inline">Staff</span>
       </inertia-link>
@@ -55,7 +58,7 @@
             :key="user.id"
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-0 py-0 flex items-center focus:text-indigo-500"
                 :href="route('users.edit', user.id)"
@@ -80,7 +83,7 @@
                 />
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-0 py-4 whitespace-nowrap text-blue-600 text-sm"
                 :href="route('users.edit', user.id)"
@@ -89,7 +92,7 @@
                 {{ user.email }}
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-0 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('users.edit', user.id)"
@@ -98,7 +101,7 @@
                 {{ user.owner ? "Owner" : "User" }}
               </inertia-link>
             </td>
-            <td class="border-t w-px">
+            <td class="border-t w-px transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-4 flex items-center"
                 :href="route('users.edit', user.id)"

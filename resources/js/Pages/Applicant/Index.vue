@@ -81,7 +81,7 @@
             :key="applicant.id"
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
-            <td class="border-t">
+            <td class="border-t transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 flex items-center focus:text-indigo-500"
                 :href="route('applicants')"
@@ -99,7 +99,7 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('applicants')"
@@ -123,7 +123,7 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="whitespace-nowrap text-sm text-gray-900"
                 :href="route('applicants')"
@@ -137,7 +137,7 @@
                 </a>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="whitespace-nowrap text-sm text-gray-900"
                 :href="route('applicants')"
@@ -152,7 +152,7 @@
                 <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="whitespace-nowrap text-sm text-gray-900"
                 :href="route('applicants')"
@@ -167,7 +167,7 @@
                 <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="whitespace-nowrap text-sm text-gray-900"
                 :href="route('applicants')"
@@ -182,7 +182,7 @@
                 <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
               <inertia-link
                 class="whitespace-nowrap text-sm text-gray-900"
                 :href="route('applicants')"
@@ -197,7 +197,7 @@
                 <a v-else class="capitalize text-red-600"> No </a>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap font-medium">
+            <td class="px-6 py-4 whitespace-nowrap font-medium transition duration-500 ease-in-out transform hover:-translate-y-1">
               <div
                 class="whitespace-nowrap text-sm text-gray-900"
                 tabindex="-1"

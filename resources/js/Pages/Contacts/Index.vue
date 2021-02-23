@@ -14,7 +14,10 @@
           <option value="only">Inactive</option>
         </select>
       </search-filter>
-      <button @click="showModal" class="btn-indigo rounded-lg">
+      <button
+        @click="showModal"
+        class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
         <span>➕ Create</span>
         <span class="hidden md:inline">Employee</span>
       </button>
@@ -67,7 +70,9 @@
             :key="contact.id"
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
-            <td class="border-t">
+            <td
+              class="border-t transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 class="px-6 py-4 flex items-center focus:text-indigo-500"
                 :href="route('employees.edit', contact.id)"
@@ -106,7 +111,9 @@
                 />
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('employees.edit', contact.id)"
@@ -123,7 +130,9 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('employees.edit', contact.id)"
@@ -137,7 +146,9 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                 :href="route('employees.edit', contact.id)"
@@ -149,7 +160,9 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <span
                 v-if="contact.status === '1'"
                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800"
@@ -166,7 +179,9 @@
                 No data available
               </span>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 class="text-indigo-600 hover:text-indigo-900"
                 :href="route('employees.edit', contact.id)"
