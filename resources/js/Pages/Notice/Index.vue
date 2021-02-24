@@ -61,7 +61,9 @@
             :key="notice.id"
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
-            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 :href="route('notices')"
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
@@ -71,7 +73,9 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 :href="route('notices')"
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
@@ -81,17 +85,21 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 :href="route('notices')"
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
               >
                 <div class="normal-case">
-                  {{ notice.notice_description }}
+                  {{ truncate(notice.notice_description) }}
                 </div>
               </inertia-link>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <inertia-link
                 :href="route('notices')"
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
@@ -101,7 +109,9 @@
                 </div>
               </inertia-link>
             </td>
-            <td class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <td
+              class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
               <span
                 v-if="!notice.deleted_at"
                 @click="showEditModal(notice)"
@@ -195,6 +205,12 @@ export default {
     },
   },
   methods: {
+    truncate(input) {
+      if (input.length > 50) {
+        return input.substring(0, 50) + "...";
+      }
+      return input;
+    },
     showModal() {
       this.showAddNotice = true;
     },
