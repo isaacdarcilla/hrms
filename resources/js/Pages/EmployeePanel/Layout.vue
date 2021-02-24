@@ -10,12 +10,12 @@
 
         <ul class="flex items-center">
           <li>
-            <h1 class="pl-8 lg:pl-0 font-semibold text-white">HRMS</h1>
+            <logo class="fill-white" width="120" height="28" />
           </li>
         </ul>
 
         <ul class="flex items-center">
-          <li class="h-8 w-8">
+          <li class="h-8 w-8 mx-3">
             <img
               class="h-full w-full rounded-full mx-auto"
               :src="
@@ -25,19 +25,6 @@
               "
             />
           </li>
-          <li class="mx-3">
-            <span
-              class="text-white cursor-pointer font-medium hover:font-semibold hover:text-blue-600"
-              >Profile</span
-            >
-          </li>
-          <li class="mr-3">
-            <inertia-link
-              :href="route('employee.logout')"
-              class="text-red-500 cursor-pointer font-medium hover:font-semibold hover:text-red-600"
-              >Logout</inertia-link
-            >
-          </li>
         </ul>
       </nav>
     </div>
@@ -46,10 +33,13 @@
 </template>
 <script>
 import FlashMessages from "@/Shared/FlashMessages";
+import Logo from "@/Shared/Logo";
+import swal from "sweetalert";
 
 export default {
   components: {
     FlashMessages,
+    Logo
   },
   props: {
     employee: Object,

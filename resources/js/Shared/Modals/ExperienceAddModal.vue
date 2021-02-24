@@ -20,7 +20,7 @@
         >
           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div>
-              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                 <h3
                   class="text-lg leading-6 font-medium text-gray-900"
                   id="modal-headline"
@@ -235,13 +235,13 @@ export default {
       form: {
         contact_id: this.employee.id,
         experiences_from: null,
-        experiences_to: null,  
-        experiences_position: null,  
-        experiences_company: null, 
-        experiences_monthly_salary: null,  
-        experiences_salary_grade: null,  
-        experiences_status_of_appointment: null, 
-        experiences_government: null,  
+        experiences_to: null,
+        experiences_position: null,
+        experiences_company: null,
+        experiences_monthly_salary: null,
+        experiences_salary_grade: null,
+        experiences_status_of_appointment: null,
+        experiences_government: null,
       },
     };
   },
@@ -258,12 +258,12 @@ export default {
     },
     reset() {
       this.form.experiences_from = null;
-      this.form.experiences_to = null; 
-      this.form.experiences_position = null; 
+      this.form.experiences_to = null;
+      this.form.experiences_position = null;
       this.form.experiences_company = null;
-      this.form.experiences_monthly_salary = null; 
-      this.form.experiences_salary_grade = null;  
-      this.form.experiences_status_of_appointment = null; 
+      this.form.experiences_monthly_salary = null;
+      this.form.experiences_salary_grade = null;
+      this.form.experiences_status_of_appointment = null;
       this.form.experiences_government = null;
     },
   },

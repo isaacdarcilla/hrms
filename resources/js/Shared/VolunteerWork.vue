@@ -89,7 +89,7 @@
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span 
+                  <span
                     @click="showVolunteerEditModal(volunteer)"
                     class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                     >✏️ Edit</span</span
@@ -134,8 +134,8 @@ import VolunteerAddModal from "@/Shared/Modals/VolunteerAddModal.vue";
 import VolunteerEditModal from "@/Shared/Modals/VolunteerEditModal.vue";
 
 export default {
-  components: { 
-    VolunteerAddModal, 
+  components: {
+    VolunteerAddModal,
     VolunteerEditModal
   },
   inject: ["employeeId"],

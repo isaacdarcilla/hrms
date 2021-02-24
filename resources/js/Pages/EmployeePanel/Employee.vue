@@ -1,8 +1,15 @@
 <template>
   <div>
     <layout :employee="employee"></layout>
-    <div class="mx-10 my-10">
-        <h1 class="my-6 text-3xl font-bold">Hello, {{ employee.first_name }}!</h1>
+    <div class="mx-10 mb-10 mt-0">
+      <div class="mb-6 mt-1 flex justify-between items-center">
+        <div class="text-3xl font-bold">Hello, {{ employee.first_name }}!</div>
+        <inertia-link
+          :href="route('employee.profile', employee.id)"
+          class="font-bold hover:text-gray-600 cursor-pointer"
+          >View Profile</inertia-link
+        >
+      </div>
       <div
         v-if="notices.length !== 0"
         class="mb-4 flex items-center justify-between rounded"

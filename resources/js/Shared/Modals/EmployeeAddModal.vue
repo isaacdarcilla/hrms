@@ -20,7 +20,7 @@
         >
           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div>
-              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                 <div class="flex items-center justify-between mb-0">
                   <h3
                     class="text-lg leading-6 font-medium text-gray-900 capitalize"
@@ -28,7 +28,7 @@
                   >
                     ➕ Add Employee
                   </h3>
-                  <button @click="closeModal" class="text-sm pr-5 text-red-600">
+                  <button @click="closeModal" class="text-sm ml-2 pr-5 text-red-600">
                     Close
                   </button>
                 </div>

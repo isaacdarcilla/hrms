@@ -107,7 +107,6 @@
         </div>
         <personal-information
           :contact="contact"
-          class="transition duration-500 ease-in-out transform hover:-translate-y-1"
         ></personal-information>
       </div>
     </div>
@@ -116,39 +115,32 @@
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
         <family-background
           :family="family"
-          class="transition duration-500 ease-in-out transform hover:-translate-y-1"
         ></family-background>
         <childrens
           :childrens="childrens"
           :family="family"
-          class="transition duration-500 ease-in-out transform hover:-translate-y-1"
         ></childrens>
       </div>
     </div>
 
     <educational-background
       :educations="educations"
-      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
     ></educational-background>
 
     <civil-service
       :eligibilities="eligibilities"
-      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
     ></civil-service>
 
     <work-experience
       :experiences="experiences"
-      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
     ></work-experience>
 
     <volunteer-work
       :volunteers="volunteers"
-      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
     ></volunteer-work>
 
     <trainings
       :trainings="trainings"
-      class="transition duration-500 ease-in-out transform hover:-translate-y-1"
     ></trainings>
 
     <div

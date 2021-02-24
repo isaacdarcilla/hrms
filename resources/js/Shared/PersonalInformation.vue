@@ -12,7 +12,7 @@
       </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
-      <div class="rounded pl-4 pt-4">
+      <div class="rounded pl-4 pt-4 mx-4">
         <div class="pb-1">
           <label
             for="name"
