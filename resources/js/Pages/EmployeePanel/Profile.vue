@@ -247,6 +247,7 @@ import Childrens from "@/Shared/Childrens.vue";
 import DocumentAddModal from "@/Shared/Modals/DocumentAddModal.vue";
 
 export default {
+  metaInfo: { title: "Profile" },
   components: {
     Layout,
     ToggleButton,
