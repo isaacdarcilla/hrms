@@ -180,7 +180,7 @@
                 class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
                 <div
-                  class="flex flex-col rounded-md w-10 h-10 bg-red-100 justify-center items-center mr-4"
+                  class="flex flex-col rounded-md w-10 h-10 bg-blue-100 justify-center items-center mr-4"
                 >
                   📢
                 </div>
@@ -223,7 +223,7 @@
                 class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
                 <div
-                  class="flex flex-col rounded-md w-10 h-10 bg-green-100 justify-center items-center mr-4"
+                  class="flex flex-col rounded-md w-10 h-10 bg-orange-200 justify-center items-center mr-4"
                 >
                   💼
                 </div>
