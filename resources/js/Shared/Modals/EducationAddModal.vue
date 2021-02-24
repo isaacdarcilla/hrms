@@ -70,12 +70,26 @@
                         >Level of Education</label
                       >
                       <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter educational level"
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.education_level"
-                        ref="name"
+                        value="Primary Education"
                       />
+                      Primary Education
+					  <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.education_level"
+                        value="Secondary Education"
+                      />
+                      Secondary Education
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.education_level"
+                        value="Tertiary Education"
+                      />
+                      Tertiary Education
                       <div
                         v-if="$page.errors.education_level !== null"
                         class="form-error"

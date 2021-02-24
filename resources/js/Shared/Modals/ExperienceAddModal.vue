@@ -145,12 +145,33 @@
                         >Status of Appoinment</label
                       >
                       <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter status of appointment"
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.experiences_status_of_appointment"
-                        ref="name"
+                        value="Job Order/Contractual"
                       />
+                      Job Order/Contractual
+					  <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Permanent/Regular"
+                      />
+                      Permanent/Regular
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Full-time"
+                      />
+                      Full-time
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Part-time"
+                      />
+                      Part-time
                       <div
                         v-if="
                           $page.errors.experiences_status_of_appointment !== null
