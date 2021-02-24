@@ -73,7 +73,7 @@
                   class="block font-bold px-6 py-2 hover:bg-indigo-500 hover:text-white"
                   :href="route('logout')"
                   method="post"
-                  >❌ Logout</inertia-link
+                  >Logout</inertia-link
                 >
               </div>
             </dropdown>
