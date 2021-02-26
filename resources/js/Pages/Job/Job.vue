@@ -112,7 +112,7 @@
                       Copy link</a
                     >
                     <div>
-                      <a href="#" class="flex items-center"
+                      <span class="flex items-center"
                         ><img
                           src="/img/user.png"
                           alt="avatar"
@@ -130,7 +130,7 @@
                         >
                           {{ applicants }} applied for this job
                         </h1>
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
