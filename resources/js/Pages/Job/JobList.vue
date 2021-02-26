@@ -89,7 +89,7 @@
                   <div class="flex justify-between items-center mt-6">
                     <span
                       ref="link"
-                      @click="copy"
+                      @click="copy(job.job_link)"
                       class="text-blue-500 cursor-pointer text-sm font-bold hover:underline"
                       ><svg
                         class="w-5 h-5 inline-block"
@@ -105,7 +105,7 @@
                           d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
                         ></path>
                       </svg>
-                      Copy link</span
+                      {{ message }}</span
                     >
                     <div>
                       <span class="flex items-center"
@@ -152,6 +152,7 @@ import ModalApply from "@/Pages/Job/ModalApply";
 import moment from "moment";
 import FlashMessages from "@/Shared/FlashMessages";
 import VueClipboard from "vue-clipboard2";
+import swal from "sweetalert";
 
 export default {
   components: {
@@ -162,17 +163,25 @@ export default {
     jobs: Array,
     applicants: Array,
   },
+  mounted() {
+    this.url = window.location.host;
+  },
   data() {
     return {
+      url: null,
+      message: "Copy link",
       job: null,
       applied: false,
       showApply: false,
     };
   },
   methods: {
-    copy() {
-      var url = this.$refs.link;
-      url.innerHTML = window.location.href;
+    copy(link) {
+      this.$copyText(`${this.url}/job/offer/${link}`);
+      swal({
+        text: `Link copied to clipboard`,
+        buttons: false,
+      });
     },
     showApplyModal(item) {
       this.job = item;
