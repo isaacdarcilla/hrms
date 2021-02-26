@@ -18,6 +18,7 @@
 - [X] <s>Add tasklist for staff and employee</s>  (Feb 24)
 - [X] <s>Add editing of employee's profile</s>  (Feb 26)
 - [X] <s>Add link per job</s>  (Feb 26)
+- [ ] Leave management
 - [ ] Add payslip module
 
 ## 🔖 License
