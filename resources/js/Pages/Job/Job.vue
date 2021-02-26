@@ -172,6 +172,9 @@ export default {
       showApply: false,
     };
   },
+  mounted() {
+      console.log(window.location.href);
+  },
   methods: {
     copy() {
       var url = this.$refs.link;
