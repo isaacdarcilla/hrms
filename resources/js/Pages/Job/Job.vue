@@ -13,17 +13,20 @@
             </p>
           </div>
           <flash-messages />
-          <ul v-for="(job, index) in jobs" :key="job.id">
+          <div v-if="error === 1">
+            <p>Job not found.</p>
+          </div>
+          <ul v-else>
             <li>
-              <div :id="job.item_number" class="mt-6 mx-auto">
+              <div class="mt-6 mx-auto">
                 <div
                   class="max-w-4xl container mx-auto px-10 py-6 bg-white rounded-lg shadow-md"
                 >
                   <div class="flex justify-between items-center">
                     <span class="font-normal text-sm text-gray-600"
-                      >Posted on {{ format(job.created_at) }}</span
+                      >Posted on {{ format(jobs.created_at) }}</span
                     ><a
-                      @click="showApplyModal(job)"
+                      @click="showApplyModal(jobs)"
                       class="px-2 py-2 cursor-pointer bg-blue-600 text-blue-100 font-semibold text-sm rounded-lg hover:bg-blue-500 transition duration-500 ease-in-out transform hover:-translate-y-1"
                       >Apply</a
                     >
@@ -31,14 +34,14 @@
                   <div class="mt-2">
                     <a
                       class="text-2xl text-blue-700 capitalize font-bold hover:underline"
-                      >{{ job.position }},
+                      >{{ jobs.position }},
                       <span class="text-md font-normal">{{
-                        job.department
+                        jobs.department
                       }}</span></a
                     >
                     <p class="mt-4 mb-2 font-bold">Item Number</p>
                     <p class="mt-2 uppercase text-gray-600">
-                      {{ job.item_number }}
+                      {{ jobs.item_number }}
                     </p>
                     <p class="mt-3 mb-2 font-bold">Qualification Standard</p>
                     <div class="grid gap-2 mb-8 md:grid-cols-2 xl:grid-cols-2">
@@ -47,13 +50,15 @@
                           <li class="pl-3 mb-1 normal-case">
                             • Education:
                             <span class="text-gray-600 normal-case">{{
-                              job.education
+                              jobs.education
                             }}</span>
                           </li>
                           <li class="pl-3 mb-1">
                             • Experience:
                             <span class="text-gray-600 normal-case">{{
-                              job.experience ? job.experience : "None required"
+                              jobs.experience
+                                ? jobs.experience
+                                : "None required"
                             }}</span>
                           </li>
                         </ol>
@@ -63,14 +68,14 @@
                           <li class="pl-3 mb-1">
                             • Training:
                             <span class="text-gray-600 normal-case">{{
-                              job.training ? job.training : "None required"
+                              jobs.training ? jobs.training : "None required"
                             }}</span>
                           </li>
                           <li class="pl-3 mb-1">
                             • Eligibility:
                             <span class="text-gray-600 normal-case">{{
-                              job.eligibility
-                                ? job.eligibility
+                              jobs.eligibility
+                                ? jobs.eligibility
                                 : "None required"
                             }}</span>
                           </li>
@@ -79,11 +84,11 @@
                     </div>
                     <p class="mt-0 mb-2 font-bold">Job Description</p>
                     <p class="mt-2 text-gray-600 normal-case">
-                      {{ job.job_description }}
+                      {{ jobs.job_description }}
                     </p>
                     <p class="mt-4 mb-2 font-bold">Salary Grade</p>
                     <p class="mt-2 text-gray-600 uppercase">
-                      SG-{{ job.salary_grade }}
+                      SG-{{ jobs.salary_grade }}
                     </p>
                   </div>
                   <div class="flex justify-between items-center mt-6">
@@ -114,7 +119,7 @@
                           class="mx-2 w-5 h-5 object-cover rounded-full hidden sm:block"
                         />
                         <h1
-                          v-if="applicants.length === 0"
+                          v-if="applicants === 0"
                           class="text-gray-700 text-sm font-bold hover:underline"
                         >
                           There are no applications yet
@@ -123,7 +128,7 @@
                           v-else
                           class="text-gray-700 text-sm font-bold hover:underline"
                         >
-                          {{ applicants[index].count }} applied for this job
+                          {{ applicants }} applied for this job
                         </h1>
                       </a>
                     </div>
@@ -132,9 +137,6 @@
               </div>
             </li>
           </ul>
-          <div v-if="jobs.length === 0">
-            <p>There's no job post yet.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -157,8 +159,9 @@ export default {
     ModalApply,
   },
   props: {
-    jobs: Array,
-    applicants: Array,
+    jobs: Object,
+    applicants: Number,
+    error: Number,
   },
   data() {
     return {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Applicant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
@@ -47,19 +48,32 @@ class JobController extends Controller
      */
     public function store(Job $job)
     {
-        $job->create(
-            Request::validate([
-                'position' => ['required', 'max:255', 'min:2'],
-                'department' => ['required', 'max:255', 'min:2'],
-                'item_number' => ['required', 'max:50', 'min:2'],
-                'education' => ['required', 'max:255', 'min:2'],
-                'experience' => ['nullable', 'max:255', 'min:2'],
-                'training' => ['nullable', 'max:255', 'min:2'],
-                'eligibility' => ['nullable', 'max:255', 'min:2'],
-                'salary_grade' => ['required', 'max:255', 'min:2', 'regex:/^[0-9+]+$/'],
-                'job_description' => ['required', 'min:6'],
-            ])
-        );
+        Request::validate([
+            'position' => ['required', 'max:255', 'min:2'],
+            'department' => ['required', 'max:255', 'min:2'],
+            'item_number' => ['required', 'max:50', 'min:2'],
+            'education' => ['required', 'max:255', 'min:2'],
+            'experience' => ['nullable', 'max:255', 'min:2'],
+            'training' => ['nullable', 'max:255', 'min:2'],
+            'eligibility' => ['nullable', 'max:255', 'min:2'],
+            'salary_grade' => ['required', 'max:255', 'min:2', 'regex:/^[0-9+]+$/'],
+            'job_description' => ['required', 'min:6'],
+        ]);
+
+        $job_link = strtolower(str_replace(' ', '-', Request::input('position'))).'-'.Str::random(5);
+
+        $job->create([
+            'position' => Request::input('position'),
+            'department' => Request::input('department'),
+            'item_number' => Request::input('item_number'),
+            'education' => Request::input('education'),
+            'experience' => Request::input('experience'),
+            'training' => Request::input('training'),
+            'eligibility' => Request::input('eligibility'),
+            'salary_grade' => Request::input('salary_grade'),
+            'job_description' => Request::input('job_description'),
+            'job_link' => $job_link,
+        ]);
 
         return Redirect::back()->with('success', 'Job added.');
     }
@@ -148,5 +162,20 @@ class JobController extends Controller
             'jobs' => $jobs,
             'applicants' => $myArray,
         ]);
+    }
+
+    public function job($link) {
+        $job = Job::where('job_link', $link)->first();
+
+        if($job) {
+            return Inertia::render('Job/Job', [
+                'jobs' => $job,
+                'applicants' => Applicant::where('job_id', $job->id)->count(),
+            ]);
+        } else {
+            return Inertia::render('Job/Job', [
+                'error' => 1,
+            ]);
+        }
     }
 }
