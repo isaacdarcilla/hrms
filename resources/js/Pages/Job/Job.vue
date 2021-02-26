@@ -153,6 +153,7 @@
 import ModalApply from "@/Pages/Job/ModalApply";
 import moment from "moment";
 import FlashMessages from "@/Shared/FlashMessages";
+import VueClipboard from 'vue-clipboard2'
 
 export default {
   components: {
@@ -175,7 +176,6 @@ export default {
     copy() {
       var url = this.$refs.link;
       url.innerHTML = window.location.href;
-      document.execCommand("copy");
     },
     showApplyModal(item) {
       this.job = item;
