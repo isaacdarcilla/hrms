@@ -12,7 +12,7 @@
       </h1>
     </div>
 
-    <trashed-message v-if="contact.deleted_at" class="mb-6">
+    <trashed-message v-if="contact.deleted_at" class="mb-6 rounded-lg">
       This employee has been marked as inactive. Click on the toogle button to
       set active status.
     </trashed-message>
