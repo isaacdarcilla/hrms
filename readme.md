@@ -1,4 +1,4 @@
-![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot/Screenshot%20from%202021-02-14%2010-57-37.png)
+![](https://github.com/isaacdarcilla/hrms/blob/main/public/img/logo.svg)
 
 ```diff
 - High Priority Task
