@@ -237,11 +237,11 @@
                 </div>
               </div>
             </li>
-          </div>
-          <div v-if="jobs.length === 0">
-            <div class="mx-auto my-3 text-center items-center">
-              <h1 class="text-3xl mb-2">☹️</h1>
-              Nothing here yet.
+            <div v-if="jobs.length === 0">
+              <div class="mx-auto my-12 justify-evenly text-center items-center">
+                <h1 class="text-3xl mb-2">☹️</h1>
+                Nothing here yet.
+              </div>
             </div>
           </div>
         </ul>
@@ -277,10 +277,13 @@
                   ⚡
                 </div>
                 <div class="flex-1 justify-between items-center">
-                  <div v-if="!task.cleared_at" class="font-medium inline">
+                  <div v-if="!task.cleared_at" class="font-semibold inline">
                     {{ task.description }}
                   </div>
-                  <div v-else class="font-semibold line-through inline">
+                  <div
+                    v-else
+                    class="font-semibold line-through inline text-gray-600"
+                  >
                     {{ task.description }}
                   </div>
                 </div>

@@ -210,7 +210,7 @@
             <td
               class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <inertia-link
+              <inertia-link v-if="filters.search !== null"
                 class="whitespace-nowrap text-gray-900"
                 :href="route('jobs.job', job.job_link)"
                 tabindex="-1"
