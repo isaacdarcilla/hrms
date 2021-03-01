@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use App\Models\Notification;
+use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -56,6 +59,16 @@ class HandleInertiaRequests extends Middleware
                 return [
                     'success' => $request->session()->get('success'),
                     'error' => $request->session()->get('error'),
+                ];
+            },
+            'notifiable' => function () use ($request) {
+                return [
+                    'count' => Notification::where('read_at', null)->count(),
+                    'notifications' => DB::table('contacts')
+                                        ->join('notifications', 'contacts.id', '=', 'notifications.contact_id')
+                                        ->select('contacts.first_name', 'contacts.last_name', 'notifications.*')
+                                        ->where('read_at', null)
+                                        ->get(),
                 ];
             },
         ]);

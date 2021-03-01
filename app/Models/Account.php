@@ -33,4 +33,9 @@ class Account extends Model
     {
         return $this->hasMany(Notice::class);
     }
+
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

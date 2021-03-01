@@ -21,6 +21,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -272,6 +273,12 @@ Route::put('jobs/{jobs}', [JobController::class, 'update'])
 
 Route::put('jobs/{jobs}/restore', [JobController::class, 'restore'])
     ->name('jobs.restore')
+    ->middleware('auth');
+
+// Notification
+
+Route::put('notification', [NotificationController::class, 'update'])
+    ->name('notification.update')
     ->middleware('auth');
 
 // Applicant

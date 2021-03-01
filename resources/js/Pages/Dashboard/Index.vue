@@ -180,7 +180,7 @@
                 class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
                 <div
-                  class="flex flex-col rounded-md w-10 h-10 bg-blue-100 justify-center items-center mr-4"
+                  class="flex flex-col rounded-md w-10 h-10 bg-blue-200 justify-center items-center mr-4"
                 >
                   📢
                 </div>
@@ -188,7 +188,7 @@
                   <div class="font-medium capitalize">
                     {{ notice.notice_subject }}
                   </div>
-                  <div class="text-gray-600 text-sm">
+                  <div class="text-gray-600 text-sm mt-1">
                     {{ truncate(notice.notice_description) }}
                   </div>
                 </div>
@@ -223,7 +223,7 @@
                 class="select-none cursor-pointer bg-white rounded-md flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-1"
               >
                 <div
-                  class="flex flex-col rounded-md w-10 h-10 bg-orange-200 justify-center items-center mr-4"
+                  class="flex flex-col rounded-md w-10 h-10 bg-red-200 justify-center items-center mr-4"
                 >
                   💼
                 </div>
@@ -231,7 +231,7 @@
                   <div class="font-medium capitalize">
                     {{ job.position }} at {{ job.department }}
                   </div>
-                  <div class="text-gray-600 text-sm">
+                  <div class="text-gray-600 text-sm mt-1">
                     {{ truncate(job.job_description) }}
                   </div>
                 </div>

@@ -192,7 +192,6 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Job Description
-                        <span class="font-medium">(Optional)</span>
                       </label>
                       <textarea
                         autofocus="true"

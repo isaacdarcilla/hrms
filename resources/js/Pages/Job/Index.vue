@@ -80,12 +80,6 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Link
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
               Action
             </th>
           </tr>
@@ -205,20 +199,6 @@
                   {{ job.eligibility }}
                 </div>
                 <div v-else class="text-sm text-gray-700">None required</div>
-              </inertia-link>
-            </td>
-            <td
-              class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
-            >
-              <inertia-link v-if="filters.search !== null"
-                class="whitespace-nowrap text-gray-900"
-                :href="route('jobs.job', job.job_link)"
-                tabindex="-1"
-              >
-                <span
-                  class="text-indigo-600 cursor-pointer hover:text-indigo-900"
-                  >👁️‍🗨️ View</span
-                >
               </inertia-link>
             </td>
             <td
