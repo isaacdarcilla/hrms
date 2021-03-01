@@ -37,9 +37,15 @@
                       class="select-none cursor-pointer bg-white rounded-md flex flex-1 pr-4 items-center transition duration-500 ease-in-out transform hover:-translate-y-1"
                     >
                       <div
-                        class="flex flex-col rounded-md w-10 h-10 bg-red-100 justify-center items-center mr-2"
+                        class="flex flex-col rounded-md w-8 h-8 justify-center items-center mr-2"
                       >
-                        ❤️
+                        <img
+                          :src="
+                            notification.photo === null
+                              ? `/img/user.png`
+                              : notification.photo
+                          "
+                        />
                       </div>
                       <div class="flex-1 pl-1 mr-1">
                         <div class="font-medium">

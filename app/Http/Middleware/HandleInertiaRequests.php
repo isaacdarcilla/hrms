@@ -66,7 +66,7 @@ class HandleInertiaRequests extends Middleware
                     'count' => Notification::where('read_at', null)->count(),
                     'notifications' => DB::table('contacts')
                                         ->join('notifications', 'contacts.id', '=', 'notifications.contact_id')
-                                        ->select('contacts.first_name', 'contacts.last_name', 'notifications.*')
+                                        ->select('contacts.first_name', 'contacts.last_name', 'contacts.photo', 'notifications.*')
                                         ->where('read_at', null)
                                         ->get(),
                 ];
