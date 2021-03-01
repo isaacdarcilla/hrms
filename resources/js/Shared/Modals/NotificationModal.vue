@@ -43,7 +43,7 @@
                           :src="
                             notification.photo === null
                               ? `/img/user.png`
-                              : `/storage/`+notification.photo
+                              : `/storage/` + notification.photo
                           "
                         />
                       </div>
@@ -79,6 +79,13 @@
             >
               <button
                 type="button"
+                @click="clearModal"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-red-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              >
+                Clear All
+              </button>
+              <button
+                type="button"
                 @click="closeModal"
                 class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
               >
@@ -110,10 +117,13 @@ export default {
     };
   },
   methods: {
-    closeModal() {
+    clearModal() {
       this.$emit("update:modal");
       this.read();
       this.$page.notifiable.notifications = null;
+    },
+    closeModal() {
+      this.$emit("update:modal");
     },
     read() {
       this.$inertia.put(this.route("notification.update"));
