@@ -18,6 +18,15 @@ class Notification extends Model
         return $this->belongsTo(Contact::class);
     }
 
+    public static function sex($sex = 'Male') {
+        $sex = strtolower($sex);
+
+        if($sex == 'male')
+            return 'his';
+        else 
+            return 'her';
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Children;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -241,6 +242,11 @@ class ContactsController extends Controller
             ])
         );
 
+        Notification::create([
+            'contact_id' => $contact->id,
+            'notification' => 'updated '.Notification::sex($contact->sex).' profile.',
+        ]);
+
         return Redirect::back()->with('success', 'Employee information updated.');
     }
 
@@ -252,6 +258,11 @@ class ContactsController extends Controller
 
         $contact->update([
             'photo' => Request::file('photo') ? Request::file('photo')->store('photo', 'public') : $contact->photo
+        ]);
+
+        Notification::create([
+            'contact_id' => $contact->id,
+            'notification' => 'updated '.Notification::sex($contact->sex).' photo.',
         ]);
 
         return Redirect::back()->with('success', 'Employee photo updated.');
@@ -266,6 +277,11 @@ class ContactsController extends Controller
 
         $contact->update([
             'status' => Request::input('status'),
+        ]);
+
+        Notification::create([
+            'contact_id' => $contact->id,
+            'notification' => 'updated '.Notification::sex($contact->sex).' status.',
         ]);
 
         return Redirect::back()->with('success', 'Employee status updated.');

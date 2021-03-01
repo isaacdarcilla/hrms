@@ -30,7 +30,9 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Name of Company</label>
+                      <label class="form-label font-bold"
+                        >Name of Company</label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -65,7 +67,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Monthly Salary <span class="font-medium">(Optional)</span></label
+                        >Monthly Salary
+                        <span class="font-medium">(Optional)</span></label
                       >
                       <input
                         autofocus="true"
@@ -88,7 +91,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Salary Grade <span class="font-medium">(Optional)</span></label
+                        >Salary Grade
+                        <span class="font-medium">(Optional)</span></label
                       >
                       <input
                         autofocus="true"
@@ -123,7 +127,10 @@
                         v-mask="'##/##/####'"
                         v-model="form.experiences_from"
                       />
-                      <div v-if="$page.errors.experiences_from !== null" class="form-error">
+                      <div
+                        v-if="$page.errors.experiences_from !== null"
+                        class="form-error"
+                      >
                         {{ $page.errors.experiences_from }}
                       </div>
                     </div>
@@ -142,7 +149,10 @@
                         v-mask="'##/##/####'"
                         v-model="form.experiences_to"
                       />
-                      <div v-if="$page.errors.experiences_to !== null" class="form-error">
+                      <div
+                        v-if="$page.errors.experiences_to !== null"
+                        class="form-error"
+                      >
                         {{ $page.errors.experiences_to }}
                       </div>
                     </div>
@@ -153,15 +163,37 @@
                         >Status of Appoinment</label
                       >
                       <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        :placeholder="experience.experiences_status_of_appointment"
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.experiences_status_of_appointment"
-                        ref="name"
+                        value="Job Order/Contractual"
                       />
+                      Job Order/Contractual
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Permanent/Regular"
+                      />
+                      Permanent/Regular
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Full-time"
+                      />
+                      Full-time
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Part-time"
+                      />
+                      Part-time
                       <div
                         v-if="
-                          $page.errors.experiences_status_of_appointment !== null
+                          $page.errors.experiences_status_of_appointment !==
+                          null
                         "
                         class="form-error"
                       >
@@ -177,11 +209,11 @@
                         :height="25"
                         :labels="{ checked: 'Yes', unchecked: 'No' }"
                         v-model="form.experiences_government"
-                      /><span class="mx-2 font-semibold">Is this a government service?</span>
+                      /><span class="mx-2 font-semibold"
+                        >Is this a government service?</span
+                      >
                       <div
-                        v-if="
-                          $page.errors.experiences_government !== null
-                        "
+                        v-if="$page.errors.experiences_government !== null"
                         class="form-error"
                       >
                         {{ $page.errors.experiences_government }}

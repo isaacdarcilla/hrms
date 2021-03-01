@@ -28,7 +28,10 @@
                   >
                     ➕ Add Employee
                   </h3>
-                  <button @click="closeModal" class="text-sm ml-2 pr-5 text-red-600">
+                  <button
+                    @click="closeModal"
+                    class="text-sm ml-2 pr-5 text-red-600"
+                  >
                     Close
                   </button>
                 </div>
@@ -197,14 +200,36 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Status of Appointment</label
+                        >Status of Appoinment</label
                       >
                       <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter status of appointment"
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.status_of_appointment"
+                        value="Job Order/Contractual"
                       />
+                      Job Order/Contractual
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.status_of_appointment"
+                        value="Permanent/Regular"
+                      />
+                      Permanent/Regular
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.status_of_appointment"
+                        value="Full-time"
+                      />
+                      Full-time
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.status_of_appointment"
+                        value="Part-time"
+                      />
+                      Part-time
                       <div
                         v-if="$page.errors.status_of_appointment !== null"
                         class="form-error"
@@ -223,7 +248,7 @@
                         value="Male"
                       />
                       Male
-					  <input
+                      <input
                         type="radio"
                         class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.sex"
@@ -416,7 +441,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold mb-4">Civil Status</label>
+                      <label class="form-label font-bold mb-4"
+                        >Civil Status</label
+                      >
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -424,7 +451,7 @@
                         value="Single"
                       />
                       Single
-					  <input
+                      <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.civil_status"
@@ -438,14 +465,14 @@
                         value="Separated"
                       />
                       Separated
-					  <input
+                      <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.civil_status"
                         value="Widow"
                       />
                       Widow
-					  <input
+                      <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.civil_status"

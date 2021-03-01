@@ -29,12 +29,12 @@
                 </h3>
                 <form class="pt-5">
                   <li
-                    v-for="notification in notifications"
+                    v-for="notification in $page.notifiable.notifications"
                     :key="notification.id"
-                    class="border-gray-400 flex flex-row mb-2"
+                    class="border-gray-400 flex flex-row mb-3"
                   >
                     <div
-                      class="select-none cursor-pointer bg-white rounded-md flex flex-1 pr-4 items-center transition duration-500 ease-in-out transform hover:-translate-y-1"
+                      class="select-none cursor-pointer mb-2 bg-white rounded-md flex flex-1 pr-4 items-center transition duration-500 ease-in-out transform hover:-translate-y-1"
                     >
                       <div
                         class="flex flex-col rounded-md w-8 h-8 justify-center items-center mr-2"
@@ -43,7 +43,7 @@
                           :src="
                             notification.photo === null
                               ? `/img/user.png`
-                              : notification.photo
+                              : `/storage/`+notification.photo
                           "
                         />
                       </div>
@@ -113,7 +113,7 @@ export default {
     closeModal() {
       this.$emit("update:modal");
       this.read();
-      this.notifications = null;
+      this.$page.notifiable.notifications = null;
     },
     read() {
       this.$inertia.put(this.route("notification.update"));
