@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employee;
 
 use App\Models\Experience;
 use App\Models\Notification;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -35,7 +36,7 @@ class ExperienceController extends Controller
 
         Notification::create([
             'contact_id' => Request::input('contact_id'),
-            'notification' => 'added '.Notification::sex(Request::input('contact_id')).' work experience.',
+            'notification' => 'added a work experience.',
         ]);
 
         return Redirect::back()->with('success', 'Work experience added.');
@@ -58,9 +59,11 @@ class ExperienceController extends Controller
             ])
         );
 
+        $employee = Contact::where('id', $contact->contact_id)->first();
+
         Notification::create([
             'contact_id' => $contact->contact_id,
-            'notification' => 'updated '.Notification::sex(Request::input('contact_id')).' work experience.',
+            'notification' => 'updated '.Notification::sex($employee->sex).' work experience.',
         ]);
 
         return Redirect::back()->with('success', 'Work experience updated.');

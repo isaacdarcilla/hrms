@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Background;
+use App\Models\Notification;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -33,11 +35,18 @@ class FamilyController extends Controller
             ])
         );
 
+        Notification::create([
+            'contact_id' => Request::input('contact_id'),
+            'notification' => 'added a family background.',
+        ]);
+
         return Redirect::back()->with('success', 'Family background added.');
     }
 
     public function update($employee)
     {
+        $contact = Contact::find($employee);
+
         Background::where('contact_id', $employee)->update(
             Request::validate([
                 'spouse_first_name' => ['required', 'max:25', 'min:2'],
@@ -56,6 +65,11 @@ class FamilyController extends Controller
                 'mother_middle_name' => ['required', 'max:25', 'min:2'],
             ])
         );
+
+        Notification::create([
+            'contact_id' => $contact->id,
+            'notification' => 'updated '.Notification::sex($contact->sex).' family background.',
+        ]);
 
         return Redirect::back()->with('success', 'Family background updated.');
     }

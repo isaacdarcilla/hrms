@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Education;
+use App\Models\Notification;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
+
 class EducationController extends Controller
 {
     public function destroy(Education $education)
@@ -31,11 +34,18 @@ class EducationController extends Controller
             ])
         );
 
+        Notification::create([
+            'contact_id' => Request::input('contact_id'),
+            'notification' => 'added an educational background.',
+        ]);
+
         return Redirect::back()->with('success', 'Educational background added.');
     }
 
     public function update($education)
     {
+        $contact = Education::find($education);
+
         Education::where('id', $education)->update(
             Request::validate([
                 'education_level' => ['required', 'max:50', 'min:2'],
@@ -48,6 +58,13 @@ class EducationController extends Controller
                 'education_honors_received' => ['required', 'max:50', 'min:2'],
             ])
         );
+
+        $employee = Contact::where('id', $contact->contact_id)->first();
+
+        Notification::create([
+            'contact_id' => $contact->contact_id,
+            'notification' => 'updated '.Notification::sex($employee->sex).' educational background.',
+        ]);
 
         return Redirect::back()->with('success', 'Educational background added.');
     }

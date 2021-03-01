@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Training;
+use App\Models\Notification;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -23,11 +25,18 @@ class TrainingController extends Controller
             ])
         );
 
+        Notification::create([
+            'contact_id' => Request::input('contact_id'),
+            'notification' => 'added a training program.',
+        ]);
+
         return Redirect::back()->with('success', 'Training added.');
     }
 
     public function update($training)
     {
+        $contact = Training::find($training);
+
         Training::where('id', $training)->update(
             Request::validate([
 		        'trainings_name' => ['required', 'max:50', 'min:4'],
@@ -38,6 +47,13 @@ class TrainingController extends Controller
 		        'trainings_sponsored_by' => ['required', 'max:50', 'min:4'],
             ])
         );
+
+        $employee = Contact::where('id', $contact->contact_id)->first();
+
+        Notification::create([
+            'contact_id' => $contact->contact_id,
+            'notification' => 'updated '.Notification::sex($employee->sex).' training program.',
+        ]);
 
         return Redirect::back()->with('success', 'Training updated.');
     }

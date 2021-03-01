@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employee;
 
 use App\Models\Children;
 use App\Models\Background;
+use App\Models\Notification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -48,6 +49,11 @@ class ChildrenController extends Controller
             'created_at' => Carbon::now(),
 
     	]);
+
+        Notification::create([
+            'contact_id' => $contact,
+            'notification' => 'added a children.',
+        ]);
 
         return Redirect::back()->with('success', 'Children added.');
     }

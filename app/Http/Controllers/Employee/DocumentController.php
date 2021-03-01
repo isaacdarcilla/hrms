@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Document;
+use App\Models\Notification;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -29,6 +31,11 @@ class DocumentController extends Controller
             'document_type' => Request::input('document_type'),
             'document_name' => Request::input('document_name'),
             'document_file' => Request::file('document_file') ? Request::file('document_file')->store('docs', 'public') : null,
+        ]);
+
+        Notification::create([
+            'contact_id' => Request::input('contact_id'),
+            'notification' => 'added a '.Request::input('document_type').' document.',
         ]);
 
     	return Redirect::back()->with('success', 'Document added.');

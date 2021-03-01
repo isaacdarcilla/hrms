@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Volunteer;
+use App\Models\Notification;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -22,11 +24,18 @@ class VolunteerController extends Controller
             ])
         );
 
+        Notification::create([
+            'contact_id' => Request::input('contact_id'),
+            'notification' => 'added a voluntary work experience.',
+        ]);
+
         return Redirect::back()->with('success', 'Voluntary work experience added.');
     }
 
     public function update($volunteer)
     {
+        $contact = Volunteer::find($volunteer);
+
         Volunteer::where('id', $volunteer)->update(
             Request::validate([
 		        'volunteers_organization' => ['required', 'max:50', 'min:4'],
@@ -37,7 +46,14 @@ class VolunteerController extends Controller
             ])
         );
 
-        return Redirect::back()->with('success', 'Voluntary work experience added.');
+        $employee = Contact::where('id', $contact->contact_id)->first();
+
+        Notification::create([
+            'contact_id' => $contact->contact_id,
+            'notification' => 'updated '.Notification::sex($employee->sex).' voluntary work experience.',
+        ]);
+
+        return Redirect::back()->with('success', 'Voluntary work experience updated.');
     }
 
     public function destroy(Volunteer $volunteer)
