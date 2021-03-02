@@ -20,7 +20,8 @@
 - [X] <s>Add link per job</s>  (Feb 26)
 - [X] <s>Notifications bar</s>  (Mar 1)
 - [X] <s>Refactor flash messages</s>  (Mar 2)
-- [ ] Personal data sheet design (Mar 2)
+- [ ] Personal data sheet design
+- [ ] Error pages
 - [ ] Leave management
 - [ ] Add payslip module
 
