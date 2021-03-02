@@ -122,6 +122,11 @@ Route::put('employees/{contact}/restore', [ContactsController::class, 'restore']
     ->name('employees.restore')
     ->middleware('auth');
 
+// Data Sheet
+
+Route::get('employees/sheet', [ContactsController::class, 'sheet'])
+    ->name('employees.sheet');
+
 // Family Background
 
 Route::post('family', [FamilyController::class, 'store'])
@@ -360,5 +365,3 @@ Route::get('employee/profile/{contact}', [EmployeeController::class, 'profile'])
 Route::get('employee/logout', [EmployeeController::class, 'employee_logout'])
     ->name('employee.logout')
     ->middleware('web', 'employee');
-
-

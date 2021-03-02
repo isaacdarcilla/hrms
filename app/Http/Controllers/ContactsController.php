@@ -189,6 +189,10 @@ class ContactsController extends Controller
         ]);
     }
 
+    public function sheet() {
+        return Inertia::render('Sheet/DataSheet');
+    }
+
     public function update(Contact $contact)
     {
         $contact->update(
