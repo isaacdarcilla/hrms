@@ -19,7 +19,7 @@
 - [X] <s>Add editing of employee's profile</s>  (Feb 26)
 - [X] <s>Add link per job</s>  (Feb 26)
 - [X] <s>Notifications bar</s>  (Mar 1)
-- [ ] Refactor flash messages
+- [X] <s>Refactor flash messages</s>  (Mar 2)
 - [ ] Leave management
 - [ ] Add payslip module
 
