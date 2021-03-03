@@ -6,6 +6,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/database
 /.idea
 .DS_Store
 .env
