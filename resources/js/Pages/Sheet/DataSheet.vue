@@ -218,9 +218,7 @@
           <div class="w-3/12 py-3 border-b-2 border-black bg-gray-300">
             <div class="flex h-10">
               <div class="text-xxs font-normal text-black pr-3 pl-1">6.</div>
-              <div class="text-xxs font-normal text-black">
-                CIVIL STATUS
-              </div>
+              <div class="text-xxs font-normal text-black">CIVIL STATUS</div>
             </div>
           </div>
           <div
@@ -299,13 +297,17 @@
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
             <div class="flex h-8 border-b-2 border-black">
-              <div class="my-auto text-xxs font-normal text-black pr-3 pl-1">7.</div>
+              <div class="my-auto text-xxs font-normal text-black pr-3 pl-1">
+                7.
+              </div>
               <div class="my-auto text-xxs font-normal text-black">
                 HEIGHT (m)
               </div>
             </div>
             <div class="flex h-8">
-              <div class="my-auto text-xxs font-normal text-black pr-3 p-1">8.</div>
+              <div class="my-auto text-xxs font-normal text-black pr-3 p-1">
+                8.
+              </div>
               <div class="my-auto text-xxs font-normal text-black">
                 WEIGHT (kg)
               </div>
@@ -315,12 +317,16 @@
             class="border-2 border-black border-b-2 border-t-0 border-l-2 border-r-0 w-2/12"
           >
             <div class="flex h-8 border-b-2 border-black">
-              <div class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3">
+              <div
+                class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3"
+              >
                 145 CM
               </div>
             </div>
             <div class="flex h-8">
-              <div class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3">
+              <div
+                class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3"
+              >
                 50 KG
               </div>
             </div>
@@ -332,7 +338,164 @@
               <div class="mx-auto text-xs font-normal text-black">&nbsp;</div>
             </div>
             <div class="flex h-10 pt-3">
-              <div class="mx-auto text-xxs font-normal pt-2 text-black">ZIP CODE</div>
+              <div class="mx-auto text-xxs font-normal pt-2 text-black">
+                ZIP CODE
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-2 border-black border-b-2 border-t-0 border-l-2 border-r-0 w-5/12"
+          >
+            <div
+              class="flex justify-between text-xxs text-black font-normal mt-2 text-center"
+            >
+              <div class="items-center mx-auto">Lot #2</div>
+              <div class="items-center mx-auto">Salvacion St.</div>
+            </div>
+            <div class="border-b-2 pt-1 border-gray-700 my-auto"></div>
+            <div
+              class="flex border-b-2 border-black justify-between text-xxs text-black font-normal text-center"
+            >
+              <div class="items-center mx-auto italic">City/Municipality</div>
+              <div class="items-center mx-auto italic">Province</div>
+            </div>
+            <div
+              class="flex justify-between text-xxs text-black font-normal text-center"
+            >
+              <div class="items-center mx-auto pt-3">4800</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="w-3/12 border-b-2 border-black bg-gray-300">
+            <div class="flex h-8 border-b-2 border-black">
+              <div class="my-auto text-xxs font-normal text-black pr-3 pl-1">
+                9.
+              </div>
+              <div class="my-auto text-xxs font-normal text-black">
+                BLOOD TYPE
+              </div>
+            </div>
+            <div class="flex h-8">
+              <div class="my-auto text-xxs font-normal text-black pr-2 p-1">
+                10.
+              </div>
+              <div class="my-auto text-xxs font-normal text-black">
+                GSIS ID NO.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border-2 border-black border-b-2 border-t-0 border-l-2 border-r-0 w-2/12"
+          >
+            <div class="flex h-8 border-b-2 border-black">
+              <div
+                class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3"
+              >
+                A
+              </div>
+            </div>
+            <div class="flex h-8">
+              <div
+                class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3"
+              >
+                12345678
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border-2 border-black border-b-0 border-t-0 border-l-2 border-r-0 w-2/12 bg-gray-300"
+          >
+            <div class="flex py-3">
+              <div class="text-xxs font-normal text-black pr-3 pl-1">18.</div>
+              <div class="my-auto text-xxs font-normal text-black">
+                PERMANENT ADDRESS
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-2 border-black border-b-2 border-t-0 border-l-2 border-r-0 w-5/12"
+          >
+            <div
+              class="flex justify-between text-xxs text-black font-normal mt-2 text-center"
+            >
+              <div class="items-center mx-auto my-auto">Lot #2</div>
+              <div class="items-center mx-auto my-auto">Salvacion St.</div>
+            </div>
+            <div class="border-b-2 pt-1 border-gray-700 my-auto"></div>
+            <div
+              class="flex justify-between text-xxs text-black font-normal text-center"
+            >
+              <div class="items-center mx-auto italic">House/Block/Lot No.</div>
+              <div class="items-center mx-auto italic">Street</div>
+            </div>
+            <div class="border-b-2 border-black my-auto"></div>
+            <div
+              class="flex justify-between text-xxs text-black font-normal mt-2 text-center"
+            >
+              <div class="items-center mx-auto">Lot #2</div>
+              <div class="items-center mx-auto">Salvacion St.</div>
+            </div>
+            <div class="border-b-2 pt-1 border-gray-700 my-auto"></div>
+            <div
+              class="flex justify-between text-xxs text-black font-normal text-center"
+            >
+              <div class="items-center mx-auto italic">Subdivision/Village</div>
+              <div class="items-center mx-auto italic">Barangay</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="w-3/12 border-b-2 border-black bg-gray-300">
+            <div class="flex h-8 border-b-2 border-black">
+              <div class="my-auto text-xxs font-normal text-black pr-3 pl-1">
+                11.
+              </div>
+              <div class="my-auto text-xxs font-normal text-black">
+                PAG-IBIG ID NO.
+              </div>
+            </div>
+            <div class="flex h-8">
+              <div class="my-auto text-xxs font-normal text-black pr-3 p-1">
+                12.
+              </div>
+              <div class="my-auto text-xxs font-normal text-black">
+                PHILHEALTH NO.
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-2 border-black border-b-2 border-t-0 border-l-2 border-r-0 w-2/12"
+          >
+            <div class="flex h-8 border-b-2 border-black">
+              <div
+                class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3"
+              >
+                23456
+              </div>
+            </div>
+            <div class="flex h-8">
+              <div
+                class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3"
+              >
+                235
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-2 border-black border-b-2 border-t-0 border-l-2 border-r-0 w-2/12 bg-gray-300"
+          >
+            <div class="flex h-6">
+              <div class="mx-auto text-xs font-normal text-black">&nbsp;</div>
+            </div>
+            <div class="flex h-10 pt-3">
+              <div class="mx-auto text-xxs font-normal pt-2 text-black">
+                ZIP CODE
+              </div>
             </div>
           </div>
           <div
