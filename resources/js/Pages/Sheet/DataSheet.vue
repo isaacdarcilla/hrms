@@ -5,9 +5,9 @@
     <div id="pds">
       <div
         class="border-2 border-black font-sans mx-auto"
-        style="width: 816px; height: 1344px"
+        style="width: 816px; height: 1248px"
       >
-        <div class="pl-1 pt-1 text-xxs text-black font-semibold italic">
+        <div class="pl-1 pt-0 text-xxs text-black font-semibold italic">
           CS Form No. 212
         </div>
         <div class="pl-1 text-xxs text-black font-semibold italic">
@@ -18,7 +18,7 @@
         >
           Personal Data Sheet
         </div>
-        <div class="pl-1 text-xxs text-black font-semibold mt-4 italic">
+        <div class="pl-1 text-xxs text-black font-semibold mt-3 italic">
           WARNING: Any misrepresentation made in the Personal Data Sheet and the
           Work Experience Sheet shall cause the filing of
           administrative/criminal case/s against the person concerned.
@@ -61,7 +61,7 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-16">
+            <div class="flex h-10">
               <div class="my-auto text-xxs font-normal text-black pr-2 pl-1">
                 26.
               </div>
@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="w-2/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-16">
+            <div class="flex h-10">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 NAME OF SCHOOL
                 <div class="text-center text-xxs font-normal text-black">
@@ -81,7 +81,7 @@
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-16">
+            <div class="flex h-10">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 BASIC EDUCATION/DEGREE/COURSE
                 <div class="text-center text-xxs font-normal text-black">
@@ -91,7 +91,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-12 border-b-2 border-black">
+            <div class="flex h-8 border-b-2 border-black">
               <div class="my-auto text-center text-xxs font-normal text-black">
                 PERIOD OF ATTENDANCE
               </div>
@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-16">
+            <div class="flex h-10">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 HIGHEST LEVEL/ UNITS EARNED
                 <div class="text-center text-xxs font-normal text-black">
@@ -121,14 +121,14 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-16">
+            <div class="flex h-10">
               <div class="my-auto text-center text-xxs font-normal text-black">
                 YEAR GRADUATED
               </div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-16">
+            <div class="flex h-10">
               <div class="my-auto text-center text-xxs font-normal text-black">
                 SCHOLARSHIP/ ACADEMIC HONORS RECEIVED
               </div>
@@ -138,21 +138,21 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto pl-6 text-xxs font-normal text-black">
                 ELEMENTARY
               </div>
             </div>
           </div>
           <div class="w-2/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 22222
               </div>
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 33333333
               </div>
@@ -162,7 +162,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -174,7 +174,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -183,14 +183,14 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 555555
               </div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -199,7 +199,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -211,21 +211,21 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto pl-6 text-xxs font-normal text-black">
                 SECONDARY
               </div>
             </div>
           </div>
           <div class="w-2/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 22222
               </div>
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 33333333
               </div>
@@ -235,7 +235,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -247,7 +247,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -256,14 +256,14 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 555555
               </div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -272,7 +272,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -284,21 +284,21 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto pl-6 text-xxs font-normal text-black">
                 VOCATIONAL / TRADE SCHOOL
               </div>
             </div>
           </div>
           <div class="w-2/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 22222
               </div>
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 33333333
               </div>
@@ -308,7 +308,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -320,7 +320,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -329,14 +329,14 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 555555
               </div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -345,7 +345,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -357,21 +357,21 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto pl-6 text-xxs font-normal text-black">
                 COLLEGE
               </div>
             </div>
           </div>
           <div class="w-2/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 22222
               </div>
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 33333333
               </div>
@@ -381,7 +381,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -393,7 +393,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -402,14 +402,14 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 555555
               </div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -418,7 +418,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -430,21 +430,21 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto pl-6 text-xxs font-normal text-black">
                 GRADUATE STUDIES
               </div>
             </div>
           </div>
           <div class="w-2/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 22222
               </div>
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 33333333
               </div>
@@ -454,7 +454,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -466,7 +466,7 @@
             class="border-b-2 border-l-2 border-black"
             style="width: 4.166666%"
           >
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -475,14 +475,14 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xxs font-normal text-black">
                 555555
               </div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -491,7 +491,7 @@
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-center text-xxs font-normal text-black"
               >
@@ -503,7 +503,7 @@
 
         <div class="flex">
           <div class="w-full border-b-2 border-black bg-gray-300">
-            <div class="flex h-4">
+            <div class="flex h-2">
               <div
                 class="my-auto mx-auto text-xxs font-semibold italic text-red-500"
               >
@@ -515,28 +515,28 @@
 
         <div class="flex">
           <div class="w-3/12 border-b-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xs font-bold italic text-black">
                 SIGNATURE
               </div>
             </div>
           </div>
           <div class="w-5/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-xxs font-normal text-black"
               ></div>
             </div>
           </div>
           <div class="w-1/12 border-b-2 border-l-2 border-black bg-gray-300">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div class="my-auto mx-auto text-xs font-bold italic text-black">
                 DATE
               </div>
             </div>
           </div>
           <div class="w-3/12 border-b-2 border-l-2 border-black">
-            <div class="flex h-8">
+            <div class="flex h-6">
               <div
                 class="my-auto mx-auto text-xxs font-normal text-black"
               ></div>
@@ -545,7 +545,7 @@
         </div>
 
         <div class="w-full text-right border-b-0 border-black">
-          <div class="text-right h-2">
+          <div class="text-right h-1">
             <p
               class="my-auto text-right text-xxs font-normal italic text-black"
             >

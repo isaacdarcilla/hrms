@@ -233,7 +233,7 @@
           </div>
           <div class="my-auto text-xxs font-normal text-black">HEIGHT (m)</div>
         </div>
-        <div class="flex h-8">
+        <div class="flex h-6">
           <div class="my-auto text-xxs font-normal text-black pr-3 p-1">8.</div>
           <div class="my-auto text-xxs font-normal text-black">WEIGHT (kg)</div>
         </div>
@@ -246,7 +246,7 @@
             145 CM
           </div>
         </div>
-        <div class="flex h-8">
+        <div class="flex h-6">
           <div class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3">
             50 KG
           </div>
@@ -258,7 +258,7 @@
         <div class="flex h-6">
           <div class="mx-auto text-xs font-normal text-black">&nbsp;</div>
         </div>
-        <div class="flex h-10 pt-3">
+        <div class="flex h-8 pt-3">
           <div class="mx-auto text-xxs font-normal pt-2 text-black">
             ZIP CODE
           </div>
@@ -283,7 +283,7 @@
         <div
           class="flex justify-between text-xxs text-black font-normal text-center"
         >
-          <div class="items-center mx-auto pt-3">4800</div>
+          <div class="items-center mx-auto pt-2">4800</div>
         </div>
       </div>
     </div>
@@ -372,7 +372,7 @@
             PAG-IBIG ID NO.
           </div>
         </div>
-        <div class="flex h-8">
+        <div class="flex h-6">
           <div class="my-auto text-xxs font-normal text-black pr-2 p-1">
             12.
           </div>
@@ -389,7 +389,7 @@
             23456
           </div>
         </div>
-        <div class="flex h-8">
+        <div class="flex h-6">
           <div class="my-auto text-xxs font-normal text-black pr-3 p-1 pl-3">
             235
           </div>
@@ -401,7 +401,7 @@
         <div class="flex h-6">
           <div class="mx-auto text-xs font-normal text-black">&nbsp;</div>
         </div>
-        <div class="flex h-10 pt-3">
+        <div class="flex h-8 pt-3">
           <div class="mx-auto text-xxs font-normal pt-2 text-black">
             ZIP CODE
           </div>
@@ -426,7 +426,7 @@
         <div
           class="flex justify-between text-xxs text-black font-normal text-center"
         >
-          <div class="items-center mx-auto pt-3">4800</div>
+          <div class="items-center mx-auto pt-2">4800</div>
         </div>
       </div>
     </div>
