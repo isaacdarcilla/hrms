@@ -446,7 +446,7 @@
 
     <div class="flex">
       <div class="w-full border-b-one border-black bg-gray-300">
-        <div class="flex h-2">
+        <div class="flex h-3">
           <div
             class="my-auto mx-auto text-xxs font-semibold italic text-red-500"
           >
@@ -458,26 +458,26 @@
 
     <div class="flex">
       <div class="w-3/12 border-b-one border-black bg-gray-300">
-        <div class="flex h-6">
+        <div class="flex h-10">
           <div class="my-auto mx-auto text-xs font-bold italic text-black">
             SIGNATURE
           </div>
         </div>
       </div>
       <div class="w-5/12 border-b-one border-l-one border-black">
-        <div class="flex h-6">
+        <div class="flex h-10">
           <div class="my-auto mx-auto text-xxs font-normal text-black"></div>
         </div>
       </div>
       <div class="w-1/12 border-b-one border-l-one border-black bg-gray-300">
-        <div class="flex h-6">
+        <div class="flex h-10">
           <div class="my-auto mx-auto text-xs font-bold italic text-black">
             DATE
           </div>
         </div>
       </div>
       <div class="w-3/12 border-b-one border-l-one border-black">
-        <div class="flex h-6">
+        <div class="flex h-10">
           <div class="my-auto mx-auto text-xxs font-normal text-black"></div>
         </div>
       </div>
