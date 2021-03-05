@@ -336,14 +336,14 @@
                         v-model="inHospital"
                         value="inhospital"
                       />
-                      In Hospital (Specify)
+                      In Hospital
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="inHospital"
                         value="outpatient"
                       />
-                      Out Patient (Specify)
+                      Out Patient
                       <div class="pt-3">
                         <input
                           v-if="showHospital"
