@@ -55,6 +55,11 @@ class HandleInertiaRequests extends Middleware
                     ] : null,
                 ];
             },
+            'employee' => function () use ($request) {
+                return [
+                    'user' => auth()->guard('employee')->user(),
+                ];
+            },
             'flash' => function () use ($request) {
                 return [
                     'success' => $request->session()->get('success'),

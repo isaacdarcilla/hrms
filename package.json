@@ -15,6 +15,7 @@
         "@inertiajs/inertia-vue": "^0.2.3",
         "@inertiajs/progress": "^0.1.0",
         "@isneezy/vue-selectize": "^0.6.1",
+        "alpinejs": "^2.8.1",
         "cross-env": "^5.2.1",
         "dayjs": "^1.10.4",
         "eslint": "^5.16.0",

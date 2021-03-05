@@ -22,6 +22,7 @@ use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\LeaveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -360,6 +361,10 @@ Route::get('employee/dashboard', [EmployeeController::class, 'index'])
 
 Route::get('employee/profile/{contact}', [EmployeeController::class, 'profile'])
     ->name('employee.profile')
+    ->middleware('web', 'employee');
+
+Route::get('employee/leave', [LeaveController::class, 'index'])
+    ->name('employee.leave')
     ->middleware('web', 'employee');
 
 Route::get('employee/logout', [EmployeeController::class, 'employee_logout'])

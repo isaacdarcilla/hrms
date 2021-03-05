@@ -1,14 +1,8 @@
 <template>
   <div>
-    <layout :employee="employee"></layout>
-    <div class="mx-10 mb-10 mt-0">
+    <div class="mb-10 mt-0">
       <div class="mb-6 mt-1 flex justify-between items-center">
-        <div class="text-3xl font-bold">Hello, {{ employee.first_name }}!</div>
-        <inertia-link
-          :href="route('employee.profile', employee.id)"
-          class="font-bold hover:text-gray-600 cursor-pointer"
-          >View Profile</inertia-link
-        >
+        <div class="text-3xl font-bold">Dashboard</div>
       </div>
       <div
         v-if="notices.length !== 0"
@@ -341,9 +335,7 @@ import moment from "moment";
 
 export default {
   metaInfo: { title: "Dashboard" },
-  components: {
-    Layout,
-  },
+  layout: Layout,
   props: {
     total: Object,
     notices: Array,

@@ -1,16 +1,11 @@
 <template>
   <div>
-    <layout :employee="employee"></layout>
-    <div class="mx-10 mb-10 mt-0">
+    <div class="mb-10 mt-0">
       <div class="mb-6 mt-1 flex justify-between items-center">
         <div class="text-3xl font-bold">
-          <span class="text-blue-600">Profile</span> / {{ employee.first_name }}
+          <span class="text-blue-600">My Profile</span> /
+          {{ employee.first_name }}
         </div>
-        <inertia-link
-          :href="route('employee.dashboard')"
-          class="font-bold hover:text-gray-600 cursor-pointer"
-          >View Dashboard</inertia-link
-        >
       </div>
       <div
         v-if="notices.length !== 0"
@@ -101,11 +96,6 @@
                   <div v-else class="text-gray-500 block uppercase pt-2">
                     #{{ contact.agency_employee_id }}
                   </div>
-                  <inertia-link
-                    :href="route('employee.logout')"
-                    class="text-red-500 hover:text-red-600 text-sm block pt-4 cursor-pointer"
-                    >Logout</inertia-link
-                  >
                 </figcaption>
               </div>
             </figure>
@@ -248,8 +238,8 @@ import DocumentAddModal from "@/Shared/Modals/DocumentAddModal.vue";
 
 export default {
   metaInfo: { title: "Profile" },
+  layout: Layout,
   components: {
-    Layout,
     ToggleButton,
     LoadingButton,
     SelectInput,
