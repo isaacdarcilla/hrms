@@ -18,7 +18,7 @@ class VolunteerController extends Controller
                 'contact_id' => ['required'],
 		        'volunteers_organization' => ['required', 'max:50', 'min:4'],
 		        'volunteers_from' => ['required', 'max:50', 'min:10', 'date'],
-		        'volunteers_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'volunteers_to' => ['required', 'max:50', 'min:10', 'date', 'after:volunteers_from'],
 		        'volunteers_number_of_hours' => ['required', 'max:50', 'min:1', 'regex:/^[0-9]+$/'],
 		        'volunteers_nature_of_work' => ['required', 'max:50', 'min:4'],
             ])
@@ -40,7 +40,7 @@ class VolunteerController extends Controller
             Request::validate([
 		        'volunteers_organization' => ['required', 'max:50', 'min:4'],
 		        'volunteers_from' => ['required', 'max:50', 'min:10', 'date'],
-		        'volunteers_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'volunteers_to' => ['required', 'max:50', 'min:10', 'date', 'after:volunteers_from'],
 		        'volunteers_number_of_hours' => ['required', 'max:50', 'min:1', 'regex:/^[0-9]+$/'],
 		        'volunteers_nature_of_work' => ['required', 'max:50', 'min:4'],
             ])

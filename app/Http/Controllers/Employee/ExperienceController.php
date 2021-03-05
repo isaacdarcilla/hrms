@@ -24,7 +24,7 @@ class ExperienceController extends Controller
             Request::validate([
                 'contact_id' => ['required'],
                 'experiences_from' => ['required', 'max:50', 'min:10', 'date'],
-		        'experiences_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'experiences_to' => ['required', 'max:50', 'min:10', 'date', 'after:experiences_from'],
 		        'experiences_position' => ['required', 'max:50', 'min:4'],
 		        'experiences_company' => ['required', 'max:50', 'min:4'],
 		        'experiences_monthly_salary' => ['nullable', 'max:50', 'min:4', 'regex:/^[0-9]+$/'],
@@ -49,7 +49,7 @@ class ExperienceController extends Controller
         Experience::where('id', $experience)->update(
             Request::validate([
                 'experiences_from' => ['required', 'max:50', 'min:10', 'date'],
-		        'experiences_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'experiences_to' => ['required', 'max:50', 'min:10', 'date', 'after:experiences_from'],
 		        'experiences_position' => ['required', 'max:50', 'min:4'],
 		        'experiences_company' => ['required', 'max:50', 'min:4'],
 		        'experiences_monthly_salary' => ['nullable', 'max:50', 'min:4', 'regex:/^[0-9]+$/'],

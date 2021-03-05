@@ -18,7 +18,7 @@ class TrainingController extends Controller
                 'contact_id' => ['required'],
 		        'trainings_name' => ['required', 'max:50', 'min:4'],
 		        'trainings_from' => ['required', 'max:50', 'min:10', 'date'],
-		        'trainings_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'trainings_to' => ['required', 'max:50', 'min:10', 'date', 'after:trainings_from'],
 		        'trainings_number_of_hours' => ['required', 'max:50', 'min:1', 'regex:/^[0-9]+$/'],
 		        'trainings_type' => ['required', 'max:50', 'min:4'],
 		        'trainings_sponsored_by' => ['required', 'max:50', 'min:4'],
@@ -41,7 +41,7 @@ class TrainingController extends Controller
             Request::validate([
 		        'trainings_name' => ['required', 'max:50', 'min:4'],
 		        'trainings_from' => ['required', 'max:50', 'min:10', 'date'],
-		        'trainings_to' => ['required', 'max:50', 'min:10', 'date'],
+		        'trainings_to' => ['required', 'max:50', 'min:10', 'date', 'after:trainings_from'],
 		        'trainings_number_of_hours' => ['required', 'max:50', 'min:1', 'regex:/^[0-9]+$/'],
 		        'trainings_type' => ['required', 'max:50', 'min:4'],
 		        'trainings_sponsored_by' => ['required', 'max:50', 'min:4'],
