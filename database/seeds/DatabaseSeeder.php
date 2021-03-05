@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Arcilla',
             'email' => 'isaacdarcilla@gmail.com',
             'owner' => true,
-        ]);
+        ]); 
     }
 }
