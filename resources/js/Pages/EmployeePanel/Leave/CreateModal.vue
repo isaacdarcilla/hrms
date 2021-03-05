@@ -77,14 +77,37 @@ export default {
   data() {
     return {
       sending: false,
-      form: {},
+      form: {
+        agency: null,
+        last_name: null,
+        first_name: null,
+        middle_initial: null,
+        date_of_filing: null,
+        position: null,
+        monthly_salary: null,
+        type_of_leave: null,
+        vacation_leave_location: null,
+        sick_leave_location: null,
+        number_of_working_days: null,
+        inclusive_date: null,
+        commutation: null,
+        certification_of_leave_credits: null,
+        recommendation: null,
+        approved_for: null,
+        disapproved_due_to: null,
+        officer_in_charge_name: null,
+        officer_in_charge_position: null,
+        office: null,
+      },
     };
   },
   methods: {
     closeModal() {
       this.$emit("update:modal");
     },
-    reset() {},
+    reset() {
+      this.form = mapValues(this.form, () => null);
+    },
   },
 };
 </script>

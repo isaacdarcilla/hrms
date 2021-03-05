@@ -120,6 +120,20 @@ export default {
       },
     };
   },
+  watch: {
+    form: {
+      handler: throttle(function () {
+        let query = pickBy(this.form);
+        this.$inertia.replace(
+          this.route(
+            "employee.leave",
+            Object.keys(query).length ? query : { remember: "forget" }
+          )
+        );
+      }, 150),
+      deep: true,
+    },
+  },
   methods: {
     showCreateModal() {
       this.showCreate = true;
