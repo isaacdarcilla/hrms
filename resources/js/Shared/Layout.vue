@@ -55,7 +55,7 @@
                   class="w-5 h-5 group-hover:fill-indigo-600 fill-gray-700 focus:fill-indigo-600"
                   name="cheveron-down"
                 />
-                <span class="relative inline-block mx-1">
+                <span class="relative inline-block mx-1 pr-3">
                   <svg
                     class="w-6 h-6"
                     fill="none"
@@ -71,7 +71,7 @@
                     ></path>
                   </svg>
                   <span v-if="$page.notifiable.count !== 0"
-                    class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"
+                    class="animate-bounce absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"
                     >{{ $page.notifiable.count }}</span
                   >
                 </span>
