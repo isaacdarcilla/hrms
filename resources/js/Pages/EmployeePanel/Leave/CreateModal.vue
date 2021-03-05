@@ -27,7 +27,26 @@
                 >
                   📤 Apply for Leave
                 </h3>
-                <form class="w-full max-w-lg pr-4 pt-5"></form>
+                <form class="w-full max-w-lg pr-4 pt-5">
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold">First Name</label>
+                      <input
+                        autofocus="true"
+                        readonly
+                        class="form-input block w-full"
+                        placeholder="Enter first name"
+                        v-model="form.first_name"
+                      />
+                      <div
+                        v-if="$page.errors.first_name !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.first_name }}
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -80,7 +99,7 @@ export default {
       form: {
         agency: null,
         last_name: null,
-        first_name: null,
+        first_name: this.$page.employee.first_name,
         middle_initial: null,
         date_of_filing: null,
         position: null,
