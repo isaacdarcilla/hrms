@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css">
     <link rel="icon" type="image/png" href="/img/user.png"/>
-    <title>Page Not found</title>
+    <title>Page Not Found</title>
 </head>
 <body>
     <!-- This is an example component -->
