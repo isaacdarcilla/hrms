@@ -84,6 +84,11 @@ class Contact extends Model implements AuthenticatableContract, AuthorizableCont
         return $this->hasMany(Leave::class);
     }
 
+    public function employee_setting()
+    {
+        return $this->hasMany(EmployeeSetting::class);
+    }
+
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;
