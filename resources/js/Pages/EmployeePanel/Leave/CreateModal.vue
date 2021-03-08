@@ -62,16 +62,23 @@
                       </div>
                     </div>
                   </div>
+                  
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Date of Filing</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter date of filing e.g. mm/dd/yyyy"
-                        v-model="form.date_of_filing"
-                        v-mask="'##/##/####'"
-                      />
+                      <v-date-picker v-model="form.date_of_filing">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select date of filing"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div
                         v-if="$page.errors.date_of_filing !== null"
                         class="form-error"
@@ -90,6 +97,8 @@
                         class="form-input block w-full"
                         placeholder="Enter number of working days"
                         v-model="form.number_of_working_days"
+                        v-mask="'###'"
+                        type="tel"
                       />
                       <div
                         v-if="$page.errors.number_of_working_days !== null"
@@ -111,7 +120,7 @@
                             <div class="flex flex-wrap">
                               <button
                                 v-for="date in form.start_of_inclusive_date"
-                                :key="date.date.getTime()"
+                                :key="date.id"
                                 class="flex items-center bg-indigo-100 hover:bg-indigo-200 text-sm text-indigo-600 font-semibold h-8 px-2 m-1 rounded-lg border-2 border-transparent focus:border-indigo-600 focus:outline-none"
                                 @click.stop="
                                   dateSelected($event, date, togglePopover)
@@ -119,7 +128,7 @@
                                 ref="button"
                                 type="button"
                               >
-                                {{ date.date.toLocaleDateString() }}
+                                {{ format(date.date) }}
                                 <svg
                                   class="w-4 h-4 text-gray-600 hover:text-indigo-600 ml-1 -mr-1"
                                   viewBox="0 0 24 24"
@@ -134,16 +143,23 @@
                           </template>
                         </v-date-picker>
                         <button
-                          :disabled="
-                            form.number_of_working_days ===
-                            form.start_of_inclusive_date.length
-                          "
+                          :disabled="disableSelection"
                           type="button"
-                          class="text-sm text-indigo-600 font-semibold hover:text-indigo-500 px-2 h-8 focus:outline-none"
+                          :class="
+                            disableSelection
+                              ? 'text-sm text-gray-500 font-semibold px-2 h-8 focus:outline-none'
+                              : 'text-sm text-indigo-600 font-semibold hover:text-indigo-500 px-2 h-8 focus:outline-none'
+                          "
                           @click.stop="addDate"
                         >
                           + Add date
                         </button>
+                      </div>
+                      <div
+                        v-if="$page.errors.start_of_inclusive_date !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.start_of_inclusive_date }}
                       </div>
                     </div>
                   </div>
@@ -304,7 +320,10 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Commutation</label>
+                      <label class="form-label font-bold"
+                        >Commutation
+                        <span class="font-medium">(Optional)</span></label
+                      >
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -407,11 +426,18 @@ export default {
           this.showVacation = false;
           this.showSick = false;
         }
+
+        e.number_of_working_days !== null &&
+        e.number_of_working_days !== "" &&
+        parseInt(e.number_of_working_days) !== e.start_of_inclusive_date.length
+          ? (this.disableSelection = false)
+          : (this.disableSelection = true);
       },
     },
   },
   data() {
     return {
+      disableSelection: true,
       sending: false,
       option: null,
       showLeave: false,
@@ -426,6 +452,8 @@ export default {
       showSick: false,
       selected: {},
       form: {
+        contact_id: this.$page.employee.id,
+        leave_number: null,
         agency: "Catanduanes State University",
         last_name: this.$page.employee.last_name,
         first_name: this.$page.employee.first_name,
@@ -440,10 +468,6 @@ export default {
         start_of_inclusive_date: [],
         end_of_inclusive_date: null,
         commutation: null,
-        certification_of_leave_credits: null,
-        recommendation: null,
-        approved_for: null,
-        disapproved_due_to: null,
         officer_in_charge_name: null,
         officer_in_charge_position: null,
         office: null,
@@ -453,6 +477,12 @@ export default {
   methods: {
     save() {
       this.form.sick_leave_location = `${this.option}::${this.hospital}`;
+      this.form.leave_number = Math.floor(100000 + Math.random() * 900000);
+
+      this.$inertia.post(this.route("employee.leave.store"), this.form, {
+        onStart: () => (this.sending = true),
+        onFinish: () => (this.sending = false),
+      });
     },
     closeModal() {
       this.$emit("update:modal");
@@ -462,7 +492,7 @@ export default {
     },
     addDate() {
       this.form.start_of_inclusive_date.push({
-        date: new Date(),
+        date: moment(),
       });
       this.$nextTick(() => {
         const btn = this.$refs.button[this.$refs.button.length - 1];
@@ -478,6 +508,11 @@ export default {
     dateSelected(e, date, toggle) {
       this.selected = date;
       toggle({ ref: e.target });
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

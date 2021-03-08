@@ -8,6 +8,10 @@ class Leave extends Model
 {
     use SoftDeletes;
 
+    protected $casts = [
+        'start_of_inclusive_date' => 'array',
+    ];
+
     public function contact()
     {
         return $this->belongsTo(Contact::class);

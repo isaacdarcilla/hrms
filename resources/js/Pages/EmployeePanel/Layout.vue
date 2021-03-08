@@ -51,7 +51,7 @@
                 <inertia-link
                   class="block font-bold px-6 py-2 hover:bg-indigo-500 hover:text-white"
                   :href="route('employee.logout')"
-                  method="post"
+                  method="get"
                   >Logout</inertia-link
                 >
               </div>

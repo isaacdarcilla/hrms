@@ -73,7 +73,123 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-          <tr class="hover:bg-gray-100 focus-within:bg-gray-100"></tr>
+          <tr
+            v-for="leave in leaves.data"
+            :key="leave.id"
+            class="hover:bg-gray-100 focus-within:bg-gray-100"
+          >
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="font-semibold text-blue-600">
+                  #{{ leave.leave_number }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="normal-case font-normal">
+                  {{ leave.type_of_leave }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="normal-case font-normal">
+                  {{ format(leave.date_of_filing) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="leave.number_of_working_days === '1'"
+                  class="normal-case font-normal"
+                >
+                  {{ leave.number_of_working_days }} day
+                </div>
+                <div v-else class="normal-case font-normal">
+                  {{ leave.number_of_working_days }} days
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
+                <ul
+                  v-for="date in leave.start_of_inclusive_date"
+                  :key="date.id"
+                  class="normal-case font-semibold text-blue-600"
+                >
+                  <li>
+                    {{ format(date.date) }}
+                  </li>
+                </ul>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="leave.recommendation === null"
+                  class="normal-case font-semibold text-yellow-600"
+                >
+                  <li>Pending</li>
+                </div>
+                <div
+                  v-else-if="leave.recommendation === 'Approved'"
+                  class="normal-case font-semibold text-green-600"
+                >
+                  <li>Approved</li>
+                </div>
+                <div v-else class="normal-case font-semibold text-red-600">
+                  <li>Disapproved</li>
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <span
+                @click="destroy(leave.id, leave.leave_number)"
+                v-if="!leave.deleted_at"
+                class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
+                >🗑️ Delete</span
+              >
+              <span
+                v-else
+                class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-blue-600"
+                >No action</span
+              >
+            </td>
+          </tr>
         </tbody>
         <tr v-if="leaves.data.length === 0">
           <td class="border-t px-6 py-4 text-red-500 font-bold" colspan="4">
@@ -140,6 +256,23 @@ export default {
     },
     reset() {
       this.form = mapValues(this.form, () => null);
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
+    destroy(id, name) {
+      swal({
+        title: "Delete",
+        text: `Are you sure you want to delete ${name}?`,
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          this.$inertia.delete(this.route("employee.leave.destroy", id));
+        }
+      });
     },
   },
 };

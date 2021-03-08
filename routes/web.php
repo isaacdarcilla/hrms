@@ -367,6 +367,14 @@ Route::get('employee/leave', [LeaveController::class, 'index'])
     ->name('employee.leave')
     ->middleware('web', 'employee');
 
+Route::post('employee/leave/store', [LeaveController::class, 'store'])
+    ->name('employee.leave.store')
+    ->middleware('web', 'employee');
+
+Route::delete('employee/leave/{leave}', [LeaveController::class, 'destroy'])
+    ->name('employee.leave.destroy')
+    ->middleware('web', 'employee');
+
 Route::get('employee/logout', [EmployeeController::class, 'employee_logout'])
     ->name('employee.logout')
     ->middleware('web', 'employee');
