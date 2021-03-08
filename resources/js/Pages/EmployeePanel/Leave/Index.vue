@@ -262,6 +262,13 @@ export default {
         return moment(String(value)).format("MMMM D, YYYY");
       }
     },
+    oldestDate() {
+      if (value) {
+        String(value).sort(function (a, b) {
+          return Date.parse(a) - Date.parse(b);
+        });
+      }
+    },
     destroy(id, name) {
       swal({
         title: "Delete",
