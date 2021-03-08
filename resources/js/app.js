@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueMeta from "vue-meta";
 import PortalVue from "portal-vue";
 import VueClipboard from "vue-clipboard2";
+import VCalendar from "v-calendar";
 import { InertiaApp } from "@inertiajs/inertia-vue";
 import { InertiaProgress } from "@inertiajs/progress/src";
 
@@ -12,6 +13,7 @@ Vue.use(InertiaApp);
 Vue.use(PortalVue);
 Vue.use(VueMeta);
 Vue.use(VueClipboard);
+Vue.use(VCalendar);
 
 InertiaProgress.init();
 

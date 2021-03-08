@@ -30,57 +30,6 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">First Name</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter first name"
-                        v-model="form.first_name"
-                      />
-                      <div
-                        v-if="$page.errors.first_name !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.first_name }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold">Last Name</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter last name"
-                        v-model="form.last_name"
-                      />
-                      <div
-                        v-if="$page.errors.last_name !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.last_name }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold">Middle Initial</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter middle initial"
-                        v-model="form.middle_initial"
-                      />
-                      <div
-                        v-if="$page.errors.middle_initial !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.middle_initial }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
                       <label class="form-label font-bold">Agency/Office</label>
                       <input
                         autofocus="true"
@@ -93,23 +42,6 @@
                         class="form-error"
                       >
                         {{ $page.errors.agency }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold">Position</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full capitalize"
-                        placeholder="Enter position"
-                        v-model="form.position"
-                      />
-                      <div
-                        v-if="$page.errors.position !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.position }}
                       </div>
                     </div>
                   </div>
@@ -132,13 +64,13 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Date of Filing <span class="font-medium">(Auto-filled)</span></label>
+                      <label class="form-label font-bold">Date of Filing</label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter date of filing"
+                        placeholder="Enter date of filing e.g. mm/dd/yyyy"
                         v-model="form.date_of_filing"
-                        readonly
+                        v-mask="'##/##/####'"
                       />
                       <div
                         v-if="$page.errors.date_of_filing !== null"
@@ -167,46 +99,52 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Inclusive Date <span class="font-medium">(Start)</span></label
+                        >Inclusive Dates</label
                       >
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter start of inclusive date"
-                        v-model="form.start_of_inclusive_date"
-                        v-mask="'##/##/####'"
-                      />
-                      <div
-                        v-if="$page.errors.start_of_inclusive_date !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.start_of_inclusive_date }}
+                      <div class="bg-white p-1 w-full border rounded">
+                        <v-date-picker v-model="selected.date">
+                          <template #default="{ togglePopover, hidePopover }">
+                            <div class="flex flex-wrap">
+                              <button
+                                v-for="date in form.start_of_inclusive_date"
+                                :key="date.date.getTime()"
+                                class="flex items-center bg-indigo-100 hover:bg-indigo-200 text-sm text-indigo-600 font-semibold h-8 px-2 m-1 rounded-lg border-2 border-transparent focus:border-indigo-600 focus:outline-none"
+                                @click.stop="
+                                  dateSelected($event, date, togglePopover)
+                                "
+                                ref="button"
+                                type="button"
+                              >
+                                {{ date.date.toLocaleDateString() }}
+                                <svg
+                                  class="w-4 h-4 text-gray-600 hover:text-indigo-600 ml-1 -mr-1"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  @click.stop="removeDate(date, hidePopover)"
+                                >
+                                  <path d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                              </button>
+                            </div>
+                          </template>
+                        </v-date-picker>
+                        <button
+                          :disabled="form.number_of_working_days === form.start_of_inclusive_date.length"
+                          type="button"
+                          class="text-sm text-indigo-600 font-semibold hover:text-indigo-500 px-2 h-8 focus:outline-none"
+                          @click.stop="addDate"
+                        >
+                          + Add Date
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Inclusive Date <span class="font-medium">(End)</span></label
-                      >
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter end of inclusive date"
-                        v-model="form.end_of_inclusive_date"
-                        v-mask="'##/##/####'"
-                      />
-                      <div
-                        v-if="$page.errors.end_of_inclusive_date !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.end_of_inclusive_date }}
-                      </div>
-                    </div>
-                  </div>
+
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Type of Leave</label>
@@ -282,7 +220,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div v-if="showVacation" class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Where Leave Will Be Spent
@@ -322,7 +260,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div v-if="showSick" class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Where Leave Will Be Spent
@@ -363,9 +301,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Commutation</label
-                      >
+                      <label class="form-label font-bold">Commutation</label>
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -455,6 +391,21 @@ export default {
         ? (this.option = "inhospital")
         : (this.option = "outpatient");
     },
+    form: {
+      deep: true,
+      handler(e) {
+        if (e.type_of_leave === "Vacation") {
+          this.showVacation = true;
+          this.showSick = false;
+        } else if (e.type_of_leave === "Sick") {
+          this.showSick = true;
+          this.showVacation = false;
+        } else {
+          this.showVacation = false;
+          this.showSick = false;
+        }
+      },
+    },
   },
   data() {
     return {
@@ -468,19 +419,26 @@ export default {
       outPatient: null,
       showHospital: false,
       hospital: null,
+      showVacation: false,
+      showSick: false,
+      selected: {},
       form: {
         agency: "Catanduanes State University",
         last_name: this.$page.employee.last_name,
         first_name: this.$page.employee.first_name,
-        middle_initial: null,
-        date_of_filing: moment().format("MMMM D, YYYY"),
+        middle_initial: this.$page.employee.middle_name.charAt(0),
+        date_of_filing: null,
         position: this.$page.employee.position,
         monthly_salary: null,
         type_of_leave: null,
         vacation_leave_location: null,
         sick_leave_location: null,
         number_of_working_days: null,
-        start_of_inclusive_date: null,
+        start_of_inclusive_date: [
+          {
+            date: new Date(),
+          },
+        ],
         end_of_inclusive_date: null,
         commutation: null,
         certification_of_leave_credits: null,
@@ -502,6 +460,25 @@ export default {
     },
     reset() {
       this.form = mapValues(this.form, () => null);
+    },
+    addDate() {
+      this.form.start_of_inclusive_date.push({
+        date: new Date(),
+      });
+      this.$nextTick(() => {
+        const btn = this.$refs.button[this.$refs.button.length - 1];
+        btn.click();
+      });
+    },
+    removeDate(date, hide) {
+      this.form.start_of_inclusive_date = this.form.start_of_inclusive_date.filter(
+        (d) => d !== date
+      );
+      hide();
+    },
+    dateSelected(e, date, toggle) {
+      this.selected = date;
+      toggle({ ref: e.target });
     },
   },
 };
