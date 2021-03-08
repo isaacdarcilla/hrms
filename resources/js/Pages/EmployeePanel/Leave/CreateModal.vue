@@ -134,12 +134,15 @@
                           </template>
                         </v-date-picker>
                         <button
-                          :disabled="form.number_of_working_days === form.start_of_inclusive_date.length"
+                          :disabled="
+                            form.number_of_working_days ===
+                            form.start_of_inclusive_date.length
+                          "
                           type="button"
                           class="text-sm text-indigo-600 font-semibold hover:text-indigo-500 px-2 h-8 focus:outline-none"
                           @click.stop="addDate"
                         >
-                          + Add Date
+                          + Add date
                         </button>
                       </div>
                     </div>
@@ -434,11 +437,7 @@ export default {
         vacation_leave_location: null,
         sick_leave_location: null,
         number_of_working_days: null,
-        start_of_inclusive_date: [
-          {
-            date: new Date(),
-          },
-        ],
+        start_of_inclusive_date: [],
         end_of_inclusive_date: null,
         commutation: null,
         certification_of_leave_credits: null,
