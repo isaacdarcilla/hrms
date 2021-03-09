@@ -141,7 +141,8 @@
               >
                 <ul class="normal-case font-semibold text-blue-600">
                   <li>
-                    {{ oldestDate(leave.start_of_inclusive_date) }} - {{ latestDate(leave.start_of_inclusive_date) }}
+                    {{ oldestDate(leave.start_of_inclusive_date) }} -
+                    {{ latestDate(leave.start_of_inclusive_date) }}
                   </li>
                 </ul>
               </inertia-link>
@@ -259,13 +260,13 @@ export default {
       }
     },
     oldestDate(array) {
-      let oldest = array.sort(function (a, b) {
+      let oldest = array.slice().sort((a, b) => {
         return Date.parse(a.date) - Date.parse(b.date);
       });
       return moment(String(oldest[0].date)).format("MMMM D, YYYY");
     },
     latestDate(array) {
-      let latest = array.sort(function (a, b) {
+      let latest = array.slice().sort((a, b) => {
         return Date.parse(b.date) - Date.parse(a.date);
       });
       return moment(String(latest[0].date)).format("MMMM D, YYYY");
