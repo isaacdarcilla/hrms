@@ -105,43 +105,26 @@
             </div>
           </figure>
         </div>
-        <personal-information
-          :contact="contact"
-        ></personal-information>
+        <personal-information :contact="contact"></personal-information>
       </div>
     </div>
 
     <div class="h-full pt-3">
       <div class="grid gap-6 mb-4 md:grid-cols-2 xl:grid-cols-2">
-        <family-background
-          :family="family"
-        ></family-background>
-        <childrens
-          :childrens="childrens"
-          :family="family"
-        ></childrens>
+        <family-background :family="family"></family-background>
+        <childrens :childrens="childrens" :family="family"></childrens>
       </div>
     </div>
 
-    <educational-background
-      :educations="educations"
-    ></educational-background>
+    <educational-background :educations="educations"></educational-background>
 
-    <civil-service
-      :eligibilities="eligibilities"
-    ></civil-service>
+    <civil-service :eligibilities="eligibilities"></civil-service>
 
-    <work-experience
-      :experiences="experiences"
-    ></work-experience>
+    <work-experience :experiences="experiences"></work-experience>
 
-    <volunteer-work
-      :volunteers="volunteers"
-    ></volunteer-work>
+    <volunteer-work :volunteers="volunteers"></volunteer-work>
 
-    <trainings
-      :trainings="trainings"
-    ></trainings>
+    <trainings :trainings="trainings"></trainings>
 
     <div
       id="documents"
@@ -256,6 +239,7 @@ import PersonalInformation from "@/Shared/PersonalInformation.vue";
 import FamilyBackground from "@/Shared/FamilyBackground.vue";
 import Childrens from "@/Shared/Childrens.vue";
 import DocumentAddModal from "@/Shared/Modals/DocumentAddModal.vue";
+import moment from "moment";
 
 export default {
   metaInfo() {
@@ -391,6 +375,11 @@ export default {
           this.$inertia.delete(this.route("document.destroy", id));
         }
       });
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

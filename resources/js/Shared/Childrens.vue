@@ -53,7 +53,7 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ c.children_birth_date }}
+                    {{ format(c.children_birth_date) }}
                   </div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
@@ -103,6 +103,7 @@
 <script>
 import ChildrenEditModal from "@/Shared/Modals/ChildrenEditModal.vue";
 import ChildrenAddModal from "@/Shared/Modals/ChildrenAddModal.vue";
+import moment from "moment";
 
 export default {
   props: {
@@ -139,6 +140,11 @@ export default {
           this.$inertia.delete(this.route("children.destroy", id));
         }
       });
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

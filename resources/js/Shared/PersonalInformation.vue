@@ -19,7 +19,7 @@
             class="font-semibold text-gray-700 text-sm block pb-1"
             >Birthday
             <span v-if="contact.birth_date !== null" class="text-blue-600">{{
-              contact.birth_date
+              format(contact.birth_date)
             }}</span>
             <span v-else class="text-red-500">No data available</span>
           </label>
@@ -227,6 +227,7 @@
 </template>
 <script>
 import EmployeeEditModal from "@/Shared/Modals/EmployeeEditModal.vue";
+import moment from "moment";
 
 export default {
   components: {
@@ -249,6 +250,11 @@ export default {
       return value.toLowerCase().replace(/\b./g, function (a) {
         return a.toUpperCase();
       });
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

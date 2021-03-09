@@ -62,8 +62,10 @@ class HandleInertiaRequests extends Middleware
                 ];
             },
             'setting' => function () use ($request) {
+                $employee = auth()->guard('employee')->user();
+
                 return [
-                    'employee' => EmployeeSetting::where('contact_id', auth()->guard('employee')->user()->id)->first(),
+                    'employee' => EmployeeSetting::where('contact_id', $employee ? $employee->id : null)->first(),
                 ];
             },
             'flash' => function () use ($request) {

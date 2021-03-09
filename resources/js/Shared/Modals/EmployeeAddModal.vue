@@ -490,14 +490,19 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Birth Date</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter birth date"
-                        v-model="form.birth_date"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                      />
+                      <v-date-picker v-model="form.birth_date">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="inputValue"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select birth date"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div
                         v-if="$page.errors.birth_date !== null"
                         class="form-error"
@@ -862,6 +867,7 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import moment from "moment";
 
 export default {
   props: {
@@ -950,6 +956,11 @@ export default {
     },
     closeModal() {
       this.$emit("update:modal");
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

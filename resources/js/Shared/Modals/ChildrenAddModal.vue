@@ -13,7 +13,7 @@
           >&#8203;</span
         >
         <div
-          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-4 sm:align-middle sm:max-w-lg sm:w-full"
+          class="inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all sm:my-4 sm:align-middle sm:max-w-lg sm:w-full"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
@@ -49,14 +49,19 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Birth Date</label>
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter child birthday"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.children_birth_date"
-                      />
+                      <v-date-picker v-model="form.children_birth_date">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select child birth date"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div
                         v-if="$page.errors.children_birth_date !== null"
                         class="form-error"
@@ -99,6 +104,7 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import moment from "moment";
 
 export default {
   props: {
@@ -143,6 +149,11 @@ export default {
     reset() {
       this.form.children_name = null;
       this.form.children_birth_date = null;
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

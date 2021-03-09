@@ -231,10 +231,7 @@
                       />
                       Part-time
                       <div
-                        v-if="
-                          $page.errors.status_of_appointment !==
-                          null
-                        "
+                        v-if="$page.errors.status_of_appointment !== null"
                         class="form-error"
                       >
                         {{ $page.errors.status_of_appointment }}
@@ -493,14 +490,19 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Birth Date</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter birth date"
-                        v-model="form.birth_date"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                      />
+                      <v-date-picker v-model="form.birth_date">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="inputValue"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select birth date"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div
                         v-if="$page.errors.birth_date !== null"
                         class="form-error"
