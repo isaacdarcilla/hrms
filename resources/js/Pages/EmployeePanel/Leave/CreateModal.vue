@@ -62,7 +62,7 @@
                       </div>
                     </div>
                   </div>
-                  
+
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Date of Filing</label>
@@ -346,6 +346,75 @@
                       </div>
                     </div>
                   </div>
+                  <div v-if="$page.setting.employee === null">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full px-2">
+                        <label class="form-label font-semibold text-blue-600"
+                          >Fill the box below, you will be not ask again once
+                          filled.</label
+                        >
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full px-3">
+                        <label class="form-label font-bold"
+                          >Officer in Charge in your Department</label
+                        >
+                        <input
+                          autofocus="true"
+                          class="form-input block w-full"
+                          placeholder="Enter officer in charge full name"
+                          v-model="form.officer_in_charge"
+                        />
+                        <div
+                          v-if="$page.errors.officer_in_charge !== null"
+                          class="form-error"
+                        >
+                          {{ $page.errors.officer_in_charge }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full px-3">
+                        <label class="form-label font-bold"
+                          >Officer in Charge Position</label
+                        >
+                        <input
+                          autofocus="true"
+                          class="form-input block w-full"
+                          placeholder="Enter officer in charge position"
+                          v-model="form.officer_in_charge_position"
+                        />
+                        <div
+                          v-if="
+                            $page.errors.officer_in_charge_position !== null
+                          "
+                          class="form-error"
+                        >
+                          {{ $page.errors.officer_in_charge_position }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full px-3">
+                        <label class="form-label font-bold"
+                          >Department or Office</label
+                        >
+                        <input
+                          autofocus="true"
+                          class="form-input block w-full"
+                          placeholder="Enter department or office"
+                          v-model="form.department"
+                        />
+                        <div
+                          v-if="$page.errors.department !== null"
+                          class="form-error"
+                        >
+                          {{ $page.errors.department }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -468,9 +537,17 @@ export default {
         start_of_inclusive_date: [],
         end_of_inclusive_date: null,
         commutation: null,
-        officer_in_charge_name: null,
-        officer_in_charge_position: null,
-        office: null,
+        officer_in_charge:
+          this.$page.setting.employee !== null
+            ? this.$page.setting.employee.officer_in_charge
+            : null,
+        officer_in_charge_position:
+          this.$page.setting.employee !== null
+            ? this.$page.setting.employee.officer_in_charge_position
+            : null,
+        department: this.$page.setting.employee !== null
+            ? this.$page.setting.employee.department
+            : null, 
       },
     };
   },

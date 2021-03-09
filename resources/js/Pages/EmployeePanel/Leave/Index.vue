@@ -139,10 +139,13 @@
                 :href="route('employee.leave')"
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
               >
-                <ul class="normal-case font-semibold text-blue-600">
-                  <li>
-                    {{ oldestDate(leave.start_of_inclusive_date) }} -
-                    {{ latestDate(leave.start_of_inclusive_date) }}
+                <ul
+                  v-for="date in leave.start_of_inclusive_date"
+                  :key="date.id"
+                  class="normal-case font-semibold text-blue-600"
+                >
+                  <li class="flex pt-1">
+                    {{ format(date.date) }}
                   </li>
                 </ul>
               </inertia-link>
@@ -182,8 +185,8 @@
               >
               <span
                 v-else
-                class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-blue-600"
-                >No action</span
+                class="text-gray-600 inline-flex mt-2 cursor-pointer hover:text-blue-600"
+                >Unavailable</span
               >
             </td>
           </tr>

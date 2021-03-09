@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Middleware;
 use App\Models\Notification;
 use App\Models\Contact;
+use App\Models\EmployeeSetting;
 use Illuminate\Support\Facades\DB;
 
 class HandleInertiaRequests extends Middleware
@@ -58,6 +59,11 @@ class HandleInertiaRequests extends Middleware
             'employee' => function () use ($request) {
                 return [
                     'user' => auth()->guard('employee')->user(),
+                ];
+            },
+            'setting' => function () use ($request) {
+                return [
+                    'employee' => EmployeeSetting::where('contact_id', auth()->guard('employee')->user()->id)->first(),
                 ];
             },
             'flash' => function () use ($request) {
