@@ -21,9 +21,9 @@
 - [X] <s>Notifications bar</s>  (Mar 1)
 - [X] <s>Refactor flash messages</s>  (Mar 2)
 - [X] <s>Error pages</s>  (Mar 3)
+- [ ] Leave management
 - [ ] Personal data sheet design
 - [ ] Personal data sheet function
-- [ ] Leave management
 - [ ] Add payslip module
 
 ## 🔖 License

@@ -23,6 +23,7 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\AdminLeaveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -351,6 +352,16 @@ Route::delete('notices/{notices}', [NoticeController::class, 'destroy'])
 
 Route::put('notices/{notices}/restore', [NoticeController::class, 'restore'])
     ->name('notices.restore')
+    ->middleware('auth');
+
+// Leave
+
+Route::get('leaves', [AdminLeaveController::class, 'index'])
+    ->name('leaves')
+    ->middleware('auth');
+
+Route::put('leaves/approve/{id}', [AdminLeaveController::class, 'approve'])
+    ->name('leaves.approve')
     ->middleware('auth');
 
 // Employees

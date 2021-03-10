@@ -38,4 +38,9 @@ class Account extends Model
     {
         return $this->hasMany(Notification::class);
     }
+
+    public function leaves()
+    {
+        return $this->hasMany(Leave::class);
+    }
 }

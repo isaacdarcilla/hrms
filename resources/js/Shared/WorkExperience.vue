@@ -96,8 +96,7 @@
                     v-if="experience.experiences_monthly_salary !== null"
                     class="text-sm text-gray-900"
                   >
-                    PHP
-                    {{ experience.experiences_monthly_salary }}
+                    {{ currency(experience.experiences_monthly_salary) }}
                   </div>
                   <div v-else class="text-sm text-red-600">
                     No data available
@@ -205,6 +204,14 @@ export default {
       if (value) {
         return moment(String(value)).format("MMM D, YYYY");
       }
+    },
+    currency(price, sign = "₱ ") {
+      const pieces = parseFloat(price).toFixed(2).split("");
+      let ii = pieces.length - 3;
+      while ((ii -= 3) > 0) {
+        pieces.splice(ii, 0, ",");
+      }
+      return sign + pieces.join("");
     },
     showExperienceModal() {
       this.showExperience = true;

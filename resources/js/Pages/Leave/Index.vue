@@ -14,13 +14,6 @@
           <option value="only">Inactive</option>
         </select>
       </search-filter>
-      <button
-        @click="showCreateModal"
-        class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
-      >
-        <span>➕ Apply</span>
-        <span class="hidden md:inline">Leave</span>
-      </button>
     </div>
     <div
       class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg overflow-x-auto"
@@ -33,6 +26,18 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               ID
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Employee
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Monthly Salary
             </th>
             <th
               scope="col"
@@ -79,11 +84,11 @@
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
             <td
-              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
-                :href="route('employee.leave')"
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
                 <div class="font-semibold text-blue-600">
                   #{{ leave.leave_number }}
@@ -91,11 +96,39 @@
               </inertia-link>
             </td>
             <td
-              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
-                :href="route('employee.leave')"
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="normal-case font-normal">
+                  {{ leave.first_name }} {{ leave.middle_initial }}
+                  {{ leave.last_name }}
+                </div>
+                <div class="capitalize text-sm text-blue-500">
+                  {{ leave.position }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="normal-case font-normal">
+                  {{ currency(leave.monthly_salary) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
                 <div class="normal-case font-normal">
                   {{ leave.type_of_leave }}
@@ -103,11 +136,11 @@
               </inertia-link>
             </td>
             <td
-              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
-                :href="route('employee.leave')"
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
                 <div class="normal-case font-normal">
                   {{ format(leave.date_of_filing) }}
@@ -115,11 +148,11 @@
               </inertia-link>
             </td>
             <td
-              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
-                :href="route('employee.leave')"
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
                   v-if="leave.number_of_working_days === '1'"
@@ -133,11 +166,11 @@
               </inertia-link>
             </td>
             <td
-              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
-                :href="route('employee.leave')"
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
                 <ul
                   v-for="date in leave.start_of_inclusive_date"
@@ -151,11 +184,11 @@
               </inertia-link>
             </td>
             <td
-              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
-                :href="route('employee.leave')"
-                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('leaves')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
                   v-if="leave.recommendation === null"
@@ -175,19 +208,25 @@
               </inertia-link>
             </td>
             <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+              class="px-6 py-2 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <span
-                @click="destroy(leave.id, leave.leave_number)"
-                v-if="!leave.deleted_at"
-                class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
-                >🗑️ Delete</span
-              >
-              <span
-                v-else
-                class="text-gray-600 inline-flex mt-2 cursor-pointer hover:text-blue-600"
-                >Unavailable</span
-              >
+              <div v-if="leave.recommendation === null">
+                <span
+                  @click="approve(leave.id, leave.leave_number)"
+                  class="text-green-600 inline-flex mt-2 cursor-pointer hover:text-green-900"
+                  >✅ Approve</span
+                >
+                <span
+                  class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
+                  >🚫 Disapprove</span
+                >
+              </div>
+              <div v-else>
+                <span
+                  class="text-red-600 inline-flex mt-0 cursor-pointer hover:text-red-900"
+                  >No action</span
+                >
+              </div>
             </td>
           </tr>
         </tbody>
@@ -198,20 +237,18 @@
         </tr>
       </table>
     </div>
-    <create-modal :showing="showCreate" :modal.sync="showCreate"></create-modal>
     <pagination :links="leaves.links" />
   </div>
 </template>
 
 <script>
-import Layout from "@/Pages/EmployeePanel/Layout";
+import Layout from "@/Shared/Layout";
 import Icon from "@/Shared/Icon";
 import mapValues from "lodash/mapValues";
 import Pagination from "@/Shared/Pagination";
 import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
-import CreateModal from "@/Pages/EmployeePanel/Leave/CreateModal";
 import moment from "moment";
 
 export default {
@@ -221,7 +258,6 @@ export default {
     Icon,
     Pagination,
     SearchFilter,
-    CreateModal,
   },
   props: {
     filters: Object,
@@ -229,7 +265,6 @@ export default {
   },
   data() {
     return {
-      showCreate: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
@@ -242,7 +277,7 @@ export default {
         let query = pickBy(this.form);
         this.$inertia.replace(
           this.route(
-            "employee.leave",
+            "leaves",
             Object.keys(query).length ? query : { remember: "forget" }
           )
         );
@@ -251,8 +286,17 @@ export default {
     },
   },
   methods: {
-    showCreateModal() {
-      this.showCreate = true;
+    approve(id, number) {
+      swal({
+        title: "Approve Leave",
+        text: `Approve leave number #${number}?`,
+        buttons: true,
+        dangerMode: false,
+      }).then((willDelete) => {
+        if (willDelete) {
+          this.$inertia.put(this.route("leaves.approve", id));
+        }
+      });
     },
     reset() {
       this.form = mapValues(this.form, () => null);
@@ -261,6 +305,14 @@ export default {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");
       }
+    },
+    currency(price, sign = "₱ ") {
+      const pieces = parseFloat(price).toFixed(2).split("");
+      let ii = pieces.length - 3;
+      while ((ii -= 3) > 0) {
+        pieces.splice(ii, 0, ",");
+      }
+      return sign + pieces.join("");
     },
     oldestDate(array) {
       let oldest = array.slice().sort((a, b) => {
@@ -273,18 +325,6 @@ export default {
         return Date.parse(b.date) - Date.parse(a.date);
       });
       return moment(String(latest[0].date)).format("MMMM D, YYYY");
-    },
-    destroy(id, name) {
-      swal({
-        title: "Delete",
-        text: `Are you sure you want to delete ${name}?`,
-        buttons: true,
-        dangerMode: true,
-      }).then((willDelete) => {
-        if (willDelete) {
-          this.$inertia.delete(this.route("employee.leave.destroy", id));
-        }
-      });
     },
   },
 };
