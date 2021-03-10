@@ -92,7 +92,10 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div v-if="experience.experiences_monthly_salary !== null" class="text-sm text-gray-900">
+                  <div
+                    v-if="experience.experiences_monthly_salary !== null"
+                    class="text-sm text-gray-900"
+                  >
                     PHP
                     {{ experience.experiences_monthly_salary }}
                   </div>
@@ -102,16 +105,19 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ experience.experiences_from }}
+                    {{ format(experience.experiences_from) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ experience.experiences_to }}
+                    {{ format(experience.experiences_to) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div v-if="experience.experiences_salary_grade !== null" class="text-sm text-gray-900">
+                  <div
+                    v-if="experience.experiences_salary_grade !== null"
+                    class="text-sm text-gray-900"
+                  >
                     {{ experience.experiences_salary_grade }}
                   </div>
                   <div v-else class="text-sm text-red-600">
@@ -124,18 +130,19 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <div v-if="experience.experiences_government === '1'" class="text-sm text-gray-900 capitalize">
+                  <div
+                    v-if="experience.experiences_government === '1'"
+                    class="text-sm text-gray-900 capitalize"
+                  >
                     Yes
                   </div>
-                  <div v-else class="text-sm text-gray-900 capitalize">
-                    No
-                  </div>
+                  <div v-else class="text-sm text-gray-900 capitalize">No</div>
                 </td>
                 <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
                   <span
                     @click="showExperienceEditModal(experience)"
                     class="text-indigo-600 cursor-pointer hover:text-indigo-900"
-                    >✏️ Edit</span</span
+                    >✏️ Edit</span
                   >
                   <span
                     @click="
@@ -175,6 +182,7 @@
 <script>
 import ExperienceAddModal from "@/Shared/Modals/ExperienceAddModal.vue";
 import ExperienceEditModal from "@/Shared/Modals/ExperienceEditModal.vue";
+import moment from "moment";
 
 export default {
   components: {
@@ -193,6 +201,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
     showExperienceModal() {
       this.showExperience = true;
     },

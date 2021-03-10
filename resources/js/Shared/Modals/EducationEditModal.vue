@@ -74,7 +74,7 @@
                         value="Primary Education"
                       />
                       Primary Education
-					  <input
+                      <input
                         type="radio"
                         class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.education_level"
@@ -102,14 +102,19 @@
                         >Period of Attendance
                         <span class="font-medium">(From)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.from"
-                        :placeholder="education.from"
-                      />
+                      <v-date-picker v-model="form.from">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              :placeholder="format(education.from)"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.from !== null" class="form-error">
                         {{ $page.errors.from }}
                       </div>
@@ -121,14 +126,19 @@
                         >Period of Attendance
                         <span class="font-medium">(To)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.to"
-                        :placeholder="education.to"
-                      />
+                      <v-date-picker v-model="form.to">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              :placeholder="format(education.to)"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.to !== null" class="form-error">
                         {{ $page.errors.to }}
                       </div>
@@ -233,6 +243,7 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import moment from "moment";
 
 export default {
   props: {
@@ -271,6 +282,11 @@ export default {
           onFinish: () => (this.sending = false),
         }
       );
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
     closeModal() {
       this.$emit("update:modal");

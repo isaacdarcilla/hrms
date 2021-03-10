@@ -98,12 +98,12 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.from }}
+                    {{ format(education.from) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div class="text-sm text-gray-900">
-                    {{ education.to }}
+                    {{ format(education.to) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -172,6 +172,7 @@
 <script>
 import EducationAddModal from "@/Shared/Modals/EducationAddModal.vue";
 import EducationEditModal from "@/Shared/Modals/EducationEditModal.vue";
+import moment from "moment";
 
 export default {
   components: {
@@ -190,6 +191,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
     showEducationModal() {
       this.showEducation = true;
     },

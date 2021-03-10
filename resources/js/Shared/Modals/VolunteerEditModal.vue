@@ -70,14 +70,19 @@
                         >Inclusive Date
                         <span class="font-medium">(From)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        :placeholder="volunteer.volunteers_from"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.volunteers_from"
-                      />
+                      <v-date-picker v-model="form.volunteers_from">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              :placeholder="format(volunteer.volunteers_from)"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.volunteers_from !== null" class="form-error">
                         {{ $page.errors.volunteers_from }}
                       </div>
@@ -89,14 +94,19 @@
                         >Inclusive Date
                         <span class="font-medium">(To)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        :placeholder="volunteer.volunteers_to"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.volunteers_to"
-                      />
+                      <v-date-picker v-model="form.volunteers_to">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              :placeholder="format(volunteer.volunteers_to)"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.volunteers_to !== null" class="form-error">
                         {{ $page.errors.volunteers_to }}
                       </div>
@@ -159,6 +169,7 @@
 <script>
 import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
+import moment from "moment";
 
 export default {
   components: {
@@ -188,6 +199,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
     save() {
       this.$inertia.put(
         this.route("volunteer.update", this.volunteer.id),

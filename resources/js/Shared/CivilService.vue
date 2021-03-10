@@ -87,7 +87,7 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ eligibility.eligibility_date_of_exam }}
+                    {{ format(eligibility.eligibility_date_of_exam) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -108,10 +108,10 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div
-                    v-if="eligibility.eligibility_license_number !== null"
+                    v-if="eligibility.eligibility_license_expiration !== null"
                     class="text-sm text-gray-900"
                   >
-                    {{ eligibility.eligibility_license_expiration }}
+                    {{ format(eligibility.eligibility_license_expiration) }}
                   </div>
                   <div v-else class="text-sm text-red-600">
                     No data available
@@ -161,6 +161,7 @@
 <script>
 import EligibilityAddModal from "@/Shared/Modals/EligibilityAddModal.vue";
 import EligibilityEditModal from "@/Shared/Modals/EligibilityEditModal.vue";
+import moment from "moment";
 
 export default {
   components: {
@@ -179,6 +180,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
     showEligibilityModal() {
       this.showEligibility = true;
     },

@@ -30,7 +30,9 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Name of Training</label>
+                      <label class="form-label font-bold"
+                        >Name of Training</label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -70,15 +72,23 @@
                         >Inclusive Date
                         <span class="font-medium">(From)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        :placeholder="training.trainings_from"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.trainings_from"
-                      />
-                      <div v-if="$page.errors.trainings_from !== null" class="form-error">
+                      <v-date-picker v-model="form.trainings_from">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              :placeholder="format(training.trainings_from)"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
+                      <div
+                        v-if="$page.errors.trainings_from !== null"
+                        class="form-error"
+                      >
                         {{ $page.errors.trainings_from }}
                       </div>
                     </div>
@@ -89,24 +99,30 @@
                         >Inclusive Date
                         <span class="font-medium">(To)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        :placeholder="training.trainings_to"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.trainings_to"
-                      />
-                      <div v-if="$page.errors.trainings_to !== null" class="form-error">
+                      <v-date-picker v-model="form.trainings_to">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              :placeholder="format(training.trainings_to)"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
+                      <div
+                        v-if="$page.errors.trainings_to !== null"
+                        class="form-error"
+                      >
                         {{ $page.errors.trainings_to }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Training Type</label
-                      >
+                      <label class="form-label font-bold">Training Type</label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -115,9 +131,7 @@
                         ref="name"
                       />
                       <div
-                        v-if="
-                          $page.errors.trainings_type !== null
-                        "
+                        v-if="$page.errors.trainings_type !== null"
                         class="form-error"
                       >
                         {{ $page.errors.trainings_type }}
@@ -126,9 +140,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Sponsor</label
-                      >
+                      <label class="form-label font-bold">Sponsor</label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -137,9 +149,7 @@
                         ref="name"
                       />
                       <div
-                        v-if="
-                          $page.errors.trainings_sponsored_by !== null
-                        "
+                        v-if="$page.errors.trainings_sponsored_by !== null"
                         class="form-error"
                       >
                         {{ $page.errors.trainings_sponsored_by }}
@@ -181,6 +191,7 @@
 <script>
 import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
+import moment from "moment";
 
 export default {
   components: {
@@ -210,6 +221,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
     save() {
       this.$inertia.put(
         this.route("training.update", this.training.id),

@@ -71,14 +71,19 @@
                       <label class="form-label font-bold"
                         >Date of Examination
                       </label>
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter examination date"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.eligibility_date_of_exam"
-                      />
+                      <v-date-picker v-model="form.eligibility_date_of_exam">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select date of examination"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div
                         v-if="$page.errors.eligibility_date_of_exam !== null"
                         class="form-error"
@@ -134,14 +139,19 @@
                         >Date of Expiration
                         <span class="font-medium">(Optional)</span>
                       </label>
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter expiration date"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.eligibility_license_expiration"
-                      />
+                      <v-date-picker v-model="form.eligibility_license_expiration">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select license expiration date"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div
                         v-if="
                           $page.errors.eligibility_license_expiration !== null
@@ -186,6 +196,7 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import moment from "moment";
 
 export default {
   props: {
@@ -212,6 +223,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
     save() {
       this.$inertia.post(this.route("eligibility.store"), this.form, {
         onStart: () => (this.sending = true),

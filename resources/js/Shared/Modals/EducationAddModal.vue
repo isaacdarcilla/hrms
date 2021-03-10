@@ -104,14 +104,19 @@
                         >Period of Attendance
                         <span class="font-medium">(From)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter start of period of attendance"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.from"
-                      />
+                      <v-date-picker v-model="form.from">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select start of period of attendance"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.from !== null" class="form-error">
                         {{ $page.errors.from }}
                       </div>
@@ -123,14 +128,19 @@
                         >Period of Attendance
                         <span class="font-medium">(To)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter end of period of attendance"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.to"
-                      />
+                      <v-date-picker v-model="form.to">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select end of period of attendance"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.to !== null" class="form-error">
                         {{ $page.errors.to }}
                       </div>
@@ -233,6 +243,7 @@
 
 <script>
 import { mask } from "vue-the-mask";
+import moment from "moment";
 
 export default {
   props: {
@@ -261,6 +272,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
     save() {
       this.$inertia.post(this.route("education.store"), this.form, {
         onStart: () => (this.sending = true),

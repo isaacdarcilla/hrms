@@ -70,12 +70,12 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ volunteer.volunteers_from }}
+                    {{ format(volunteer.volunteers_from) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ volunteer.volunteers_to }}
+                    {{ format(volunteer.volunteers_to) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -92,7 +92,7 @@
                   <span
                     @click="showVolunteerEditModal(volunteer)"
                     class="text-indigo-600 cursor-pointer hover:text-indigo-900"
-                    >✏️ Edit</span</span
+                    >✏️ Edit</span
                   >
                   <span
                     @click="
@@ -132,6 +132,7 @@
 <script>
 import VolunteerAddModal from "@/Shared/Modals/VolunteerAddModal.vue";
 import VolunteerEditModal from "@/Shared/Modals/VolunteerEditModal.vue";
+import moment from "moment";
 
 export default {
   components: {
@@ -148,6 +149,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
     showVolunteerModal() {
       this.showVolunteer = true;
     },

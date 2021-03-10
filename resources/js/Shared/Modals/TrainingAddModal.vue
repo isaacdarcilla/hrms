@@ -71,14 +71,19 @@
                         >Inclusive Date
                         <span class="font-medium">(From)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter start of period of attendance"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.trainings_from"
-                      />
+                      <v-date-picker v-model="form.trainings_from">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select start of training"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.trainings_from !== null" class="form-error">
                         {{ $page.errors.trainings_from }}
                       </div>
@@ -90,14 +95,19 @@
                         >Inclusive Date
                         <span class="font-medium">(To)</span></label
                       >
-                      <input
-                        ref="birthday"
-                        class="form-input block w-full"
-                        placeholder="Enter end of period of attendance"
-                        type="tel"
-                        v-mask="'##/##/####'"
-                        v-model="form.trainings_to"
-                      />
+                      <v-date-picker v-model="form.trainings_to">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select end of training"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
                       <div v-if="$page.errors.trainings_to !== null" class="form-error">
                         {{ $page.errors.trainings_to }}
                       </div>
@@ -182,6 +192,7 @@
 <script>
 import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
+import moment from "moment";
 
 export default {
   components: {
@@ -211,6 +222,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
     save() {
       this.$inertia.post(this.route("training.store"), this.form, {
         onStart: () => (this.sending = true),

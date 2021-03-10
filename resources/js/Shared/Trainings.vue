@@ -76,12 +76,12 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ t.trainings_from }}
+                    {{ format(t.trainings_from) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
-                    {{ t.trainings_to }}
+                    {{ format(t.trainings_to) }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -103,7 +103,7 @@
                   <span 
                     @click="showTrainingEditModal(t)"
                     class="text-indigo-600 cursor-pointer hover:text-indigo-900"
-                    >✏️ Edit</span</span
+                    >✏️ Edit</span
                   >
                   <span
                     @click="destroy(t.id, t.trainings_name)"
@@ -141,6 +141,7 @@
 <script>
 import TrainingAddModal from "@/Shared/Modals/TrainingAddModal.vue";
 import TrainingEditModal from "@/Shared/Modals/TrainingEditModal.vue";
+import moment from "moment";
 
 export default {
   components: { 
@@ -159,6 +160,11 @@ export default {
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
     showTrainingModal() {
       this.showTraining = true;
     },
