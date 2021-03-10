@@ -210,20 +210,27 @@
             <td
               class="px-6 py-2 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <div v-if="leave.recommendation === null">
+              <div
+                v-if="
+                  leave.recommendation === null &&
+                  leave.approved_for === null &&
+                  leave.disapproved_due_to === null
+                "
+              >
                 <span
                   @click="approve(leave.id, leave.leave_number)"
                   class="text-green-600 inline-flex mt-2 cursor-pointer hover:text-green-900"
                   >✅ Approve</span
                 >
                 <span
+                  @click="disapprove(leave)"
                   class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
                   >🚫 Disapprove</span
                 >
               </div>
               <div v-else>
                 <span
-                  class="text-red-600 inline-flex mt-0 cursor-pointer hover:text-red-900"
+                  class="text-orange-600 inline-flex mt-0 cursor-pointer hover:text-orange-900"
                   >No action</span
                 >
               </div>
@@ -237,6 +244,11 @@
         </tr>
       </table>
     </div>
+    <disapprove-modal
+      :showing="show"
+      :id="id"
+      :modal.sync="show"
+    ></disapprove-modal>
     <pagination :links="leaves.links" />
   </div>
 </template>
@@ -250,6 +262,7 @@ import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import moment from "moment";
+import DisapproveModal from "@/Pages/Leave/DisapproveModal";
 
 export default {
   metaInfo: { title: "Leave Filing" },
@@ -258,6 +271,7 @@ export default {
     Icon,
     Pagination,
     SearchFilter,
+    DisapproveModal,
   },
   props: {
     filters: Object,
@@ -265,6 +279,8 @@ export default {
   },
   data() {
     return {
+      id: null,
+      show: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
@@ -286,6 +302,10 @@ export default {
     },
   },
   methods: {
+    disapprove(id) {
+      this.id = id;
+      this.show = true;
+    },
     approve(id, number) {
       swal({
         title: "Approve Leave",
@@ -303,7 +323,7 @@ export default {
     },
     format(value) {
       if (value) {
-        return moment(String(value)).format("MMMM D, YYYY");
+        return moment(String(value)).format("MMM D, YYYY");
       }
     },
     currency(price, sign = "₱ ") {

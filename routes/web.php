@@ -24,6 +24,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\AdminLeaveController;
+use App\Http\Controllers\CreditController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -362,6 +363,16 @@ Route::get('leaves', [AdminLeaveController::class, 'index'])
 
 Route::put('leaves/approve/{id}', [AdminLeaveController::class, 'approve'])
     ->name('leaves.approve')
+    ->middleware('auth');
+
+Route::put('leaves/disapprove/{id}', [AdminLeaveController::class, 'disapprove'])
+    ->name('leaves.disapprove')
+    ->middleware('auth');
+
+// Credits
+
+Route::get('employee/leave/credits/{contact}', [CreditController::class, 'index'])
+    ->name('credits')
     ->middleware('auth');
 
 // Employees

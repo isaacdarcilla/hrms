@@ -34,4 +34,18 @@ class AdminLeaveController extends Controller
 
         return Redirect::back()->with('success', 'Leave approved.');
     }
+
+    public function disapprove($id) {
+        Request::validate([
+            'disapproved_due_to' => ['required', 'min:10'],
+        ]);
+
+        Leave::find($id)->update([
+            'disapproved_due_to' => Request::input('disapproved_due_to'),
+            'recommendation' => 'Disapproved',
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return Redirect::back()->with('error', 'Leave disapproved.');
+    }
 }

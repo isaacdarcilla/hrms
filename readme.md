@@ -21,6 +21,7 @@
 - [X] <s>Notifications bar</s>  (Mar 1)
 - [X] <s>Refactor flash messages</s>  (Mar 2)
 - [X] <s>Error pages</s>  (Mar 3)
+- [ ] Add to credits when approve button is clicked
 - [ ] Leave management
 - [ ] Personal data sheet design
 - [ ] Personal data sheet function

@@ -67,7 +67,7 @@ class LeaveController extends Controller
                 'middle_initial' => strtoupper(Request::input('middle_initial')),
                 'date_of_filing' => Request::input('date_of_filing'),
                 'position' => ucwords(Request::input('position')),
-                'monthly_salary' => number_format(Request::input('monthly_salary')),
+                'monthly_salary' => Request::input('monthly_salary'),
                 'type_of_leave' => Request::input('type_of_leave'),
                 'vacation_leave_location' => Request::input('vacation_leave_location'),
                 'sick_leave_location' => Request::input('sick_leave_location'),

@@ -60,6 +60,12 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
+              Leave Credit
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
               Action
             </th>
           </tr>
@@ -178,6 +184,17 @@
               <span v-else class="text-sm text-gray-500">
                 No data available
               </span>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                class="text-indigo-600 hover:text-indigo-900"
+                :href="route('credits', contact.id)"
+                tabindex="-1"
+              >
+                <span>👁️ View</span>
+              </inertia-link>
             </td>
             <td
               class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"

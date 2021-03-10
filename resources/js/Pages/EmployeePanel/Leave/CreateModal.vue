@@ -348,8 +348,23 @@
                   </div>
                   <div v-if="$page.setting.employee === null">
                     <div class="flex flex-wrap -mx-3 mb-6">
-                      <div class="w-full px-2">
-                        <label class="form-label font-semibold text-blue-600"
+                      <div class="w-full px-2 flex">
+                        <svg
+                          class="w-5 h-5 text-blue-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                          ></path>
+                        </svg>
+                        <label
+                          class="ml-1 form-label font-semibold text-blue-600"
                           >Fill the box below, you will be not ask again once
                           filled.</label
                         >
@@ -451,6 +466,7 @@
 import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
 import moment from "moment";
+import mapValues from "lodash/mapValues";
 
 export default {
   components: {
@@ -545,9 +561,10 @@ export default {
           this.$page.setting.employee !== null
             ? this.$page.setting.employee.officer_in_charge_position
             : null,
-        department: this.$page.setting.employee !== null
+        department:
+          this.$page.setting.employee !== null
             ? this.$page.setting.employee.department
-            : null, 
+            : null,
       },
     };
   },
@@ -563,6 +580,10 @@ export default {
     },
     closeModal() {
       this.$emit("update:modal");
+      this.reset();
+    },
+    reset() {
+      this.form = mapValues(this.form, () => null);
     },
     reset() {
       this.form = mapValues(this.form, () => null);

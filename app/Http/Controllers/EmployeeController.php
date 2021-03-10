@@ -3,12 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use App\Models\Job;
-use App\Models\Applicant;
-use App\Models\User;
-use App\Models\Notice;
-use App\Models\Task;
-use App\Models\Children;
+use App\Models\Credit;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
