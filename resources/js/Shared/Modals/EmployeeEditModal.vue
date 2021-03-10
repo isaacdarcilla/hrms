@@ -532,9 +532,25 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Citizenship</label>
                       <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.citizenship"
+                        @click="other = false"
+                        value="Filipino"
+                      />
+                      Filipino
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        @click="other = true, form.citizenship = null"
+                        v-model="form.citizenship"
+                      />
+                      Other (Specify)
+                      <input
+                        v-if="other"
                         autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter citizenship"
+                        class="form-input mt-2 block w-full"
+                        placeholder="Enter other citizenship"
                         v-model="form.citizenship"
                       />
                       <div
@@ -888,6 +904,7 @@ export default {
     return {
       checked: null,
       sending: false,
+      other: false,
       form: {
         first_name: this.employee.first_name,
         middle_name: this.employee.middle_name,
