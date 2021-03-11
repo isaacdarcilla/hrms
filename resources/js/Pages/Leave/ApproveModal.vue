@@ -25,20 +25,19 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Disapprove #{{ id.leave_number }} Due To</label
+                        >Approve #{{ id.leave_number }} Leave</label
                       >
-                      <textarea
+                      <input
                         autofocus="true"
-                        rows="2"
                         class="form-input block w-full"
-                        placeholder="Enter reason for disapproval"
-                        v-model="form.disapproved_due_to"
+                        placeholder="Enter the number of leave credits to be subtracted"
+                        v-model="form.credit_to_be_subtracted"
                       />
                       <div
-                        v-if="$page.errors.disapproved_due_to !== null"
+                        v-if="$page.errors.credit_to_be_subtracted !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.disapproved_due_to }}
+                        {{ $page.errors.credit_to_be_subtracted }}
                       </div>
                     </div>
                   </div>
@@ -92,13 +91,28 @@ export default {
     return {
       sending: false,
       form: {
-        disapproved_due_to: null,
+        contact_id: null,
+        leave_number: null,
+        leave_type: null,
+        credit_to_be_subtracted: null,
       },
     };
   },
+  watch: {
+    id: {
+      immediate: true,
+      handler(e) {
+        if (e !== null) {
+          this.form.contact_id = e.contact_id;
+          this.form.leave_number = e.leave_number;
+          this.form.leave_type = e.type_of_leave;
+        }
+      },
+    },
+  },
   methods: {
     save() {
-      this.$inertia.put(this.route("leaves.disapprove", this.id.id), this.form, {
+      this.$inertia.put(this.route("leaves.approve", this.id.id), this.form, {
         onStart: () => (this.sending = true),
         onFinish: () => (this.sending = false),
       });

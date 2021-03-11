@@ -218,7 +218,7 @@
                 "
               >
                 <span
-                  @click="approve(leave.id, leave.leave_number)"
+                  @click="approve(leave)"
                   class="text-green-600 inline-flex mt-2 cursor-pointer hover:text-green-900"
                   >✅ Approve</span
                 >
@@ -249,6 +249,7 @@
       :id="id"
       :modal.sync="show"
     ></disapprove-modal>
+    <approve-modal :showing="approved" :id="id" :modal.sync="approved"></approve-modal>
     <pagination :links="leaves.links" />
   </div>
 </template>
@@ -263,6 +264,7 @@ import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import moment from "moment";
 import DisapproveModal from "@/Pages/Leave/DisapproveModal";
+import ApproveModal from "@/Pages/Leave/ApproveModal";
 
 export default {
   metaInfo: { title: "Leave Filing" },
@@ -272,6 +274,7 @@ export default {
     Pagination,
     SearchFilter,
     DisapproveModal,
+    ApproveModal,
   },
   props: {
     filters: Object,
@@ -280,6 +283,7 @@ export default {
   data() {
     return {
       id: null,
+      approved: false,
       show: false,
       form: {
         search: this.filters.search,
@@ -306,17 +310,9 @@ export default {
       this.id = id;
       this.show = true;
     },
-    approve(id, number) {
-      swal({
-        title: "Approve Leave",
-        text: `Approve leave number #${number}?`,
-        buttons: true,
-        dangerMode: false,
-      }).then((willDelete) => {
-        if (willDelete) {
-          this.$inertia.put(this.route("leaves.approve", id));
-        }
-      });
+    approve(id) {
+      this.id = id;
+      this.approved = true;
     },
     reset() {
       this.form = mapValues(this.form, () => null);

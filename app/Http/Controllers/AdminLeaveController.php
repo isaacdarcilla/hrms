@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use App\Models\Notification;
+use App\Models\Credit;
 use App\Models\Leave;
 use App\Models\Contact;
 use Carbon\Carbon;
@@ -26,11 +27,34 @@ class AdminLeaveController extends Controller
     }
 
     public function approve($id) {
+        $type = Request::input('leave_type');
+        $now =  Carbon::now();
+
+        Request::validate([
+            'credit_to_be_subtracted' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+        ]);
+
         Leave::find($id)->update([
             'approved_for' => 'Approved',
             'recommendation' => 'Approved',
             'updated_at' => Carbon::now(),
         ]);
+
+        if($type === 'Sick') {
+            Credit::create([
+                'sick_leave' => '-'.Request::input('credit_to_be_subtracted'),
+                'contact_id' => Request::input('contact_id'),
+                'leave_number' => Request::input('leave_number'),
+                'year' => $now->year,
+            ]);
+        } else {
+            Credit::create([
+                'vacation_leave' => '-'.Request::input('credit_to_be_subtracted'),
+                'contact_id' => Request::input('contact_id'),
+                'leave_number' => Request::input('leave_number'),
+                'year' => $now->year,
+            ]);
+        }
 
         return Redirect::back()->with('success', 'Leave approved.');
     }

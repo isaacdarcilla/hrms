@@ -27,24 +27,11 @@
           <div>
             <div class="font-semibold text-gray-600">Total Vacation Leave</div>
             <div class="flex items-center pt-1">
-              <div class="text-2xl font-bold text-gray-700">10.415</div>
+              <div class="text-2xl font-bold text-gray-700">
+                +{{ totals.vacation
+                }}<span class="text-sm font-normal"> available</span>
+              </div>
             </div>
-          </div>
-          <div class="my-auto mx-3">
-            <svg
-              class="w-8 h-8 text-green-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
           </div>
         </div>
       </div>
@@ -53,24 +40,11 @@
           <div>
             <div class="font-semibold text-gray-600">Total Sick Leave</div>
             <div class="flex items-center pt-1">
-              <div class="text-2xl font-bold text-gray-700">8.415</div>
+              <div class="text-2xl font-bold text-gray-700">
+                +{{ totals.sick
+                }}<span class="text-sm font-normal"> available</span>
+              </div>
             </div>
-          </div>
-          <div class="my-auto mx-3">
-            <svg
-              class="w-8 h-8 text-red-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
           </div>
         </div>
       </div>
@@ -79,24 +53,10 @@
           <div>
             <div class="font-semibold text-gray-600">Overall Total</div>
             <div class="flex items-center pt-1">
-              <div class="text-2xl font-bold text-gray-700">18.83</div>
+              <div class="text-2xl font-bold text-green-600">
+                +{{ total() }}
+              </div>
             </div>
-          </div>
-          <div class="my-auto mx-3">
-            <svg
-              class="w-8 h-8 text-blue-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
           </div>
         </div>
       </div>
@@ -223,6 +183,7 @@ export default {
     credits: Object,
     employee: Object,
     filters: Object,
+    totals: Object,
   },
   data() {
     return {
@@ -248,6 +209,9 @@ export default {
     },
   },
   methods: {
+    total() {
+      return this.totals.vacation + this.totals.sick;
+    },
     format(value) {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY h:mm A");

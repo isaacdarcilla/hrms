@@ -16,9 +16,14 @@ class CreditController extends Controller
         return Inertia::render('Credits/Index', [
             'filters' => Request::all('search', 'trashed'),
             'credits' => $contact->credit()
+                ->where('leave_number', '!=', 'top_up')
                 ->orderBy('created_at', 'DESC')
                 ->filter(Request::only('search', 'trashed'))
                 ->paginate(),
+            'totals' => [
+                'vacation' => $contact->credit()->sum('vacation_leave'),
+                'sick' => $contact->credit()->sum('sick_leave'),
+            ],
             'employee' => $contact,
         ]);
     }
