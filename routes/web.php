@@ -375,6 +375,18 @@ Route::get('employee/leave/credits/{contact}', [CreditController::class, 'index'
     ->name('credits')
     ->middleware('auth');
 
+Route::put('employee/sick/credits/{credit}', [CreditController::class, 'update_sick'])
+    ->name('credits.sick.update')
+    ->middleware('auth');
+
+Route::put('employee/vacation/credits/{credit}', [CreditController::class, 'update_vacation'])
+    ->name('credits.vacation.update')
+    ->middleware('auth');
+
+Route::post('employee/leave/credits/{contact}', [CreditController::class, 'store'])
+    ->name('credits.store')
+    ->middleware('auth');
+
 // Employees
 
 Route::get('employee/dashboard', [EmployeeController::class, 'index'])

@@ -16,9 +16,9 @@
           <option value="only">Inactive</option>
         </select>
       </search-filter>
-      <button class="btn-indigo rounded-lg">
+      <button @click="showManual = true" class="btn-indigo rounded-lg">
         <span>➕ Manual</span>
-        <span class="hidden md:inline">Credit</span>
+        <span class="hidden md:inline">Crediting</span>
       </button>
     </div>
     <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="p-5 bg-white rounded-lg shadow mr-3 mb-6">
+      <div class="p-5 bg-white rounded-lg shadow ml-3 mr-3 mb-6">
         <div class="flex justify-between">
           <div>
             <div class="font-semibold text-gray-600">Total Sick Leave</div>
@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="p-5 bg-white rounded-lg shadow mr-3 mb-6">
+      <div class="p-5 bg-white rounded-lg shadow ml-3 mb-6">
         <div class="flex justify-between">
           <div>
             <div class="font-semibold text-gray-600">Overall Total</div>
@@ -87,6 +87,12 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
+              Date of Filing
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
               Action
             </th>
           </tr>
@@ -104,7 +110,19 @@
                 :href="route('credits', employee.id)"
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
-                <div class="capitalize text-blue-600 font-medium">
+                <div
+                  v-if="credit.leave_number === 'add'"
+                  class="capitalize text-green-600 font-medium"
+                >
+                  +
+                </div>
+                <div
+                  v-else-if="credit.leave_number === 'minus'"
+                  class="capitalize text-red-600 font-medium"
+                >
+                  -
+                </div>
+                <div v-else class="capitalize text-blue-600 font-medium">
                   #{{ credit.leave_number }}
                 </div>
               </inertia-link>
@@ -118,7 +136,7 @@
               >
                 <div
                   v-if="credit.vacation_leave !== null"
-                  class="capitalize font-medium text-red-600"
+                  class="capitalize font-medium"
                 >
                   {{ credit.vacation_leave }}
                 </div>
@@ -134,7 +152,7 @@
               >
                 <div
                   v-if="credit.sick_leave !== null"
-                  class="capitalize font-medium text-red-600"
+                  class="capitalize font-medium"
                 >
                   {{ credit.sick_leave }}
                 </div>
@@ -142,9 +160,23 @@
               </inertia-link>
             </td>
             <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="capitalize font-medium">
+                  {{ format(credit.created_at) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
               class="px-6 py-1 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <span class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+              <span
+                @click="check(credit.vacation_leave, credit)"
+                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >✏️ Edit</span
               >
             </td>
@@ -157,6 +189,17 @@
         </tr>
       </table>
     </div>
+    <manual
+      :showing="showManual"
+      :employee="employee"
+      :modal.sync="showManual"
+    ></manual>
+    <sick :showing="showSick" :credit="credit" :modal.sync="showSick"></sick>
+    <vacation
+      :showing="showVacation"
+      :credit="credit"
+      :modal.sync="showVacation"
+    ></vacation>
     <pagination :links="credits.links" />
   </div>
 </template>
@@ -170,6 +213,9 @@ import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import moment from "moment";
+import Sick from "@/Pages/Credits/Sick";
+import Vacation from "@/Pages/Credits/Vacation";
+import Manual from "@/Pages/Credits/Manual";
 
 export default {
   metaInfo: { title: "Leave Credits" },
@@ -178,6 +224,9 @@ export default {
     Icon,
     Pagination,
     SearchFilter,
+    Sick,
+    Vacation,
+    Manual,
   },
   props: {
     credits: Object,
@@ -187,6 +236,10 @@ export default {
   },
   data() {
     return {
+      credit: null,
+      showSick: false,
+      showVacation: false,
+      showManual: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
@@ -209,12 +262,28 @@ export default {
     },
   },
   methods: {
+    includes(value) {
+      if (value) {
+        return value.includes("-");
+      }
+    },
+    check(vacation, credit) {
+      if (vacation !== null) {
+        this.showVacation = true;
+        this.showSick = false;
+        this.credit = credit;
+      } else {
+        this.showSick = true;
+        this.showVacation = false;
+        this.credit = credit;
+      }
+    },
     total() {
       return this.totals.vacation + this.totals.sick;
     },
     format(value) {
       if (value) {
-        return moment(String(value)).format("MMMM D, YYYY h:mm A");
+        return moment(String(value)).format("MMMM D, YYYY");
       }
     },
     reset() {

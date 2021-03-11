@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Credit;
+use App\Models\Job;
+use App\Models\Applicant;
+use App\Models\User;
+use App\Models\Task;
+use App\Models\Notice;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;

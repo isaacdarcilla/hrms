@@ -42,6 +42,7 @@ class AdminLeaveController extends Controller
 
         if($type === 'Sick') {
             Credit::create([
+                'leave_id' => $id,
                 'sick_leave' => '-'.Request::input('credit_to_be_subtracted'),
                 'contact_id' => Request::input('contact_id'),
                 'leave_number' => Request::input('leave_number'),
@@ -49,6 +50,7 @@ class AdminLeaveController extends Controller
             ]);
         } else {
             Credit::create([
+                'leave_id' => $id,
                 'vacation_leave' => '-'.Request::input('credit_to_be_subtracted'),
                 'contact_id' => Request::input('contact_id'),
                 'leave_number' => Request::input('leave_number'),
