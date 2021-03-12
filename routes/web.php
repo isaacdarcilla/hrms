@@ -393,16 +393,20 @@ Route::delete('employee/leave/credits/{id}', [CreditController::class, 'destroy'
 
 // Employees
 
-Route::get('employee/dashboard', [EmployeeController::class, 'index'])
+Route::get('personal/dashboard', [EmployeeController::class, 'index'])
     ->name('employee.dashboard')
     ->middleware('web', 'employee');
 
-Route::get('employee/profile/{contact}', [EmployeeController::class, 'profile'])
+Route::get('personal/profile/{contact}', [EmployeeController::class, 'profile'])
     ->name('employee.profile')
     ->middleware('web', 'employee');
 
-Route::get('employee/leave', [LeaveController::class, 'index'])
+Route::get('personal/leave', [LeaveController::class, 'index'])
     ->name('employee.leave')
+    ->middleware('web', 'employee');
+
+Route::get('personal/leave/credits/{contact}', [EmployeeController::class, 'credit'])
+    ->name('employee.credit')
     ->middleware('web', 'employee');
 
 Route::post('employee/leave/store', [LeaveController::class, 'store'])

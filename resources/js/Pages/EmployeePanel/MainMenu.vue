@@ -32,6 +32,22 @@
         </div>
       </inertia-link>
     </div>
+    <div v-if="$page.employee.status_of_appointment === 'Permanent/Regular'" class="mb-4">
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('employee.credit', $page.employee.id)"
+      >
+        <div
+          :class="
+            isUrl('employee.credit')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          ❤️ Leave Credits
+        </div>
+      </inertia-link>
+    </div>
     <div class="mb-4">
       <inertia-link
         class="flex items-center group py-3"

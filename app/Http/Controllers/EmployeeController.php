@@ -9,8 +9,9 @@ use App\Models\Applicant;
 use App\Models\User;
 use App\Models\Task;
 use App\Models\Notice;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
@@ -32,6 +33,27 @@ class EmployeeController extends Controller
                 'notices' => Notice::orderBy('created_at', 'DESC')->take(5)->get(),
                 'jobs' => Job::orderBy('created_at', 'DESC')->take(5)->get(),
                 'tasks' => Task::where('contact_id', $employee->id)->orderBy('created_at', 'DESC')->get(),
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
+
+    public function credit(Contact $contact) {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/Credit', [
+                'filters' => Request::all('search', 'trashed'),
+                'credits' => $contact->credit()
+                    ->where('year', '=', Carbon::now()->year)
+                    ->orderBy('created_at', 'DESC')
+                    ->filter(Request::only('search', 'trashed'))
+                    ->paginate(),
+                'totals' => [
+                    'vacation' => $contact->credit()->sum('vacation_leave'),
+                    'sick' => $contact->credit()->sum('sick_leave'),
+                ],
+                'employee' => $employee,
             ]);
         else
             return redirect()->route('login.employee');

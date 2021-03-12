@@ -3,24 +3,6 @@
     <h1 class="mb-8 font-bold text-3xl">
       Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📊
     </h1>
-    <div class="mb-6 flex justify-between items-center">
-      <!-- <search-filter
-        v-model="form.search"
-        class="w-full max-w-md mr-4"
-        @reset="reset"
-      >
-        <label class="block text-gray-700">Filter Leave Credit</label>
-        <select v-model="form.trashed" class="mt-1 w-full form-select">
-          <option :value="null" />
-          <option value="with">Active</option>
-          <option value="only">Inactive</option>
-        </select>
-      </search-filter> -->
-      <button @click="showManual = true" class="btn-indigo rounded-lg">
-        <span>➕ Manual</span>
-        <span class="hidden md:inline">Crediting</span>
-      </button>
-    </div>
     <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
       <div class="p-5 bg-white rounded-lg shadow mr-3 mb-6">
         <div class="flex justify-between">
@@ -88,12 +70,6 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Created At
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Action
             </th>
           </tr>
         </thead>
@@ -166,28 +142,10 @@
                 :href="route('credits', employee.id)"
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
-                <div class="capitalize font-medium">
+                <div class="capitalize font-medium text-blue-600">
                   {{ format(credit.created_at) }}
                 </div>
               </inertia-link>
-            </td>
-            <td
-              class="px-6 py-1 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
-            >
-              <span
-                v-if="
-                  credit.vacation_leave === null || credit.sick_leave === null
-                "
-                @click="check(credit.vacation_leave, credit.sick_leave, credit)"
-                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
-                >✏️ Edit</span
-              >
-              <span
-                v-else
-                @click="destroy(credit.id)"
-                class="text-red-600 cursor-pointer hover:text-red-900"
-                >🗑️ Delete</span
-              >
             </td>
           </tr>
         </tbody>
@@ -199,33 +157,19 @@
       </table>
     </div>
     <div class="mt-3 text-xs font-semibold text-red-600 italic">** These records are for the current year.</div>
-    <manual
-      :showing="showManual"
-      :employee="employee"
-      :modal.sync="showManual"
-    ></manual>
-    <sick :showing="showSick" :credit="credit" :modal.sync="showSick"></sick>
-    <vacation
-      :showing="showVacation"
-      :credit="credit"
-      :modal.sync="showVacation"
-    ></vacation>
     <pagination :links="credits.links" />
   </div>
 </template>
 
 <script>
 import Icon from "@/Shared/Icon";
-import Layout from "@/Shared/Layout";
+import Layout from "@/Pages/EmployeePanel/Layout";
 import mapValues from "lodash/mapValues";
 import Pagination from "@/Shared/Pagination";
 import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import moment from "moment";
-import Sick from "@/Pages/Credits/Sick";
-import Vacation from "@/Pages/Credits/Vacation";
-import Manual from "@/Pages/Credits/Manual";
 
 export default {
   metaInfo: { title: "Leave Credits" },
@@ -234,9 +178,6 @@ export default {
     Icon,
     Pagination,
     SearchFilter,
-    Sick,
-    Vacation,
-    Manual,
   },
   props: {
     credits: Object,
@@ -296,23 +237,11 @@ export default {
     },
     format(value) {
       if (value) {
-        return moment(String(value)).format("MMMM D, YYYY");
+        return moment(String(value)).format("MMMM D, YYYY h:mm A");
       }
     },
     reset() {
       this.form = mapValues(this.form, () => null);
-    },
-    destroy(id) {
-      swal({
-        title: "Delete",
-        text: `Are you sure you want to delete leave credit?`,
-        buttons: true,
-        dangerMode: true,
-      }).then((willDelete) => {
-        if (willDelete) {
-          this.$inertia.delete(this.route("credits.destroy", id));
-        }
-      });
     },
   },
 };
