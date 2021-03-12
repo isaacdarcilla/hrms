@@ -197,7 +197,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
+                  <div v-if="$page.auth.user !== null" class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Status of Appoinment</label

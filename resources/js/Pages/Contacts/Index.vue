@@ -189,11 +189,20 @@
               class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
+                v-if="contact.status_of_appointment === 'Permanent/Regular'"
                 class="text-indigo-600 hover:text-indigo-900"
                 :href="route('credits', contact.id)"
                 tabindex="-1"
               >
                 <span>👁️ View</span>
+              </inertia-link>
+              <inertia-link
+                v-else
+                class="text-red-600 hover:text-red-900"
+                :href="route('employees')"
+                tabindex="-1"
+              >
+                <span>N/A</span>
               </inertia-link>
             </td>
             <td

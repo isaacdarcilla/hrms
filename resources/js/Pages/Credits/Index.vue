@@ -4,7 +4,7 @@
       Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📊
     </h1>
     <div class="mb-6 flex justify-between items-center">
-      <search-filter
+      <!-- <search-filter
         v-model="form.search"
         class="w-full max-w-md mr-4"
         @reset="reset"
@@ -15,7 +15,7 @@
           <option value="with">Active</option>
           <option value="only">Inactive</option>
         </select>
-      </search-filter>
+      </search-filter> -->
       <button @click="showManual = true" class="btn-indigo rounded-lg">
         <span>➕ Manual</span>
         <span class="hidden md:inline">Crediting</span>
@@ -28,7 +28,7 @@
             <div class="font-semibold text-gray-600">Total Vacation Leave</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
-                +{{ totals.vacation
+                +{{ round(totals.vacation)
                 }}<span class="text-sm font-normal"> available</span>
               </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="font-semibold text-gray-600">Total Sick Leave</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
-                +{{ totals.sick
+                +{{ round(totals.sick)
                 }}<span class="text-sm font-normal"> available</span>
               </div>
             </div>
@@ -87,7 +87,7 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Date of Filing
+              Created At
             </th>
             <th
               scope="col"
@@ -175,9 +175,18 @@
               class="px-6 py-1 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <span
-                @click="check(credit.vacation_leave, credit)"
+                v-if="
+                  credit.vacation_leave === null || credit.sick_leave === null
+                "
+                @click="check(credit.vacation_leave, credit.sick_leave, credit)"
                 class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >✏️ Edit</span
+              >
+              <span
+                v-else
+                @click="destroy(credit.id)"
+                class="text-red-600 cursor-pointer hover:text-red-900"
+                >🗑️ Delete</span
               >
             </td>
           </tr>
@@ -262,17 +271,20 @@ export default {
     },
   },
   methods: {
+    round(number) {
+      return Math.round((number + Number.EPSILON) * 10000) / 10000;
+    },
     includes(value) {
       if (value) {
         return value.includes("-");
       }
     },
-    check(vacation, credit) {
+    check(vacation, sick, credit) {
       if (vacation !== null) {
         this.showVacation = true;
         this.showSick = false;
         this.credit = credit;
-      } else {
+      } else if (sick !== null) {
         this.showSick = true;
         this.showVacation = false;
         this.credit = credit;
@@ -288,6 +300,18 @@ export default {
     },
     reset() {
       this.form = mapValues(this.form, () => null);
+    },
+    destroy(id) {
+      swal({
+        title: "Delete",
+        text: `Are you sure you want to delete leave credit?`,
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          this.$inertia.delete(this.route("credits.destroy", id));
+        }
+      });
     },
   },
 };

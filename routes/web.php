@@ -387,6 +387,10 @@ Route::post('employee/leave/credits/{contact}', [CreditController::class, 'store
     ->name('credits.store')
     ->middleware('auth');
 
+Route::delete('employee/leave/credits/{id}', [CreditController::class, 'destroy'])
+    ->name('credits.destroy')
+    ->middleware('auth');
+
 // Employees
 
 Route::get('employee/dashboard', [EmployeeController::class, 'index'])

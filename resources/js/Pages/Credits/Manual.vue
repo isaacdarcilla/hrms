@@ -25,7 +25,7 @@
                   class="text-lg leading-6 font-medium text-gray-900"
                   id="modal-headline"
                 >
-                  ➕ Manual Crediting
+                  ➕ Manual Leave Crediting
                 </h3>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
@@ -70,6 +70,13 @@
                         value="sick"
                       />
                       Sick Leave
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.type"
+                        value="both"
+                      />
+                      Both
                       <div
                         v-if="$page.errors.type !== null"
                         class="form-error"

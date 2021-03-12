@@ -34,10 +34,7 @@
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        :placeholder="
-                          'Enter the leave credits to be subtracted e.g. ' +
-                          `${credit.sick_leave.replace(/-/g, '')}`
-                        "
+                        placeholder="Enter the number of leave credits"
                         v-model="form.leave_credit"
                       />
                       <div
@@ -97,9 +94,18 @@ export default {
     return {
       sending: false,
       form: {
+        operator: null,
         leave_credit: null,
       },
     };
+  },
+  watch: {
+    credit: {
+      handler(e) {
+        this.form.operator = e.leave_number;
+      },
+      deep: true,
+    },
   },
   methods: {
     save() {
@@ -117,7 +123,7 @@ export default {
       this.reset();
     },
     reset() {
-      this.form = mapValues(this.form, () => null);
+      this.form.leave_credit = null;
     },
   },
 };

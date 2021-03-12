@@ -30,24 +30,46 @@ class CreditController extends Controller
     }
 
     public function update_sick($id) {
+        $request_operator = Request::input('operator');
+        $operator = null;
+
+        if ($request_operator === 'add') {
+            $operator = '+';
+        } elseif ($request_operator === 'minus') {
+            $operator = '-';
+        } else {
+            $operator = '-';
+        }
+
         Request::validate([
             'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
         ]);
 
         Credit::find($id)->update([
-            'sick_leave' => '-'.Request::input('leave_credit'),
+            'sick_leave' => $operator.Request::input('leave_credit'),
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
     }
 
     public function update_vacation($id) {
+        $request_operator = Request::input('operator');
+        $operator = null;
+
+        if ($request_operator === 'add') {
+            $operator = '+';
+        } elseif ($request_operator === 'minus') {
+            $operator = '-';
+        } else {
+            $operator = '-';
+        }
+
         Request::validate([
             'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
         ]);
 
         Credit::find($id)->update([
-            'vacation_leave' => '-'.Request::input('leave_credit'),
+            'vacation_leave' => $operator.Request::input('leave_credit'),
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
@@ -100,8 +122,34 @@ class CreditController extends Controller
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;
+            case ($option === 'increase' && $type === 'both');
+                Credit::create([
+                    'contact_id' => $contact_id,
+                    'vacation_leave' => '+'.Request::input('leave_credit'),
+                    'sick_leave' => '+'.Request::input('leave_credit'),
+                    'leave_number' => 'add',
+                    'year' => Carbon::now()->year,
+                ]);
+                return Redirect::back()->with('success', 'Sick leave credit decreased.');
+                break;
+            case ($option === 'decrease' && $type === 'both');
+                Credit::create([
+                    'contact_id' => $contact_id,
+                    'vacation_leave' => '-'.Request::input('leave_credit'),
+                    'sick_leave' => '-'.Request::input('leave_credit'),
+                    'leave_number' => 'minus',
+                    'year' => Carbon::now()->year,
+                ]);
+                return Redirect::back()->with('success', 'Sick leave credit decreased.');
+                break;
             default;
                 break;
         }
+    }
+
+    public function destroy($id) {
+        Credit::find($id)->delete();
+
+        return Redirect::back()->with('success', 'Leave credit deleted.');
     }
 }
