@@ -4,7 +4,7 @@
     <p @click="print">Print</p>
     <div id="pds">
       <div
-        class="border-2 border-black font-sans mx-auto"
+        class="border-2 border-black bg-white font-sans mx-auto"
         style="width: 816px; height: 1248px"
       >
         <div class="pl-1 pt-0 text-xxs text-black font-semibold italic">
@@ -80,7 +80,7 @@ import Education from "@/Pages/Sheet/Components/Education";
 const options = {
   name: "_blank",
   specs: ["fullscreen=yes", "titlebar=no", "scrollbars=yes"],
-  styles: ["../css/app.css"],
+  styles: ["/css/app.css"],
 };
 
 Vue.use(VueHtmlToPaper, options);

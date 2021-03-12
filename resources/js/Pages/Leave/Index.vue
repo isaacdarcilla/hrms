@@ -229,9 +229,10 @@
                 >
               </div>
               <div v-else>
-                <span
-                  class="text-orange-600 inline-flex mt-0 cursor-pointer hover:text-orange-900"
-                  >No action</span
+                <inertia-link
+                  :href="route('leaves.form', leave.contact_id)"
+                  class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
+                  >👁️‍🗨️ View Form</inertia-link
                 >
               </div>
             </td>

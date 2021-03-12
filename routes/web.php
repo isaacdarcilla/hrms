@@ -369,6 +369,13 @@ Route::put('leaves/disapprove/{id}', [AdminLeaveController::class, 'disapprove']
     ->name('leaves.disapprove')
     ->middleware('auth');
 
+// Form Leave
+
+Route::get('leaves/form/{contact}', [AdminLeaveController::class, 'form'])
+    ->name('leaves.form')
+    ->middleware('auth');
+
+
 // Credits
 
 Route::get('employee/leave/credits/{contact}', [CreditController::class, 'index'])

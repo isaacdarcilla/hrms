@@ -74,4 +74,8 @@ class AdminLeaveController extends Controller
 
         return Redirect::back()->with('error', 'Leave disapproved.');
     }
+
+    public function form(Contact $contact) {
+        return Inertia::render('Sheet/FormLeave');
+    }
 }
