@@ -1,21 +1,9 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">
-      Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📊
+      Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📈
     </h1>
     <div class="mb-6 flex justify-between items-center">
-      <!-- <search-filter
-        v-model="form.search"
-        class="w-full max-w-md mr-4"
-        @reset="reset"
-      >
-        <label class="block text-gray-700">Filter Leave Credit</label>
-        <select v-model="form.trashed" class="mt-1 w-full form-select">
-          <option :value="null" />
-          <option value="with">Active</option>
-          <option value="only">Inactive</option>
-        </select>
-      </search-filter> -->
       <button @click="showManual = true" class="btn-indigo rounded-lg">
         <span>➕ Manual</span>
         <span class="hidden md:inline">Crediting</span>
