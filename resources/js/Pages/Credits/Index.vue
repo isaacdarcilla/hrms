@@ -112,13 +112,13 @@
               >
                 <div
                   v-if="credit.leave_number === 'add'"
-                  class="capitalize text-green-600 font-medium"
+                  class="capitalize text-green-600 font-medium text-xl"
                 >
                   +
                 </div>
                 <div
                   v-else-if="credit.leave_number === 'minus'"
-                  class="capitalize text-red-600 font-medium"
+                  class="capitalize text-red-600 font-medium text-xl"
                 >
                   -
                 </div>
