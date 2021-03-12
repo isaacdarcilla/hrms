@@ -119,11 +119,42 @@
                         >Training Type</label
                       >
                       <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter training type"
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.trainings_type"
-                        ref="name"
+                        @click="other = false"
+                        value="Managerial"
+                      />
+                      Managerial
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.trainings_type"
+                        @click="other = false"
+                        value="Supervisory"
+                      />
+                      Supervisory
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.trainings_type"
+                        @click="other = false"
+                        value="Technical"
+                      />
+                      Technical
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        @click="other = true, form.trainings_type = null"
+                        v-model="form.trainings_type"
+                      />
+                      Other (Specify)
+                      <input
+                        v-if="other"
+                        autofocus="true"
+                        class="form-input mt-2 block w-full"
+                        placeholder="Enter other training type"
+                        v-model="form.trainings_type"
                       />
                       <div
                         v-if="
@@ -132,6 +163,28 @@
                         class="form-error"
                       >
                         {{ $page.errors.trainings_type }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Training Venue</label
+                      >
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter training venue"
+                        v-model="form.trainings_venue"
+                        ref="name"
+                      />
+                      <div
+                        v-if="
+                          $page.errors.trainings_venue !== null
+                        "
+                        class="form-error"
+                      >
+                        {{ $page.errors.trainings_venue }}
                       </div>
                     </div>
                   </div>
@@ -210,6 +263,7 @@ export default {
   data() {
     return {
       sending: false,
+      other: false,
       form: {
         contact_id: this.employee.id,
         trainings_name: null,
@@ -217,6 +271,7 @@ export default {
         trainings_to: null,
         trainings_number_of_hours: null,
         trainings_type: null,
+        trainings_venue: null,
         trainings_sponsored_by: null,
       },
     };

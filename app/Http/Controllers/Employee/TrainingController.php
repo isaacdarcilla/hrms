@@ -21,6 +21,7 @@ class TrainingController extends Controller
 		        'trainings_to' => ['required', 'max:50', 'min:10', 'date', 'after:trainings_from'],
 		        'trainings_number_of_hours' => ['required', 'max:50', 'min:1', 'regex:/^[0-9]+$/'],
 		        'trainings_type' => ['required', 'max:50', 'min:4'],
+                'trainings_venue' => ['required', 'max:50', 'min:4'],
 		        'trainings_sponsored_by' => ['required', 'max:50', 'min:4'],
             ])
         );
@@ -44,6 +45,7 @@ class TrainingController extends Controller
 		        'trainings_to' => ['required', 'max:50', 'min:10', 'date', 'after:trainings_from'],
 		        'trainings_number_of_hours' => ['required', 'max:50', 'min:1', 'regex:/^[0-9]+$/'],
 		        'trainings_type' => ['required', 'max:50', 'min:4'],
+                'trainings_venue' => ['required', 'max:50', 'min:4'],
 		        'trainings_sponsored_by' => ['required', 'max:50', 'min:4'],
             ])
         );
