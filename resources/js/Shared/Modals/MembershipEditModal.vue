@@ -27,7 +27,7 @@
                 >
                   ✏️ Edit {{ employeeId.first_name }} Membership in Organizations
                 </h3>
-                <form class="w-full max-w-lg pr-4 pt-5">
+                <form @submit.prevent="save" class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Name of Membership</label>
