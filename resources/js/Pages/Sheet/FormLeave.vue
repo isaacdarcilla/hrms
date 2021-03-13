@@ -113,7 +113,13 @@
                 <div class="h-48 border-b-one border-r-one border-black">
                   <div class="text-xs ml-2">6.a. TYPE OF LEAVE</div>
                   <div class="flex mt-2">
-                    <div class="text-xs ml-6">🗸</div>
+                    <div
+                      v-if="leave.type_of_leave === 'Vacation'"
+                      class="text-xs ml-6"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-8"></div>
                     <div
                       class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
@@ -122,7 +128,17 @@
                   <div class="my-1 text-xs ml-20">To seek employment</div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
-                      <div class="text-xs ml-6">🗸</div>
+                      <div
+                        v-if="
+                          leave.type_of_leave === 'CTO' ||
+                          leave.type_of_leave === 'FL' ||
+                          leave.type_of_leave === 'SPL'
+                        "
+                        class="text-xs ml-6"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-8"></div>
                       <div
                         class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
@@ -130,9 +146,20 @@
                     </div>
                     <div class="w-1/2">
                       <div
+                        v-if="
+                          leave.type_of_leave === 'CTO' ||
+                          leave.type_of_leave === 'FL' ||
+                          leave.type_of_leave === 'SPL'
+                        "
+                        class="border-b-one border-black text-center font-semibold text-xs mr-4"
+                      >
+                        {{ leave.type_of_leave }}
+                      </div>
+                      <div
+                        v-else
                         class="border-b-one border-black text-center text-xs mr-4"
                       >
-                        CTO
+                        &nbsp;
                       </div>
                     </div>
                   </div>
@@ -140,14 +167,26 @@
                     class="ml-12 mt-4 border-b-one border-black text-center text-xs mr-4"
                   ></div>
                   <div class="flex mt-2">
-                    <div class="text-xs ml-6">🗸</div>
+                    <div
+                      v-if="leave.type_of_leave === 'Sick'"
+                      class="text-xs ml-6"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-8"></div>
                     <div
                       class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">SICK</div>
                   </div>
                   <div class="flex mt-2">
-                    <div class="text-xs ml-6">🗸</div>
+                    <div
+                      v-if="leave.type_of_leave === 'Maternity'"
+                      class="text-xs ml-6"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-8"></div>
                     <div
                       class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
@@ -155,7 +194,20 @@
                   </div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
-                      <div class="text-xs ml-6">🗸</div>
+                      <div
+                        v-if="
+                          leave.type_of_leave !== 'CTO' &&
+                          leave.type_of_leave !== 'FL' &&
+                          leave.type_of_leave !== 'SPL' &&
+                          leave.type_of_leave !== 'Vacation' &&
+                          leave.type_of_leave !== 'Sick' &&
+                          leave.type_of_leave !== 'Maternity'
+                        "
+                        class="text-xs ml-6"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-8"></div>
                       <div
                         class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
@@ -163,6 +215,20 @@
                     </div>
                     <div class="w-1/2">
                       <div
+                        v-if="
+                          leave.type_of_leave !== 'CTO' &&
+                          leave.type_of_leave !== 'FL' &&
+                          leave.type_of_leave !== 'SPL' &&
+                          leave.type_of_leave !== 'Vacation' &&
+                          leave.type_of_leave !== 'Sick' &&
+                          leave.type_of_leave !== 'Maternity'
+                        "
+                        class="border-b-one border-black font-semibold text-center text-xs mr-4"
+                      >
+                        {{ leave.type_of_leave }}
+                      </div>
+                      <div
+                        v-else
                         class="border-b-one border-black text-center text-xs mr-4"
                       >
                         &nbsp;
@@ -183,7 +249,17 @@
                     </div>
                   </div>
                   <div class="flex mt-1">
-                    <div class="text-xs ml-10">🗸</div>
+                    <div
+                      v-if="
+                        leave.type_of_leave === 'Vacation' &&
+                        leave.vacation_leave_location ===
+                          'Within the Philippines'
+                      "
+                      class="text-xs ml-10"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-12"></div>
                     <div
                       class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
@@ -191,7 +267,18 @@
                   </div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
-                      <div class="text-xs ml-10">🗸</div>
+                      <div
+                        v-if="
+                          leave.type_of_leave === 'Vacation' &&
+                          leave.vacation_leave_location !==
+                            'Within the Philippines' &&
+                          leave.vacation_leave_location !== null
+                        "
+                        class="text-xs ml-10"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-12"></div>
                       <div
                         class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
@@ -199,6 +286,18 @@
                     </div>
                     <div class="w-1/2">
                       <div
+                        v-if="
+                          leave.type_of_leave === 'Vacation' &&
+                          leave.vacation_leave_location !==
+                            'Within the Philippines' &&
+                          leave.vacation_leave_location !== null
+                        "
+                        class="border-b-one border-black font-semibold text-center text-xs mr-4"
+                      >
+                        {{ leave.vacation_leave_location }}
+                      </div>
+                      <div
+                        v-else
                         class="border-b-one border-black text-center text-xs mr-4"
                       >
                         &nbsp;
@@ -213,7 +312,18 @@
                   </div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
-                      <div class="text-xs ml-10">🗸</div>
+                      <div
+                        v-if="
+                          leave.type_of_leave === 'Sick' &&
+                          leave.sick_leave_location.split(/::/)[0] ===
+                            'inhospital' &&
+                          leave.sick_leave_location !== null
+                        "
+                        class="text-xs ml-10"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-12"></div>
                       <div
                         class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
@@ -221,6 +331,18 @@
                     </div>
                     <div class="w-1/2">
                       <div
+                        v-if="
+                          leave.type_of_leave === 'Sick' &&
+                          leave.sick_leave_location.split(/::/)[0] ===
+                            'inhospital' &&
+                          leave.sick_leave_location !== null
+                        "
+                        class="border-b-one border-black font-semibold text-center text-xs mr-4"
+                      >
+                        {{ leave.sick_leave_location.split(/::/)[1] }}
+                      </div>
+                      <div
+                        v-else
                         class="border-b-one border-black text-center text-xs mr-4"
                       >
                         &nbsp;
@@ -232,7 +354,18 @@
                   ></div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
-                      <div class="text-xs ml-10">🗸</div>
+                      <div
+                        v-if="
+                          leave.type_of_leave === 'Sick' &&
+                          leave.sick_leave_location.split(/::/)[0] ===
+                            'outpatient' &&
+                          leave.sick_leave_location !== null
+                        "
+                        class="text-xs ml-10"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-12"></div>
                       <div
                         class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
@@ -240,6 +373,18 @@
                     </div>
                     <div class="w-1/2">
                       <div
+                        v-if="
+                          leave.type_of_leave === 'Sick' &&
+                          leave.sick_leave_location.split(/::/)[0] ===
+                            'outpatient' &&
+                          leave.sick_leave_location !== null
+                        "
+                        class="border-b-one border-black font-semibold text-center text-xs mr-4"
+                      >
+                        {{ leave.sick_leave_location.split(/::/)[1] }}
+                      </div>
+                      <div
+                        v-else
                         class="border-b-one border-black text-center text-xs mr-4"
                       >
                         &nbsp;
@@ -259,9 +404,16 @@
                     NUMBER OF WORKING DAYS APPLIED FOR:
                   </div>
                   <div
-                    class="mt-2 mx-8 text-xs text-center border-b-one border-black"
+                    v-if="leave.number_of_working_days === '1'"
+                    class="mt-2 mx-8 text-xs text-center font-semibold border-b-one border-black"
                   >
-                    1 day
+                    {{ leave.number_of_working_days }} day
+                  </div>
+                  <div
+                    v-else
+                    class="mt-2 mx-8 text-xs text-center font-semibold border-b-one border-black"
+                  >
+                    {{ leave.number_of_working_days }} days
                   </div>
                   <div class="text-xs ml-20 mt-3">
                     <div class="ml-2">INCLUSIVE DATES:</div>
@@ -269,7 +421,13 @@
                   <div
                     class="my-2 mx-8 text-xs text-center border-b-one border-black"
                   >
-                    June 24, 2020
+                    <div
+                      v-for="date in leave.start_of_inclusive_date"
+                      :key="date.id"
+                      class="flex"
+                    >
+                      <div>{{ date.date }}</div>
+                    </div>
                   </div>
                 </div>
               </div>
