@@ -230,7 +230,7 @@
               </div>
               <div v-else>
                 <inertia-link
-                  :href="route('leaves.form', leave.contact_id)"
+                  :href="route('leaves.form', leave.id)"
                   class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
                   >👁️‍🗨️ View Form</inertia-link
                 >

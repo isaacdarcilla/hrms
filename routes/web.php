@@ -371,7 +371,7 @@ Route::put('leaves/disapprove/{id}', [AdminLeaveController::class, 'disapprove']
 
 // Form Leave
 
-Route::get('leaves/form/{contact}', [AdminLeaveController::class, 'form'])
+Route::get('leaves/form/{leave}', [AdminLeaveController::class, 'form'])
     ->name('leaves.form')
     ->middleware('auth');
 

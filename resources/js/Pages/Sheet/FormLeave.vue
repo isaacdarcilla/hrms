@@ -40,7 +40,7 @@
                 <div class="h-8 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">1. Agency/Office</div>
                   <div class="capitalize text-sm font-semibold text-center">
-                    Catanduanes State University
+                    {{ leave.agency }}
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                 <div class="h-8 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">2. Last Name</div>
                   <div class="uppercase text-sm font-semibold text-center">
-                    Pelomeo
+                    {{ leave.last_name }}
                   </div>
                 </div>
               </div>
@@ -58,7 +58,7 @@
                     First Name
                   </div>
                   <div class="uppercase text-sm font-semibold text-center">
-                    Wilson
+                    {{ leave.first_name }}
                   </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@
                 <div class="h-8 border-b-one border-black">
                   <div class="uppercase text-xs mx-auto text-center">M.I.</div>
                   <div class="uppercase text-sm font-semibold text-center">
-                    R.
+                    {{ leave.middle_initial }}
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@
                 <div class="h-8 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">3. Date of Filing</div>
                   <div class="capitalize text-sm font-semibold text-center">
-                    June 26, 2020
+                    {{ format(leave.date_of_filing) }}
                   </div>
                 </div>
               </div>
@@ -84,7 +84,7 @@
                 <div class="h-8 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">4. Position</div>
                   <div class="uppercase text-sm font-semibold text-center">
-                    Computer Maintenance Technologist I
+                    {{ leave.position }}
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
                     5. SALARY (Monthly)
                   </div>
                   <div class="uppercase text-sm font-semibold text-center">
-                    P 22,316.00
+                    {{ currency(leave.monthly_salary) }}
                   </div>
                 </div>
               </div>
@@ -113,16 +113,18 @@
                 <div class="h-48 border-b-one border-r-one border-black">
                   <div class="text-xs ml-2">6.a. TYPE OF LEAVE</div>
                   <div class="flex mt-2">
+                    <div class="text-xs ml-6">🗸</div>
                     <div
-                      class="text-xs h-2 border my-auto ml-12 border-black p-1"
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">VACATION</div>
                   </div>
                   <div class="my-1 text-xs ml-20">To seek employment</div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
+                      <div class="text-xs ml-6">🗸</div>
                       <div
-                        class="text-xs h-2 w-2 border my-auto ml-12 border-black p-1"
+                        class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
                       <div class="text-xs ml-4">Others (Specify)</div>
                     </div>
@@ -138,21 +140,24 @@
                     class="ml-12 mt-4 border-b-one border-black text-center text-xs mr-4"
                   ></div>
                   <div class="flex mt-2">
+                    <div class="text-xs ml-6">🗸</div>
                     <div
-                      class="text-xs h-2 border my-auto ml-12 border-black p-1"
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">SICK</div>
                   </div>
                   <div class="flex mt-2">
+                    <div class="text-xs ml-6">🗸</div>
                     <div
-                      class="text-xs h-2 border my-auto ml-12 border-black p-1"
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">MATERNITY</div>
                   </div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
+                      <div class="text-xs ml-6">🗸</div>
                       <div
-                        class="text-xs h-2 w-2 border my-auto ml-12 border-black p-1"
+                        class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
                       <div class="text-xs ml-4">Others (Specify)</div>
                     </div>
@@ -178,15 +183,17 @@
                     </div>
                   </div>
                   <div class="flex mt-1">
+                    <div class="text-xs ml-10">🗸</div>
                     <div
-                      class="text-xs h-2 border my-auto ml-16 border-black p-1"
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">Within the Philippines</div>
                   </div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
+                      <div class="text-xs ml-10">🗸</div>
                       <div
-                        class="text-xs h-2 w-2 border my-auto ml-16 border-black p-1"
+                        class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
                       <div class="text-xs ml-4">Abroad (Specify)</div>
                     </div>
@@ -206,8 +213,9 @@
                   </div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
+                      <div class="text-xs ml-10">🗸</div>
                       <div
-                        class="text-xs h-2 w-2 border my-auto ml-16 border-black p-1"
+                        class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
                       <div class="text-xs ml-4">In Hospital (Specify)</div>
                     </div>
@@ -224,8 +232,9 @@
                   ></div>
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
+                      <div class="text-xs ml-10">🗸</div>
                       <div
-                        class="text-xs h-2 w-2 border my-auto ml-16 border-black p-1"
+                        class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
                       ></div>
                       <div class="text-xs ml-4">Out Patient (Specify)</div>
                     </div>
@@ -303,6 +312,8 @@
 import Layout from "@/Shared/Layout";
 import Vue from "vue";
 import VueHtmlToPaper from "vue-html-to-paper";
+import moment from "moment";
+
 const options = {
   name: "_blank",
   specs: ["fullscreen=yes", "titlebar=no", "scrollbars=yes"],
@@ -315,9 +326,25 @@ export default {
   metaInfo: { title: "Leave Form" },
   layout: Layout,
   components: {},
+  props: {
+    leave: Object,
+  },
   methods: {
     print() {
       this.$htmlToPaper("leave");
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
+    currency(price, sign = "₱ ") {
+      const pieces = parseFloat(price).toFixed(2).split("");
+      let ii = pieces.length - 3;
+      while ((ii -= 3) > 0) {
+        pieces.splice(ii, 0, ",");
+      }
+      return sign + pieces.join("");
     },
   },
 };
