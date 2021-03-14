@@ -441,16 +441,10 @@
                   <div class="text-xs ml-20 mt-3">
                     <div class="ml-2">INCLUSIVE DATES:</div>
                   </div>
-                  <div class="mt-3 mx-8 text-xs justify-center">
-                    <div
-                      v-for="date in leave.start_of_inclusive_date"
-                      :key="date.id"
-                      class="float-left flex-wrap mx-auto justify-center border-b-one border-black"
-                    >
-                      <div class="font-semibold mx-1 text-center">
-                        {{ format(date.date) }}
-                      </div>
-                    </div>
+                  <div
+                    class="my-2 mx-8 text-xs text-center border-b-one border-black"
+                  >
+                    <div class="font-semibold">{{ dates() }}</div>
                   </div>
                 </div>
               </div>
@@ -523,6 +517,14 @@ export default {
     };
   },
   methods: {
+    dates() {
+      let dates = [];
+      this.leave.start_of_inclusive_date.forEach((date) => {
+        var data = moment(String(date.date)).format("MMMM D YYYY");
+        dates.push(data);
+      });
+      return dates.join(', ');
+    },
     printPdf() {
       console.log(true);
       this.$refs.html2Pdf.generatePdf();
