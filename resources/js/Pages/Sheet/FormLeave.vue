@@ -513,7 +513,7 @@ export default {
   },
   data() {
     return {
-      filename: `${this.leave.first_name} ${this.leave.last_name} - Leave Form`,
+      filename: `${this.leave.first_name} ${this.leave.last_name} - ${this.leave.leave_number} - Leave Form`,
     };
   },
   methods: {
