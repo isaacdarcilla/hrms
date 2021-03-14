@@ -419,14 +419,14 @@
                     <div class="ml-2">INCLUSIVE DATES:</div>
                   </div>
                   <div
-                    class="my-2 mx-8 text-xs text-center border-b-one border-black"
+                    class="mt-3 mx-8 text-xs justify-center"
                   >
                     <div
                       v-for="date in leave.start_of_inclusive_date"
                       :key="date.id"
-                      class="flex"
+                      class="float-left flex-wrap mx-auto justify-center border-b-one border-black"
                     >
-                      <div>{{ date.date }}</div>
+                      <div class="font-semibold mx-1 text-center">{{ format(date.date) }}</div>
                     </div>
                   </div>
                 </div>
@@ -436,13 +436,31 @@
                   <div class="text-xs ml-12">COMMUTATION:</div>
                   <div class="flex mt-2">
                     <div
-                      class="text-xs h-2 border my-auto ml-16 border-black p-1"
+                        v-if="
+                          leave.commutation === 'Requested'
+                        "
+                        class="text-xs ml-10"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-12"></div>
+                    <div  
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">Requested</div>
                   </div>
                   <div class="flex mt-2">
                     <div
-                      class="text-xs h-2 border my-auto ml-16 border-black p-1"
+                        v-if="
+                          leave.commutation === 'Not Requested'
+                        "
+                        class="text-xs ml-10"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-12"></div>
+                    <div  
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">Not Requested</div>
                   </div>
