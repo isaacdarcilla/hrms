@@ -1,9 +1,32 @@
 <template>
   <div>
-    <h1 class="mb-8 font-bold text-3xl">Leave Form 📜</h1>
-    <p @click="print">Print</p>
-    <div id="leave">
-      <div
+    <div class="flex justify-between">
+      <h1 class="mb-8 font-bold text-3xl">Leave Form 📜</h1>
+      <button
+        @click="printPdf()"
+        class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <span>🖨️ Print</span>
+      </button>
+    </div>
+    <vue-html2pdf
+      :show-layout="true"
+      :float-layout="false"
+      :enable-download="false"
+      :preview-modal="true"
+      :paginate-elements-by-height="1400"
+      :filename="filename"
+      :pdf-quality="2"
+      :manual-pagination="true"
+      pdf-format="legal"
+      pdf-orientation="portrait"
+      pdf-content-width="mx-auto"
+      @hasStartedGeneration="hasStartedGeneration()"
+      @hasGenerated="hasGenerated($event)"
+      ref="html2Pdf"
+    >
+      <section
+        slot="pdf-content"
         class="border-none border-black mt-2 bg-white font-sans mx-auto text-black"
         style="width: 816px; height: 1248px"
       >
@@ -24,7 +47,7 @@
         <div class="mt-4">
           <div
             class="border border-black bg-white font-sans mx-auto text-black"
-            style="width: 816px; height: 1162px"
+            style="width: 790px; height: 1152px"
           >
             <div class="w-full">
               <div class="h-8 border-b-one border-black">
@@ -418,15 +441,15 @@
                   <div class="text-xs ml-20 mt-3">
                     <div class="ml-2">INCLUSIVE DATES:</div>
                   </div>
-                  <div
-                    class="mt-3 mx-8 text-xs justify-center"
-                  >
+                  <div class="mt-3 mx-8 text-xs justify-center">
                     <div
                       v-for="date in leave.start_of_inclusive_date"
                       :key="date.id"
                       class="float-left flex-wrap mx-auto justify-center border-b-one border-black"
                     >
-                      <div class="font-semibold mx-1 text-center">{{ format(date.date) }}</div>
+                      <div class="font-semibold mx-1 text-center">
+                        {{ format(date.date) }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -436,30 +459,26 @@
                   <div class="text-xs ml-12">COMMUTATION:</div>
                   <div class="flex mt-2">
                     <div
-                        v-if="
-                          leave.commutation === 'Requested'
-                        "
-                        class="text-xs ml-10"
-                      >
-                        🗸
-                      </div>
-                      <div v-else class="text-xs ml-12"></div>
-                    <div  
+                      v-if="leave.commutation === 'Requested'"
+                      class="text-xs ml-10"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-12"></div>
+                    <div
                       class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">Requested</div>
                   </div>
                   <div class="flex mt-2">
                     <div
-                        v-if="
-                          leave.commutation === 'Not Requested'
-                        "
-                        class="text-xs ml-10"
-                      >
-                        🗸
-                      </div>
-                      <div v-else class="text-xs ml-12"></div>
-                    <div  
+                      v-if="leave.commutation === 'Not Requested'"
+                      class="text-xs ml-10"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-12"></div>
+                    <div
                       class="text-xs h-2 border my-auto ml-4 border-black p-1"
                     ></div>
                     <div class="text-xs ml-4">Not Requested</div>
@@ -479,35 +498,34 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </vue-html2pdf>
   </div>
 </template>
 
 <script>
 import Layout from "@/Shared/Layout";
-import Vue from "vue";
-import VueHtmlToPaper from "vue-html-to-paper";
+import VueHtml2pdf from "vue-html2pdf";
 import moment from "moment";
-
-const options = {
-  name: "_blank",
-  specs: ["fullscreen=yes", "titlebar=no", "scrollbars=yes"],
-  styles: ["/css/app.css"],
-};
-
-Vue.use(VueHtmlToPaper, options);
 
 export default {
   metaInfo: { title: "Leave Form" },
   layout: Layout,
-  components: {},
+  components: {
+    VueHtml2pdf,
+  },
   props: {
     leave: Object,
   },
+  data() {
+    return {
+      filename: `${this.leave.first_name} ${this.leave.last_name} - Leave Form`,
+    };
+  },
   methods: {
-    print() {
-      this.$htmlToPaper("leave");
+    printPdf() {
+      console.log(true);
+      this.$refs.html2Pdf.generatePdf();
     },
     format(value) {
       if (value) {
