@@ -25,8 +25,8 @@
 - [X] <s>Error pages</s>  (Mar 3)
 - [X] <s>Add to credits when approve button is clicked</s>  (Mar 8)
 - [X] <s>Leave management</s>  (Mar 12)
-- [ ] Leave sheet
-- [ ] Generate leave form with vue-html2pdf
+- [X] <s>Leave sheet</s>  (Mar 15)
+- [X] <s>Generate leave form with vue-html2pdf</s>  (Mar 19)
 - [ ] Personal data sheet design
 - [ ] Personal data sheet function
 - [ ] Add payslip module

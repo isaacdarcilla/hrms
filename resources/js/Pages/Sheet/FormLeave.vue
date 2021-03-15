@@ -6,7 +6,7 @@
         @click="printPdf()"
         class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
-        <span>🖨️ Print</span>
+        <span>🖨️ Generate</span>
       </button>
     </div>
     <vue-html2pdf
@@ -586,14 +586,16 @@
                     </div>
                   </div>
                   <div
-                    class="text-xs mx-12 mt-8 text-center font-semibold border-b-one border-black"
+                    class="text-xs mx-12 mt-8 text-center uppercase font-semibold border-b-one border-black"
                   >
                     {{ hr.leave_hr_approving_name }}
                   </div>
                   <div class="text-xs text-center mx-12">
-                    Administrative Officer V
+                    {{ hr.leave_hr_approving_position }}
                   </div>
-                  <div class="text-xs text-center mx-12">HRM Services</div>
+                  <div class="text-xs text-center mx-12">
+                    {{ hr.leave_hr_approving_office }}
+                  </div>
                 </div>
               </div>
               <div class="w-1/2">
@@ -653,7 +655,9 @@
                   <div class="text-xs text-center mx-12">
                     {{ oic.officer_in_charge_position }}
                   </div>
-                  <div class="text-xs text-center mx-12">{{ oic.department }}</div>
+                  <div class="text-xs text-center mx-12">
+                    {{ oic.department }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -681,13 +685,13 @@
                   <div
                     class="text-xs mx-64 mt-12 text-center uppercase font-semibold border-b-one border-black"
                   >
-                    Ma. Theresa E. Sarmiento, MBA
+                    {{ hr.leave_vp_approving_name }}
                   </div>
                   <div class="text-xs text-center mx-12">(Signature)</div>
                   <div
                     class="text-xs mx-64 mt-3 text-center uppercase border-b-one border-black"
                   >
-                    VP-Administrative and Financial Affairs
+                    {{ hr.leave_vp_approving_position }}
                   </div>
                   <div class="text-xs text-center mx-12">(Position)</div>
                 </div>
