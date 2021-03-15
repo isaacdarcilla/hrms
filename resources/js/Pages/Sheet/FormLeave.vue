@@ -27,14 +27,14 @@
     >
       <section
         slot="pdf-content"
-        class="border-none border-black mt-2 bg-white font-sans mx-auto text-black"
-        style="width: 816px; height: 1148px"
+        class="mt-2 bg-white font-sans mx-auto text-black"
+        style="width: 816px; height: 1280px"
       >
         <div class="mx-4 mt-4">
           <div class="text-right text-xxs">CSC Form No. 6</div>
           <div class="text-right text-xxs">Revised, 1984</div>
         </div>
-        <div class="flex">
+        <div class="flex mt-6">
           <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
           <div class="my-auto">
             <div class="text-xs italic mt-1">Republic of the Philippines</div>
@@ -47,7 +47,7 @@
         <div class="mt-4">
           <div
             class="border border-b-0 border-black bg-white font-sans mx-auto text-black"
-            style="width: 790px; height: 1000px"
+            style="width: 790px; height: 1113px"
           >
             <div class="w-full">
               <div class="h-8 border-b-one border-black">
@@ -60,35 +60,37 @@
             </div>
             <div class="flex">
               <div class="w-5/12">
-                <div class="h-8 border-b-one border-r-one border-black">
+                <div class="h-10 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">1. Agency/Office</div>
-                  <div class="capitalize text-sm font-semibold text-center">
+                  <div
+                    class="capitalize mt-1 text-sm font-semibold text-center"
+                  >
                     {{ leave.agency }}
                   </div>
                 </div>
               </div>
               <div class="w-3/12">
-                <div class="h-8 border-b-one border-r-one border-black">
+                <div class="h-10 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">2. Last Name</div>
-                  <div class="uppercase text-sm font-semibold text-center">
+                  <div class="uppercase mt-1 text-sm font-semibold text-center">
                     {{ leave.last_name }}
                   </div>
                 </div>
               </div>
               <div class="w-3/12">
-                <div class="h-8 border-b-one border-r-one border-black">
+                <div class="h-10 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs mx-auto text-center">
                     First Name
                   </div>
-                  <div class="uppercase text-sm font-semibold text-center">
+                  <div class="uppercase mt-1 text-sm font-semibold text-center">
                     {{ leave.first_name }}
                   </div>
                 </div>
               </div>
               <div class="w-1/12">
-                <div class="h-8 border-b-one border-black">
+                <div class="h-10 border-b-one border-black">
                   <div class="uppercase text-xs mx-auto text-center">M.I.</div>
-                  <div class="uppercase text-sm font-semibold text-center">
+                  <div class="uppercase mt-1 text-sm font-semibold text-center">
                     {{ leave.middle_initial }}
                   </div>
                 </div>
@@ -96,27 +98,29 @@
             </div>
             <div class="flex">
               <div class="w-3/12">
-                <div class="h-8 border-b-one border-r-one border-black">
+                <div class="h-10 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">3. Date of Filing</div>
-                  <div class="capitalize text-sm font-semibold text-center">
+                  <div
+                    class="capitalize mt-1 text-sm font-semibold text-center"
+                  >
                     {{ format(leave.date_of_filing) }}
                   </div>
                 </div>
               </div>
               <div class="w-5/12">
-                <div class="h-8 border-b-one border-r-one border-black">
+                <div class="h-10 border-b-one border-r-one border-black">
                   <div class="uppercase text-xs ml-2">4. Position</div>
-                  <div class="uppercase text-sm font-semibold text-center">
+                  <div class="uppercase mt-1 text-sm font-semibold text-center">
                     {{ leave.position }}
                   </div>
                 </div>
               </div>
               <div class="w-4/12">
-                <div class="h-8 border-b-one border-black">
+                <div class="h-10 border-b-one border-black">
                   <div class="text-xs mx-auto text-center">
                     5. SALARY (Monthly)
                   </div>
-                  <div class="uppercase text-sm font-semibold text-center">
+                  <div class="uppercase mt-1 text-sm font-semibold text-center">
                     {{ currency(leave.monthly_salary) }}
                   </div>
                 </div>
@@ -422,24 +426,24 @@
             </div>
             <div class="flex">
               <div class="w-6/12">
-                <div class="h-32 border-b-one border-r-one border-black">
+                <div class="h-40 border-b-one border-r-one border-black">
                   <div class="text-xs text-center">
                     NUMBER OF WORKING DAYS APPLIED FOR:
                   </div>
                   <div
                     v-if="leave.number_of_working_days === '1'"
-                    class="mt-2 mx-8 text-xs text-center font-semibold border-b-one border-black"
+                    class="mt-6 mx-8 text-xs text-center font-semibold border-b-one border-black"
                   >
                     {{ leave.number_of_working_days }} day
                   </div>
                   <div
                     v-else
-                    class="mt-2 mx-8 text-xs text-center font-semibold border-b-one border-black"
+                    class="mt-8 mx-8 text-xs text-center font-semibold border-b-one border-black"
                   >
                     {{ leave.number_of_working_days }} days
                   </div>
-                  <div class="text-xs ml-20 mt-3">
-                    <div class="ml-2">INCLUSIVE DATES:</div>
+                  <div class="text-xs ml-20 mt-8">
+                    <div class="ml-1">INCLUSIVE DATES:</div>
                   </div>
                   <div
                     class="my-2 mx-8 text-xs text-center border-b-one border-black"
@@ -449,7 +453,7 @@
                 </div>
               </div>
               <div class="w-6/12">
-                <div class="h-32 border-b-one border-black">
+                <div class="h-40 border-b-one border-black">
                   <div class="text-xs ml-12">COMMUTATION:</div>
                   <div class="flex mt-2">
                     <div
@@ -477,7 +481,7 @@
                     ></div>
                     <div class="text-xs ml-4">Not Requested</div>
                   </div>
-                  <div class="flex mt-12 mb-3">
+                  <div class="flex mt-16 mb-3">
                     <div class="w-2/5 flex">&nbsp;</div>
                     <div class="w-3/5">
                       <div
@@ -511,7 +515,7 @@
                       <div
                         class="text-xs mx-5 text-center font-semibold border-b-one border-black"
                       >
-                        June 24, 2020
+                        {{ format(certification.updated_at) }}
                       </div>
                     </div>
                   </div>
@@ -528,39 +532,57 @@
                   </div>
                   <div class="flex justify-center">
                     <div class="w-4/12 border-t-one border-r-one border-black">
-                      <div class="text-xs text-center font-semibold">1</div>
+                      <div class="text-xs text-center font-semibold">
+                        {{ totals.vacation }}
+                      </div>
                     </div>
                     <div class="w-4/12 border-t-one border-r-one border-black">
-                      <div class="text-xs text-center font-semibold">2</div>
+                      <div class="text-xs text-center font-semibold">
+                        {{ totals.sick }}
+                      </div>
                     </div>
                     <div class="w-4/12 border-t-one border-black">
-                      <div class="text-xs text-center font-semibold">3</div>
+                      <div class="text-xs text-center font-semibold">
+                        {{ total() }}
+                      </div>
                     </div>
                   </div>
                   <div class="flex justify-center">
                     <div class="w-4/12 border-t-one border-r-one border-black">
-                      <div class="text-xs text-center font-semibold">1</div>
+                      <div class="text-xs text-center font-semibold">
+                        &nbsp;
+                      </div>
                     </div>
                     <div class="w-4/12 border-t-one border-r-one border-black">
-                      <div class="text-xs text-center font-semibold">2</div>
+                      <div class="text-xs text-center font-semibold">
+                        &nbsp;
+                      </div>
                     </div>
                     <div class="w-4/12 border-t-one border-black">
-                      <div class="text-xs text-center font-semibold">3</div>
+                      <div class="text-xs text-center font-semibold">
+                        &nbsp;
+                      </div>
                     </div>
                   </div>
                   <div class="flex justify-center">
                     <div
                       class="w-4/12 border-t-one border-b-one border-r-one border-black"
                     >
-                      <div class="text-xs text-center font-semibold">1</div>
+                      <div class="text-xs text-center font-semibold">
+                        &nbsp;
+                      </div>
                     </div>
                     <div
                       class="w-4/12 border-t-one border-b-one border-r-one border-black"
                     >
-                      <div class="text-xs text-center font-semibold">2</div>
+                      <div class="text-xs text-center font-semibold">
+                        &nbsp;
+                      </div>
                     </div>
                     <div class="w-4/12 border-t-one border-b-one border-black">
-                      <div class="text-xs text-center font-semibold">3</div>
+                      <div class="text-xs text-center font-semibold">
+                        &nbsp;
+                      </div>
                     </div>
                   </div>
                   <div
@@ -580,11 +602,7 @@
 
                   <div class="flex mt-1">
                     <div
-                      v-if="
-                        leave.type_of_leave === 'Vacation' &&
-                        leave.vacation_leave_location ===
-                          'Within the Philippines'
-                      "
+                      v-if="leave.recommendation === 'Approved'"
                       class="text-xs ml-10"
                     >
                       🗸
@@ -598,12 +616,7 @@
                   <div class="flex mt-2">
                     <div class="w-1/2 flex">
                       <div
-                        v-if="
-                          leave.type_of_leave === 'Vacation' &&
-                          leave.vacation_leave_location !==
-                            'Within the Philippines' &&
-                          leave.vacation_leave_location !== null
-                        "
+                        v-if="leave.recommendation === 'Disapproved'"
                         class="text-xs ml-10"
                       >
                         🗸
@@ -616,15 +629,10 @@
                     </div>
                     <div class="w-1/2">
                       <div
-                        v-if="
-                          leave.type_of_leave === 'Vacation' &&
-                          leave.vacation_leave_location !==
-                            'Within the Philippines' &&
-                          leave.vacation_leave_location !== null
-                        "
+                        v-if="leave.recommendation === 'Disapproved'"
                         class="border-b-one border-black font-semibold text-center text-xs mr-4"
                       >
-                        {{ leave.vacation_leave_location }}
+                        {{ leave.disapproved_due_to }}
                       </div>
                       <div
                         v-else
@@ -651,25 +659,25 @@
             </div>
             <div class="flex">
               <div class="w-1/2">
-                <div class="h-24 border-b-one border-r-one border-black">
+                <div class="h-32 border-b-one border-r-one border-black">
                   <div class="text-xs ml-2">7.c. APPROVED FOR</div>
-                  <div class="border-b-one border-black mx-8 mt-8"></div>
-                  <div class="border-b-one border-black mx-8 mt-3"></div>
-                  <div class="border-b-one border-black mx-8 mt-3"></div>
+                  <div class="border-b-one border-black mx-8 mt-10"></div>
+                  <div class="border-b-one border-black mx-8 mt-5"></div>
+                  <div class="border-b-one border-black mx-8 mt-5"></div>
                 </div>
               </div>
               <div class="w-1/2">
-                <div class="h-24 border-b-one border-black">
+                <div class="h-32 border-b-one border-black">
                   <div class="text-xs ml-2">7.d. DISAPPROVED DUE TO</div>
-                  <div class="border-b-one border-black mx-8 mt-8"></div>
-                  <div class="border-b-one border-black mx-8 mt-3"></div>
-                  <div class="border-b-one border-black mx-8 mt-3"></div>
+                  <div class="border-b-one border-black mx-8 mt-10"></div>
+                  <div class="border-b-one border-black mx-8 mt-5"></div>
+                  <div class="border-b-one border-black mx-8 mt-5"></div>
                 </div>
               </div>
             </div>
             <div class="flex">
               <div class="w-full">
-                <div class="h-24 border-b-one border-black">
+                <div class="h-32 border-b-one border-black">
                   <div
                     class="text-xs mx-64 mt-12 text-center uppercase font-semibold border-b-one border-black"
                   >
@@ -686,6 +694,19 @@
               </div>
             </div>
             <div class="border-b-2 border-black mt-3"></div>
+            <div class="flex">
+              <div class="w-4/12">
+                <div class="text-xs italic text-left">CSU-F-HRM-18</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-xs text-center italic">Rev.0</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-xs text-right italic">
+                  Effectivity Date: June 1, 2015
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -706,6 +727,8 @@ export default {
   },
   props: {
     leave: Object,
+    totals: Object,
+    certification: Object,
   },
   data() {
     return {
@@ -713,6 +736,9 @@ export default {
     };
   },
   methods: {
+    total() {
+      return this.totals.vacation + this.totals.sick;
+    },
     dates() {
       let dates = [];
       this.leave.start_of_inclusive_date.forEach((date) => {

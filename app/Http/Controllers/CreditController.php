@@ -22,8 +22,12 @@ class CreditController extends Controller
                 ->filter(Request::only('search', 'trashed'))
                 ->paginate(),
             'totals' => [
-                'vacation' => $contact->credit()->sum('vacation_leave'),
-                'sick' => $contact->credit()->sum('sick_leave'),
+                'vacation' => $contact->credit()
+                            ->where('year', '=', Carbon::now()->year)
+                            ->sum('vacation_leave'),
+                'sick' => $contact->credit()
+                            ->where('year', '=', Carbon::now()
+                            ->year)->sum('sick_leave'),
             ],
             'employee' => $contact,
         ]);
