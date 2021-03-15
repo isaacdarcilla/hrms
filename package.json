@@ -2,12 +2,12 @@
     "private": true,
     "scripts": {
         "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
         "@fullhuman/postcss-purgecss": "^1.3.0",
@@ -20,9 +20,9 @@
         "dayjs": "^1.10.4",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
-        "jquery": "^3.5.1",
-        "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.15",
+        "jquery": "^3.6.0",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "popper.js": "^1.16.0",
         "portal-vue": "^1.5.1",
@@ -32,15 +32,16 @@
         "selectize": "^0.12.6",
         "sweetalert": "^2.1.2",
         "tailwindcss": "^1.2.0-canary.5",
-        "v-calendar": "^2.2.4",
+        "v-calendar": "^2.3.0",
         "vue": "^2.6.11",
         "vue-blu": "^0.1.9",
         "vue-clipboard2": "^0.3.1",
         "vue-html-to-paper": "^1.3.1",
         "vue-html2pdf": "^1.8.0",
         "vue-js-toggle-button": "^1.3.3",
+        "vue-loader": "^15.9.6",
         "vue-meta": "^2.3.1",
-        "vue-tailwind": "^2.1.2",
+        "vue-tailwind": "^2.1.3",
         "vue-tailwind-picker": "^1.1.6",
         "vue-template-compiler": "^2.6.11",
         "vue-the-mask": "^0.11.1",
@@ -48,6 +49,7 @@
         "vue2-selectize": "^1.1.7"
     },
     "devDependencies": {
-        "tailwind-scrollbar": "^1.2.3"
+        "postcss": "^8.1.14",
+        "tailwind-scrollbar": "^1.2.4"
     }
 }
