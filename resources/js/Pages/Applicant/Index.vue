@@ -250,7 +250,7 @@
             <td v-else class="px-6 py-4 whitespace-nowrap text-sm font-medium">
               <a
                 title="This position has been filled"
-                class="text-gray-600"
+                class="text-gray-600 cursor-not-allowed"
                 tabindex="-1"
               >
                 <span>➕ Recruit</span>

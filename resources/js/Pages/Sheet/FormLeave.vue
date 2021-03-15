@@ -28,7 +28,7 @@
       <section
         slot="pdf-content"
         class="border-none border-black mt-2 bg-white font-sans mx-auto text-black"
-        style="width: 816px; height: 1248px"
+        style="width: 816px; height: 1148px"
       >
         <div class="mx-4 mt-4">
           <div class="text-right text-xxs">CSC Form No. 6</div>
@@ -46,8 +46,8 @@
         </div>
         <div class="mt-4">
           <div
-            class="border border-black bg-white font-sans mx-auto text-black"
-            style="width: 790px; height: 1152px"
+            class="border border-b-0 border-black bg-white font-sans mx-auto text-black"
+            style="width: 790px; height: 1000px"
           >
             <div class="w-full">
               <div class="h-8 border-b-one border-black">
@@ -133,7 +133,7 @@
             </div>
             <div class="flex">
               <div class="w-6/12">
-                <div class="h-48 border-b-one border-r-one border-black">
+                <div class="h-56 border-b-one border-r-one border-black">
                   <div class="text-xs ml-2">6.a. TYPE OF LEAVE</div>
                   <div class="flex mt-2">
                     <div
@@ -264,7 +264,7 @@
                 </div>
               </div>
               <div class="w-6/12">
-                <div class="h-48 border-b-one border-black">
+                <div class="h-56 border-b-one border-black">
                   <div class="text-xs ml-2">6.b. WHERE LEAVE WILL BE SPENT</div>
                   <div class="flex mt-2">
                     <div class="text-xs ml-12">
@@ -490,6 +490,202 @@
                 </div>
               </div>
             </div>
+            <div class="w-full">
+              <div class="h-8 border-b-one border-black">
+                <div
+                  class="uppercase font-bold text-center justify-center my-2"
+                ></div>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-1/2">
+                <div class="h-56 border-b-one border-r-one border-black">
+                  <div class="text-xs ml-2">
+                    7.a. CERTIFICATION OF LEAVE CREDITS
+                  </div>
+                  <div class="flex justify-center mt-3">
+                    <div class="w-1/5">
+                      <div class="text-xs mx-auto text-right">As of</div>
+                    </div>
+                    <div class="w-4/5">
+                      <div
+                        class="text-xs mx-5 text-center font-semibold border-b-one border-black"
+                      >
+                        June 24, 2020
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex justify-center mt-8">
+                    <div class="w-4/12 border-t-one border-r-one border-black">
+                      <div class="text-xs text-center">Vacation</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-r-one border-black">
+                      <div class="text-xs text-center">Sick</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-black">
+                      <div class="text-xs text-center">Total</div>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-4/12 border-t-one border-r-one border-black">
+                      <div class="text-xs text-center font-semibold">1</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-r-one border-black">
+                      <div class="text-xs text-center font-semibold">2</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-black">
+                      <div class="text-xs text-center font-semibold">3</div>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-4/12 border-t-one border-r-one border-black">
+                      <div class="text-xs text-center font-semibold">1</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-r-one border-black">
+                      <div class="text-xs text-center font-semibold">2</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-black">
+                      <div class="text-xs text-center font-semibold">3</div>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div
+                      class="w-4/12 border-t-one border-b-one border-r-one border-black"
+                    >
+                      <div class="text-xs text-center font-semibold">1</div>
+                    </div>
+                    <div
+                      class="w-4/12 border-t-one border-b-one border-r-one border-black"
+                    >
+                      <div class="text-xs text-center font-semibold">2</div>
+                    </div>
+                    <div class="w-4/12 border-t-one border-b-one border-black">
+                      <div class="text-xs text-center font-semibold">3</div>
+                    </div>
+                  </div>
+                  <div
+                    class="text-xs mx-12 mt-8 text-center font-semibold border-b-one border-black"
+                  >
+                    Ma. SIONNE MAY T. CRISPINO
+                  </div>
+                  <div class="text-xs text-center mx-12">
+                    Administrative Officer V
+                  </div>
+                  <div class="text-xs text-center mx-12">HRM Services</div>
+                </div>
+              </div>
+              <div class="w-1/2">
+                <div class="h-56 border-b-one border-black">
+                  <div class="text-xs ml-2">7.b. RECOMMENDATION</div>
+
+                  <div class="flex mt-1">
+                    <div
+                      v-if="
+                        leave.type_of_leave === 'Vacation' &&
+                        leave.vacation_leave_location ===
+                          'Within the Philippines'
+                      "
+                      class="text-xs ml-10"
+                    >
+                      🗸
+                    </div>
+                    <div v-else class="text-xs ml-12"></div>
+                    <div
+                      class="text-xs h-2 border my-auto ml-4 border-black p-1"
+                    ></div>
+                    <div class="text-xs ml-4">Approved</div>
+                  </div>
+                  <div class="flex mt-2">
+                    <div class="w-1/2 flex">
+                      <div
+                        v-if="
+                          leave.type_of_leave === 'Vacation' &&
+                          leave.vacation_leave_location !==
+                            'Within the Philippines' &&
+                          leave.vacation_leave_location !== null
+                        "
+                        class="text-xs ml-10"
+                      >
+                        🗸
+                      </div>
+                      <div v-else class="text-xs ml-12"></div>
+                      <div
+                        class="text-xs h-2 w-2 border my-auto ml-4 border-black p-1"
+                      ></div>
+                      <div class="text-xs ml-4">Disapproved due to</div>
+                    </div>
+                    <div class="w-1/2">
+                      <div
+                        v-if="
+                          leave.type_of_leave === 'Vacation' &&
+                          leave.vacation_leave_location !==
+                            'Within the Philippines' &&
+                          leave.vacation_leave_location !== null
+                        "
+                        class="border-b-one border-black font-semibold text-center text-xs mr-4"
+                      >
+                        {{ leave.vacation_leave_location }}
+                      </div>
+                      <div
+                        v-else
+                        class="border-b-one border-black text-center text-xs mr-4"
+                      >
+                        &nbsp;
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ml-16 mt-4 mb-2 border-b-one border-black text-center text-xs mr-4"
+                  ></div>
+                  <div
+                    class="text-xs mx-12 mt-22 text-center uppercase font-semibold border-b-one border-black"
+                  >
+                    Joey Anthony V. Casim
+                  </div>
+                  <div class="text-xs text-center mx-12">
+                    Computer Programmer I
+                  </div>
+                  <div class="text-xs text-center mx-12">OIC-MIS</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-1/2">
+                <div class="h-24 border-b-one border-r-one border-black">
+                  <div class="text-xs ml-2">7.c. APPROVED FOR</div>
+                  <div class="border-b-one border-black mx-8 mt-8"></div>
+                  <div class="border-b-one border-black mx-8 mt-3"></div>
+                  <div class="border-b-one border-black mx-8 mt-3"></div>
+                </div>
+              </div>
+              <div class="w-1/2">
+                <div class="h-24 border-b-one border-black">
+                  <div class="text-xs ml-2">7.d. DISAPPROVED DUE TO</div>
+                  <div class="border-b-one border-black mx-8 mt-8"></div>
+                  <div class="border-b-one border-black mx-8 mt-3"></div>
+                  <div class="border-b-one border-black mx-8 mt-3"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-full">
+                <div class="h-24 border-b-one border-black">
+                  <div
+                    class="text-xs mx-64 mt-12 text-center uppercase font-semibold border-b-one border-black"
+                  >
+                    Ma. Theresa E. Sarmiento, MBA
+                  </div>
+                  <div class="text-xs text-center mx-12">(Signature)</div>
+                  <div
+                    class="text-xs mx-64 mt-3 text-center uppercase border-b-one border-black"
+                  >
+                    VP-Administrative and Financial Affairs
+                  </div>
+                  <div class="text-xs text-center mx-12">(Position)</div>
+                </div>
+              </div>
+            </div>
+            <div class="border-b-2 border-black mt-3"></div>
           </div>
         </div>
       </section>
@@ -523,7 +719,7 @@ export default {
         var data = moment(String(date.date)).format("MMMM D YYYY");
         dates.push(data);
       });
-      return dates.join(', ');
+      return dates.join(", ");
     },
     printPdf() {
       console.log(true);
