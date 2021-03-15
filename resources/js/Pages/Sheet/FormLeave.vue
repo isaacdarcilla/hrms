@@ -512,7 +512,7 @@
                       <div class="text-xs mx-auto text-right">As of</div>
                     </div>
                     <div class="w-4/5">
-                      <div
+                      <div v-if="certification !== null"
                         class="text-xs mx-5 text-center font-semibold border-b-one border-black"
                       >
                         {{ format(certification.updated_at) }}
