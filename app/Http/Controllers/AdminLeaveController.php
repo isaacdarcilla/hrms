@@ -12,6 +12,8 @@ use App\Models\Notification;
 use App\Models\Credit;
 use App\Models\Leave;
 use App\Models\Contact;
+use App\Models\EmployeeSetting;
+use App\Models\Setting;
 use Carbon\Carbon;
 
 class AdminLeaveController extends Controller
@@ -91,6 +93,10 @@ class AdminLeaveController extends Controller
                                      ->where('year', '=', Carbon::now()->year)
                                      ->orderBy('created_at', 'DESC')
                                      ->first(),
+            'oic' => EmployeeSetting::where('contact_id', $leave->contact_id)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->first(),
+            'hr' => Setting::where('id', 1)->first(),
         ]);
     }
 }

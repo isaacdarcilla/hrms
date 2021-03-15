@@ -31,8 +31,8 @@
         style="width: 816px; height: 1280px"
       >
         <div class="mx-4 mt-4">
-          <div class="text-right text-xxs">CSC Form No. 6</div>
-          <div class="text-right text-xxs">Revised, 1984</div>
+          <div class="text-right text-xs">CSC Form No. 6</div>
+          <div class="text-right text-xs">Revised, 1984</div>
         </div>
         <div class="flex mt-6">
           <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
@@ -588,7 +588,7 @@
                   <div
                     class="text-xs mx-12 mt-8 text-center font-semibold border-b-one border-black"
                   >
-                    Ma. SIONNE MAY T. CRISPINO
+                    {{ hr.leave_hr_approving_name }}
                   </div>
                   <div class="text-xs text-center mx-12">
                     Administrative Officer V
@@ -648,12 +648,12 @@
                   <div
                     class="text-xs mx-12 mt-22 text-center uppercase font-semibold border-b-one border-black"
                   >
-                    Joey Anthony V. Casim
+                    {{ oic.officer_in_charge }}
                   </div>
                   <div class="text-xs text-center mx-12">
-                    Computer Programmer I
+                    {{ oic.officer_in_charge_position }}
                   </div>
-                  <div class="text-xs text-center mx-12">OIC-MIS</div>
+                  <div class="text-xs text-center mx-12">{{ oic.department }}</div>
                 </div>
               </div>
             </div>
@@ -729,6 +729,8 @@ export default {
     leave: Object,
     totals: Object,
     certification: Object,
+    oic: Object,
+    hr: Object,
   },
   data() {
     return {
