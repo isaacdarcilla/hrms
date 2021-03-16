@@ -194,7 +194,7 @@
                 :href="route('credits', contact.id)"
                 tabindex="-1"
               >
-                <span>👁️ View</span>
+                <span>⚙️ Manage</span>
               </inertia-link>
               <inertia-link
                 v-else
