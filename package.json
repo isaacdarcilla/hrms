@@ -36,6 +36,7 @@
         "vue": "^2.6.11",
         "vue-blu": "^0.1.9",
         "vue-clipboard2": "^0.3.1",
+        "vue-cryptojs": "^2.1.5",
         "vue-html-to-paper": "^1.3.1",
         "vue-html2pdf": "^1.8.0",
         "vue-js-toggle-button": "^1.3.3",
@@ -51,5 +52,8 @@
     "devDependencies": {
         "postcss": "^8.1.14",
         "tailwind-scrollbar": "^1.2.4"
+    },
+    "browser": {
+        "crypto": false
     }
 }

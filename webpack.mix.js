@@ -40,6 +40,9 @@ mix.js('resources/js/app.js', 'public/js')
         vue$: 'vue/dist/vue.runtime.esm.js',
         '@': path.resolve('resources/js'),
       },
+      fallback: { 
+        "crypto": false 
+      }
     },
   })
   .version()

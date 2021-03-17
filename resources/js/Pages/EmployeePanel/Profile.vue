@@ -71,7 +71,7 @@
               <div v-else class="text-center pt-2">
                 <button
                   @click="browse()"
-                  class="rounded-full text-blue-600 hover:bg-gray-700 hover:bg-opacity-50 font-semibold p-2 focus:outline-none text-sm text-gray transition duration-200"
+                  class="rounded-full text-blue-600 hover:bg-gray-400 hover:bg-opacity-50 font-semibold p-2 focus:outline-none text-sm text-gray transition duration-200"
                 >
                   Update Photo
                 </button>
@@ -83,6 +83,11 @@
                     {{ contact.middle_name }}
                     {{ contact.last_name }}
                     {{ contact.name_extension }}
+                    <span
+                      v-if="contact.username"
+                      class="lowercase font-semibold hover:text-blue-600 cursor-pointer"
+                      >({{ contact.username }})</span
+                    >
                   </div>
                   <div class="text-gray-600 block lowercase">
                     {{ contact.email }}
