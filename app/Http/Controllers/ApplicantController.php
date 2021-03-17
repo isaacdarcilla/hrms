@@ -165,6 +165,7 @@ class ApplicantController extends Controller
             'phone' => $applicant->phone,
             'position' => $job->position,
             'department' => $job->department,
+            'status_of_appointment' => 'Job Order/Contractual',
             'status' => 1,
             'password' => Hash::make('secret'),
         ]);
