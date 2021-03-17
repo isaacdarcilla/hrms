@@ -234,6 +234,12 @@ export default {
   props: {
     filters: Object,
     leaves: Object,
+    totals: Object,
+  },
+  provide() {
+    return {
+      totals: this.totals,
+    };
   },
   data() {
     return {

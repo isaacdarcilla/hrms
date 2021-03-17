@@ -27,6 +27,22 @@
                 >
                   📤 Apply for Leave
                 </h3>
+                <div
+                  v-if="totals.sick === 0"
+                  class="text-yellow-600 mt-4 font-semibold"
+                >
+                  You don't have enough Sick leave credits. Sick and other leave
+                  option is disabled for the meantime, you can go to HRM
+                  Services for help.
+                </div>
+                <div
+                  v-if="totals.vacation === 0"
+                  class="text-yellow-600 mt-4 font-semibold"
+                >
+                  You don't have enough Vacation leave credits. Vacation and
+                  other leave option is disabled for the meantime, you can go to
+                  HRM Services for help.
+                </div>
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
@@ -168,6 +184,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold">Type of Leave</label>
                       <input
+                        :disabled="totals.vacation === 0"
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.type_of_leave"
@@ -176,6 +193,7 @@
                       />
                       Vacation
                       <input
+                        :disabled="totals.vacation === 0"
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.type_of_leave"
@@ -184,6 +202,7 @@
                       />
                       CTO
                       <input
+                        :disabled="totals.vacation === 0"
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.type_of_leave"
@@ -192,6 +211,7 @@
                       />
                       SPL
                       <input
+                        :disabled="totals.vacation === 0"
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.type_of_leave"
@@ -200,6 +220,7 @@
                       />
                       FL
                       <input
+                        :disabled="totals.sick === 0"
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.type_of_leave"
@@ -216,6 +237,7 @@
                       />
                       Maternity
                       <input
+                        :disabled="totals.sick === 0 || totals.vacation === 0"
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="type"
@@ -478,7 +500,9 @@ export default {
     },
     errors: Object,
     showing: Boolean,
+    totals: Object,
   },
+  inject: ["totals"],
   directives: { mask },
   watch: {
     type(e) {

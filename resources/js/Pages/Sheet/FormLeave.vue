@@ -645,7 +645,7 @@
                     </div>
                   </div>
                   <div
-                    class="ml-16 mt-4 mb-2 border-b-one border-black text-center text-sm mr-4"
+                    class="ml-16 mt-2 mb-2 border-b-one border-black text-center text-sm mr-4"
                   ></div>
                   <div
                     class="text-sm mx-12 mt-22 text-center uppercase font-semibold border-b-one border-black"

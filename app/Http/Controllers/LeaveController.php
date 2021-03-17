@@ -10,7 +10,9 @@ use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use App\Models\Notification;
 use App\Models\Leave;
+use App\Models\Credit;
 use App\Models\EmployeeSetting;
+use Carbon\Carbon;
 
 class LeaveController extends Controller
 {
@@ -25,6 +27,14 @@ class LeaveController extends Controller
                                 ->filter(Request::only('search', 'trashed'))
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(),
+                'totals' => [
+                    'vacation' => Credit::where('year', '=', Carbon::now()->year)
+                                ->where('contact_id', auth()->guard('employee')->user()->id)
+                                ->sum('vacation_leave'),
+                    'sick' => Credit::where('year', '=', Carbon::now()->year)
+                                ->where('contact_id', auth()->guard('employee')->user()->id)
+                                ->sum('sick_leave'),
+                ]
             ]);
         else
             return redirect()->route('login.employee');
@@ -33,6 +43,7 @@ class LeaveController extends Controller
     public function store(Leave $leave, EmployeeSetting $employee_setting) {
         $employee =  Auth::guard('employee')->user();
         $days = Request::input('number_of_working_days');
+        $hasSetting = $employee_setting->where('contact_id', $employee->id)->first();
 
         if($employee) { 
 
@@ -76,13 +87,15 @@ class LeaveController extends Controller
                 'end_of_inclusive_date' => Request::input('end_of_inclusive_date'),
                 'commutation' => Request::input('commutation'),
             ]);
-
-            EmployeeSetting::create([
-                'contact_id' => Request::input('contact_id'),
-                'officer_in_charge' => ucwords(Request::input('officer_in_charge')),
-                'officer_in_charge_position' => ucwords(Request::input('officer_in_charge_position')),	
-                'department' => ucwords(Request::input('department')),
-            ]);
+            
+            if(!$hasSetting) {
+                EmployeeSetting::create([
+                    'contact_id' => Request::input('contact_id'),
+                    'officer_in_charge' => ucwords(Request::input('officer_in_charge')),
+                    'officer_in_charge_position' => ucwords(Request::input('officer_in_charge_position')),	
+                    'department' => ucwords(Request::input('department')),
+                ]);
+            }
 
             Notification::create([
                 'contact_id' => Request::input('contact_id'),
