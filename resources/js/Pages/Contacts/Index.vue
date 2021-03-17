@@ -22,7 +22,9 @@
         <span class="hidden md:inline">Employee</span>
       </button>
     </div>
-    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg overflow-x-auto">
+    <div
+      class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg overflow-x-auto"
+    >
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
@@ -188,22 +190,33 @@
             <td
               class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <inertia-link
-                v-if="contact.status_of_appointment === 'Permanent/Regular'"
-                class="text-indigo-600 hover:text-indigo-900"
-                :href="route('credits', contact.id)"
-                tabindex="-1"
-              >
-                <span>⚙️ Manage</span>
-              </inertia-link>
-              <inertia-link
-                v-else
-                class="text-red-600 hover:text-red-900"
-                :href="route('employees')"
-                tabindex="-1"
-              >
-                <span>N/A</span>
-              </inertia-link>
+              <div v-if="$page.auth.user.super === true">
+                <inertia-link
+                  v-if="contact.status_of_appointment === 'Permanent/Regular'"
+                  class="text-indigo-600 hover:text-indigo-900"
+                  :href="route('credits', contact.id)"
+                  tabindex="-1"
+                >
+                  <span>⚙️ Manage</span>
+                </inertia-link>
+                <inertia-link
+                  v-else
+                  class="text-red-600 hover:text-red-900"
+                  :href="route('employees')"
+                  tabindex="-1"
+                >
+                  <span>N/A</span>
+                </inertia-link>
+              </div>
+              <div v-else>
+                <inertia-link
+                  class="text-red-600 hover:text-red-900"
+                  :href="route('employees')"
+                  tabindex="-1"
+                >
+                  <span>Restricted</span>
+                </inertia-link>
+              </div>
             </td>
             <td
               class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"

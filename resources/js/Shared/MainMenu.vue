@@ -77,7 +77,7 @@
         </div>
       </inertia-link>
     </div>
-    <div class="mb-4">
+    <div v-if="$page.auth.user.super === true" class="mb-4">
       <inertia-link
         class="flex items-center group py-3"
         :href="route('leaves')"
