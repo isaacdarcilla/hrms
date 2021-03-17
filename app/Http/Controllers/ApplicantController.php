@@ -153,23 +153,26 @@ class ApplicantController extends Controller
 
     public function recruit(Applicant $applicant, Job $job)
     {
+        $username = strtolower(str_replace(' ', '', $applicant->sur_name)).mt_rand(1000, 9999);
+
         Contact::create([
             'account_id' => 1,
             'first_name' => $applicant->first_name,
             'middle_name' => $applicant->middle_name,
             'last_name' => $applicant->sur_name,
             'email' => $applicant->email,
+            'username' => $username,
             'phone' => $applicant->phone,
             'position' => $job->position,
             'department' => $job->department,
             'status' => 1,
-            'password' => Hash::make($applicant->sur_name,),
+            'password' => Hash::make('secret'),
         ]);
 
         $job->delete();
         
         Applicant::where('job_id', $job->id)->delete();
 
-        return Redirect::back()->with('success', 'Employee added.');
+        return Redirect::back()->with('success', 'Employee recruited and added to list.');
     }
 }

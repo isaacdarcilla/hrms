@@ -37,12 +37,12 @@
           >
             <div class="flex flex-col space-y-1">
               <label for="email" class="text-sm pb-2 font-semibold text-gray-500"
-                >Email address</label
+                >Email address or username</label
               >
               <input
                 v-model="form.email"
                 type="text"
-                placeholder="Enter your email address"
+                placeholder="Enter your email or username"
                 class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
               />
               <div v-if="errors" class="form-error">{{ errors.message }}</div>

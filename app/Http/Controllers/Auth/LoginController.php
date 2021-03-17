@@ -59,7 +59,7 @@ class LoginController extends Controller
     public function loginEmployee(Request $request)
     {
         $credentials = [
-            'email' => $request->input('email'),
+            filter_var($request->input('email'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username' => $request->input('email'),
             'password' => $request->input('password'),
         ];
 

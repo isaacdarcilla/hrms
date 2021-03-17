@@ -142,6 +142,7 @@ class ContactsController extends Controller
                 'agency_employee_id' => $contact->agency_employee_id,
                 'citizenship' => $contact->citizenship,
                 'email' => $contact->email,
+                'username' => $contact->username,
                 'phone' => $contact->phone,
                 'telephone' => $contact->telephone,
                 'permanent_block' => $contact->permanent_block,
