@@ -74,9 +74,9 @@
       <div class="mb-4">
         <button
           type="button"
-          class="py-2 px-2 rounded-2xl hover:bg-opacity-25 text-xs bg-gradient-to-r from-indigo-600 to-indigo-400 text-white w-full transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+          class="py-3 px-2 rounded-full hover:bg-opacity-25 text-xs bg-gradient-to-r from-indigo-600 to-indigo-400 text-white w-full transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
-          Submit a Ticket
+          Submit Ticket
         </button>
       </div>
     </div>
