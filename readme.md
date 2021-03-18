@@ -27,7 +27,8 @@
 - [X] <s>Leave management</s>  (Mar 12)
 - [X] <s>Leave sheet</s>  (Mar 15)
 - [X] <s>Generate leave form with vue-html2pdf</s>  (Mar 19)
-- [ ] Edit username and password in Employee
+- [X] <s>Edit username and password in Employee</s>  (Mar 23)
+- [ ] Ticket and inquiry submission
 - [ ] Personal data sheet design
 - [ ] Personal data sheet function
 - [ ] Add payslip module
