@@ -6,6 +6,13 @@
           <span class="text-blue-600">My Profile</span> /
           {{ employee.first_name }}
         </div>
+        <button
+          @click="showPasswordModal"
+          class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+        >
+          <span>✏️ Edit</span>
+          <span class="hidden md:inline">Password</span>
+        </button>
       </div>
       <div
         v-if="notices.length !== 0"
@@ -219,11 +226,18 @@
         :employee="contact"
         :modal.sync="showDocument"
       ></document-add-modal>
+
+      <password
+        :showing="showPassword"
+        :employee="contact"
+        :modal.sync="showPassword"
+      ></password>
     </div>
   </div>
 </template>
 <script>
 import Layout from "@/Pages/EmployeePanel/Layout";
+import Password from "@/Pages/EmployeePanel/Password";
 import moment from "moment";
 import { ToggleButton } from "vue-js-toggle-button";
 import LoadingButton from "@/Shared/LoadingButton";
@@ -260,6 +274,7 @@ export default {
     FamilyBackground,
     Childrens,
     DocumentAddModal,
+    Password,
   },
   props: {
     notices: Array,
@@ -283,6 +298,7 @@ export default {
   data() {
     return {
       showDocument: false,
+      showPassword: false,
       hidden: true,
       sending: false,
       file: null,
@@ -320,6 +336,9 @@ export default {
     },
     showDocumentModal() {
       this.showDocument = true;
+    },
+    showPasswordModal() {
+      this.showPassword = true;
     },
     capitalize: function (value) {
       return value.toLowerCase().replace(/\b./g, function (a) {

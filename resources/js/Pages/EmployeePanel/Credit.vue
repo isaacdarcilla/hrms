@@ -3,8 +3,8 @@
     <h1 class="mb-8 font-bold text-3xl">
       Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📊
     </h1>
-    <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="p-5 bg-white rounded-lg shadow mr-3 mb-6">
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div class="p-5 bg-white rounded-lg shadow">
         <div class="flex justify-between">
           <div>
             <div class="font-semibold text-gray-600">Total Vacation Leave</div>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="p-5 bg-white rounded-lg shadow ml-3 mr-3 mb-6">
+      <div class="p-5 bg-white rounded-lg shadow">
         <div class="flex justify-between">
           <div>
             <div class="font-semibold text-gray-600">Total Sick Leave</div>
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="p-5 bg-white rounded-lg shadow ml-3 mb-6">
+      <div class="p-5 bg-white rounded-lg shadow">
         <div class="flex justify-between">
           <div>
             <div class="font-semibold text-gray-600">Overall Total</div>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+    <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg mt-6">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
@@ -156,7 +156,9 @@
         </tr>
       </table>
     </div>
-    <div class="mt-3 text-xs font-semibold text-red-600 italic">** These records are for the current year.</div>
+    <div class="mt-3 text-xs font-semibold text-red-600 italic">
+      ** These records are for the current year.
+    </div>
     <pagination :links="credits.links" />
   </div>
 </template>

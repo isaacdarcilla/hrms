@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\Task;
 use App\Models\Notice;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -138,6 +140,44 @@ class EmployeeController extends Controller
             ]);
         else
             return redirect()->route('login.employee');
+    }
+
+    public function password($id)
+    {
+        $employee =  Auth::guard('employee')->user();
+        $isUsername = Request::input('isUsername');
+        
+        if($employee) 
+        {
+            if ($isUsername) 
+            {
+                Request::validate([
+                    'username' => ['required', 'min:6', 'max:25', 'string', 'unique:contacts', 'alpha_dash'],
+                    'password' => ['required', 'min:8', 'max:25', 'confirmed'],
+                    'password_confirmation' => ['required']
+                ]);
+                
+                Contact::find($id)->update([
+                    'username' => Request::input('username'),
+                    'password' => Hash::make(Request::input('password')),
+                ]);
+
+                return Redirect::back()->with('success', 'Username and password updated.');
+            }  else 
+            {
+                Request::validate([
+                    'username' => ['required', 'min:6', 'max:25', 'string', 'alpha_dash'],
+                    'password' => ['required', 'min:8', 'max:25', 'confirmed'],
+                    'password_confirmation' => ['required']
+                ]);
+                
+                Contact::find($id)->update([
+                    'password' => Hash::make(Request::input('password')),
+                ]);
+
+                return Redirect::back()->with('success', 'Password updated.');
+            }
+        }
     }
 
     public function employee_logout()

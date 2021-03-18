@@ -427,3 +427,7 @@ Route::delete('employee/leave/{leave}', [LeaveController::class, 'destroy'])
 Route::get('employee/logout', [EmployeeController::class, 'employee_logout'])
     ->name('employee.logout')
     ->middleware('web', 'employee');
+
+Route::put('employee/password/update/{id}', [EmployeeController::class, 'password'])
+    ->name('employee.password.update')
+    ->middleware('web', 'employee');
