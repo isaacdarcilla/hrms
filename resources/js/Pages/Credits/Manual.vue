@@ -39,6 +39,7 @@
                       />
                       Increase Leave Credit
                       <input
+                        :disabled="total === 0"
                         type="radio"
                         class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.option"
@@ -77,21 +78,20 @@
                         value="both"
                       />
                       Both
-                      <div
-                        v-if="$page.errors.type !== null"
-                        class="form-error"
-                      >
+                      <div v-if="$page.errors.type !== null" class="form-error">
                         {{ $page.errors.type }}
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Leave Credit</label>
+                      <label class="form-label font-bold"
+                        >Leave Credit Amount</label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter the number of leave credits" 
+                        placeholder="Enter the number of leave credits"
                         v-model="form.leave_credit"
                       />
                       <div
@@ -146,9 +146,11 @@ export default {
     employee: Object,
     showing: Boolean,
   },
+  inject: ["totals"],
   directives: { mask },
   data() {
     return {
+      total: null,
       sending: false,
       form: {
         option: null,
@@ -157,12 +159,19 @@ export default {
       },
     };
   },
+  mounted() {
+    this.total = this.totals.vacation + this.totals.sick;
+  },
   methods: {
     save() {
-      this.$inertia.post(this.route("credits.store", this.employee.id), this.form, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-      });
+      this.$inertia.post(
+        this.route("credits.store", this.employee.id),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
     closeModal() {
       this.$emit("update:modal");

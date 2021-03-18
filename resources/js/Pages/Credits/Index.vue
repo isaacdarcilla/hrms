@@ -186,7 +186,9 @@
         </tr>
       </table>
     </div>
-    <div class="mt-3 text-xs font-semibold text-red-600 italic">** These records are for the current year.</div>
+    <div class="mt-3 text-xs font-semibold text-red-600 italic">
+      ** These records are for the current year.
+    </div>
     <manual
       :showing="showManual"
       :employee="employee"
@@ -242,6 +244,11 @@ export default {
         search: this.filters.search,
         trashed: this.filters.trashed,
       },
+    };
+  },
+  provide() {
+    return {
+      totals: this.totals,
     };
   },
   watch: {
