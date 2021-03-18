@@ -166,7 +166,6 @@ class EmployeeController extends Controller
             }  else 
             {
                 Request::validate([
-                    'username' => ['required', 'min:6', 'max:25', 'string', 'alpha_dash'],
                     'password' => ['required', 'min:8', 'max:25', 'confirmed'],
                     'password_confirmation' => ['required']
                 ]);

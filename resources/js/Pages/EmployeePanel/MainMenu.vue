@@ -16,7 +16,10 @@
         </div>
       </inertia-link>
     </div>
-    <div v-if="$page.employee.status_of_appointment === 'Permanent/Regular'" class="mb-4">
+    <div
+      v-if="$page.employee.status_of_appointment === 'Permanent/Regular'"
+      class="mb-4"
+    >
       <inertia-link
         class="flex items-center group py-3"
         :href="route('employee.leave')"
@@ -32,7 +35,10 @@
         </div>
       </inertia-link>
     </div>
-    <div v-if="$page.employee.status_of_appointment === 'Permanent/Regular'" class="mb-4">
+    <div
+      v-if="$page.employee.status_of_appointment === 'Permanent/Regular'"
+      class="mb-4"
+    >
       <inertia-link
         class="flex items-center group py-3"
         :href="route('employee.credit', $page.employee.id)"
@@ -63,6 +69,16 @@
           👥 My Profile
         </div>
       </inertia-link>
+    </div>
+    <div class="mt-5">
+      <div class="mb-4">
+        <button
+          type="button"
+          class="py-2 px-2 rounded-2xl hover:bg-opacity-25 text-xs bg-gradient-to-r from-indigo-600 to-indigo-400 text-white w-full transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+        >
+          Submit a Ticket
+        </button>
+      </div>
     </div>
   </div>
 </template>
