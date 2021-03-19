@@ -70,15 +70,21 @@
         </div>
       </inertia-link>
     </div>
-    <div class="mt-5">
-      <div class="mb-4">
-        <button
-          type="button"
-          class="py-3 px-2 rounded-full hover:bg-opacity-25 text-xs bg-gradient-to-r from-indigo-600 to-indigo-400 text-white w-full transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+    <div class="mb-4">
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('employee.inquiry')"
+      >
+        <div
+          :class="
+            isUrl('employee.inquiry')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
         >
-          Submit Ticket
-        </button>
-      </div>
+          🎫 My Inquiries
+        </div>
+      </inertia-link>
     </div>
   </div>
 </template>

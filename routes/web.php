@@ -25,6 +25,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\AdminLeaveController;
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\InquiryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -410,6 +411,14 @@ Route::get('personal/profile/{contact}', [EmployeeController::class, 'profile'])
 
 Route::get('personal/leave', [LeaveController::class, 'index'])
     ->name('employee.leave')
+    ->middleware('web', 'employee');
+
+Route::get('personal/inquiry', [InquiryController::class, 'index'])
+    ->name('employee.inquiry')
+    ->middleware('web', 'employee');
+
+Route::put('personal/inquiry/{contact}', [InquiryController::class, 'store'])
+    ->name('employee.inquiry.store')
     ->middleware('web', 'employee');
 
 Route::get('personal/leave/credits/{contact}', [EmployeeController::class, 'credit'])
