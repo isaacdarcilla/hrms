@@ -108,12 +108,14 @@
                         @click="browse()"
                         class="border-4 border-dashed bg-gray-200 hover:bg-gray-400 cursor-pointer"
                       >
-                        <div v-if="!file_name"
+                        <div
+                          v-if="!file_name"
                           class="my-6 mx-auto text-center font-normal hover:font-semibold"
                         >
                           Attach an image
                         </div>
-                        <div v-else
+                        <div
+                          v-else
                           class="my-6 mx-auto text-center font-normal hover:font-semibold"
                         >
                           {{ file_name }}
@@ -191,13 +193,16 @@ export default {
       type: null,
       file: null,
       file_name: null,
+      inquiry_number: null,
       form: {
-        inquiry_number: Math.floor(100000 + Math.random() * 900000),
         type: null,
         description: null,
         image: null,
       },
     };
+  },
+  mounted() {
+    this.inquiry_number = Math.floor(100000 + Math.random() * 900000);
   },
   methods: {
     save() {
@@ -205,13 +210,17 @@ export default {
       data.append("image", this.form.image || "");
       data.append("type", this.form.type || "");
       data.append("description", this.form.description || "");
-      data.append("inquiry_number", this.form.inquiry_number || "");
+      data.append("inquiry_number", this.inquiry_number || "");
       data.append("_method", "PUT");
 
-      this.$inertia.post(this.route("employee.inquiry.store", this.employee.id), data, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-      });
+      this.$inertia.post(
+        this.route("employee.inquiry.store", this.employee.id),
+        data,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
     closeModal() {
       this.$emit("update:modal");
