@@ -1,6 +1,6 @@
-# HR - Your HR on the go 🚀
+# Your HR on the Go 🚀
 
-![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot/Screenshot%20(2).png)
+![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot/Screenshot.png)
 
 ```diff
 - High Priority Task
