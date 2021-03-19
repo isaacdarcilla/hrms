@@ -16,6 +16,7 @@
 * Manage leave credits.
 * Leave management and forms.
 * Tickets and inquiries.
+* Tasks and todos.
 
 
 ## 🔖 License
