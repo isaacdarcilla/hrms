@@ -137,7 +137,16 @@
             >
               <button class="px-0 py-2 whitespace-nowrap text-sm text-gray-900">
                 <div class="normal-case font-normal">
-                  <img hidden :id="inquiry.id" :src="inquiry.image_path" />
+                  <img
+                    hidden
+                    v-viewer="{ movable: false, toolbar: false }"
+                    :id="'p' + `${inquiry.id}`"
+                    :src="
+                      inquiry.image === null
+                        ? `/img/no-image.png`
+                        : `/storage/` + inquiry.image
+                    "
+                  />
                   <span
                     @click="image(inquiry.id)"
                     class="text-blue-600 font-semibold inline-flex mt-0 cursor-pointer hover:text-blue-900"
@@ -292,15 +301,9 @@ export default {
   },
   methods: {
     image(value) {
-      let $image = $(`#${value}`);
-      console.log($image);
-      $image.viewer({
-        inline: false,
-        toolbar: false,
-        viewed: function () {
-          $image.viewer("zoomTo", 1);
-        },
-      });
+      let image = `#p${value}`;
+      const viewer = this.$el.querySelector(image).$viewer;
+      viewer.show();
     },
     showCreateModal() {
       this.showCreate = true;
