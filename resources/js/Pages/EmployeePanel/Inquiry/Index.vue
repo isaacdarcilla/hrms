@@ -135,14 +135,16 @@
             <td
               class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <inertia-link
-                :href="route('employee.inquiry')"
-                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
-              >
+              <button class="px-0 py-2 whitespace-nowrap text-sm text-gray-900">
                 <div class="normal-case font-normal">
-                  {{ inquiry.image_path }}
+                  <img hidden :id="inquiry.id" :src="inquiry.image_path" />
+                  <span
+                    @click="image(inquiry.id)"
+                    class="text-blue-600 font-semibold inline-flex mt-0 cursor-pointer hover:text-blue-900"
+                    >View image</span
+                  >
                 </div>
-              </inertia-link>
+              </button>
             </td>
             <td
               class="px-6 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
@@ -195,18 +197,26 @@
             <td
               class="px-6 py-2 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <span
-                v-if="inquiry.deleted_at === null"
-                @click="destroy(inquiry.id, inquiry.inquiry_number)"
-                class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
-                >🗑️ Delete</span
-              >
-               <span
-                v-else
-                @click="restore(inquiry.id, inquiry.inquiry_number)"
-                class="text-yellow-600 inline-flex mt-2 cursor-pointer hover:text-yellow-900"
-                >♻️ Restore</span
-              >
+              <div v-if="inquiry.status !== 'Close'">
+                <span
+                  v-if="inquiry.deleted_at === null"
+                  @click="destroy(inquiry.id, inquiry.inquiry_number)"
+                  class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
+                  >🗑️ Delete</span
+                >
+                <span
+                  v-else
+                  @click="restore(inquiry.id, inquiry.inquiry_number)"
+                  class="text-yellow-600 inline-flex mt-2 cursor-pointer hover:text-yellow-900"
+                  >♻️ Restore</span
+                >
+              </div>
+              <div v-else>
+                <span
+                  class="text-orange-600 inline-flex mt-2 cursor-pointer hover:text-orange-900"
+                  >No action</span
+                >
+              </div>
             </td>
           </tr>
         </tbody>
@@ -236,6 +246,12 @@ import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import CreateModal from "@/Pages/EmployeePanel/Inquiry/CreateModal";
 import moment from "moment";
+import $ from "jquery";
+import "viewerjs/dist/viewer.css";
+import Viewer from "v-viewer";
+import Vue from "vue";
+
+Vue.use(Viewer);
 
 export default {
   metaInfo: { title: "Inquiry" },
@@ -275,6 +291,17 @@ export default {
     },
   },
   methods: {
+    image(value) {
+      let $image = $(`#${value}`);
+      console.log($image);
+      $image.viewer({
+        inline: false,
+        toolbar: false,
+        viewed: function () {
+          $image.viewer("zoomTo", 1);
+        },
+      });
+    },
     showCreateModal() {
       this.showCreate = true;
     },
