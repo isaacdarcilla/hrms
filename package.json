@@ -20,6 +20,7 @@
         "dayjs": "^1.10.4",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
+        "imageviewer": "^1.1.0",
         "jquery": "^3.6.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.21",
