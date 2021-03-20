@@ -421,6 +421,14 @@ Route::put('personal/inquiry/{contact}', [InquiryController::class, 'store'])
     ->name('employee.inquiry.store')
     ->middleware('web', 'employee');
 
+Route::delete('personal/inquiry/{id}/delete', [InquiryController::class, 'destroy'])
+    ->name('employee.inquiry.destroy')
+    ->middleware('web', 'employee');
+
+Route::put('personal/inquiry/{id}/restore', [InquiryController::class, 'restore'])
+    ->name('employee.inquiry.restore')
+    ->middleware('web', 'employee');
+
 Route::get('personal/leave/credits/{contact}', [EmployeeController::class, 'credit'])
     ->name('employee.credit')
     ->middleware('web', 'employee');
