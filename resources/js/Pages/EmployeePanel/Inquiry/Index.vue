@@ -139,7 +139,7 @@
                 <div class="normal-case font-normal">
                   <img
                     hidden
-                    v-viewer="{ movable: false, toolbar: false }"
+                    v-viewer="options"
                     :id="'p' + `${inquiry.id}`"
                     :src="
                       inquiry.image === null
@@ -222,8 +222,8 @@
               </div>
               <div v-else>
                 <span
-                  class="text-orange-600 inline-flex mt-2 cursor-pointer hover:text-orange-900"
-                  >No action</span
+                  class="text-green-600 inline-flex mt-2 cursor-pointer hover:text-green-900"
+                  >✨ Solution</span
                 >
               </div>
             </td>
@@ -279,6 +279,7 @@ export default {
   data() {
     return {
       showCreate: false,
+      options: { movable: false, toolbar: false, navbar: false, title: false },
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
