@@ -36,6 +36,13 @@ class InquiryController extends Controller
     public function store(Contact $contact)
     {
         $employee =  Auth::guard('employee')->user();
+        $priority = 'Low';
+
+        if(Request::input('type') === 'Technical' || Request::input('type') === 'Leave Credits' || Request::input('type') === 'Profile') {
+            $priority = 'High';
+        } else { 
+            $priority = 'Low';
+        }
 
         if($employee) {
             Request::validate([
@@ -47,18 +54,40 @@ class InquiryController extends Controller
 
             Inquiry::create([
                 'contact_id' => $employee->id,
-                'inquiry_number' => Request::input('inquiry_number'),
+                'inquiry_number' => mt_rand(100000, 999999),
                 'type' => Request::input('type'),
                 'description' => Request::input('description'),
                 'resolved' => 0,
-                'status' => 'Pending',
+                'status' => 'Open',
+                'priority' => $priority,
                 'description' => Request::input('description'),
                 'image' => Request::file('image') ? Request::file('image')->store('inquiry', 'public') : null,
             ]);
 
-            return Redirect::back()->with('success', 'Inquiry submitted');
+            Notification::create([
+                'contact_id' => Request::input('contact_id'),
+                'notification' => 'created support ticket.',
+            ]);
+
+            return Redirect::back()->with('success', 'Inquiry submitted.');
         } else {
             return redirect()->route('login.employee');
         }
+    }
+
+    public function destroy ($id) 
+    {
+        Inquiry::find($id)->delete();
+
+        return Redirect::back()->with('success', 'Inquiry deleted.');
+    }
+
+    public function restore ($id) 
+    {
+        Inquiry::where('id', $id)->restore([
+            'deleted_at' => null,
+        ]);
+
+        return Redirect::back()->with('success', 'Inquiry restored.');
     }
 }
