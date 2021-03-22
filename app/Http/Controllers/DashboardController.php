@@ -10,6 +10,7 @@ use App\Models\Applicant;
 use App\Models\User;
 use App\Models\Notice;
 use App\Models\Task;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -28,6 +29,11 @@ class DashboardController extends Controller
             'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
             'jobs' => Job::orderBy('created_at', 'DESC')->take(3)->get(),
             'tasks' => Task::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get(),
+            'inquiries' => DB::table('contacts')
+                             ->join('inquiries', 'contacts.id', '=', 'inquiries.contact_id')
+                             ->select('contacts.first_name', 'contacts.last_name', 'contacts.position', 'contacts.department', 'inquiries.*')
+                             ->orderBy('inquiries.created_at', 'DESC')
+                             ->paginate(),
         ]);
     }
 }

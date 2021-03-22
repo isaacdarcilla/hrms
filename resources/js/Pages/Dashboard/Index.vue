@@ -14,15 +14,16 @@
         </div>
       </div>
       <button type="button" class="group mr-2 pb-4">
-        <inertia-link
+        <button
           :href="route('notices')"
           class="text-xs font-medium text-blue-600 hover:text-blue-700"
-          >Read more</inertia-link
         >
+          Read more
+        </button>
       </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-      <inertia-link
+      <button
         :href="route('employees')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
@@ -52,8 +53,8 @@
             </p>
           </div>
         </div>
-      </inertia-link>
-      <inertia-link
+      </button>
+      <button
         :href="route('jobs')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
@@ -88,8 +89,8 @@
             </p>
           </div>
         </div>
-      </inertia-link>
-      <inertia-link
+      </button>
+      <button
         :href="route('applicants')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
@@ -124,8 +125,8 @@
             </p>
           </div>
         </div>
-      </inertia-link>
-      <inertia-link
+      </button>
+      <button
         :href="route('users')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
@@ -157,18 +158,19 @@
             </p>
           </div>
         </div>
-      </inertia-link>
+      </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
       <div class="h-64">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Announcements</div>
-            <inertia-link
+            <button
               :href="route('notices')"
               class="text-blue-600 text-sm font-semibold hover:text-blue-700"
-              >View more</inertia-link
             >
+              View more
+            </button>
           </div>
           <div class="overflow-y-auto h-48">
             <li
@@ -207,11 +209,12 @@
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Vacant Jobs</div>
-            <inertia-link
+            <button
               :href="route('jobs')"
               class="text-blue-600 text-sm font-semibold hover:text-blue-700"
-              >View more</inertia-link
             >
+              View more
+            </button>
           </div>
           <div class="overflow-y-auto h-48">
             <li
@@ -238,7 +241,9 @@
               </div>
             </li>
             <div v-if="jobs.length === 0">
-              <div class="mx-auto my-12 justify-evenly text-center items-center">
+              <div
+                class="mx-auto my-12 justify-evenly text-center items-center"
+              >
                 <h1 class="text-3xl mb-2">☹️</h1>
                 Nothing here yet.
               </div>
@@ -345,30 +350,243 @@
         </ul>
       </div>
     </div>
+
+    <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <div class="bg-white px-6 py-4 font-semibold text-base">
+        Support Tickets and Inquiries
+      </div>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-white">
+          <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              ID
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Employee
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Inquiry Type
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Description
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Attachment
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Status
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Priority
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Created On
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr
+            v-for="inquiry in inquiries.data"
+            :key="inquiry.id"
+            class="hover:bg-gray-100 focus-within:bg-gray-100"
+          >
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="font-semibold text-blue-600">
+                  #{{ inquiry.inquiry_number }}
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="capitalize font-semibold text-gray-700">
+                  {{ inquiry.first_name }} {{ inquiry.last_name }}
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="normal-case">
+                  {{ inquiry.type }}
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="normal-case text-left w-48">
+                  {{ inquiry.description }}
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="normal-case font-normal">
+                  <img
+                    hidden
+                    v-viewer="options"
+                    :id="'p' + `${inquiry.id}`"
+                    :src="
+                      inquiry.image === null
+                        ? `/img/no-image.png`
+                        : `/storage/` + inquiry.image
+                    "
+                  />
+                  <span
+                    @click="image(inquiry.id)"
+                    class="text-blue-600 font-semibold inline-flex mt-0 cursor-pointer hover:text-blue-900"
+                    >View Attachment</span
+                  >
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div
+                  v-if="inquiry.status === 'Open'"
+                  class="normal-case font-semibold text-green-600"
+                >
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-green-600 rounded-full"
+                    >{{ inquiry.status }}</span
+                  >
+                </div>
+                <div v-else class="normal-case font-semibold text-red-600">
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-orange-600 rounded-full"
+                    >{{ inquiry.status }}</span
+                  >
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div
+                  v-if="inquiry.priority === 'High'"
+                  class="normal-case font-semibold text-red-600"
+                >
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+                    >{{ inquiry.priority }}</span
+                  >
+                </div>
+                <div v-else class="normal-case font-semibold text-yellow-600">
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-yellow-600 rounded-full"
+                    >{{ inquiry.priority }}</span
+                  >
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="normal-case">
+                  {{ format(inquiry.created_at) }}
+                </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <span class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                >💬 Reply</span
+              >
+            </td>
+          </tr>
+        </tbody>
+        <tr v-if="inquiries.data.length === 0">
+          <td class="border-t px-6 py-4 text-red-500 font-bold" colspan="4">
+            ☹️ No inquiries found.
+          </td>
+        </tr>
+      </table>
+    </div>
+    <pagination :links="inquiries.links" />
   </div>
 </template>
 
 <script>
 import Layout from "@/Shared/Layout";
+import Pagination from "@/Shared/Pagination";
 import moment from "moment";
+import "viewerjs/dist/viewer.css";
+import Viewer from "v-viewer";
+import Vue from "vue";
+
+Vue.use(Viewer);
 
 export default {
   metaInfo: { title: "Dashboard" },
   layout: Layout,
+  components: {
+    Pagination,
+  },
   props: {
     total: Object,
     notices: Array,
     jobs: Array,
     tasks: Array,
+    inquiries: Object,
   },
   data() {
     return {
+      options: { movable: false, toolbar: false, navbar: false, title: false },
       form: {
         description: null,
       },
     };
   },
   methods: {
+    image(value) {
+      let image = `#p${value}`;
+      const viewer = this.$el.querySelector(image).$viewer;
+      viewer.show();
+    },
     format(value) {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");

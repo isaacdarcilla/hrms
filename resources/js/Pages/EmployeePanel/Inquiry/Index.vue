@@ -56,7 +56,7 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Image
+              Attachment
             </th>
             <th
               scope="col"
@@ -150,7 +150,7 @@
                   <span
                     @click="image(inquiry.id)"
                     class="text-blue-600 font-semibold inline-flex mt-0 cursor-pointer hover:text-blue-900"
-                    >View image</span
+                    >View Attachment</span
                   >
                 </div>
               </button>
@@ -173,7 +173,7 @@
                 </div>
                 <div v-else class="normal-case font-semibold text-red-600">
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-orange-600 rounded-full"
                     >{{ inquiry.status }}</span
                   >
                 </div>
