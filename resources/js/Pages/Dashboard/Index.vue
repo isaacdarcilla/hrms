@@ -173,12 +173,12 @@
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Announcements</div>
-            <button
+            <inertia-link
               :href="route('notices')"
               class="text-blue-600 text-sm font-semibold hover:text-blue-700"
             >
               View more
-            </button>
+            </inertia-link>
           </div>
           <div class="overflow-y-auto h-48">
             <li
@@ -217,12 +217,12 @@
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Vacant Jobs</div>
-            <button
+            <inertia-link
               :href="route('jobs')"
               class="text-blue-600 text-sm font-semibold hover:text-blue-700"
             >
               View more
-            </button>
+            </inertia-link>
           </div>
           <div class="overflow-y-auto h-48">
             <li
