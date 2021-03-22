@@ -450,7 +450,7 @@
             <td
               class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+              <button class="px-0 py-4 w-40 whitespace-nowrap text-sm text-gray-900">
                 <div class="capitalize text-left font-semibold text-gray-700">
                   {{ inquiry.first_name }} {{ inquiry.last_name }}
                 </div>
