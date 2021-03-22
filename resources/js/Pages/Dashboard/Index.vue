@@ -48,7 +48,9 @@
             >
               Total employees
             </p>
-            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
               {{ total.employees }} <span class="text-xs">active</span>
             </p>
           </div>
@@ -84,7 +86,9 @@
             >
               Total job postings
             </p>
-            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
               {{ total.jobs }} <span class="text-xs">vacant</span>
             </p>
           </div>
@@ -120,7 +124,9 @@
             >
               Total applicants
             </p>
-            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
               {{ total.applicants }} <span class="text-xs">application</span>
             </p>
           </div>
@@ -153,7 +159,9 @@
             >
               Total HR staffs
             </p>
-            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
               {{ total.staffs }} <span class="text-xs">active</span>
             </p>
           </div>
@@ -354,6 +362,10 @@
     <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <div class="bg-white px-6 py-4 font-semibold text-base">
         Support Tickets and Inquiries
+        <span
+          class="animate-pulse inline-flex items-center justify-center ml-1 px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+          >{{ $page.notifiable.tickets }}</span
+        >
       </div>
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
@@ -399,6 +411,12 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Priority
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Resolved
             </th>
             <th
               scope="col"
@@ -523,6 +541,16 @@
                     >{{ inquiry.priority }}</span
                   >
                 </div>
+              </button>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div v-if="inquiry.resolved === '1'" class="normal-case">
+                  Yes
+                </div>
+                <div v-else class="normal-case">No</div>
               </button>
             </td>
             <td
