@@ -49,7 +49,7 @@ class NoticeController extends Controller
             Request::validate([
                 'notice_type' => ['required', 'max:255', 'min:2'],
                 'notice_subject' => ['required', 'max:255', 'min:2'],
-                'notice_description' => ['required', 'min:12'],
+                'notice_description' => ['required', 'min:12', 'max:255'],
             ])
         );
 
@@ -91,7 +91,7 @@ class NoticeController extends Controller
             Request::validate([
                 'notice_type' => ['required', 'max:255', 'min:2'],
                 'notice_subject' => ['required', 'max:255', 'min:2'],
-                'notice_description' => ['required', 'min:12'],
+                'notice_description' => ['required', 'min:12', 'max:255'],
             ])
         );
 
