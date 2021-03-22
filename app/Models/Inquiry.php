@@ -13,6 +13,11 @@ class Inquiry extends Model
         return $this->belongsTo(Contact::class);
     }
 
+    public function inquiry_replies() 
+    {
+        return $this->hasMany(InquiryReply::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {

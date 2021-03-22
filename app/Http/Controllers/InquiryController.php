@@ -25,6 +25,7 @@ class InquiryController extends Controller
                 'employee' => $employee,
                 'filters' => Request::all('search', 'trashed'),
                 'inquiries' => Inquiry::where('contact_id', auth()->guard('employee')->user()->id)
+                                ->with('inquiry_replies')
                                 ->filter(Request::only('search', 'trashed'))
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(),
@@ -65,7 +66,7 @@ class InquiryController extends Controller
             ]);
 
             Notification::create([
-                'contact_id' => Request::input('contact_id'),
+                'contact_id' => Auth::guard('employee')->user()->id,
                 'notification' => 'created support ticket.',
             ]);
 
@@ -89,5 +90,19 @@ class InquiryController extends Controller
         ]);
 
         return Redirect::back()->with('success', 'Inquiry restored.');
+    }
+
+    public function resolve($id) {
+        if(Request::input('resolved') === true) {
+            Inquiry::where('id', $id)->update([
+                'resolved' => 1,
+            ]);
+        } else {
+            Inquiry::where('id', $id)->update([
+                'resolved' => 0,
+            ]);
+        }
+
+        return Redirect::back();
     }
 }

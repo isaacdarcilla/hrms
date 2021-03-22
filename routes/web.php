@@ -433,6 +433,10 @@ Route::put('personal/inquiry/{id}/restore', [InquiryController::class, 'restore'
     ->name('employee.inquiry.restore')
     ->middleware('web', 'employee');
 
+Route::put('personal/inquiry/{id}/resolve', [InquiryController::class, 'resolve'])
+    ->name('employee.inquiry.resolve')
+    ->middleware('web', 'employee');
+
 Route::get('personal/leave/credits/{contact}', [EmployeeController::class, 'credit'])
     ->name('employee.credit')
     ->middleware('web', 'employee');

@@ -208,7 +208,7 @@
             >
               <div v-if="inquiry.status !== 'Close'">
                 <span
-                  v-if="inquiry.deleted_at === null"
+                  v-if="inquiry.inquiry_replies.length === 0"
                   @click="destroy(inquiry.id, inquiry.inquiry_number)"
                   class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
                   >🗑️ Delete</span
@@ -222,6 +222,7 @@
               </div>
               <div v-else>
                 <span
+                  @click="showSolutionModal(inquiry.inquiry_replies[0], inquiry)"
                   class="text-green-600 inline-flex mt-2 cursor-pointer hover:text-green-900"
                   >✅ Solution</span
                 >
@@ -241,6 +242,12 @@
       :employee="employee"
       :modal.sync="showCreate"
     ></create-modal>
+    <solution-modal
+      :showing="showSolution"
+      :reply="reply"
+      :inquiry="inquiry"
+      :modal.sync="showSolution"
+    ></solution-modal>
     <pagination :links="inquiries.links" />
   </div>
 </template>
@@ -254,6 +261,7 @@ import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import CreateModal from "@/Pages/EmployeePanel/Inquiry/CreateModal";
+import SolutionModal from "@/Pages/EmployeePanel/Inquiry/SolutionModal";
 import moment from "moment";
 import $ from "jquery";
 import "viewerjs/dist/viewer.css";
@@ -270,6 +278,7 @@ export default {
     Pagination,
     SearchFilter,
     CreateModal,
+    SolutionModal,
   },
   props: {
     filters: Object,
@@ -279,11 +288,19 @@ export default {
   data() {
     return {
       showCreate: false,
+      showSolution: false,
+      reply: null,
+      inquiry: null,
       options: { movable: false, toolbar: false, navbar: false, title: false },
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
       },
+    };
+  },
+  provide() {
+    return {
+      inquiries: this.inquiries,
     };
   },
   watch: {
@@ -308,6 +325,11 @@ export default {
     },
     showCreateModal() {
       this.showCreate = true;
+    },
+    showSolutionModal(reply, inquiry) {
+      this.reply = reply;
+      this.inquiry = inquiry;
+      this.showSolution = true;
     },
     reset() {
       this.form = mapValues(this.form, () => null);
