@@ -6,7 +6,7 @@
       class="mb-4 flex items-center justify-between rounded"
     >
       <div class="flex items-center">
-        <div class="mx-4 pb-4">📢</div>
+        <div class="mx-4 pb-4 animate-bounce">📢</div>
         <div class="pb-4 text-gray text-sm font-medium">
           {{ format(notices[0].created_at) }} • {{ notices[0].notice_type }} •
           {{ notices[0].notice_subject }} •
