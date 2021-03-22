@@ -127,7 +127,7 @@
                 :href="route('employee.inquiry')"
                 class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
-                <div class="normal-case font-normal">
+                <div class="normal-case font-normal w-48">
                   {{ inquiry.description }}
                 </div>
               </inertia-link>
@@ -223,7 +223,7 @@
               <div v-else>
                 <span
                   class="text-green-600 inline-flex mt-2 cursor-pointer hover:text-green-900"
-                  >✨ Solution</span
+                  >✅ Solution</span
                 >
               </div>
             </td>

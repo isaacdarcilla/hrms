@@ -12,7 +12,7 @@
               : 'text-indigo-300 font-bold group-hover:text-white'
           "
         >
-          🏠 Dashboard
+          🏠 Home
         </div>
       </inertia-link>
     </div>

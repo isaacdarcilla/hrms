@@ -48,7 +48,7 @@
             >
               Total employees
             </p>
-            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
               {{ total.employees }} <span class="text-xs">active</span>
             </p>
           </div>
@@ -84,7 +84,7 @@
             >
               Total job postings
             </p>
-            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
               {{ total.jobs }} <span class="text-xs">vacant</span>
             </p>
           </div>
@@ -120,7 +120,7 @@
             >
               Total applicants
             </p>
-            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
               {{ total.applicants }} <span class="text-xs">application</span>
             </p>
           </div>
@@ -153,7 +153,7 @@
             >
               Total HR staffs
             </p>
-            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <p class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200">
               {{ total.staffs }} <span class="text-xs">active</span>
             </p>
           </div>

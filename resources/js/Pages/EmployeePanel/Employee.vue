@@ -2,7 +2,7 @@
   <div>
     <div class="mb-10 mt-0">
       <div class="mb-6 mt-1 flex justify-between items-center">
-        <div class="text-3xl font-bold">Dashboard</div>
+        <div class="text-3xl font-bold">Home 🏠</div>
       </div>
       <div
         v-if="notices.length !== 0"
