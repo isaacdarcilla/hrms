@@ -5,7 +5,7 @@
         <div class="w-full">
           <div class="my-10 items-center justify-between">
             <p class="mt-8 text-xl font-bold text-gray-700 md:text-2xl">
-              <img width="60" class="my-3" src="/img/logo.png" />
+              <img width="60" class="my-3" src="/img/transparent.png" />
               <span>CatSU Job Listings</span>
             </p>
             <p class="font-semibold text-sm mt-1">
