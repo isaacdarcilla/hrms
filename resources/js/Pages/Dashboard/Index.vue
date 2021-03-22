@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mb-8 font-bold text-3xl">Dashboard 🏠</h1>
+    <h1 class="mb-8 font-bold text-3xl">Home 🏠</h1>
     <div
       v-if="notices.length !== 0"
       class="mb-4 flex items-center justify-between rounded"
@@ -433,8 +433,12 @@
               class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div class="capitalize font-semibold text-gray-700">
+                <div class="capitalize text-left font-semibold text-gray-700">
                   {{ inquiry.first_name }} {{ inquiry.last_name }}
+                </div>
+                <div class="text-sm text-left capitalize text-blue-500">
+                  {{ inquiry.position }} <span class="lowercase">at</span>
+                  {{ inquiry.department }}
                 </div>
               </button>
             </td>
@@ -533,8 +537,16 @@
             <td
               class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <span class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+              <span
+                v-if="inquiry.replied !== '1'"
+                @click="showModal(inquiry)"
+                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >💬 Reply</span
+              >
+              <span
+                v-else
+                class="text-green-600 cursor-pointer hover:text-indigo-900"
+                >💌 Replied</span
               >
             </td>
           </tr>
@@ -547,12 +559,14 @@
       </table>
     </div>
     <pagination :links="inquiries.links" />
+    <reply :showing="show" :inquiry="inquiry" :modal.sync="show"></reply>
   </div>
 </template>
 
 <script>
 import Layout from "@/Shared/Layout";
 import Pagination from "@/Shared/Pagination";
+import Reply from "@/Pages/Dashboard/Reply";
 import moment from "moment";
 import "viewerjs/dist/viewer.css";
 import Viewer from "v-viewer";
@@ -565,6 +579,7 @@ export default {
   layout: Layout,
   components: {
     Pagination,
+    Reply,
   },
   props: {
     total: Object,
@@ -575,6 +590,8 @@ export default {
   },
   data() {
     return {
+      show: false,
+      inquiry: null,
       options: { movable: false, toolbar: false, navbar: false, title: false },
       form: {
         description: null,
@@ -582,6 +599,10 @@ export default {
     };
   },
   methods: {
+    showModal(item) {
+      this.inquiry = item;
+      this.show = true;
+    },
     image(value) {
       let image = `#p${value}`;
       const viewer = this.$el.querySelector(image).$viewer;

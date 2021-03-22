@@ -66,6 +66,10 @@ Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth');
 
+Route::post('reply', [DashboardController::class, 'reply'])
+    ->name('dashboard.reply')
+    ->middleware('auth');
+
 // Users
 
 Route::get('users', [UsersController::class, 'index'])
