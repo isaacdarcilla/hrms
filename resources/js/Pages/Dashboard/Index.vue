@@ -450,7 +450,9 @@
             <td
               class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
-              <button class="px-0 py-4 w-40 whitespace-nowrap text-sm text-gray-900">
+              <button
+                class="px-0 py-4 w-40 whitespace-nowrap text-sm text-gray-900"
+              >
                 <div class="capitalize text-left font-semibold text-gray-700">
                   {{ inquiry.first_name }} {{ inquiry.last_name }}
                 </div>
@@ -619,6 +621,7 @@ export default {
   data() {
     return {
       show: false,
+      showing: false,
       inquiry: null,
       options: { movable: false, toolbar: false, navbar: false, title: false },
       form: {
@@ -627,6 +630,12 @@ export default {
     };
   },
   methods: {
+    showPopper () {
+      this.showing = !this.showing
+    },
+    hidePopper () {
+      this.showing = false
+    },
     showModal(item) {
       this.inquiry = item;
       this.show = true;
