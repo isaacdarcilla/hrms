@@ -14,12 +14,12 @@
         </div>
       </div>
       <button type="button" class="group mr-2 pb-4">
-        <button
+        <inertia-link
           :href="route('notices')"
           class="text-xs font-medium text-blue-600 hover:text-blue-700"
         >
           Read more
-        </button>
+        </inertia-link>
       </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
