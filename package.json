@@ -54,7 +54,9 @@
         "vue2-selectize": "^1.1.7"
     },
     "devDependencies": {
+        "node-sass": "^5.0.0",
         "postcss": "^8.1.14",
+        "sass-loader": "^11.0.1",
         "tailwind-scrollbar": "^1.2.4"
     },
     "browser": {
