@@ -577,7 +577,7 @@
                 v-else
                 @click="showReply(inquiry.reply)"
                 class="text-green-600 cursor-pointer hover:text-indigo-900"
-                >💬 Replied</span
+                >💬 Show Reply</span
               >
             </td>
           </tr>
