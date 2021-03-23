@@ -45,7 +45,7 @@
                   <div class="text-semibold text-sm px-6 pt-4">
                     <p class="pl-1">Posted on {{ format(reply.updated_at) }}</p>
                   </div>
-                  <div v-if="inquiry.resolved === '0'">
+                  <div v-if="inquiry.resolved === '0' && show">
                     <div class="font-bold text-sm px-6 py-4">
                       <p class="pl-1">Was this information helpful?</p>
                     </div>
@@ -136,6 +136,7 @@ export default {
   data() {
     return {
       sending: false,
+      show: true,
       form: {
         resolved: null,
       },
@@ -151,6 +152,8 @@ export default {
   },
   methods: {
     submit(option) {
+      this.show = false;
+
       option === "Yes"
         ? (this.form.resolved = true)
         : (this.form.resolved = false);
