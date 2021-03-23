@@ -576,18 +576,7 @@
               <span
                 v-else
                 class="text-green-600 cursor-pointer hover:text-indigo-900"
-                v-tooltip="{
-                  content: 'Hello',
-                  placement: 'left',
-                  classes: ['info'],
-                  targetClasses: ['it-has-a-tooltip'],
-                  offset: 100,
-                  delay: {
-                    show: 500,
-                    hide: 300,
-                  },
-                }"
-                >💬 Show Reply</span
+                >💬 Replied</span
               >
             </td>
           </tr>
@@ -710,23 +699,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-.tooltip {
-  &.info {
-    $color: rgba(#004499, 0.9);
-
-    .tooltip-inner {
-      background: $color;
-      color: white;
-      padding: 24px;
-      border-radius: 5px;
-      box-shadow: 0 5px 30px rgba(black, 0.1);
-      max-width: 250px;
-    }
-
-    .tooltip-arrow {
-      border-color: $color;
-    }
-  }
-}
-</style>
