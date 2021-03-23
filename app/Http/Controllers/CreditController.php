@@ -17,6 +17,7 @@ class CreditController extends Controller
         return Inertia::render('Credits/Index', [
             'filters' => Request::all('search', 'trashed'),
             'credits' => $contact->credit()
+                ->with('user')
                 ->where('year', '=', Carbon::now()->year)
                 ->orderBy('created_at', 'DESC')
                 ->filter(Request::only('search', 'trashed'))
@@ -51,6 +52,7 @@ class CreditController extends Controller
 
         Credit::find($id)->update([
             'sick_leave' => $operator.Request::input('leave_credit'),
+            'user_id' => Auth::user()->id,
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
@@ -74,6 +76,7 @@ class CreditController extends Controller
 
         Credit::find($id)->update([
             'vacation_leave' => $operator.Request::input('leave_credit'),
+            'user_id' => Auth::user()->id,
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
@@ -96,6 +99,7 @@ class CreditController extends Controller
                     'vacation_leave' => '+'.Request::input('leave_credit'),
                     'leave_number' => 'add',
                     'year' => Carbon::now()->year,
+                    'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Vacation leave credit increased.');
                 break;
@@ -105,6 +109,7 @@ class CreditController extends Controller
                     'sick_leave' => '+'.Request::input('leave_credit'),
                     'leave_number' => 'add',
                     'year' => Carbon::now()->year,
+                    'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit increased.');
                 break;
@@ -114,6 +119,7 @@ class CreditController extends Controller
                     'vacation_leave' => '-'.Request::input('leave_credit'),
                     'leave_number' => 'minus',
                     'year' => Carbon::now()->year,
+                    'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Vacation leave credit decreased.');
                 break;
@@ -123,6 +129,7 @@ class CreditController extends Controller
                     'sick_leave' => '-'.Request::input('leave_credit'),
                     'leave_number' => 'minus',
                     'year' => Carbon::now()->year,
+                    'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;
@@ -133,6 +140,7 @@ class CreditController extends Controller
                     'sick_leave' => '+'.Request::input('leave_credit'),
                     'leave_number' => 'add',
                     'year' => Carbon::now()->year,
+                    'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;
@@ -143,6 +151,7 @@ class CreditController extends Controller
                     'sick_leave' => '-'.Request::input('leave_credit'),
                     'leave_number' => 'minus',
                     'year' => Carbon::now()->year,
+                    'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;

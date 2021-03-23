@@ -43,7 +43,9 @@
         </div>
       </div>
     </div>
-    <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg mt-6">
+    <div
+      class="shadow overflow-hidden border-b border-gray-200 rounded-lg mt-6"
+    >
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
@@ -70,6 +72,12 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Created At
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Approved/Disapproved/Credited By
             </th>
           </tr>
         </thead>
@@ -144,6 +152,18 @@
               >
                 <div class="capitalize font-medium text-blue-600">
                   {{ format(credit.created_at) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="capitalize font-medium">
+                  {{ credit.user.first_name }} {{ credit.user.last_name }}
                 </div>
               </inertia-link>
             </td>

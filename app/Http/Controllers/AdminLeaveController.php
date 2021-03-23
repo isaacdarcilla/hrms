@@ -49,6 +49,7 @@ class AdminLeaveController extends Controller
                 'contact_id' => Request::input('contact_id'),
                 'leave_number' => Request::input('leave_number'),
                 'year' => $now->year,
+                'user_id' => Auth::user()->id,
             ]);
         } else {
             Credit::create([
@@ -57,6 +58,7 @@ class AdminLeaveController extends Controller
                 'contact_id' => Request::input('contact_id'),
                 'leave_number' => Request::input('leave_number'),
                 'year' => $now->year,
+                'user_id' => Auth::user()->id,
             ]);
         }
 

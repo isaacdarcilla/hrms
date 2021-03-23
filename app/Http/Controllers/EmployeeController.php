@@ -47,6 +47,7 @@ class EmployeeController extends Controller
             return Inertia::render('EmployeePanel/Credit', [
                 'filters' => Request::all('search', 'trashed'),
                 'credits' => $contact->credit()
+                    ->with('user')
                     ->where('year', '=', Carbon::now()->year)
                     ->orderBy('created_at', 'DESC')
                     ->filter(Request::only('search', 'trashed'))

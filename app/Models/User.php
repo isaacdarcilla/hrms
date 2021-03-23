@@ -30,6 +30,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany(Task::class);
     }
 
+    public function credits()
+    {
+        return $this->hasMany(Credit::class);
+    }
+
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;
