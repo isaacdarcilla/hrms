@@ -84,6 +84,7 @@ class HandleInertiaRequests extends Middleware
                     'notifications' => DB::table('contacts')
                                         ->join('notifications', 'contacts.id', '=', 'notifications.contact_id')
                                         ->select('contacts.first_name', 'contacts.last_name', 'contacts.photo', 'notifications.*')
+                                        ->orderBy('notifications.created_at', 'DESC')
                                         ->where('read_at', null)
                                         ->get(),
                 ];
