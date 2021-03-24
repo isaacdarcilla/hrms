@@ -91,7 +91,6 @@
 
 <script>
 import { VueEditor } from "vue2-editor";
-import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
 import mapValues from "lodash/mapValues";
 
@@ -108,7 +107,6 @@ export default {
     inquiry: Object,
     showing: Boolean,
   },
-  directives: { mask },
   data() {
     return {
       sending: false,
