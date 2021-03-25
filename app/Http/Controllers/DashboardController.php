@@ -38,7 +38,7 @@ class DashboardController extends Controller
             'inquiries' => DB::table('contacts')
                              ->join('inquiries', 'contacts.id', '=', 'inquiries.contact_id')
                              ->leftJoin('inquiry_replies', 'inquiries.id', '=', 'inquiry_replies.inquiry_id')
-                             ->select('contacts.first_name', 'contacts.last_name', 'contacts.position', 'contacts.department', 'inquiries.*', 'inquiry_replies.*')
+                             ->select('contacts.first_name', 'contacts.last_name', 'contacts.position', 'contacts.department', 'inquiries.*', 'inquiry_replies.reply')
                              ->where('inquiries.deleted_at', null)
                              ->orderBy('inquiries.created_at', 'DESC')
                              ->paginate(),
