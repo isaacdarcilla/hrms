@@ -25,7 +25,7 @@
                   <div class="text-center">
                     <h1 class="text-4xl mb-3 animate-bounce">🦖</h1>
                     <p class="font-medium mb-4 text-center mx-8">
-                      You have no internet connection. Reconnect to resume work.
+                      You have no internet connection. Reconnect to resume activity.
                       <span class="font-normal text-sm">(Esc)</span>
                     </p>
                   </div>
