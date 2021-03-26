@@ -66,7 +66,7 @@
               </div>
               <div class="mx-4 mt-2">
                 <div class="text-left text-sm">
-                  {{ employee.sex === "Male" ? "Mr." : "Mrs." }}
+                  {{ employee.sex === "Male" ? "Mr." : "Ms." }}
                   {{ employee.first_name }} {{ employee.middle_name }}
                   {{ employee.last_name }}
                 </div>
@@ -80,7 +80,7 @@
               </div>
               <div class="mx-4 mt-4">
                 <div class="text-left text-sm">
-                  Dear {{ employee.sex === "Male" ? "Mr." : "Mrs." }}
+                  Dear {{ employee.sex === "Male" ? "Mr." : "Ms." }}
                   <span class="uppercase">{{ employee.last_name }}</span
                   >:
                 </div>
