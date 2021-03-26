@@ -26,6 +26,7 @@
                     <h1 class="text-4xl mb-3 animate-bounce">🦖</h1>
                     <p class="font-medium mb-4 text-center mx-8">
                       You have no internet connection. Reconnect to resume work.
+                      <span class="font-normal text-sm">(Esc)</span>
                     </p>
                   </div>
                 </form>
