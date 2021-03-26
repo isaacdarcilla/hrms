@@ -475,7 +475,7 @@
               class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div class="normal-case text-left w-48">
+                <div class="normal-case text-justify w-48">
                   {{ inquiry.description }}
                 </div>
               </button>

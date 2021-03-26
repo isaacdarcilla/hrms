@@ -92,8 +92,8 @@
                 :href="route('notices')"
                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
               >
-                <div class="normal-case">
-                  {{ truncate(notice.notice_description) }}
+                <div class="normal-case text-justify w-64">
+                  {{ notice.notice_description }}
                 </div>
               </inertia-link>
             </td>
