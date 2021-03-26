@@ -201,13 +201,13 @@
                   class="normal-case font-semibold text-green-600"
                 >
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-green-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
                     >Approved</span
                   >
                 </div>
                 <div v-else class="normal-case font-semibold text-red-600">
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
                     >Disapproved</span
                   >
                 </div>

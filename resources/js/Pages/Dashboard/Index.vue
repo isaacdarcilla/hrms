@@ -498,7 +498,7 @@
                   <span
                     @click="image(inquiry.id)"
                     class="text-blue-600 font-semibold inline-flex mt-0 cursor-pointer hover:text-blue-900"
-                    >View Attachment</span
+                    >📂 View Attachment</span
                   >
                 </div>
               </button>
@@ -512,13 +512,13 @@
                   class="normal-case font-semibold text-green-600"
                 >
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-green-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
                     >{{ inquiry.status }}</span
                   >
                 </div>
                 <div v-else class="normal-case font-semibold text-red-600">
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-orange-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-orange-600 bg-orange-300 rounded-full"
                     >{{ inquiry.status }}</span
                   >
                 </div>
@@ -533,13 +533,13 @@
                   class="normal-case font-semibold text-red-600"
                 >
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
                     >{{ inquiry.priority }}</span
                   >
                 </div>
                 <div v-else class="normal-case font-semibold text-yellow-600">
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-yellow-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-yellow-600 bg-yellow-300 rounded-full"
                     >{{ inquiry.priority }}</span
                   >
                 </div>
@@ -551,13 +551,13 @@
               <button class="px-0 py-4 whitespace-nowrap text-sm text-gray-900">
                 <div v-if="inquiry.resolved === '1'" class="normal-case">
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-green-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
                     >Yes</span
                   >
                 </div>
                 <div v-else class="normal-case">
                   <span
-                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
                     >No</span
                   >
                 </div>
