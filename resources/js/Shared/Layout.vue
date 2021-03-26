@@ -145,7 +145,6 @@ import Icon from "@/Shared/Icon";
 import Logo from "@/Shared/Logo";
 import MainMenu from "@/Shared/MainMenu";
 import NotificationModal from "@/Shared/Modals/NotificationModal.vue";
-import swal from "sweetalert";
 
 export default {
   components: {
@@ -167,6 +166,9 @@ export default {
       showUserMenu: false,
       accounts: null,
     };
+  },
+  mounted() {
+    console.log(navigator.onLine);
   },
   methods: {
     showNotifModal() {
