@@ -153,6 +153,7 @@ import MainMenu from "@/Shared/MainMenu";
 import NotificationModal from "@/Shared/Modals/NotificationModal.vue";
 import OfflineModal from "@/Shared/Modals/OfflineModal.vue";
 import Offline from "v-offline";
+import swal from "sweetalert"; // Global import
 
 export default {
   components: {
