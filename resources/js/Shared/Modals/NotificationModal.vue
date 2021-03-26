@@ -66,8 +66,8 @@
                     class="text-center"
                     v-if="$page.notifiable.notifications.length === 0"
                   >
-                    <h1 class="text-3xl mb-3">🔕</h1>
-                    <p class="font-medium">No notifications as of now.</p>
+                    <h1 class="text-4xl mb-3">💩</h1>
+                    <p class="font-medium mb-4">No notifications as of now.</p>
                   </div>
                 </form>
               </div>

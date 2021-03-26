@@ -3,12 +3,165 @@
     <h1 class="mb-8 font-bold text-3xl">
       Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📈
     </h1>
-    <div class="mb-6 flex justify-between items-center">
+    <div class="mb-6 flex items-center">
       <button @click="showManual = true" class="btn-indigo rounded-lg">
         <span>➕ Manual</span>
         <span class="hidden md:inline">Crediting</span>
       </button>
+      <button @click="printPdf()" class="btn-indigo mx-3 rounded-lg">
+        <span>🖨️ Generate</span>
+        <span class="hidden md:inline">Credits</span>
+      </button>
     </div>
+
+    <vue-html2pdf
+      :show-layout="false"
+      :float-layout="true"
+      :enable-download="false"
+      :preview-modal="true"
+      :paginate-elements-by-height="1400"
+      :pdf-quality="2"
+      :manual-pagination="true"
+      pdf-format="legal"
+      pdf-orientation="portrait"
+      pdf-content-width="mx-auto"
+      @hasStartedGeneration="hasStartedGeneration()"
+      @hasGenerated="hasGenerated($event)"
+      ref="html2Pdf"
+    >
+      <section
+        slot="pdf-content"
+        class="mt-2 bg-white font-sans mx-auto text-black"
+        style="width: 816px; height: 1280px"
+      >
+        <div class="mx-4 mt-4">
+          <div class="text-right text-sm">&nbsp;</div>
+          <div class="text-right text-sm">&nbsp;</div>
+        </div>
+        <div class="flex mt-6">
+          <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
+          <div class="my-auto">
+            <div class="text-sm italic mt-1">Republic of the Philippines</div>
+            <div class="text-sm font-bold uppercase my-1">
+              Catanduanes State University
+            </div>
+            <div class="text-sm italic mb-1">Virac, Catanduanes</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div
+            class="bg-white font-sans mx-auto text-black"
+            style="width: 812px; height: 1113px"
+          >
+            <div class="w-full">
+              <div class="h-4 border-b-2 border-blue-600">
+                <div
+                  class="uppercase font-bold text-center justify-center my-2"
+                ></div>
+              </div>
+            </div>
+            <div class="mx-12">
+              <div class="mx-4 mt-6">
+                <div class="text-right text-sm">{{ date() }}</div>
+              </div>
+              <div class="mx-4 mt-2">
+                <div class="text-left text-sm">
+                  {{ employee.sex === "Male" ? "Mr." : "Mrs." }}
+                  {{ employee.first_name }} {{ employee.middle_name }}
+                  {{ employee.last_name }}
+                </div>
+                <div class="text-left text-sm capitalize">
+                  {{ employee.position }}
+                </div>
+                <div class="text-left text-sm capitalize">
+                  {{ employee.department }}
+                </div>
+                <div class="text-left text-sm">This University</div>
+              </div>
+              <div class="mx-4 mt-4">
+                <div class="text-left text-sm">
+                  Dear {{ employee.sex === "Male" ? "Mr." : "Mrs." }}
+                  <span class="uppercase">{{ employee.last_name }}</span
+                  >:
+                </div>
+              </div>
+              <div class="mx-4 mt-4">
+                <div class="text-justify text-sm leading-loose">
+                  <span class="pl-12">Please</span> be informed that per records
+                  in the Human Resource Management Services your balance of
+                  leave credits as of December 31, {{ year() }} are as follows:
+                </div>
+              </div>
+              <div class="mx-4 mt-4">
+                <div class="flex">
+                  <div class="w-4/12">
+                    <div class="text-sm text-right underline">
+                      Vacation Leave
+                    </div>
+                  </div>
+                  <div class="w-4/12">
+                    <div class="text-sm text-center underline">Sick Leave</div>
+                  </div>
+                  <div class="w-4/12">
+                    <div class="text-sm text-left underline">TOTAL</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mx-4 mt-4">
+                <div class="flex">
+                  <div class="w-4/12">
+                    <div class="text-sm text-right underline">
+                      {{ round(totals.vacation) }}
+                    </div>
+                  </div>
+                  <div class="w-4/12">
+                    <div class="text-sm text-center underline">
+                      {{ round(totals.sick) }}
+                    </div>
+                  </div>
+                  <div class="w-4/12">
+                    <div class="text-sm text-left underline">{{ total() }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mx-4 mt-8">
+                <div class="text-right text-sm mr-24">Very truly yours,</div>
+              </div>
+              <div class="mx-4 mt-10">
+                <div class="text-right text-sm">
+                  <div class="uppercase">{{ hr.leave_hr_approving_name }}</div>
+                  <div class="normal-case">
+                    {{ hr.leave_hr_approving_position }},
+                    {{ hr.leave_hr_approving_office }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full mt-10">
+              <div class="h-4 border-b-2 border-blue-600">
+                <div
+                  class="uppercase font-bold text-center justify-center my-2"
+                ></div>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-4/12">
+                <div class="text-xs italic text-left">CSU-F-HRM-16l</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-xs text-center italic">Rev.0</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-xs text-right italic">
+                  Effectivity Date: June 1, 2015
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </vue-html2pdf>
+
     <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
       <div class="p-5 bg-white rounded-lg shadow mr-3 mb-6">
         <div class="flex justify-between">
@@ -234,6 +387,7 @@ import moment from "moment";
 import Sick from "@/Pages/Credits/Sick";
 import Vacation from "@/Pages/Credits/Vacation";
 import Manual from "@/Pages/Credits/Manual";
+import VueHtml2pdf from "vue-html2pdf";
 
 export default {
   metaInfo: { title: "Leave Credits" },
@@ -245,12 +399,14 @@ export default {
     Sick,
     Vacation,
     Manual,
+    VueHtml2pdf,
   },
   props: {
     credits: Object,
     employee: Object,
     filters: Object,
     totals: Object,
+    hr: Object,
   },
   data() {
     return {
@@ -285,6 +441,10 @@ export default {
     },
   },
   methods: {
+    printPdf() {
+      console.log(true);
+      this.$refs.html2Pdf.generatePdf();
+    },
     round(number) {
       return Math.round((number + Number.EPSILON) * 10000) / 10000;
     },
@@ -311,6 +471,12 @@ export default {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");
       }
+    },
+    date() {
+      return moment().format("MMMM D, YYYY");
+    },
+    year() {
+      return moment().format("YYYY");
     },
     reset() {
       this.form = mapValues(this.form, () => null);

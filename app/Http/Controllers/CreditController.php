@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Credit;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -31,6 +32,7 @@ class CreditController extends Controller
                             ->year)->sum('sick_leave'),
             ],
             'employee' => $contact,
+            'hr' => Setting::where('id', 1)->first(),
         ]);
     }
 

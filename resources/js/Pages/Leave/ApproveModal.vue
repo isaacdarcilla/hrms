@@ -25,7 +25,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Approve #{{ id.leave_number }} Leave</label
+                        >Approve Leave Application No. #{{ id.leave_number }}</label
                       >
                       <input
                         autofocus="true"

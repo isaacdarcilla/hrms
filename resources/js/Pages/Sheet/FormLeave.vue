@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex justify-between">
-      <h1 class="mb-8 font-bold text-3xl">Leave Form 📜</h1>
+      <h1 class="mb-8 font-bold text-3xl">Leave Form No. 6 📂</h1>
       <button
         @click="printPdf()"
         class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
