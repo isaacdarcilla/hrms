@@ -1,0 +1,45 @@
+.popper-vue {
+  --arrow-size: 1rem;
+  --arrow-shadow-color: rgba(0, 0, 0, 0.1);
+  --arrow-position: calc(var(--arrow-size) / 2 * -1);
+  --popover-margin: calc(var(--arrow-size) / 1.25); }
+  .popper-vue [x-arrow] {
+    width: var(--arrow-size);
+    height: var(--arrow-size);
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: -1; }
+    .popper-vue [x-arrow]::before {
+      content: "";
+      width: var(--arrow-size);
+      height: var(--arrow-size);
+      position: absolute;
+      left: 0; }
+  .popper-vue[x-placement^="top"] {
+    margin-bottom: var(--popover-margin);
+    transform-origin: bottom center; }
+  .popper-vue[x-placement^="top"] [x-arrow] {
+    bottom: var(--arrow-position); }
+  .popper-vue[x-placement^="top"] [x-arrow]::before {
+    box-shadow: 2px 2px 2px 0 var(--arrow-shadow-color); }
+  .popper-vue[x-placement^="bottom"] {
+    margin-top: var(--popover-margin);
+    transform-origin: top center; }
+  .popper-vue[x-placement^="bottom"] [x-arrow] {
+    top: var(--arrow-position); }
+    .popper-vue[x-placement^="bottom"] [x-arrow]::before {
+      box-shadow: -1px -1px 1px 0 var(--arrow-shadow-color); }
+  .popper-vue[x-placement^="right"] {
+    margin-left: var(--popover-margin);
+    transform-origin: left center; }
+  .popper-vue[x-placement^="right"] [x-arrow] {
+    left: var(--arrow-position); }
+    .popper-vue[x-placement^="right"] [x-arrow]::before {
+      box-shadow: -1px 1px 1px 0 var(--arrow-shadow-color); }
+  .popper-vue[x-placement^="left"] {
+    margin-right: var(--popover-margin);
+    transform-origin: right center; }
+  .popper-vue[x-placement^="left"] [x-arrow] {
+    right: var(--arrow-position); }
+    .popper-vue[x-placement^="left"] [x-arrow]::before {
+      box-shadow: 1px -1px 1px 0 var(--arrow-shadow-color); }

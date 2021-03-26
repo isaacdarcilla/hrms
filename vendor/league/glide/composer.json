@@ -1,0 +1,45 @@
+{
+    "name": "league/glide",
+    "description": "Wonderfully easy on-demand image manipulation library with an HTTP based API.",
+    "keywords": [
+        "league",
+        "image",
+        "processing",
+        "manipulation",
+        "editing",
+        "gd",
+        "imagemagick",
+        "imagick"
+    ],
+    "homepage": "http://glide.thephpleague.com",
+    "license": "MIT",
+    "authors" : [
+        {
+            "name": "Jonathan Reinink",
+            "email": "jonathan@reinink.ca",
+            "homepage": "http://reinink.ca"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.1",
+        "league/flysystem": "^1.0",
+        "php": "^5.4 | ^7.0",
+        "symfony/http-foundation": "^2.3|^3.0|^4.0|^5.0",
+        "guzzlehttp/psr7": "^1.1"
+    },
+    "require-dev": {
+        "mockery/mockery": "~0.9",
+        "phpunit/php-token-stream": "^1.4",
+        "phpunit/phpunit": "~4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "League\\Glide\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1-dev"
+        }
+    }
+}

@@ -1,11 +1,11 @@
-/node_modules
+# /node_modules
 /public/css
 /public/hot
 /public/js
 /public/mix-manifest.json
 /public/storage
 /storage/*.key
-/vendor
+# /vendor
 /database/migrations
 /.idea
 .DS_Store

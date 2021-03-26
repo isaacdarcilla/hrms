@@ -1,0 +1,21 @@
+/*!
+ * vue-blu
+ * (c) 2017 Chenz
+ * Released under the MIT License.
+ * Documentation: https://github.com/chenz86/vue-blu
+ */
+
+@import './variables';
+@import '~bulma';
+
+@import './elements/_all';
+
+$fa-font-path: '~font-awesome/fonts/';
+@import '~font-awesome/scss/font-awesome';
+
+@import 'animate';
+
+html{
+  overflow-x: visible;
+  overflow-y: visible;
+}

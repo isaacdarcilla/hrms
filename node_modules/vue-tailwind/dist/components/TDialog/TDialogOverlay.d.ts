@@ -1,0 +1,31 @@
+import Vue from 'vue';
+declare const TDialogOverlay: import("vue/types/vue").ExtendedVue<Vue, unknown, {
+    clickHandler(e: MouseEvent): void;
+    keyupHandler(e: KeyboardEvent): void;
+    focus(): void;
+    enableBodyScroll(): void;
+    disableBodyScroll(): void;
+}, unknown, {
+    getElementCssClass: Function;
+    overlayShow: boolean;
+    dialogShow: boolean;
+    titleTag: string;
+    title: string;
+    textTag: string;
+    text: string;
+    icon: string;
+    cancelButtonText: string;
+    cancelButtonAriaLabel: string;
+    okButtonText: string;
+    okButtonAriaLabel: string;
+    showCloseButton: boolean;
+    preConfirm: Function;
+    inputAttributes: any;
+    inputType: string;
+    inputValidator: Function;
+    inputValue: string | unknown[];
+    inputOptions: any;
+    inputPlaceholder: string;
+    type: string;
+}>;
+export default TDialogOverlay;

@@ -1,0 +1,67 @@
+.select-wrap{
+  position: relative;
+  display: inline-block;
+
+  .select-input{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 32px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    line-height: 32px;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    position: relative;
+    vertical-align: top;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    color: #363636;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    outline: none;
+    padding-right: 2.5em;
+
+    input{
+      width: 4px;
+      opacity: 0;
+      position: absolute;
+      left: -10000px;
+      max-width: 100% !important;
+      max-height: none !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      margin: 0 1px !important;
+      line-height: inherit !important;
+      text-indent: 0 !important;
+      background: none !important;
+      border: 0 none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      -webkit-user-select: auto !important;
+    }
+    &.is-open{
+      input{
+        position: relative;
+        opacity: 1;
+        left: 0;
+      }
+    }
+  }
+  .select-items{
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+  }
+}

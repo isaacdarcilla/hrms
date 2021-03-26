@@ -1,0 +1,52 @@
+import Vue from 'vue';
+import { DialogType } from '../types/Dialog';
+import CssClasses from '../types/CssClasses';
+import { CustomProp } from '../types/ComponentSettings';
+export declare type DialogOptions = {
+    titleTag?: string;
+    title?: string;
+    icon?: string;
+    textTag?: string;
+    text?: string;
+    clickToClose?: boolean;
+    escToClose?: boolean;
+    cancelButtonText?: string;
+    cancelButtonAriaLabel?: string;
+    okButtonText?: string;
+    okButtonAriaLabel?: string;
+    showCloseButton?: boolean;
+    disableBodyScroll?: boolean;
+    focusOnOpen?: boolean;
+    target?: string;
+    fixedClasses?: CssClasses;
+    classes?: CssClasses;
+    variant?: string;
+    inputAttributes?: {
+        [key: string]: string;
+    };
+};
+export declare type DialogProps = {
+    titleTag: string;
+    title?: string;
+    icon?: string;
+    textTag: string;
+    text?: string;
+    clickToClose: boolean;
+    escToClose: boolean;
+    cancelButtonText: string;
+    cancelButtonAriaLabel?: string;
+    okButtonText: string;
+    okButtonAriaLabel?: string;
+    showCloseButton: boolean;
+    disableBodyScroll: boolean;
+    focusOnOpen: boolean;
+    fixedClasses?: CssClasses;
+    classes?: CssClasses;
+    variant?: string;
+    inputAttributes?: {
+        [key: string]: string;
+    };
+    type: DialogType;
+};
+declare const configureDialogGlobals: (vueInstance: typeof Vue, settings?: CustomProp | undefined) => void;
+export default configureDialogGlobals;
