@@ -70,7 +70,8 @@
                       d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                     ></path>
                   </svg>
-                  <span v-if="$page.notifiable.count !== 0"
+                  <span
+                    v-if="$page.notifiable.count !== 0"
                     class="animate-bounce absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"
                     >{{ $page.notifiable.count }}</span
                   >
@@ -126,6 +127,7 @@
             scroll-region
           >
             <flash-messages />
+            <Offline @detected-condition="handleConnectivityChange"> </Offline>
             <slot />
           </div>
         </div>
@@ -135,6 +137,10 @@
       :showing="showModal"
       :modal.sync="showModal"
     ></notification-modal>
+    <offline-modal
+      :showing="showOffline"
+      :modal.sync="showOffline"
+    ></offline-modal>
   </div>
 </template>
 
@@ -145,6 +151,8 @@ import Icon from "@/Shared/Icon";
 import Logo from "@/Shared/Logo";
 import MainMenu from "@/Shared/MainMenu";
 import NotificationModal from "@/Shared/Modals/NotificationModal.vue";
+import OfflineModal from "@/Shared/Modals/OfflineModal.vue";
+import Offline from "v-offline";
 
 export default {
   components: {
@@ -154,6 +162,8 @@ export default {
     Logo,
     MainMenu,
     NotificationModal,
+    Offline,
+    OfflineModal,
   },
   props: {
     modal: {
@@ -163,14 +173,26 @@ export default {
   data() {
     return {
       showModal: false,
+      showOffline: false,
       showUserMenu: false,
       accounts: null,
     };
   },
-  mounted() {
-    console.log(navigator.onLine);
+  created() {
+    window.addEventListener('keydown', (e) => {
+      if (e.key == 'Escape') {
+        this.showOffline = false;
+      }
+    });
   },
   methods: {
+    handleConnectivityChange(status) {
+      if (!status) {
+        this.showOffline = true;
+      } else {
+        this.showOffline = false;
+      }
+    },
     showNotifModal() {
       this.showModal = true;
     },
