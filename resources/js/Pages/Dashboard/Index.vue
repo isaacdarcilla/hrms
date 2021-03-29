@@ -204,16 +204,18 @@
                 </div>
               </div>
             </li>
-          </div>
-          <div v-if="notices.length === 0">
-            <div class="mx-auto my-3 text-center items-center">
-              <h1 class="text-3xl mb-2">☹️</h1>
-              Nothing here yet.
+            <div v-if="notices.length === 0">
+              <div
+                class="mx-auto my-12 justify-evenly text-center items-center"
+              >
+                <h1 class="text-3xl mb-2">☹️</h1>
+                Nothing here yet.
+              </div>
             </div>
           </div>
         </ul>
       </div>
-      <div class="h-40">
+      <div class="h-64">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">Vacant Jobs</div>
@@ -259,7 +261,7 @@
           </div>
         </ul>
       </div>
-      <div class="h-40">
+      <div class="h-64">
         <ul class="flex flex-col bg-white rounded-lg p-4">
           <div class="mb-4 mx-4 flex justify-between items-center">
             <div class="font-semibold">My Tasks</div>
