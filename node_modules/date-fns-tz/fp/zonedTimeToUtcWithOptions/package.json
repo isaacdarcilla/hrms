@@ -1,5 +1,0 @@
-{
-  "sideEffects": false,
-  "module": "../../esm/fp/zonedTimeToUtcWithOptions/index.js",
-  "typings": "../../typings.d.ts"
-}
