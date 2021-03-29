@@ -161,19 +161,42 @@
                   v-if="leave.recommendation === null"
                   class="normal-case font-semibold text-yellow-600"
                 >
-                  Pending
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-yellow-600 bg-yellow-300 rounded-full"
+                    >Pending</span
+                  >
                 </div>
                 <div
                   v-else-if="leave.recommendation === 'Approved'"
                   class="normal-case font-semibold text-green-600"
                 >
-                  Approved
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
+                    >Approved</span
+                  >
                 </div>
                 <div v-else class="normal-case font-semibold text-red-600">
-                  Disapproved -
-                  <span class="text-gray-800 normal-case">{{
-                    leave.disapproved_due_to
-                  }}</span>
+                  <div class="flex">
+                    <span
+                      class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
+                      >Disapproved</span
+                    >
+                    <span class="text-red-600" :title="leave.disapproved_due_to"
+                      ><svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path></svg
+                    ></span>
+                  </div>
                 </div>
               </inertia-link>
             </td>

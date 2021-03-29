@@ -194,7 +194,10 @@
                   v-if="leave.recommendation === null"
                   class="normal-case font-semibold text-yellow-600"
                 >
-                  Pending
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-yellow-600 bg-yellow-300 rounded-full"
+                    >Pending</span
+                  >
                 </div>
                 <div
                   v-else-if="leave.recommendation === 'Approved'"
@@ -256,7 +259,11 @@
       :id="id"
       :modal.sync="show"
     ></disapprove-modal>
-    <approve-modal :showing="approved" :id="id" :modal.sync="approved"></approve-modal>
+    <approve-modal
+      :showing="approved"
+      :id="id"
+      :modal.sync="approved"
+    ></approve-modal>
     <pagination :links="leaves.links" />
   </div>
 </template>
