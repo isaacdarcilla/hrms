@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/catandua/public_html
-    - /bin/cp -R $DEPLOYPATH/hrms_laravel/public $DEPLOYPATH/hrms
+    - /bin/cp -R $DEPLOYPATH/hrms_laravel/public/* $DEPLOYPATH/hrms
