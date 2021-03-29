@@ -1,0 +1,1 @@
+nativefier --name "HRM System" -i logo.ico --min-width 1000 --min-height 520 --maximize --disable-context-menu --tray http://hrms.catanduanesstateu.edu.ph/
