@@ -39,6 +39,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/sym', function () {
+    $target = '/home/catandua/public_html/hrms_laravel/storage/app/public';
+    $shortcut = '/home/catandua/public_html/hrms/storage';
+    symlink($target, $shortcut) ;
+    echo('Success');
+});
+
 // Auth
 
 Route::get('login', [LoginController::class, 'showLoginForm'])
