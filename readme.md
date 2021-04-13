@@ -17,6 +17,7 @@
 * Leave management and forms.
 * Tickets and inquiries.
 * Tasks and todos.
+* Print documents.
 
 
 ## 🔖 License
