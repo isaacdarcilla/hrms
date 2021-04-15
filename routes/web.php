@@ -301,17 +301,17 @@ Route::put('notification', [NotificationController::class, 'update'])
     ->name('notification.update')
     ->middleware('auth');
 
-// Applicant
+// // Applicant
 
-Route::get('applicants', [ApplicantController::class, 'index'])
-    ->name('applicants')
-    ->middleware('auth');
+// Route::get('applicants', [ApplicantController::class, 'index'])
+//     ->name('applicants')
+//     ->middleware('auth');
 
-Route::put('applicants/{job}', [ApplicantController::class, 'store'])
-    ->name('applicants.store');
+// Route::put('applicants/{job}', [ApplicantController::class, 'store'])
+//     ->name('applicants.store');
 
-Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recruit'])
-    ->name('applicants.recruit');
+// Route::post('applicants/{applicant}/{job}', [ApplicantController::class, 'recruit'])
+//     ->name('applicants.recruit');
 
 // Task
 

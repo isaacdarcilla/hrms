@@ -38,20 +38,27 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Position
+              Position Title
             </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Department
+              Plantilla Item No.
             </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Salary Grade
+              Salary/Pay Grade
             </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Monthly Salary
+            </th>
+
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -80,7 +87,19 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
+              Place of Assignment
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
               Action
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Form
             </th>
           </tr>
         </thead>
@@ -107,9 +126,6 @@
                 <div v-else class="text-sm text-gray-500">
                   No data available
                 </div>
-                <div class="capitalize text-sm text-blue-500">
-                  {{ job.item_number }}
-                </div>
               </inertia-link>
             </td>
             <td
@@ -120,8 +136,8 @@
                 :href="route('jobs')"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="job.department !== null">
-                  {{ job.department }}
+                <div class="capitalize" v-if="job.item_number !== null">
+                  {{ job.item_number }}
                 </div>
                 <div v-else class="text-sm text-gray-500">
                   No data available
@@ -152,13 +168,14 @@
                 :href="route('jobs')"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="job.education !== null">
-                  {{ job.education }}
+                <div v-if="job.monthly_salary !== null">
+                  {{ currency(job.monthly_salary) }}
                 </div>
-                <div v-else class="text-sm text-gray-700">None required</div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
               </inertia-link>
             </td>
-
             <td
               class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
@@ -167,7 +184,21 @@
                 :href="route('jobs')"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="job.experience !== null">
+                <div class="normal-case text-justify" v-if="job.education !== null">
+                  {{ job.education }}
+                </div>
+                <div v-else class="text-sm text-gray-700">None required</div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('jobs')"
+                tabindex="-1"
+              >
+                <div class="normal-case text-justify" v-if="job.experience !== null">
                   {{ job.experience }}
                 </div>
                 <div v-else class="text-sm text-gray-700">None required</div>
@@ -181,7 +212,7 @@
                 :href="route('jobs')"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="job.training !== null">
+                <div class="normal-case text-justify" v-if="job.training !== null">
                   {{ job.training }}
                 </div>
                 <div v-else class="text-sm text-gray-700">None required</div>
@@ -195,10 +226,26 @@
                 :href="route('jobs')"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="job.eligibility !== null">
+                <div class="normal-case text-justify" v-if="job.eligibility !== null">
                   {{ job.eligibility }}
                 </div>
                 <div v-else class="text-sm text-gray-700">None required</div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('jobs')"
+                tabindex="-1"
+              >
+                <div class="capitalize" v-if="job.department !== null">
+                  {{ job.department }}
+                </div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
               </inertia-link>
             </td>
             <td
@@ -221,6 +268,15 @@
                 @click="restore(job.id, job.item_number)"
                 class="text-yellow-600 inline-flex mt-2 cursor-pointer hover:text-yellow-900"
                 >♻️ Restore</span
+              >
+            </td>
+            <td
+              class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <span
+                @click="showEditModal(job)"
+                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                >👁️ View</span
               >
             </td>
           </tr>
@@ -329,6 +385,14 @@ export default {
     },
     reset() {
       this.form = mapValues(this.form, () => null);
+    },
+    currency(price, sign = "₱ ") {
+      const pieces = parseFloat(price).toFixed(2).split("");
+      let ii = pieces.length - 3;
+      while ((ii -= 3) > 0) {
+        pieces.splice(ii, 0, ",");
+      }
+      return sign + pieces.join("");
     },
   },
 };

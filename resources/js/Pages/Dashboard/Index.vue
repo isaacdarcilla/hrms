@@ -95,44 +95,6 @@
         </div>
       </button>
       <button
-        :href="route('applicants')"
-        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
-      >
-        <div class="p-4 flex items-center">
-          <div
-            class="p-3 rounded-full text-blue-500 dark:text-blue-100 bg-blue-100 dark:bg-blue-500 mr-4"
-          >
-            <svg
-              class="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2h-1.528A6 6 0 004 9.528V4z"
-              ></path>
-              <path
-                fill-rule="evenodd"
-                d="M8 10a4 4 0 00-3.446 6.032l-1.261 1.26a1 1 0 101.414 1.415l1.261-1.261A4 4 0 108 10zm-2 4a2 2 0 114 0 2 2 0 01-4 0z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </div>
-          <div>
-            <p
-              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-            >
-              Total applicants
-            </p>
-            <p
-              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
-            >
-              {{ total.applicants }} <span class="text-xs">application</span>
-            </p>
-          </div>
-        </div>
-      </button>
-      <button
         :href="route('users')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
       >

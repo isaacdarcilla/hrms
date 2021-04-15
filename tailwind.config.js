@@ -28,7 +28,7 @@ module.exports = {
                 "0.5/12": "4.1666665%"
             },
             height: {
-                "56.50": "14.5rem",
+                "56.50": "14.5rem"
             },
             borderWidth: {
                 one: "1px"
@@ -37,6 +37,9 @@ module.exports = {
                 "22": "5.5rem"
             }
         }
+    },
+    corePlugins: {
+        listStyleType: false
     },
     variants: {
         fill: ["responsive", "hover", "focus", "group-hover"],

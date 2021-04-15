@@ -30,7 +30,9 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Item Number</label>
+                      <label class="form-label font-bold"
+                        >Plantilla Item Number</label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -48,7 +50,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Position</label>
+                      <label class="form-label font-bold">Position Title</label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -65,7 +67,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Department</label>
+                      <label class="form-label font-bold"
+                        >Place of Designation</label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -77,6 +81,42 @@
                         class="form-error"
                       >
                         {{ $page.errors.department }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Salary/Pay Grade</label
+                      >
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        :placeholder="job.salary_grade"
+                        v-model="form.salary_grade"
+                      />
+                      <div
+                        v-if="$page.errors.salary_grade !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.salary_grade }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold">Monthly Salary</label>
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        :placeholder="job.monthly_salary"
+                        v-model="form.monthly_salary"
+                      />
+                      <div
+                        v-if="$page.errors.monthly_salary !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.monthly_salary }}
                       </div>
                     </div>
                   </div>
@@ -103,16 +143,12 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Eligibility as Qualification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        :placeholder="
-                          job.eligibility === null
-                            ? `Enter eligibility qualification standard`
-                            : job.eligibility
-                        "
+                        :placeholder="job.eligibility"
                         v-model="form.eligibility"
                       />
                       <div
@@ -127,16 +163,12 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Experience as Qualification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        :placeholder="
-                          job.experience === null
-                            ? `Enter experience qualification standard`
-                            : job.experience
-                        "
+                        :placeholder="job.experience"
                         v-model="form.experience"
                       />
                       <div
@@ -151,16 +183,12 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Training as Qualification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        :placeholder="
-                          job.training === null
-                            ? `Enter training qualification standard`
-                            : job.training
-                        "
+                        :placeholder="job.training"
                         v-model="form.training"
                       />
                       <div
@@ -173,18 +201,48 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Salary Grade</label>
-                      <input
+                      <label class="form-label font-bold"
+                        >Preferred Qualification
+                        <span class="font-medium">&nbsp;</span></label
+                      >
+                      <textarea
                         autofocus="true"
+                        rows="3"
                         class="form-input block w-full"
-                        :placeholder="job.salary_grade"
-                        v-model="form.salary_grade"
+                        placeholder="Enter preferred qualification"
+                        v-model="form.preferred_qualification"
                       />
                       <div
-                        v-if="$page.errors.salary_grade !== null"
+                        v-if="$page.errors.preferred_qualification !== null"
                         class="form-error"
                       >
-                        {{ $page.errors.salary_grade }}
+                        {{ $page.errors.preferred_qualification }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Deadline of Application</label
+                      >
+                      <v-date-picker v-model="form.deadline_at">
+                        <template v-slot="{ inputValue, togglePopover }">
+                          <div class="flex items-center">
+                            <input
+                              @focus="togglePopover"
+                              :value="format(inputValue)"
+                              class="form-input block w-full"
+                              readonly
+                              placeholder="Select deadline"
+                            />
+                          </div>
+                        </template>
+                      </v-date-picker>
+                      <div
+                        v-if="$page.errors.deadline_at !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.deadline_at }}
                       </div>
                     </div>
                   </div>
@@ -193,22 +251,70 @@
                       <label class="form-label font-bold"
                         >Job Description
                       </label>
-                      <textarea
-                        autofocus="true"
-                        class="form-input block w-full"
-                        :placeholder="
-                          job.job_description === null
-                            ? `Enter job description`
-                            : job.job_description
-                        "
+                      <vue-editor
                         v-model="form.job_description"
-                        rows="4"
-                      />
+                        placeholder="Enter job description"
+                        :editorToolbar="customToolbar"
+                      ></vue-editor>
                       <div
                         v-if="$page.errors.job_description !== null"
                         class="form-error"
                       >
                         {{ $page.errors.job_description }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Core Competencies
+                      </label>
+                      <vue-editor
+                        v-model="form.core_competencies"
+                        placeholder="Enter core competencies"
+                        :editorToolbar="customToolbar"
+                      ></vue-editor>
+                      <div
+                        v-if="$page.errors.core_competencies !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.core_competencies }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Organizational Competencies
+                      </label>
+                      <vue-editor
+                        v-model="form.organizational_competencies"
+                        placeholder="Enter organizational competencies"
+                        :editorToolbar="customToolbar"
+                      ></vue-editor>
+                      <div
+                        v-if="$page.errors.organizational_competencies !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.organizational_competencies }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Technical Competencies
+                      </label>
+                      <vue-editor
+                        v-model="form.technical_competencies"
+                        placeholder="Enter technical competencies"
+                        :editorToolbar="customToolbar"
+                      ></vue-editor>
+                      <div
+                        v-if="$page.errors.technical_competencies !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.technical_competencies }}
                       </div>
                     </div>
                   </div>
@@ -247,6 +353,7 @@
 <script>
 import { VueEditor } from "vue2-editor";
 import { mask } from "vue-the-mask";
+import moment from "moment";
 
 export default {
   components: {
@@ -277,7 +384,13 @@ export default {
         training: null,
         eligibility: null,
         salary_grade: null,
+        monthly_salary: null,
         job_description: null,
+        preferred_qualification: null,
+        deadline_at: null,
+        core_competencies: null,
+        organizational_competencies: null,
+        technical_competencies: null,
       },
     };
   },
@@ -292,6 +405,11 @@ export default {
       this.$emit("update:modal");
     },
     reset() {},
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
   },
 };
 </script>
