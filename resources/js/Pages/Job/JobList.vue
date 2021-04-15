@@ -111,7 +111,7 @@
                     ></div>
                     <p class="mt-0 mb-2 font-bold">Job Description</p>
                     <div
-                      class="mt-2 ml-4 text-gray-600"
+                      class="mt-2 ml-4 text-gray-600" id="my-list"
                       v-html="job.job_description"
                     ></div>
                     <p class="mt-4 mb-2 font-bold">Salary Grade</p>
@@ -253,7 +253,7 @@ export default {
 </script>
 
 <style>
-ul {
+#my-list > ul > li {
   list-style-type: disc;
 }
 </style>
