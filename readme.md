@@ -23,7 +23,7 @@
 ```diff
 - ✨ Todo
 ```
-- [ ] Demonstration.
+- [X] Demonstration.
 
 ## 🔖 License
 [Apache-2.0](https://github.com/isaacdarcilla/hrms/blob/master/LICENSE)
