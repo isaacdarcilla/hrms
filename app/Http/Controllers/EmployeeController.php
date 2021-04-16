@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Credit;
+use App\Models\Children;
 use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\User;

@@ -18,7 +18,7 @@
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
-          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div>
               <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                 <h3
@@ -30,7 +30,7 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Name</label>
+                      <label class="form-label font-bold">Name <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -48,7 +48,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Birth Date</label>
+                      <label class="form-label font-bold">Birth Date <span class="text-red-600">*</span></label>
                       <v-date-picker v-model="form.children_birth_date">
                         <template v-slot="{ inputValue, togglePopover }">
                           <div class="flex items-center">

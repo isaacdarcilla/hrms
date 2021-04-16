@@ -7,7 +7,7 @@
         >
           <div class="flex items-center justify-between mb-0">
             <h5 class="mx-6 my-5 font-semibold font bg-white">
-              👶 Name of Childrens
+              👶 Name of Children
             </h5>
             <button
               @click="showAddModal"
@@ -80,7 +80,7 @@
                   class="border-t text-red-500 text-sm px-6 py-4 font-bold"
                   colspan="4"
                 >
-                  ☹️ No childrens added.
+                  ☹️ No children added.
                 </td>
               </tr>
             </tbody>

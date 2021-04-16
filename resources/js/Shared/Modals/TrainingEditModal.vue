@@ -31,7 +31,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Name of Training</label
+                        >Name of Training <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -50,7 +50,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Number of Hours</label
+                        >Number of Hours <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -69,8 +69,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Inclusive Date
-                        <span class="font-medium">(From)</span></label
+                        >Inclusive Date <span class="text-red-600">*</span>
+                        <span class="font-medium"></span></label
                       >
                       <v-date-picker v-model="form.trainings_from">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -96,8 +96,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Inclusive Date
-                        <span class="font-medium">(To)</span></label
+                        >Inclusive Date <span class="text-red-600">*</span>
+                        <span class="font-medium"></span></label
                       >
                       <v-date-picker v-model="form.trainings_to">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -122,7 +122,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Training Type</label>
+                      <label class="form-label font-bold">Training Type <span class="text-red-600">*</span></label>
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -193,7 +193,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Sponsor</label>
+                      <label class="form-label font-bold">Sponsor <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"

@@ -192,7 +192,7 @@
             >
               <div v-if="$page.auth.user.super === true">
                 <inertia-link
-                  v-if="contact.status_of_appointment === 'Permanent/Regular'"
+                  v-if="contact.status_of_appointment === 'Permanent'"
                   class="text-indigo-600 hover:text-indigo-900"
                   :href="route('credits', contact.id)"
                   tabindex="-1"

@@ -201,6 +201,23 @@
                       </div>
                     </div>
                   </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold">Designation <span class="text-red-600">*</span></label>
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter designation"
+                        v-model="form.designation"
+                      />
+                      <div
+                        v-if="$page.errors.designation !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.designation }}
+                      </div>
+                    </div>
+                  </div>
                   <div
                     v-if="$page.auth.user !== null"
                     class="flex flex-wrap -mx-3 mb-6"
@@ -922,6 +939,7 @@ export default {
         telephone: this.employee.telephone,
         department: this.employee.department,
         position: this.employee.position,
+        designation: this.employee.designation,
         status_of_appointment: this.employee.status_of_appointment,
         sex: this.employee.sex,
         height: this.employee.height,

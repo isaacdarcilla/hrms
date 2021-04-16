@@ -200,6 +200,23 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
+                      <label class="form-label font-bold">Designation <span class="text-red-600">*</span></label>
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter designation"
+                        v-model="form.designation"
+                      />
+                      <div
+                        v-if="$page.errors.designation !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.designation }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Status of Appoinment <span class="text-red-600">*</span></label
                       >
@@ -207,30 +224,30 @@
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.status_of_appointment"
-                        value="Job Order/Contractual"
+                        value="Contractual"
                       />
-                      Job Order/Contractual
+                      Contractual
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.status_of_appointment"
-                        value="Permanent/Regular"
+                        value="Permanent"
                       />
-                      Permanent/Regular
+                      Permanent
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.status_of_appointment"
-                        value="Full-time"
+                        value="Contractual"
                       />
-                      Full-time
+                      Contractual
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.status_of_appointment"
-                        value="Part-time"
+                        value="Casual"
                       />
-                      Part-time
+                      Casual
                       <div
                         v-if="$page.errors.status_of_appointment !== null"
                         class="form-error"
@@ -917,6 +934,7 @@ export default {
         telephone: null,
         department: null,
         position: null,
+        designation: null,
         status_of_appointment: null,
         sex: null,
         height: null,

@@ -36,7 +36,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Spouse First Name</label
+                        >Spouse First Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -56,7 +56,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Spouse Middle Name</label
+                        >Spouse Middle Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -76,7 +76,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Spouse Last Name</label
+                        >Spouse Last Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -97,7 +97,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Spouse Name Extension
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -118,7 +118,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Spouse Occupation/Business
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -139,7 +139,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Spouse Business Address
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -160,7 +160,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Spouse Phone Number
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -181,7 +181,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Father First Name</label
+                        >Father First Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -201,7 +201,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Father Middle Name</label
+                        >Father Middle Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -221,7 +221,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Father Last Name</label
+                        >Father Last Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -242,7 +242,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Father Name Extension
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -262,7 +262,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Mother First Name</label
+                        >Mother First Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -282,7 +282,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Mother Middle Name</label
+                        >Mother Middle Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -302,7 +302,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Mother Last Name</label
+                        >Mother Last Name <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"

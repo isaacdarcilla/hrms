@@ -31,7 +31,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Name of Eligibility</label
+                        >Name of Eligibility <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -50,7 +50,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Place of Examination
+                        >Place of Examination <span class="text-red-600">*</span>
                       </label>
                       <input
                         ref="birthday"
@@ -69,7 +69,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Date of Examination
+                        >Date of Examination <span class="text-red-600">*</span>
                       </label>
                       <v-date-picker v-model="form.eligibility_date_of_exam">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -98,7 +98,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Rating
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -122,7 +122,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >License Number
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         ref="birthday"
@@ -146,7 +146,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Date of Expiration
-                        <span class="font-medium">(Optional)</span>
+                        <span class="font-medium">&nbsp;</span>
                       </label>
                       <v-date-picker
                         v-model="form.eligibility_license_expiration"
