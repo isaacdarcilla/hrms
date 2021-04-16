@@ -60,7 +60,7 @@ class LeaveController extends Controller
                 'type_of_leave' => ['required', 'max:50', 'min:2'],
                 'vacation_leave_location' => ['nullable', 'max:50', 'min:4'],
                 'sick_leave_location' => ['nullable', 'max:50', 'min:4'],
-                'number_of_working_days' => ['required', 'max:50', 'min:1'],
+                'number_of_working_days' => ['required', 'max:50', 'min:1', 'regex:/^[0-9.]+$/'],
                 'start_of_inclusive_date' => ['required', 'min:'.$days],
                 'end_of_inclusive_date' => ['nullable', 'max:50', 'min:4'],
                 'commutation' => ['nullable', 'max:50', 'min:4'],
