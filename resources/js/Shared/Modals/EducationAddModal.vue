@@ -30,7 +30,10 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Name of School</label>
+                      <label class="form-label font-bold"
+                        >Name of School
+                        <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -48,7 +51,10 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Course/Degree</label>
+                      <label class="form-label font-bold"
+                        >Course/Degree
+                        <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -67,7 +73,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Level of Education</label
+                        >Level of Education <span class="text-red-600">*</span></label
                       >
                       <input
                         type="radio"
@@ -76,7 +82,7 @@
                         value="Primary Education"
                       />
                       Primary Education
-					  <input
+                      <input
                         type="radio"
                         class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.education_level"
@@ -101,8 +107,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Period of Attendance
-                        <span class="font-medium">(From)</span></label
+                        >Period of Attendance <span class="text-red-600">*</span>
+                        <span class="font-medium"></span></label
                       >
                       <v-date-picker v-model="form.from">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -125,8 +131,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Period of Attendance
-                        <span class="font-medium">(To)</span></label
+                        >Period of Attendance <span class="text-red-600">*</span>
+                        <span class="font-medium"></span></label
                       >
                       <v-date-picker v-model="form.to">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -150,7 +156,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Highest Units Earned
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -171,7 +177,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Year Graduated</label>
+                      <label class="form-label font-bold">Year Graduated <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -192,7 +198,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Honors Received</label
+                        >Honors Received <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
