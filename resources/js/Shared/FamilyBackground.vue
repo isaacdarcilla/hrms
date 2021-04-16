@@ -12,7 +12,7 @@
         ✏️ Edit
       </button>
       <button
-        v-else
+        v-else-if="$page.employee.user !== null"
         @click="showFamilyModal"
         class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
       >

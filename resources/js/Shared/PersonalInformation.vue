@@ -5,6 +5,7 @@
         🥳 Personal Information
       </h5>
       <button
+        v-if="$page.employee.user !== null"
         @click="showChildrenModal"
         class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
       >

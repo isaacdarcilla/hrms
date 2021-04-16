@@ -118,25 +118,25 @@ class EmployeeController extends Controller
                 ],
                 'family' => $family,
                 'childrens' => !empty($family->id) ? Children::where('background_id', $family->id)
-                    ->get() : null,
+                    ->orderBy('created_at', 'DESC')->get() : null,
                 'educations' => $contact->educations()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'experiences' => $contact->experiences()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'eligibilities' => $contact->services()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'volunteers' => $contact->volunteers()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'trainings' => $contact->trainings()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'skills' => $contact->skills()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'recognitions' => $contact->recognitions()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'memberships' => $contact->memberships()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
                 'documents' => $contact->documents()
-                    ->get(),
+                    ->orderBy('created_at', 'DESC')->get(),
 
             ]);
         else

@@ -14,6 +14,7 @@
               </h5>
               <button
                 @click="showSkillModal"
+                v-if="$page.employee.user !== null"
                 class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
                 ➕ Add
@@ -88,6 +89,7 @@
               </h5>
               <button
                 @click="showRecognitionModal"
+                v-if="$page.employee.user !== null"
                 class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
                 ➕ Add
@@ -167,6 +169,7 @@
               </h5>
               <button
                 @click="showMembershipModal"
+                v-if="$page.employee.user !== null"
                 class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
                 ➕ Add

@@ -11,6 +11,7 @@
             </h5>
             <button
               @click="showEligibilityModal"
+              v-if="$page.employee.user !== null"
               class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
             >
               ➕ Add

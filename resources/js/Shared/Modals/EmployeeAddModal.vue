@@ -38,24 +38,7 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">First Name</label>
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter first name"
-                        v-model="form.first_name"
-                      />
-                      <div
-                        v-if="$page.errors.first_name !== null"
-                        class="form-error"
-                      >
-                        {{ $page.errors.first_name }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                      <label class="form-label font-bold">Last Name</label>
+                      <label class="form-label font-bold">Last Name <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -72,7 +55,25 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Middle Name</label>
+                      <label class="form-label font-bold">First Name <span class="text-red-600">*</span></label>
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter first name"
+                        v-model="form.first_name"
+                      />
+                      <div
+                        v-if="$page.errors.first_name !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.first_name }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold">Middle Name <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -91,7 +92,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Name Extension
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -109,7 +110,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Email Address</label>
+                      <label class="form-label font-bold">Email Address <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -126,7 +127,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Phone</label>
+                      <label class="form-label font-bold">Phone <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -147,7 +148,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Telephone
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -165,7 +166,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Department</label>
+                      <label class="form-label font-bold">Department <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -182,7 +183,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Position</label>
+                      <label class="form-label font-bold">Position <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -200,7 +201,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Status of Appoinment</label
+                        >Status of Appoinment <span class="text-red-600">*</span></label
                       >
                       <input
                         type="radio"
@@ -240,7 +241,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold mb-4">Sex</label>
+                      <label class="form-label font-bold mb-4">Sex <span class="text-red-600">*</span></label>
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -263,7 +264,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Height in Centimeters</label
+                        >Height in Centimeters <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -282,7 +283,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Weight in Kilograms</label
+                        >Weight in Kilograms <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -300,7 +301,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Blood Type</label>
+                      <label class="form-label font-bold">Blood Type <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -318,13 +319,13 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >GSIS Identification
-                        <span class="font-medium">(Optional)</span></label
+                        >GSIS Business Partner. No.
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
-                        placeholder="Enter GSIS identification"
+                        placeholder="Enter GSIS business partner number"
                         v-model="form.gsis_id"
                         v-mask="'###########'"
                         type="tel"
@@ -341,7 +342,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >SSS Identification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -363,7 +364,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Pagibig Identification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -385,7 +386,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >TIN Identification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -407,7 +408,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >PhilHealth Identification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -429,7 +430,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Agency Employee Identification
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -442,7 +443,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold mb-4"
-                        >Civil Status</label
+                        >Civil Status <span class="text-red-600">*</span></label
                       >
                       <input
                         type="radio"
@@ -469,16 +470,16 @@
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.civil_status"
-                        value="Widow"
+                        value="Widowed"
                       />
-                      Widow
+                      Widowed
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.civil_status"
-                        value="Other"
+                        value="Divorced"
                       />
-                      Other
+                      Divorced
                       <div
                         v-if="$page.errors.civil_status !== null"
                         class="form-error"
@@ -489,7 +490,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Birth Date</label>
+                      <label class="form-label font-bold">Birth Date <span class="text-red-600">*</span></label>
                       <v-date-picker v-model="form.birth_date">
                         <template v-slot="{ inputValue, togglePopover }">
                           <div class="flex items-center">
@@ -513,7 +514,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Birth Place</label>
+                      <label class="form-label font-bold">Birth Place <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -530,7 +531,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Citizenship</label>
+                      <label class="form-label font-bold">Citizenship <span class="text-red-600">*</span></label>
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -542,7 +543,7 @@
                       <input
                         type="radio"
                         class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        @click="other = true, form.citizenship = null"
+                        @click="(other = true), (form.citizenship = null)"
                         v-model="form.citizenship"
                       />
                       Other (Specify)
@@ -564,7 +565,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Block Address</label
+                        >Residential Block Address <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -583,7 +584,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Street Address</label
+                        >Residential Street Address <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -603,7 +604,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Residential Village/Subdivision Address
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -622,7 +623,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Barangay Address</label
+                        >Residential Barangay Address <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -641,7 +642,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Municipality Address</label
+                        >Residential Municipality Address <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -660,7 +661,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Province Address</label
+                        >Residential Province Address <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -679,7 +680,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Zip Code Address</label
+                        >Residential Zip Code Address <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -700,7 +701,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Block Address</label
+                          >Permanent Block Address <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -719,7 +720,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Street Address</label
+                          >Permanent Street Address <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -739,7 +740,7 @@
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
                           >Permanent Village/Subdivision Address
-                          <span class="font-medium">(Optional)</span></label
+                          <span class="font-medium">&nbsp;</span></label
                         >
                         <input
                           autofocus="true"
@@ -758,7 +759,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Barangay Address</label
+                          >Permanent Barangay Address <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -777,7 +778,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Municipality Address</label
+                          >Permanent Municipality Address <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -796,7 +797,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Province Address</label
+                          >Permanent Province Address <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -815,7 +816,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Zip Code Address</label
+                          >Permanent Zip Code Address <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"

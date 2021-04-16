@@ -31,7 +31,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Name of Company</label
+                        >Name of Company <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -49,7 +49,7 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Position</label>
+                      <label class="form-label font-bold">Position <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -68,7 +68,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Monthly Salary
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -88,7 +88,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Salary Grade
-                        <span class="font-medium">(Optional)</span></label
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <input
                         autofocus="true"
@@ -108,8 +108,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Inclusive Date
-                        <span class="font-medium">(From)</span></label
+                        >Inclusive Date <span class="text-red-600">*</span>
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <v-date-picker v-model="form.experiences_from">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -135,8 +135,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Inclusive Date
-                        <span class="font-medium">(To)</span></label
+                        >Inclusive Date <span class="text-red-600">*</span>
+                        <span class="font-medium">&nbsp;</span></label
                       >
                       <v-date-picker v-model="form.experiences_to">
                         <template v-slot="{ inputValue, togglePopover }">
@@ -162,22 +162,29 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Status of Appoinment</label
+                        >Status of Appoinment <span class="text-red-600">*</span></label
                       >
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.experiences_status_of_appointment"
-                        value="Job Order/Contractual"
+                        value="Job Order"
                       />
-                      Job Order/Contractual
+                      Job Order
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
                         v-model="form.experiences_status_of_appointment"
-                        value="Permanent/Regular"
+                        value="Contractual"
                       />
-                      Permanent/Regular
+                      Contractual
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Regular"
+                      />
+                      Regular
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -192,6 +199,41 @@
                         value="Part-time"
                       />
                       Part-time
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Permanent"
+                      />
+                      Permanent
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Permanent"
+                      />
+                      Permanent
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Temporary"
+                      />
+                      Temporary
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Casual"
+                      />
+                      Casual
+                      <input
+                        type="radio"
+                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.experiences_status_of_appointment"
+                        value="Contract of Service"
+                      />
+                      Contract of Service
                       <div
                         v-if="
                           $page.errors.experiences_status_of_appointment !==
@@ -212,7 +254,7 @@
                         :labels="{ checked: 'Yes', unchecked: 'No' }"
                         v-model="form.experiences_government"
                       /><span class="mx-2 font-semibold"
-                        >Is this a government service?</span
+                        >Is this a government service?  <span class="text-red-600">*</span></span
                       >
                       <div
                         v-if="$page.errors.experiences_government !== null"
