@@ -206,12 +206,19 @@
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+            <!-- <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Leave Status
+            </th> -->
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Leave Number
             </th>
+
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -250,6 +257,47 @@
             :key="credit.id"
             class="hover:bg-gray-100 focus-within:bg-gray-100"
           >
+            <!-- <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div v-if="credit.leave">
+                  <div
+                    v-if="credit.leave.recommendation === null"
+                    class="normal-case font-semibold text-yellow-600"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-yellow-600 bg-yellow-300 rounded-full"
+                      >Pending</span
+                    >
+                  </div>
+                  <div
+                    v-else-if="credit.leave.recommendation === 'Approved'"
+                    class="normal-case font-semibold text-green-600"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
+                      >Approved</span
+                    >
+                  </div>
+                  <div v-else class="normal-case font-semibold text-red-600">
+                    <span
+                      class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
+                      >Disapproved</span
+                    >
+                  </div>
+                </div>
+                <div v-else>
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-yellow-600 bg-yellow-300 rounded-full"
+                    >Pending</span
+                  >
+                </div>
+              </inertia-link>
+            </td> -->
             <td
               class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >

@@ -24,6 +24,7 @@ class AdminLeaveController extends Controller
             'filters' => Request::all('search', 'trashed'),
             'leaves' => Leave::orderBy('created_at', 'DESC')
                 ->filter(Request::only('search', 'trashed'))
+                ->with('contact')
                 ->paginate()
         ]);
     }
@@ -81,6 +82,29 @@ class AdminLeaveController extends Controller
 
     public function form(Leave $leave) {
         return Inertia::render('Sheet/FormLeave', [
+            'leave' => $leave,
+            'totals' => [
+                'vacation' => Credit::where('contact_id', $leave->contact_id)
+                                    ->where('year', '=', Carbon::now()->year)
+                                    ->sum('vacation_leave'),
+                'sick' => Credit::where('contact_id', $leave->contact_id)
+                                ->where('year', '=', Carbon::now()->year)
+                                ->sum('sick_leave'),
+            ],
+            'certification' => Credit::select('created_at', 'updated_at')
+                                     ->where('contact_id', $leave->contact_id)
+                                     ->where('year', '=', Carbon::now()->year)
+                                     ->orderBy('created_at', 'DESC')
+                                     ->first(),
+            'oic' => EmployeeSetting::where('contact_id', $leave->contact_id)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->first(),
+            'hr' => Setting::where('id', 1)->first(),
+        ]);
+    }
+    
+    public function formEmployee(Leave $leave) {
+        return Inertia::render('Sheet/FormLeaveEmployee', [
             'leave' => $leave,
             'totals' => [
                 'vacation' => Credit::where('contact_id', $leave->contact_id)

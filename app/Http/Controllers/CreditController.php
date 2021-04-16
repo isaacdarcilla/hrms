@@ -19,6 +19,7 @@ class CreditController extends Controller
             'filters' => Request::all('search', 'trashed'),
             'credits' => $contact->credit()
                 ->with('user')
+                ->with('leave')
                 ->where('year', '=', Carbon::now()->year)
                 ->orderBy('created_at', 'DESC')
                 ->filter(Request::only('search', 'trashed'))

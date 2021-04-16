@@ -74,7 +74,7 @@
                 <div class="h-10 border-b-one border-r-one border-black">
                   <div class="uppercase text-sm ml-2">2. Last Name</div>
                   <div class="uppercase mt-1 text-sm font-semibold text-center">
-                    {{ leave.last_name }}
+                    {{ $page.employee.last_name }}
                   </div>
                 </div>
               </div>
@@ -84,7 +84,7 @@
                     First Name
                   </div>
                   <div class="uppercase mt-1 text-sm font-semibold text-center">
-                    {{ leave.first_name }}
+                    {{ $page.employee.first_name }}
                   </div>
                 </div>
               </div>
@@ -491,8 +491,8 @@
                     <div class="w-2/5 flex">&nbsp;</div>
                     <div class="w-3/5">
                       <div class="text-center font-semibold">
-                        {{ leave.first_name }} {{ leave.middle_initial }}
-                        {{ leave.last_name }}
+                        {{ $page.employee.first_name }} {{ leave.middle_initial }}
+                        {{ $page.employee.last_name }}
                       </div>
                       <div
                         class="border-t-one border-black text-center text-sm mr-4"
@@ -735,7 +735,7 @@
 </template>
 
 <script>
-import Layout from "@/Shared/Layout";
+import Layout from "@/Pages/EmployeePanel/Layout";
 import VueHtml2pdf from "vue-html2pdf";
 import moment from "moment";
 
@@ -751,6 +751,7 @@ export default {
     certification: Object,
     oic: Object,
     hr: Object,
+    employee: Object,
   },
   data() {
     return {

@@ -36,7 +36,7 @@
       </inertia-link>
     </div>
     <div
-      v-if="$page.employee.status_of_appointment === 'Permanent/Regular'"
+      v-if="$page.employee.status_of_appointment === 'Permanent'"
       class="mb-4"
     >
       <inertia-link

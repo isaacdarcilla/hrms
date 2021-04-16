@@ -387,7 +387,6 @@ Route::get('leaves/form/{leave}', [AdminLeaveController::class, 'form'])
     ->name('leaves.form')
     ->middleware('auth');
 
-
 // Credits
 
 Route::get('employee/leave/credits/{contact}', [CreditController::class, 'index'])
@@ -426,6 +425,10 @@ Route::get('personal/leave', [LeaveController::class, 'index'])
 
 Route::get('personal/inquiry', [InquiryController::class, 'index'])
     ->name('employee.inquiry')
+    ->middleware('web', 'employee');
+
+Route::get('personal/leaves/form/{leave}/view', [EmployeeController::class, 'formEmployee'])
+    ->name('leaves.form.employee')
     ->middleware('web', 'employee');
 
 Route::put('personal/inquiry/{contact}', [InquiryController::class, 'store'])

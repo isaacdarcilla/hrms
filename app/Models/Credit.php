@@ -18,6 +18,11 @@ class Credit extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function leave()
+    {
+        return $this->belongsTo(Leave::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {

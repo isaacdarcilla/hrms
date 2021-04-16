@@ -217,7 +217,12 @@
               <span
                 v-else
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
-                >Unavailable</span
+              >
+                <inertia-link
+                  :href="route('leaves.form.employee', leave.id)"
+                  class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
+                  >👁️‍🗨️ View Form</inertia-link
+                ></span
               >
             </td>
           </tr>

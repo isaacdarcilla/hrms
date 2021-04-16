@@ -102,9 +102,9 @@
                 :href="route('leaves')"
                 class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
-                <div class="normal-case font-normal">
-                  {{ leave.first_name }} {{ leave.middle_initial }}
-                  {{ leave.last_name }}
+                <div class="capitalize font-normal">
+                  {{ leave.contact.first_name }} {{ leave.contact.middle_name }}
+                  {{ leave.contact.last_name }}
                 </div>
                 <div class="capitalize text-sm text-blue-500">
                   {{ leave.position }}
@@ -238,10 +238,15 @@
                 >
               </div>
               <div v-else>
-                <inertia-link
+                <!-- <inertia-link
                   :href="route('leaves.form', leave.id)"
                   class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
                   >👁️‍🗨️ View Form</inertia-link
+                > -->
+                <inertia-link
+                  :href="route('credits', leave.contact.id)"
+                  class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
+                  >⚙️ Manage Credits</inertia-link
                 >
               </div>
             </td>
