@@ -491,7 +491,8 @@
                     <div class="w-2/5 flex">&nbsp;</div>
                     <div class="w-3/5">
                       <div class="text-center font-semibold">
-                        {{ $page.employee.first_name }} {{ leave.middle_initial }}
+                        {{ $page.employee.first_name }}
+                        {{ leave.middle_initial }}
                         {{ $page.employee.last_name }}
                       </div>
                       <div
@@ -764,11 +765,31 @@ export default {
     },
     dates() {
       let dates = [];
-      this.leave.start_of_inclusive_date.forEach((date) => {
-        var data = moment(String(date.date)).format("MMMM D YYYY");
-        dates.push(data);
-      });
-      return dates.join(", ");
+      if (
+        moment(
+          this.leave.start_of_inclusive_date[0].date,
+          moment.ISO_8601,
+          true
+        ).isValid()
+      ) {
+        this.leave.start_of_inclusive_date.forEach((date) => {
+          var data = moment(String(date.date)).format("MMMM D YYYY");
+          dates.push(data);
+        });
+        return dates.join(", ");
+      } else {
+        this.leave.start_of_inclusive_date.forEach((date) => {
+          dates.push(date.date);
+        });
+        return dates.join();
+      }
+    },
+    formatDate(value) {
+      if (value && moment(value, moment.ISO_8601, true).isValid()) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      } else {
+        return value;
+      }
     },
     printPdf() {
       console.log(true);

@@ -300,8 +300,10 @@ export default {
       this.form = mapValues(this.form, () => null);
     },
     format(value) {
-      if (value) {
+      if (value && moment(value, moment.ISO_8601, true).isValid()) {
         return moment(String(value)).format("MMMM D, YYYY");
+      } else {
+        return value;
       }
     },
     oldestDate(array) {

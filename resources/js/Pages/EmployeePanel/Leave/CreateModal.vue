@@ -118,6 +118,7 @@
                         >Number of Working Days</label
                       >
                       <input
+                        @blur="getDays"
                         autofocus="true"
                         class="form-input block w-full"
                         placeholder="Enter number of working days"
@@ -141,7 +142,7 @@
                           <span class="text-red-600">*</span></label
                         >
                         <label
-                          v-if="!manual"
+                          v-if="!form.manual"
                           @click="
                             switchTo();
                             form.start_of_inclusive_date = [];
@@ -152,7 +153,7 @@
                         <label
                           v-else
                           @click="
-                            manual = false;
+                            form.manual = false;
                             form.start_of_inclusive_date = [];
                           "
                           class="form-label text-blue-600 cursor-pointer"
@@ -160,7 +161,7 @@
                         >
                       </div>
                       <div
-                        v-if="!manual"
+                        v-if="!form.manual"
                         class="bg-white p-1 w-full border rounded"
                       >
                         <v-date-picker v-model="selected.date">
@@ -554,7 +555,6 @@ export default {
   },
   data() {
     return {
-      manual: false,
       disableSelection: true,
       sending: false,
       option: null,
@@ -571,6 +571,7 @@ export default {
       selected: {},
       start_of_inclusive_date: null,
       form: {
+        manual: false,
         contact_id: this.$page.employee.id,
         leave_number: null,
         agency: "Catanduanes State University",
@@ -603,6 +604,9 @@ export default {
     };
   },
   methods: {
+    getDays(e) {
+      e.target.value >= 5 ? (this.form.manual = true) : (this.form.manual = false);
+    },
     handleBlur(e) {
       console.log(e.target.value);
       if (this.form.start_of_inclusive_date.length >= 1) {
@@ -611,7 +615,7 @@ export default {
       this.form.start_of_inclusive_date.push({ date: e.target.value });
     },
     switchTo() {
-      this.manual = true;
+      this.form.manual = true;
     },
     save() {
       this.form.sick_leave_location = `${this.option}::${this.hospital}`;

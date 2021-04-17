@@ -178,7 +178,7 @@
                   class="normal-case font-semibold text-blue-600"
                 >
                   <li class="flex pt-1">
-                    {{ format(date.date) }}
+                    {{ formatDate(date.date) }}
                   </li>
                 </ul>
               </inertia-link>
@@ -339,6 +339,13 @@ export default {
     format(value) {
       if (value) {
         return moment(String(value)).format("MMM D, YYYY");
+      }
+    },
+    formatDate(value) {
+      if (value && moment(value, moment.ISO_8601, true).isValid()) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      } else {
+        return value;
       }
     },
     currency(price, sign = "₱ ") {

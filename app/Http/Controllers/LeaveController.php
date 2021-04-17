@@ -43,6 +43,7 @@ class LeaveController extends Controller
     public function store(Leave $leave, EmployeeSetting $employee_setting) {
         $employee =  Auth::guard('employee')->user();
         $days = Request::input('number_of_working_days');
+        $manual = Request::input('manual');
         $hasSetting = $employee_setting->where('contact_id', $employee->id)->first();
 
         if($employee) { 
@@ -61,7 +62,7 @@ class LeaveController extends Controller
                 'vacation_leave_location' => ['nullable', 'max:50', 'min:4'],
                 'sick_leave_location' => ['nullable', 'max:50', 'min:4'],
                 'number_of_working_days' => ['required', 'max:50', 'min:1', 'regex:/^[0-9.]+$/'],
-                'start_of_inclusive_date' => ['required', 'min:'.$days],
+                'start_of_inclusive_date' => $manual ? ['required', 'min:1'] : ['required', 'min:'.$days],
                 'end_of_inclusive_date' => ['nullable', 'max:50', 'min:4'],
                 'commutation' => ['nullable', 'max:50', 'min:4'],
                 'officer_in_charge' => ['required', 'max:50', 'min:4'],	

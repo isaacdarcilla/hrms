@@ -160,9 +160,10 @@
                   <div class="font-medium capitalize">
                     {{ notice.notice_subject }}
                   </div>
-                  <div class="text-gray-600 text-sm mt-1">
-                    {{ truncate(notice.notice_description) }}
-                  </div>
+                  <div
+                    class="text-gray-600 text-sm mt-1"
+                    v-html="truncate(notice.notice_description)"
+                  ></div>
                 </div>
               </div>
             </li>
@@ -206,9 +207,10 @@
                   <div class="font-medium capitalize">
                     {{ job.position }} at {{ job.department }}
                   </div>
-                  <div class="text-gray-600 text-sm mt-1">
-                    {{ truncate(job.job_description) }}
-                  </div>
+                  <div
+                    class="text-gray-600 text-sm mt-1"
+                    v-html="truncate(job.job_description)"
+                  ></div>
                 </div>
               </div>
             </li>
