@@ -255,13 +255,18 @@
                       />
                       Others (Specify)
                       <div class="pt-3">
-                        <input
+                        <select
                           v-if="showLeave"
-                          autofocus="true"
-                          class="form-input block w-full"
-                          placeholder="Please specify the type of leave"
                           v-model="form.type_of_leave"
-                        />
+                          class="form-input block w-full appearance-none"
+                          place
+                        >
+                          <option disabled selected value="undefined">
+                            Please select other type
+                          </option>
+                          <option value="FL">Force Leave</option>
+                          <option value="Maternity">Maternity Leave</option>
+                        </select>
                       </div>
                       <div
                         v-if="$page.errors.type_of_leave !== null"
@@ -605,7 +610,9 @@ export default {
   },
   methods: {
     getDays(e) {
-      e.target.value >= 5 ? (this.form.manual = true) : (this.form.manual = false);
+      e.target.value >= 5
+        ? (this.form.manual = true)
+        : (this.form.manual = false);
     },
     handleBlur(e) {
       console.log(e.target.value);
