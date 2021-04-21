@@ -1,18 +1,17 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">
-      Vacation & Sick Leave Card of {{ employee.first_name }}
-      {{ employee.last_name }} 🗂️
+      CTO & SPL Leave Card of {{ employee.first_name }} {{ employee.last_name }} 🗂️
     </h1>
     <div class="mb-6 flex items-center justify-between">
       <button @click="showManual = true" class="btn-indigo rounded-lg">
         <span>➕ Manual</span>
         <span class="hidden md:inline">Crediting</span>
       </button>
-      <inertia-link :href="route('cto.credits', employee.id)">
+      <inertia-link :href="route('credits', employee.id)">
         <button class="text-right btn-indigo rounded-lg">
           <span>Switch</span>
-          <span class="hidden md:inline">To CTO & SPL</span>
+          <span class="hidden md:inline">To Vacation & Sick</span>
         </button>
       </inertia-link>
       <!-- <button @click="printPdf()" class="btn-indigo mx-3 rounded-lg">
@@ -242,13 +241,13 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Vacation Leave
+              CTO Leave
             </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Sick Leave
+              SPL Leave
             </th>
             <th
               scope="col"

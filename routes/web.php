@@ -25,6 +25,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\AdminLeaveController;
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\CtoCreditController;
 use App\Http\Controllers\InquiryController;
 use Illuminate\Support\Facades\Route;
 
@@ -407,6 +408,12 @@ Route::post('employee/leave/credits/{contact}', [CreditController::class, 'store
 
 Route::delete('employee/leave/credits/{id}', [CreditController::class, 'destroy'])
     ->name('credits.destroy')
+    ->middleware('auth');
+
+// CTO
+
+Route::get('employee/leave/cto/credits/{contact}', [CtoCreditController::class, 'index'])
+    ->name('cto.credits')
     ->middleware('auth');
 
 // Employees

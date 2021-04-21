@@ -270,7 +270,7 @@
                           <option value="Monetization">Monetization Leave</option>
                           <option value="Study Leave">Study Leave</option>
                           <option value="Paternity Leave">Paternity Leave</option>
-                          <option value="CTO">CTO Leave</option>
+                          <option value="CTO">Compensatory Time Off Leave</option>
                           <option value="R.A. 9262">R.A. 9262</option>
                         </select>
                       </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">
-      Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📊
+      Leave Card of {{ employee.first_name }} {{ employee.last_name }} 🗂️
     </h1>
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       <div class="p-5 bg-white rounded-lg shadow">
@@ -199,8 +199,8 @@
                 :href="route('credits', employee.id)"
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
-                <div class="capitalize font-medium text-blue-600">
-                  {{ format(credit.created_at) }}
+                <div class="capitalize font-medium">
+                  {{ format(credit.updated_at) }}
                 </div>
               </inertia-link>
             </td>
