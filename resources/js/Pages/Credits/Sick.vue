@@ -30,7 +30,7 @@
                 <form @submit.prevent="save" class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Leave Credit Amount</label>
+                      <label class="form-label font-bold">Leave Credit Amount <span class="text-red-600">*</span></label>
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -42,6 +42,44 @@
                         class="form-error"
                       >
                         {{ $page.errors.leave_credit }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Particulars <span class="text-red-600">*</span></label
+                      >
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter the particulars"
+                        v-model="form.particulars"
+                      />
+                      <div
+                        v-if="$page.errors.particulars !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.particulars }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <label class="form-label font-bold"
+                        >Remarks</label
+                      >
+                      <input
+                        autofocus="true"
+                        class="form-input block w-full"
+                        placeholder="Enter the particulars"
+                        v-model="form.remarks"
+                      />
+                      <div
+                        v-if="$page.errors.remarks !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.remarks }}
                       </div>
                     </div>
                   </div>
@@ -96,6 +134,8 @@ export default {
       form: {
         operator: null,
         leave_credit: null,
+        particulars: null,
+        remarks: null,
       },
     };
   },

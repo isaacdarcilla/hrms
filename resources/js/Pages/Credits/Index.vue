@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="mb-8 font-bold text-3xl">
-      Leave Credits of {{ employee.first_name }} {{ employee.last_name }} 📈
+      Leave Card of {{ employee.first_name }} {{ employee.last_name }} 🗂️
     </h1>
     <div class="mb-6 flex items-center">
       <button @click="showManual = true" class="btn-indigo rounded-lg">
@@ -170,7 +170,7 @@
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
                 +{{ round(totals.vacation)
-                }}<span class="text-sm font-normal"> available</span>
+                }}<span class="text-sm font-normal"> available balance</span>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
                 +{{ round(totals.sick)
-                }}<span class="text-sm font-normal"> available</span>
+                }}<span class="text-sm font-normal"> available balance</span>
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@
       <div class="p-5 bg-white rounded-lg shadow ml-3 mb-6">
         <div class="flex justify-between">
           <div>
-            <div class="font-semibold text-gray-600">Overall Total</div>
+            <div class="font-semibold text-gray-600">Overall Balance</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-green-600">
                 +{{ total() }}
@@ -216,9 +216,21 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Leave Number
+              Crediting
             </th>
 
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Period
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Particulars
+            </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -242,6 +254,12 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Processed By
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Remarks
             </th>
             <th
               scope="col"
@@ -330,8 +348,38 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
-                  v-if="credit.vacation_leave !== null"
+                  v-if="credit.leave_number === 'add'"
                   class="capitalize font-medium"
+                >
+                  {{ formatDate(credit.created_at) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="credit.leave_number !== 'add'"
+                  class="capitalize font-medium w-48"
+                >
+                  {{ credit.particular }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="credit.vacation_leave !== null"
+                  class="capitalize font-medium text-green-800"
                 >
                   {{ credit.vacation_leave }}
                 </div>
@@ -347,7 +395,7 @@
               >
                 <div
                   v-if="credit.sick_leave !== null"
-                  class="capitalize font-medium"
+                  class="capitalize font-medium text-red-800"
                 >
                   {{ credit.sick_leave }}
                 </div>
@@ -362,7 +410,7 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div class="capitalize font-medium">
-                  {{ format(credit.created_at) }}
+                  {{ format(credit.updated_at) }}
                 </div>
               </inertia-link>
             </td>
@@ -375,6 +423,18 @@
               >
                 <div class="capitalize font-medium">
                   {{ credit.user.first_name }} {{ credit.user.last_name }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="normal-case font-medium w-32">
+                  {{ credit.remarks }}
                 </div>
               </inertia-link>
             </td>
@@ -513,11 +573,16 @@ export default {
       }
     },
     total() {
-      return this.totals.vacation + this.totals.sick;
+      return this.round(this.totals.vacation + this.totals.sick);
     },
     format(value) {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
+    formatDate(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM");
       }
     },
     date() {

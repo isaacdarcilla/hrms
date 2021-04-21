@@ -17,6 +17,11 @@ class Leave extends Model
         return $this->belongsTo(Contact::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function account()
     {
         return $this->belongsTo(Account::class);

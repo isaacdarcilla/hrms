@@ -68,6 +68,12 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
+              Note
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
               Action
             </th>
           </tr>
@@ -197,6 +203,27 @@
                         ></path></svg
                     ></span>
                   </div>
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 w-100 py-2 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('employee.leave')"
+                class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="leave.type_of_leave === 'Vacation'"
+                  class="w-100 normal-case font-normal w-48"
+                >
+                  Submit form to HRMS 5 days<br>before the leave.
+                </div>
+                <div
+                  v-else-if="leave.type_of_leave === 'Sick'"
+                  class="w-100 normal-case font-normal w-48"
+                >
+                  Submit form to HRMS within<br>7 days upon reinstatement.
                 </div>
               </inertia-link>
             </td>

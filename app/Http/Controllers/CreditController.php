@@ -51,11 +51,14 @@ class CreditController extends Controller
 
         Request::validate([
             'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+            'particulars' => ['required'],
         ]);
 
         Credit::find($id)->update([
             'sick_leave' => $operator.Request::input('leave_credit'),
             'user_id' => Auth::user()->id,
+            'particular' => Request::input('particulars'),
+            'remarks' => Request::input('remarks'),
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
@@ -75,11 +78,14 @@ class CreditController extends Controller
 
         Request::validate([
             'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+            'particulars' => ['required'],
         ]);
 
         Credit::find($id)->update([
             'vacation_leave' => $operator.Request::input('leave_credit'),
             'user_id' => Auth::user()->id,
+            'particular' => Request::input('particulars'),
+            'remarks' => Request::input('remarks'),
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
@@ -89,7 +95,6 @@ class CreditController extends Controller
         Request::validate([
             'option' => ['required'],
             'type' => ['required'],
-            'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
         ]);
 
         $option = Request::input('option');
@@ -97,57 +102,109 @@ class CreditController extends Controller
 
         switch (true) {
             case ($option === 'increase' && $type === 'vacation');
+                Request::validate([
+                    'option' => ['required'],
+                    'type' => ['required'],
+                    'remarks' => ['required'],
+                    'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+                ]);
+
                 Credit::create([
                     'contact_id' => $contact_id,
                     'vacation_leave' => '+'.Request::input('leave_credit'),
                     'leave_number' => 'add',
                     'year' => Carbon::now()->year,
                     'user_id' => Auth::user()->id,
+                    'remarks' => Request::input('remarks'),
                 ]);
                 return Redirect::back()->with('success', 'Vacation leave credit increased.');
                 break;
             case ($option === 'increase' && $type === 'sick');
+                Request::validate([
+                    'option' => ['required'],
+                    'type' => ['required'],
+                    'remarks' => ['required'],
+                    'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+                ]);
+
                 Credit::create([
                     'contact_id' => $contact_id,
                     'sick_leave' => '+'.Request::input('leave_credit'),
                     'leave_number' => 'add',
                     'year' => Carbon::now()->year,
                     'user_id' => Auth::user()->id,
+                    'remarks' => Request::input('remarks'),
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit increased.');
                 break;
             case ($option === 'decrease' && $type === 'vacation');
+                Request::validate([
+                    'option' => ['required'],
+                    'type' => ['required'],
+                    'remarks' => ['required'],
+                    'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+                    'particulars' => ['required'],
+                ]);
+
                 Credit::create([
                     'contact_id' => $contact_id,
                     'vacation_leave' => '-'.Request::input('leave_credit'),
                     'leave_number' => 'minus',
                     'year' => Carbon::now()->year,
                     'user_id' => Auth::user()->id,
+                    'particular' => Request::input('particulars'),
+                    'remarks' => Request::input('remarks'),
                 ]);
                 return Redirect::back()->with('success', 'Vacation leave credit decreased.');
                 break;
             case ($option === 'decrease' && $type === 'sick');
+                Request::validate([
+                    'option' => ['required'],
+                    'type' => ['required'],
+                    'remarks' => ['required'],
+                    'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+                    'particulars' => ['required'],
+                ]);
+
                 Credit::create([
                     'contact_id' => $contact_id,
                     'sick_leave' => '-'.Request::input('leave_credit'),
                     'leave_number' => 'minus',
                     'year' => Carbon::now()->year,
                     'user_id' => Auth::user()->id,
+                    'particular' => Request::input('particulars'),
+                    'remarks' => Request::input('remarks'),
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;
             case ($option === 'increase' && $type === 'both');
+                Request::validate([
+                    'option' => ['required'],
+                    'type' => ['required'],
+                    'remarks' => ['required'],
+                    'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+                ]);
+
                 Credit::create([
                     'contact_id' => $contact_id,
                     'vacation_leave' => '+'.Request::input('leave_credit'),
                     'sick_leave' => '+'.Request::input('leave_credit'),
                     'leave_number' => 'add',
                     'year' => Carbon::now()->year,
+                    'remarks' => Request::input('remarks'),
                     'user_id' => Auth::user()->id,
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;
             case ($option === 'decrease' && $type === 'both');
+                Request::validate([
+                    'option' => ['required'],
+                    'type' => ['required'],
+                    'remarks' => ['required'],
+                    'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+                    'particulars' => ['required'],
+                ]);
+                
                 Credit::create([
                     'contact_id' => $contact_id,
                     'vacation_leave' => '-'.Request::input('leave_credit'),
@@ -155,6 +212,8 @@ class CreditController extends Controller
                     'leave_number' => 'minus',
                     'year' => Carbon::now()->year,
                     'user_id' => Auth::user()->id,
+                    'particular' => Request::input('particulars'),
+                    'remarks' => Request::input('remarks'),
                 ]);
                 return Redirect::back()->with('success', 'Sick leave credit decreased.');
                 break;

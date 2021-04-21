@@ -259,13 +259,19 @@
                           v-if="showLeave"
                           v-model="form.type_of_leave"
                           class="form-input block w-full appearance-none"
-                          place
                         >
-                          <option disabled selected value="undefined">
+                          <option disabled selected>
                             Please select other type
                           </option>
                           <option value="FL">Force Leave</option>
                           <option value="Maternity">Maternity Leave</option>
+                          <option value="SPL">Solo Parent Leave</option>
+                          <option value="Terminal Leave">Terminal Leave</option>
+                          <option value="Monetization">Monetization Leave</option>
+                          <option value="Study Leave">Study Leave</option>
+                          <option value="Paternity Leave">Paternity Leave</option>
+                          <option value="CTO">CTO Leave</option>
+                          <option value="R.A. 9262">R.A. 9262</option>
                         </select>
                       </div>
                       <div

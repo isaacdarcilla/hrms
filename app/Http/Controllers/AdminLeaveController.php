@@ -20,9 +20,10 @@ class AdminLeaveController extends Controller
 {
     public function index() 
     {
+        $leave = new Leave();
         return Inertia::render('Leave/Index', [
             'filters' => Request::all('search', 'trashed'),
-            'leaves' => Leave::orderBy('created_at', 'DESC')
+            'leaves' => Auth::user()->leaves()->orderBy('created_at', 'DESC')
                 ->filter(Request::only('search', 'trashed'))
                 ->with('contact')
                 ->paginate()

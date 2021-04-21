@@ -11,6 +11,7 @@ use Inertia\Inertia;
 use App\Models\Notification;
 use App\Models\Leave;
 use App\Models\Credit;
+use App\Models\Contact;
 use App\Models\EmployeeSetting;
 use Carbon\Carbon;
 
@@ -46,8 +47,9 @@ class LeaveController extends Controller
         $manual = Request::input('manual');
         $hasSetting = $employee_setting->where('contact_id', $employee->id)->first();
 
-        if($employee) { 
+        $user = Contact::find(Request::input('contact_id'));
 
+        if($employee) { 
             Request::validate([
                 'contact_id' => ['required'],
                 'leave_number' => ['required', 'max:50', 'min:4'],
@@ -72,6 +74,7 @@ class LeaveController extends Controller
 
             Leave::create([
                 'contact_id' => Request::input('contact_id'),
+                'user_id' => $user->user_id,
                 'leave_number' => Request::input('leave_number'),
                 'agency' => ucwords(Request::input('agency')),
                 'last_name' => ucwords(Request::input('last_name')),

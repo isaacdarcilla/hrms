@@ -53,7 +53,20 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Leave Number
+              Crediting
+            </th>
+
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Period
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Particulars
             </th>
             <th
               scope="col"
@@ -71,13 +84,19 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Created At
+              Date Processed
             </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Processed By
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Remarks
             </th>
           </tr>
         </thead>
@@ -119,8 +138,38 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
-                  v-if="credit.vacation_leave !== null"
+                  v-if="credit.leave_number === 'add'"
                   class="capitalize font-medium"
+                >
+                  {{ formatDate(credit.created_at) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="credit.leave_number !== 'add'"
+                  class="capitalize font-medium w-48"
+                >
+                  {{ credit.particular }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div
+                  v-if="credit.vacation_leave !== null"
+                  class="capitalize font-medium text-green-800"
                 >
                   {{ credit.vacation_leave }}
                 </div>
@@ -136,7 +185,7 @@
               >
                 <div
                   v-if="credit.sick_leave !== null"
-                  class="capitalize font-medium"
+                  class="capitalize font-medium text-red-800"
                 >
                   {{ credit.sick_leave }}
                 </div>
@@ -164,6 +213,18 @@
               >
                 <div class="capitalize font-medium">
                   {{ credit.user.first_name }} {{ credit.user.last_name }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-1 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="route('credits', employee.id)"
+                class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
+              >
+                <div class="normal-case font-medium w-32">
+                  {{ credit.remarks }}
                 </div>
               </inertia-link>
             </td>
@@ -264,6 +325,11 @@ export default {
     },
     reset() {
       this.form = mapValues(this.form, () => null);
+    },
+    formatDate(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM");
+      }
     },
   },
 };
