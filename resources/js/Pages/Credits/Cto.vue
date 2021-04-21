@@ -172,10 +172,10 @@
       <div class="p-5 bg-white rounded-lg shadow mr-3 mb-6">
         <div class="flex justify-between">
           <div>
-            <div class="font-semibold text-gray-600">Total Vacation Leave</div>
+            <div class="font-semibold text-gray-600">Total CTO Leave</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
-                +{{ round(totals.vacation)
+                +{{ round(totals.cto)
                 }}<span class="text-sm font-normal"> available balance</span>
               </div>
             </div>
@@ -185,10 +185,10 @@
       <div class="p-5 bg-white rounded-lg shadow ml-3 mr-3 mb-6">
         <div class="flex justify-between">
           <div>
-            <div class="font-semibold text-gray-600">Total Sick Leave</div>
+            <div class="font-semibold text-gray-600">Total SPL Leave</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
-                +{{ round(totals.sick)
+                +{{ round(totals.spl)
                 }}<span class="text-sm font-normal"> available balance</span>
               </div>
             </div>
@@ -384,10 +384,10 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
-                  v-if="credit.vacation_leave !== null"
+                  v-if="credit.cto_leave !== null"
                   class="capitalize font-medium text-green-800"
                 >
-                  {{ credit.vacation_leave }}
+                  {{ credit.cto_leave }}
                 </div>
                 <div v-else class="capitalize font-medium">0</div>
               </inertia-link>
@@ -400,10 +400,10 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
-                  v-if="credit.sick_leave !== null"
+                  v-if="credit.spl_leave !== null"
                   class="capitalize font-medium text-red-800"
                 >
-                  {{ credit.sick_leave }}
+                  {{ credit.spl_leave }}
                 </div>
                 <div v-else class="capitalize font-medium">0</div>
               </inertia-link>
@@ -449,9 +449,9 @@
             >
               <span
                 v-if="
-                  credit.vacation_leave === null || credit.sick_leave === null
+                  credit.cto_leave === null || credit.spl_leave === null
                 "
-                @click="check(credit.vacation_leave, credit.sick_leave, credit)"
+                @click="check(credit.cto_leave, credit.spl_leave, credit)"
                 class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >✏️ Edit</span
               >
@@ -500,7 +500,7 @@ import throttle from "lodash/throttle";
 import moment from "moment";
 import Sick from "@/Pages/Credits/Sick";
 import Vacation from "@/Pages/Credits/Vacation";
-import Manual from "@/Pages/Credits/Manual";
+import Manual from "@/Pages/Credits/CtoManual";
 import VueHtml2pdf from "vue-html2pdf";
 
 export default {
@@ -545,7 +545,7 @@ export default {
         let query = pickBy(this.form);
         this.$inertia.replace(
           this.route(
-            "credits",
+            "cto.credits",
             this.employee.id,
             Object.keys(query).length ? query : { remember: "forget" }
           )
@@ -579,7 +579,7 @@ export default {
       }
     },
     total() {
-      return this.round(this.totals.vacation + this.totals.sick);
+      return this.round(this.totals.cto + this.totals.spl);
     },
     format(value) {
       if (value) {

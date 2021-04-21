@@ -416,6 +416,22 @@ Route::get('employee/leave/cto/credits/{contact}', [CtoCreditController::class, 
     ->name('cto.credits')
     ->middleware('auth');
 
+Route::put('employee/spl/credits/{credit}', [CtoCreditController::class, 'update_sick'])
+    ->name('cto.credits.spl.update')
+    ->middleware('auth');
+
+Route::put('employee/cto/credits/{credit}', [CtoCreditController::class, 'update_vacation'])
+    ->name('cto.credits.cto.update')
+    ->middleware('auth');
+
+Route::post('employee/leave/credits/{contact}', [CtoCreditController::class, 'store'])
+    ->name('cto.credits.store')
+    ->middleware('auth');
+
+Route::delete('employee/leave/credits/{id}', [CtoCreditController::class, 'destroy'])
+    ->name('cto.credits.destroy')
+    ->middleware('auth');
+
 // Employees
 
 Route::get('personal/dashboard', [EmployeeController::class, 'index'])
