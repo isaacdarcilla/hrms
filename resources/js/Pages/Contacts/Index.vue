@@ -263,7 +263,7 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <span>👁️‍🗨️ View</span>
+                <span>👁️‍🗨️ View Profile</span>
               </inertia-link>
             </td>
           </tr>
