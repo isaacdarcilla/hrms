@@ -31,7 +31,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Name of Company <span class="text-red-600">*</span></label
+                        >Name of Company
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -49,7 +50,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Position <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Position <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -170,78 +173,25 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Status of Appoinment <span class="text-red-600">*</span></label
+                        >Status of Appoinment
+                        <span class="text-red-600">*</span></label
                       >
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                      <select
                         v-model="form.experiences_status_of_appointment"
-                        value="Job Order"
-                      />
-                      Job Order
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Contractual"
-                      />
-                      Contractual
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Regular"
-                      />
-                      Regular
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Full-time"
-                      />
-                      Full-time
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Part-time"
-                      />
-                      Part-time
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Permanent"
-                      />
-                      Permanent
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Permanent"
-                      />
-                      Permanent
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Temporary"
-                      />
-                      Temporary
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Casual"
-                      />
-                      Casual
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.experiences_status_of_appointment"
-                        value="Contract of Service"
-                      />
-                      Contract of Service
+                        class="form-input block w-full appearance-none"
+                      >
+                        <option disabled selected>Please select status</option>
+                        <option value="Job Order">Job Order</option>
+                        <option value="Contractual">Contractual</option>
+                        <option value="Permanent">Permanent</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Temporary">Temporary</option>
+                        <option value="Contract of Service">
+                          Contract of Service
+                        </option>
+                      </select>
                       <div
                         v-if="
                           $page.errors.experiences_status_of_appointment !==
@@ -262,7 +212,8 @@
                         :labels="{ checked: 'Yes', unchecked: 'No' }"
                         v-model="form.experiences_government"
                       /><span class="mx-2 font-semibold"
-                        >Is this a government service? <span class="text-red-600">*</span></span
+                        >Is this a government service?
+                        <span class="text-red-600">*</span></span
                       >
                       <div
                         v-if="$page.errors.experiences_government !== null"

@@ -45,6 +45,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany(Leave::class);
     }
 
+    public function service_record()
+    {
+        return $this->hasMany(ServiceRecord::class);
+    }
+    
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;

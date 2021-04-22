@@ -27,6 +27,7 @@ use App\Http\Controllers\AdminLeaveController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\CtoCreditController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\ServiceRecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -386,6 +387,16 @@ Route::put('leaves/disapprove/{id}', [AdminLeaveController::class, 'disapprove']
 
 Route::get('leaves/form/{leave}', [AdminLeaveController::class, 'form'])
     ->name('leaves.form')
+    ->middleware('auth');
+
+// Service Record
+
+Route::get('employee/service/record/{contact}', [ServiceRecordController::class, 'index'])
+    ->name('service.record.index')
+    ->middleware('auth');
+
+Route::post('employee/service/record/store', [ServiceRecordController::class, 'store'])
+    ->name('service.record.store')
     ->middleware('auth');
 
 // Credits

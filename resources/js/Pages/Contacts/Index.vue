@@ -265,6 +265,13 @@
               >
                 <span>👁️‍🗨️ View Profile</span>
               </inertia-link>
+              <inertia-link v-if="contact.status_of_appointment == 'Permanent'"
+                class="text-blue-600 hover:text-blue-900"
+                :href="route('service.record.index', contact.id)"
+                tabindex="-1"
+              >
+                <span>⏺️ Service Record</span>
+              </inertia-link>
             </td>
           </tr>
         </tbody>
