@@ -11,7 +11,7 @@
       </button>
       <inertia-link :href="route('cto.credits', employee.id)">
         <button class="text-right btn-indigo rounded-lg">
-          <span>Switch</span>
+          <span>Switch Card</span>
           <span class="hidden md:inline">To CTO & SPL</span>
         </button>
       </inertia-link>

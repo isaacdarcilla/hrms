@@ -54,11 +54,13 @@ class CreditController extends Controller
             'particulars' => ['required'],
         ]);
 
+        $leave = Credit::find($id);
+
         Credit::find($id)->update([
             'sick_leave' => $operator.Request::input('leave_credit'),
             'user_id' => Auth::user()->id,
             'particular' => Request::input('particulars'),
-            'remarks' => Request::input('remarks'),
+            'remarks' => Request::input('remarks') == null ? $leave->remarks : Request::input('remarks'),
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');
@@ -81,11 +83,13 @@ class CreditController extends Controller
             'particulars' => ['required'],
         ]);
 
+        $leave = Credit::find($id);
+
         Credit::find($id)->update([
             'vacation_leave' => $operator.Request::input('leave_credit'),
             'user_id' => Auth::user()->id,
             'particular' => Request::input('particulars'),
-            'remarks' => Request::input('remarks'),
+            'remarks' => Request::input('remarks') == null ? $leave->remarks : Request::input('remarks'),
         ]);
 
         return Redirect::back()->with('success', 'Leave credit updated.');

@@ -2,13 +2,13 @@
   <div>
     <div class="flex justify-between">
       <h1 class="mb-8 font-bold text-3xl">
-        Vacation & Sick Leave Card Credits 🗂️
+        CTO & Solo Parent Leave Card Credits 🗂️
         <!-- Vacation & Sick Leave Card of {{ employee.first_name }} {{ employee.last_name }} 🗂️ -->
       </h1>
-      <inertia-link :href="route('cto.employee.credit', employee.id)">
+      <inertia-link :href="route('employee.credit', employee.id)">
         <button class="text-right btn-indigo rounded-lg">
           <span>Switch Card</span>
-          <span class="hidden md:inline">To CTO & SPL</span>
+          <span class="hidden md:inline">To Vacation & Sick Leave</span>
         </button>
       </inertia-link>
     </div>
@@ -16,11 +16,11 @@
       <div class="p-5 bg-white rounded-lg shadow">
         <div class="flex justify-between">
           <div>
-            <div class="font-semibold text-gray-600">Total Vacation Leave</div>
+            <div class="font-semibold text-gray-600">Total CTO Leave</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
-                +{{ round(totals.vacation)
-                }}<span class="text-sm font-normal"> available</span>
+                +{{ round(totals.cto)
+                }}<span class="text-sm font-normal"> available balance</span>
               </div>
             </div>
           </div>
@@ -29,11 +29,11 @@
       <div class="p-5 bg-white rounded-lg shadow">
         <div class="flex justify-between">
           <div>
-            <div class="font-semibold text-gray-600">Total Sick Leave</div>
+            <div class="font-semibold text-gray-600">Total SPL Leave</div>
             <div class="flex items-center pt-1">
               <div class="text-2xl font-bold text-gray-700">
-                +{{ round(totals.sick)
-                }}<span class="text-sm font-normal"> available</span>
+                +{{ round(totals.spl)
+                }}<span class="text-sm font-normal"> available balance</span>
               </div>
             </div>
           </div>
@@ -81,13 +81,13 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Vacation Leave
+              Compensatory Timeoff Leave
             </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Sick Leave
+              Solo Parent Leave
             </th>
             <th
               scope="col"
@@ -177,10 +177,10 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
-                  v-if="credit.vacation_leave !== null"
+                  v-if="credit.cto_leave !== null"
                   class="capitalize font-medium text-green-800"
                 >
-                  {{ credit.vacation_leave }}
+                  {{ credit.cto_leave }}
                 </div>
                 <div v-else class="capitalize font-medium">0</div>
               </inertia-link>
@@ -193,10 +193,10 @@
                 class="px-6 py-1 whitespace-nowrap text-sm text-gray-900"
               >
                 <div
-                  v-if="credit.sick_leave !== null"
+                  v-if="credit.spl_leave !== null"
                   class="capitalize font-medium text-red-800"
                 >
-                  {{ credit.sick_leave }}
+                  {{ credit.spl_leave }}
                 </div>
                 <div v-else class="capitalize font-medium">0</div>
               </inertia-link>
@@ -325,7 +325,7 @@ export default {
       }
     },
     total() {
-      return this.totals.vacation + this.totals.sick;
+      return this.round(this.totals.cto + this.totals.spl);
     },
     format(value) {
       if (value) {

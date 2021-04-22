@@ -66,6 +66,28 @@ class EmployeeController extends Controller
             return redirect()->route('login.employee');
     }
 
+    public function cto_credit(Contact $contact) {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/Cto', [
+                'filters' => Request::all('search', 'trashed'),
+                'credits' => $contact->ctocredit()
+                    ->with('user')
+                    ->where('year', '=', Carbon::now()->year)
+                    ->orderBy('created_at', 'DESC')
+                    ->filter(Request::only('search', 'trashed'))
+                    ->paginate(),
+                'totals' => [
+                    'cto' => $contact->ctocredit()->sum('cto_leave'),
+                    'spl' => $contact->ctocredit()->sum('spl_leave'),
+                ],
+                'employee' => $employee,
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
+
     public function formEmployee(Leave $leave) {
         $employee =  Auth::guard('employee')->user();
 

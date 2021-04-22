@@ -168,4 +168,68 @@ class CtoCreditController extends Controller
                 break;
         }
     }
+
+    public function update_sick($id) {
+        $request_operator = Request::input('operator');
+        $operator = null;
+
+        if ($request_operator === 'add') {
+            $operator = '+';
+        } elseif ($request_operator === 'minus') {
+            $operator = '-';
+        } else {
+            $operator = '-';
+        }
+
+        Request::validate([
+            'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+            'particulars' => ['required'],
+        ]);
+
+        $leave = CtoCredit::find($id);
+
+        CtoCredit::find($id)->update([
+            'spl_leave' => $operator.Request::input('leave_credit'),
+            'user_id' => Auth::user()->id,
+            'particular' => Request::input('particulars'),
+            'remarks' => Request::input('remarks') == null ? $leave->remarks : Request::input('remarks'),
+        ]);
+
+        return Redirect::back()->with('success', 'Leave credit updated.');
+    }
+
+    public function update_vacation($id) {
+        $request_operator = Request::input('operator');
+        $operator = null;
+
+        if ($request_operator === 'add') {
+            $operator = '+';
+        } elseif ($request_operator === 'minus') {
+            $operator = '-';
+        } else {
+            $operator = '-';
+        }
+
+        Request::validate([
+            'leave_credit' => ['required', 'min:1', 'regex:/^\d+(\.\d{1,4})?$/'],
+            'particulars' => ['required'],
+        ]);
+
+        $leave = CtoCredit::find($id);
+
+        CtoCredit::find($id)->update([
+            'cto_leave' => $operator.Request::input('leave_credit'),
+            'user_id' => Auth::user()->id,
+            'particular' => Request::input('particulars'),
+            'remarks' => Request::input('remarks') == null ? $leave->remarks : Request::input('remarks'),
+        ]);
+
+        return Redirect::back()->with('success', 'Leave credit updated.');
+    }
+
+    public function destroy($id) {
+        CtoCredit::find($id)->delete();
+
+        return Redirect::back()->with('success', 'Leave credit deleted.');
+    }
 }

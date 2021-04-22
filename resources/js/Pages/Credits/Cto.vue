@@ -10,7 +10,7 @@
       </button>
       <inertia-link :href="route('credits', employee.id)">
         <button class="text-right btn-indigo rounded-lg">
-          <span>Switch</span>
+          <span>Switch Card</span>
           <span class="hidden md:inline">To Vacation & Sick</span>
         </button>
       </inertia-link>
@@ -241,13 +241,13 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              CTO Leave
+              Compensatory Timeoff Leave
             </th>
             <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              SPL Leave
+              Solo Parent Leave
             </th>
             <th
               scope="col"
@@ -498,8 +498,8 @@ import pickBy from "lodash/pickBy";
 import SearchFilter from "@/Shared/SearchFilter";
 import throttle from "lodash/throttle";
 import moment from "moment";
-import Sick from "@/Pages/Credits/Sick";
-import Vacation from "@/Pages/Credits/Vacation";
+import Sick from "@/Pages/Credits/SplEdit";
+import Vacation from "@/Pages/Credits/CtoEdit";
 import Manual from "@/Pages/Credits/CtoManual";
 import VueHtml2pdf from "vue-html2pdf";
 
@@ -608,7 +608,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          this.$inertia.delete(this.route("credits.destroy", id));
+          this.$inertia.delete(this.route("cto.credits.destroy", id));
         }
       });
     },

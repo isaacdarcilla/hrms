@@ -474,6 +474,11 @@ Route::get('personal/leave/credits/{contact}', [EmployeeController::class, 'cred
     ->name('employee.credit')
     ->middleware('web', 'employee');
 
+Route::get('personal/leave/cto/credits/{contact}', [EmployeeController::class, 'cto_credit'])
+    ->name('cto.employee.credit')
+    ->middleware('web', 'employee');
+
+
 Route::post('employee/leave/store', [LeaveController::class, 'store'])
     ->name('employee.leave.store')
     ->middleware('web', 'employee');
