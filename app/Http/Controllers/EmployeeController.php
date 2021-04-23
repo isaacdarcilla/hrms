@@ -88,6 +88,23 @@ class EmployeeController extends Controller
             return redirect()->route('login.employee');
     }
 
+    public function service_record(Contact $contact) 
+    {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/ServiceRecord', [
+                'filters' => Request::all('search', 'trashed'),
+                'employee' => $contact,
+                'service_records' => $contact->service_record()->orderBy('created_at', 'DESC')
+                    ->with('contact')
+                    ->with('user')
+                    ->paginate()
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
+
     public function formEmployee(Leave $leave) {
         $employee =  Auth::guard('employee')->user();
 

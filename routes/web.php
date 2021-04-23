@@ -399,6 +399,14 @@ Route::post('employee/service/record/store', [ServiceRecordController::class, 's
     ->name('service.record.store')
     ->middleware('auth');
 
+Route::put('employee/service/record/{id}/update', [ServiceRecordController::class, 'update'])
+    ->name('service.record.update')
+    ->middleware('auth');
+
+Route::delete('employee/service/record/delete/{id}', [ServiceRecordController::class, 'destroy'])
+    ->name('service.record.destroy')
+    ->middleware('auth');
+
 // Credits
 
 Route::get('employee/leave/credits/{contact}', [CreditController::class, 'index'])
@@ -459,6 +467,10 @@ Route::get('personal/leave', [LeaveController::class, 'index'])
 
 Route::get('personal/inquiry', [InquiryController::class, 'index'])
     ->name('employee.inquiry')
+    ->middleware('web', 'employee');
+
+Route::get('personal/service/record/{contact}', [EmployeeController::class, 'service_record'])
+    ->name('employee.service.record')
     ->middleware('web', 'employee');
 
 Route::get('personal/leaves/form/{leave}/view', [EmployeeController::class, 'formEmployee'])

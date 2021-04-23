@@ -63,6 +63,7 @@
                   Sponsored By
                 </th>
                 <th
+                  v-if="$page.employee.user !== null"
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
@@ -111,8 +112,11 @@
                     {{ t.trainings_sponsored_by }}
                   </div>
                 </td>
-                <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
-                  <span 
+                <td
+                  v-if="$page.employee.user !== null"
+                  class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                >
+                  <span
                     @click="showTrainingEditModal(t)"
                     class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                     >✏️ Edit</span
@@ -156,9 +160,9 @@ import TrainingEditModal from "@/Shared/Modals/TrainingEditModal.vue";
 import moment from "moment";
 
 export default {
-  components: { 
+  components: {
     TrainingAddModal,
-    TrainingEditModal
+    TrainingEditModal,
   },
   inject: ["employeeId"],
   props: {

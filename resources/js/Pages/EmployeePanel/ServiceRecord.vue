@@ -4,10 +4,6 @@
       Service Record of {{ employee.first_name }} {{ employee.last_name }} 🗂️
     </h1>
     <div class="mb-6 flex items-center justify-between">
-      <button @click="showCreate = true" class="btn-indigo rounded-lg">
-        <span>➕ Create</span>
-        <span class="hidden md:inline">Record</span>
-      </button>
       <button class="btn-indigo rounded-lg">
         <span>🖨️ Print</span>
         <span class="hidden md:inline">Service Record</span>
@@ -90,12 +86,6 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Processed By
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Action
             </th>
           </tr>
         </thead>
@@ -249,28 +239,6 @@
                 </div>
               </inertia-link>
             </td>
-            <td
-              class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
-            >
-              <span
-                v-if="!service.deleted_at"
-                @click="showEditModal(service)"
-                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
-                >✏️ Edit</span
-              >
-              <span
-                @click="destroy(service.id)"
-                v-if="!service.deleted_at"
-                class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
-                >🗑️ Delete</span
-              >
-              <span
-                v-else
-                @click="restore(service.id)"
-                class="text-yellow-600 inline-flex mt-2 cursor-pointer hover:text-yellow-900"
-                >♻️ Restore</span
-              >
-            </td>
           </tr>
         </tbody>
         <tr v-if="service_records.data.length === 0">
@@ -280,22 +248,12 @@
         </tr>
       </table>
     </div>
-    <create
-      :showing="showCreate"
-      :employee="employee"
-      :modal.sync="showCreate"
-    ></create>
-    <edit
-      :showing="showEdit"
-      :service="service"
-      :modal.sync="showEdit"
-    ></edit>
   </div>
 </template>
 
 <script>
 import Icon from "@/Shared/Icon";
-import Layout from "@/Shared/Layout";
+import Layout from "@/Pages/EmployeePanel/Layout";
 import mapValues from "lodash/mapValues";
 import Pagination from "@/Shared/Pagination";
 import pickBy from "lodash/pickBy";

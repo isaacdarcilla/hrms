@@ -30,6 +30,7 @@
                     Skill and Hobbies
                   </th>
                   <th
+                    v-if="$page.employee.user !== null"
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
@@ -48,7 +49,10 @@
                       {{ skill.skills_name }}
                     </div>
                   </td>
-                  <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+                  <td
+                    v-if="$page.employee.user !== null"
+                    class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                  >
                     <span
                       @click="showEditSkillModal(skill)"
                       class="text-indigo-600 cursor-pointer hover:text-indigo-900"
@@ -105,6 +109,7 @@
                     Recognition
                   </th>
                   <th
+                    v-if="$page.employee.user !== null"
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
@@ -123,7 +128,10 @@
                       {{ recognition.recognitions_name }}
                     </div>
                   </td>
-                  <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+                  <td
+                    v-if="$page.employee.user !== null"
+                    class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                  >
                     <span
                       @click="showEditRecognitionModal(recognition)"
                       class="text-indigo-600 cursor-pointer hover:text-indigo-900"
@@ -185,6 +193,7 @@
                     Organization
                   </th>
                   <th
+                    v-if="$page.employee.user !== null"
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
@@ -203,7 +212,10 @@
                       {{ membership.memberships_name }}
                     </div>
                   </td>
-                  <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+                  <td
+                    v-if="$page.employee.user !== null"
+                    class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                  >
                     <span
                       @click="showEditMembershipModal(membership)"
                       class="text-indigo-600 cursor-pointer hover:text-indigo-900"

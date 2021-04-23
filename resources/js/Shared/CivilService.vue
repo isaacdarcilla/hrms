@@ -57,6 +57,7 @@
                   License Expiration
                 </th>
                 <th
+                  v-if="$page.employee.user !== null"
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
@@ -118,7 +119,10 @@
                     No data available
                   </div>
                 </td>
-                <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+                <td
+                  v-if="$page.employee.user !== null"
+                  class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                >
                   <span
                     @click="showEditEligibilityModal(eligibility)"
                     class="text-indigo-600 cursor-pointer hover:text-indigo-900"
