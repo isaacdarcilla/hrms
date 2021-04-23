@@ -15,6 +15,7 @@ use App\Http\Controllers\Employee\VolunteerController;
 use App\Http\Controllers\Employee\FamilyController;
 use App\Http\Controllers\Employee\TrainingController;
 use App\Http\Controllers\Employee\OtherInformationController;
+use App\Http\Controllers\Employee\CharacterController;
 use App\Http\Controllers\Employee\DocumentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\JobController;
@@ -217,6 +218,17 @@ Route::put('training/{training}', [TrainingController::class, 'update'])
 
 Route::delete('training/{training}', [TrainingController::class, 'destroy'])
     ->name('training.destroy');
+
+// Reference
+
+Route::post('reference', [CharacterController::class, 'store'])
+    ->name('reference.store');
+
+Route::put('reference/{reference}', [CharacterController::class, 'update'])
+    ->name('reference.update');
+
+Route::delete('reference/{reference}', [CharacterController::class, 'destroy'])
+    ->name('reference.destroy');
 
 // Skill
 

@@ -104,6 +104,11 @@ class Contact extends Model implements AuthenticatableContract, AuthorizableCont
         return $this->hasMany(ServiceRecord::class);
     }
 
+    public function reference()
+    {
+        return $this->hasMany(Reference::class);
+    }
+
     public function ctocredit()
     {
         return $this->hasMany(CtoCredit::class);

@@ -220,6 +220,13 @@
       class="flex"
     ></other-informations>
 
+    <CharacterAndId
+      :references="references"
+      :memberships="memberships"
+      :recognitions="recognitions"
+      class="flex"
+    ></CharacterAndId>
+
     <document-add-modal
       :showing="showDocument"
       :employee="contact"
@@ -245,6 +252,7 @@ import PersonalInformation from "@/Shared/PersonalInformation.vue";
 import FamilyBackground from "@/Shared/FamilyBackground.vue";
 import Childrens from "@/Shared/Childrens.vue";
 import DocumentAddModal from "@/Shared/Modals/DocumentAddModal.vue";
+import CharacterAndId from "@/Shared/CharacterAndId.vue";
 import moment from "moment";
 
 export default {
@@ -270,6 +278,7 @@ export default {
     FamilyBackground,
     Childrens,
     DocumentAddModal,
+    CharacterAndId,
   },
   provide() {
     return { employeeId: this.contact, familyObject: this.family };
@@ -289,6 +298,7 @@ export default {
     family: Object,
     childrens: Array,
     documents: Array,
+    references: Array, 
   },
   remember: "form",
   data() {

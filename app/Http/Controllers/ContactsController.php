@@ -188,6 +188,8 @@ class ContactsController extends Controller
                 ->get(),
             'documents' => $contact->documents()
                 ->get(),
+            'references' => $contact->reference()
+                ->get(),
         ]);
     }
 
