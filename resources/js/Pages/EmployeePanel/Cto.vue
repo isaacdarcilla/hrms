@@ -8,7 +8,7 @@
       <inertia-link :href="route('employee.credit', employee.id)">
         <button class="text-right btn-indigo rounded-lg">
           <span>Switch Card</span>
-          <span class="hidden md:inline">To Vacation & Sick Leave</span>
+          <span class="hidden md:inline">To Vacation & Sick</span>
         </button>
       </inertia-link>
     </div>

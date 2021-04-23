@@ -209,6 +209,10 @@ class EmployeeController extends Controller
                     ->orderBy('created_at', 'DESC')->get(),
                 'documents' => $contact->documents()
                     ->orderBy('created_at', 'DESC')->get(),
+                'references' => $contact->reference()
+                    ->orderBy('created_at', 'DESC')->get(),
+                'governments' => $contact->government()
+                    ->orderBy('created_at', 'DESC')->get(),
 
             ]);
         else

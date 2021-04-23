@@ -227,6 +227,12 @@
         :modal.sync="showDocument"
       ></document-add-modal>
 
+      <CharacterAndId
+        :references="references"
+        :governments="governments"
+        class="flex"
+      ></CharacterAndId>
+
       <password
         :showing="showPassword"
         :employee="contact"
@@ -254,6 +260,7 @@ import PersonalInformation from "@/Shared/PersonalInformation.vue";
 import FamilyBackground from "@/Shared/FamilyBackground.vue";
 import Childrens from "@/Shared/Childrens.vue";
 import DocumentAddModal from "@/Shared/Modals/DocumentAddModal.vue";
+import CharacterAndId from "@/Shared/CharacterAndId.vue";
 
 export default {
   metaInfo: { title: "Profile" },
@@ -275,6 +282,7 @@ export default {
     Childrens,
     DocumentAddModal,
     Password,
+    CharacterAndId,
   },
   props: {
     notices: Array,
@@ -292,6 +300,8 @@ export default {
     family: Object,
     childrens: Array,
     documents: Array,
+    governments: Array,
+    references: Array,
   },
 
   remember: "form",
@@ -403,6 +413,11 @@ export default {
           this.$inertia.delete(this.route("document.destroy", id));
         }
       });
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
     },
   },
 };

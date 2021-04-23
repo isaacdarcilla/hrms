@@ -13,6 +13,7 @@
                 😄 Character References
               </h5>
               <button
+                v-if="$page.employee.user !== null"
                 @click="showSkillModal"
                 class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
@@ -41,6 +42,7 @@
                     Telephone
                   </th>
                   <th
+                    v-if="$page.employee.user !== null"
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
@@ -69,7 +71,10 @@
                       {{ reference.telephone_number }}
                     </div>
                   </td>
-                  <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+                  <td
+                    v-if="$page.employee.user !== null"
+                    class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                  >
                     <span
                       @click="showEditSkillModal(reference)"
                       class="text-indigo-600 cursor-pointer hover:text-indigo-900"
@@ -109,7 +114,7 @@
                 💳 Government Issued ID
               </h5>
               <button
-                v-if="governments.length <= 0"
+                v-if="governments.length <= 0 && $page.employee.user !== null"
                 @click="showRecognitionModal"
                 class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
@@ -144,6 +149,7 @@
                     Place of Issuance
                   </th>
                   <th
+                    v-if="$page.employee.user !== null"
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
@@ -177,7 +183,10 @@
                       {{ government.place_of_issuance }}
                     </div>
                   </td>
-                  <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
+                  <td
+                    v-if="$page.employee.user !== null"
+                    class="px-1 py-4 whitespace-nowrap text-sm font-medium"
+                  >
                     <span
                       @click="showEditRecognitionModal(government)"
                       class="text-indigo-600 cursor-pointer hover:text-indigo-900"
