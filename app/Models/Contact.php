@@ -109,6 +109,11 @@ class Contact extends Model implements AuthenticatableContract, AuthorizableCont
         return $this->hasMany(Reference::class);
     }
 
+    public function government()
+    {
+        return $this->hasMany(GovernmentId::class);
+    }
+
     public function ctocredit()
     {
         return $this->hasMany(CtoCredit::class);

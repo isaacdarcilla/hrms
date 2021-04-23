@@ -222,8 +222,7 @@
 
     <CharacterAndId
       :references="references"
-      :memberships="memberships"
-      :recognitions="recognitions"
+      :governments="governments"
       class="flex"
     ></CharacterAndId>
 
@@ -298,7 +297,8 @@ export default {
     family: Object,
     childrens: Array,
     documents: Array,
-    references: Array, 
+    references: Array,
+    governments: Array,
   },
   remember: "form",
   data() {

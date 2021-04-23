@@ -109,6 +109,7 @@
                 💳 Government Issued ID
               </h5>
               <button
+                v-if="governments.length <= 0"
                 @click="showRecognitionModal"
                 class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
               >
@@ -153,27 +154,40 @@
               <tbody class="bg-white divide-y divide-gray-200">
                 <tr
                   class="transition-all hover:bg-gray-100 hover:shadow-lg"
-                  v-for="recognition in recognitions"
-                  :key="recognition.id"
+                  v-for="government in governments"
+                  :key="government.id"
                 >
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <div class="text-sm text-gray-900 capitalize">
-                      {{ recognition.recognitions_name }}
+                      {{ government.government_issued_id }}
                     </div>
                   </td>
-                  <td
-                    class="px-1 py-4 whitespace-nowrap text-sm font-medium"
-                  >
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900 capitalize">
+                      {{ government.id_number }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900 capitalize">
+                      {{ format(government.date_of_issuance) }}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="text-sm text-gray-900 capitalize">
+                      {{ government.place_of_issuance }}
+                    </div>
+                  </td>
+                  <td class="px-1 py-4 whitespace-nowrap text-sm font-medium">
                     <span
-                      @click="showEditRecognitionModal(recognition)"
+                      @click="showEditRecognitionModal(government)"
                       class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                       >✏️ Edit</span
                     >
                     <span
                       @click="
                         destroyRecognition(
-                          recognition.id,
-                          recognition.recognitions_name
+                          government.id,
+                          government.government_issued_id
                         )
                       "
                       class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
@@ -181,12 +195,12 @@
                     >
                   </td>
                 </tr>
-                <tr v-if="recognitions.length === 0">
+                <tr v-if="governments.length === 0">
                   <td
                     class="border-t px-6 text-red-500 text-sm py-4 font-bold"
                     colspan="4"
                   >
-                    ☹️ No recognitions added.
+                    ☹️ No government issued ID added.
                   </td>
                 </tr>
               </tbody>
@@ -200,43 +214,60 @@
       :employee="employeeId"
       :modal.sync="showSkill"
     ></CharacterAddModal>
-    <skill-edit-modal
+    <CharacterEditModal
       :showing="showEditSkill"
       :employee="employeeId"
-      :skill="skill"
+      :reference="reference"
       :modal.sync="showEditSkill"
-    ></skill-edit-modal>
+    ></CharacterEditModal>
+    <GovermentAddModal
+      :showing="showRecognition"
+      :employee="employeeId"
+      :modal.sync="showRecognition"
+    ></GovermentAddModal>
+    <GovernmentEditModal
+      :showing="showEditRecognition"
+      :employee="employeeId"
+      :government="government"
+      :modal.sync="showEditRecognition"
+    ></GovernmentEditModal>
   </div>
 </template>
 <script>
 import CharacterAddModal from "@/Shared/Modals/CharacterAddModal.vue";
-import SkillEditModal from "@/Shared/Modals/SkillEditModal.vue";
-import RecognitionAddModal from "@/Shared/Modals/RecognitionAddModal.vue";
-import RecognitionEditModal from "@/Shared/Modals/RecognitionEditModal.vue";
+import CharacterEditModal from "@/Shared/Modals/CharacterEditModal.vue";
+import GovermentAddModal from "@/Shared/Modals/GovermentAddModal.vue";
+import GovernmentEditModal from "@/Shared/Modals/GovernmentEditModal.vue";
+import moment from "moment";
 
 export default {
   components: {
     CharacterAddModal,
-    SkillEditModal,
-    RecognitionAddModal,
-    RecognitionEditModal,
+    CharacterEditModal,
+    GovermentAddModal,
+    GovernmentEditModal,
   },
   inject: ["employeeId"],
   props: {
     references: Array,
-    recognitions: Array,
+    governments: Array,
   },
   data() {
     return {
-      skill: null,
+      reference: null,
       showSkill: false,
       showEditSkill: false,
-      recognition: null,
+      government: null,
       showRecognition: false,
       showEditRecognition: false,
     };
   },
   methods: {
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
     showSkillModal() {
       this.showSkill = true;
     },
@@ -244,11 +275,11 @@ export default {
       this.showRecognition = true;
     },
     showEditSkillModal(item) {
-      this.skill = item;
+      this.reference = item;
       this.showEditSkill = true;
     },
     showEditRecognitionModal(item) {
-      this.recognition = item;
+      this.government = item;
       this.showEditRecognition = true;
     },
     destroySkill(id, name) {
@@ -259,7 +290,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          this.$inertia.delete(this.route("skill.destroy", id));
+          this.$inertia.delete(this.route("reference.destroy", id));
         }
       });
     },
@@ -271,7 +302,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          this.$inertia.delete(this.route("recognition.destroy", id));
+          this.$inertia.delete(this.route("ids.destroy", id));
         }
       });
     },

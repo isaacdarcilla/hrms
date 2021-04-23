@@ -190,6 +190,8 @@ class ContactsController extends Controller
                 ->get(),
             'references' => $contact->reference()
                 ->get(),
+            'governments' => $contact->government()
+                ->get(),
         ]);
     }
 

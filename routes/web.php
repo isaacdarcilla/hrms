@@ -230,6 +230,17 @@ Route::put('reference/{reference}', [CharacterController::class, 'update'])
 Route::delete('reference/{reference}', [CharacterController::class, 'destroy'])
     ->name('reference.destroy');
 
+// IDs
+
+Route::post('ids', [CharacterController::class, 'store_ids'])
+    ->name('ids.store');
+
+Route::put('ids/{ids}', [CharacterController::class, 'update_ids'])
+    ->name('ids.update');
+
+Route::delete('ids/{ids}', [CharacterController::class, 'destroy_ids'])
+    ->name('ids.destroy');
+
 // Skill
 
 Route::post('skill', [OtherInformationController::class, 'store'])
