@@ -223,7 +223,8 @@
                 v-if="
                   leave.recommendation === null &&
                   leave.approved_for === null &&
-                  leave.disapproved_due_to === null
+                  leave.disapproved_due_to === null &&
+                  $page.auth.user.can_approve === '1'
                 "
               >
                 <span
@@ -237,7 +238,7 @@
                   >🚫 Disapprove</span
                 >
               </div>
-              <div v-else>
+              <div  v-else-if="$page.auth.user.can_approve !== '1'">
                 <!-- <inertia-link
                   :href="route('leaves.form', leave.id)"
                   class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"

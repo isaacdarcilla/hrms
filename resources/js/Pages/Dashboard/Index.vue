@@ -10,7 +10,12 @@
         <div class="pb-4 text-gray text-sm font-medium">
           {{ format(notices[0].created_at) }} • {{ notices[0].notice_type }} •
           {{ notices[0].notice_subject }} •
-          {{ notices[0].notice_description }}
+          {{ notices[0].notice_description }} •
+          <a
+            :href="`/storage/` + notices[0].file"
+            class="text-blue-600 cursor-pointer"
+            >Download Attachment</a
+          >
         </div>
       </div>
       <button type="button" class="group mr-2 pb-4">

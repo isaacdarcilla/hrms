@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mb-4">
+    <div v-if="$page.auth.user.can_approve !== '1'" class="mb-4">
       <inertia-link
         class="flex items-center group py-3"
         :href="route('dashboard')"
@@ -20,7 +20,7 @@
         </div>
       </inertia-link>
     </div>
-    <div class="mb-4">
+    <div v-if="$page.auth.user.can_approve !== '1'" class="mb-4">
       <inertia-link
         class="flex items-center group py-3"
         :href="route('employees')"
@@ -36,7 +36,7 @@
         </div>
       </inertia-link>
     </div>
-    <div class="mb-4">
+    <div v-if="$page.auth.user.can_approve !== '1'" class="mb-4">
       <inertia-link class="flex items-center group py-3" :href="route('jobs')">
         <div
           :class="
@@ -65,7 +65,7 @@
         </div>
       </inertia-link>
     </div> -->
-    <div class="mb-4">
+    <div v-if="$page.auth.user.can_approve !== '1'" class="mb-4">
       <inertia-link
         class="flex items-center group py-3"
         :href="route('notices')"
@@ -101,7 +101,7 @@
         </div>
       </inertia-link>
     </div>
-    <div class="mb-4">
+    <div v-if="$page.auth.user.can_approve !== '1'" class="mb-4">
       <inertia-link class="flex items-center group py-3" :href="route('users')">
         <div
           :class="

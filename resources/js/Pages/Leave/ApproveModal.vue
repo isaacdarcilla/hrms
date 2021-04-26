@@ -25,9 +25,10 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Approve Leave Application No. #{{ id.leave_number }}</label
+                        >Approve Leave Application</label
                       >
-                      <input
+                      <h2>Are you sure yu want to approve leave application no. #{{ id.leave_number }}?</h2>
+                      <!-- <input
                         autofocus="true"
                         class="form-input block w-full"
                         placeholder="Enter the number of leave credits to be subtracted"
@@ -38,7 +39,7 @@
                         class="form-error"
                       >
                         {{ $page.errors.credit_to_be_subtracted }}
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </form>

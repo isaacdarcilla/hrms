@@ -103,6 +103,7 @@
                 </div>
 
                 <inertia-link
+                  v-if="$page.auth.user.can_approve !== '1'"
                   class="block px-6 py-2 hover:bg-indigo-500 font-bold hover:text-white"
                   :href="route('users')"
                   >Manage Staffs</inertia-link
@@ -180,8 +181,8 @@ export default {
     };
   },
   created() {
-    window.addEventListener('keydown', (e) => {
-      if (e.key == 'Escape') {
+    window.addEventListener("keydown", (e) => {
+      if (e.key == "Escape") {
         this.showOffline = false;
       }
     });
