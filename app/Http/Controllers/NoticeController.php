@@ -45,13 +45,21 @@ class NoticeController extends Controller
      */
     public function store(Notice $notice)
     {
-        $notice->create(
-            Request::validate([
-                'notice_type' => ['required', 'max:255', 'min:2'],
-                'notice_subject' => ['required', 'max:255', 'min:2'],
-                'notice_description' => ['required', 'min:12', 'max:255'],
-            ])
-        );
+
+        Request::validate([
+            'notice_type' => ['required', 'max:255', 'min:2'],
+            'notice_subject' => ['required', 'max:255', 'min:2'],
+            'notice_description' => ['required', 'min:12', 'max:255'],
+            'file' => ['required', 'mimes:pdf,docx,doc', 'max:10240'],
+        ]);
+
+        $notice->create([
+            'notice_type' => Request::input('notice_type'),
+            'notice_subject' => Request::input('notice_subject'),
+            'notice_description' => Request::input('notice_description'),
+            'file_name' => Request::input('file_name'),
+            'file' => Request::file('file') ? Request::file('file')->store('notice', 'public') : null,
+        ]);
 
         return Redirect::back()->with('success', 'Notice added.');
     }
@@ -85,15 +93,22 @@ class NoticeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        Notice::where('id', $id)->update(
-            Request::validate([
-                'notice_type' => ['required', 'max:255', 'min:2'],
-                'notice_subject' => ['required', 'max:255', 'min:2'],
-                'notice_description' => ['required', 'min:12', 'max:255'],
-            ])
-        );
+        Request::validate([
+            'notice_type' => ['required', 'max:255', 'min:2'],
+            'notice_subject' => ['required', 'max:255', 'min:2'],
+            'notice_description' => ['required', 'min:12', 'max:255'],
+            'file' => ['required', 'mimes:pdf,docx,doc', 'max:10240'],
+        ]);
+
+        Notice::where('id', $id)->update([
+            'notice_type' => Request::input('notice_type'),
+            'notice_subject' => Request::input('notice_subject'),
+            'notice_description' => Request::input('notice_description'),
+            'file_name' => Request::input('file_name'),
+            'file' => Request::file('file') ? Request::file('file')->store('notice', 'public') : null,
+        ]);
 
         return Redirect::back()->with('success', 'Notice updated.');
     }

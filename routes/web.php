@@ -376,7 +376,7 @@ Route::get('notices', [NoticeController::class, 'index'])
     ->name('notices')
     ->middleware('auth');
 
-Route::post('notices', [NoticeController::class, 'store'])
+Route::put('notices', [NoticeController::class, 'store'])
     ->name('notices.store')
     ->middleware('auth');
 
