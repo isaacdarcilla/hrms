@@ -3,11 +3,25 @@
     <div class="flex justify-between">
       <h1 class="mb-8 font-bold text-3xl">Leave Form No. 6 📂</h1>
       <button
+        v-if="enable_print"
         @click="printPdf()"
         class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
-        <span>🖨️ Generate</span>
+        <span>🖨️ Print Form</span>
       </button>
+    </div>
+    <div class="pt-3 mx-auto">
+      <label class="form-label font-bold"
+        >Select VP Name first <span class="text-red-600">*</span></label
+      >
+      <select
+        v-model="vp_name"
+        class="form-input w-full mx-auto appearance-none"
+      >
+        <option disabled selected>Please VP name</option>
+        <option value="1">Ma. Theresa E. Sarmiento, MBA</option>
+        <option value="2">Juan Dela Cruz, MBA</option>
+      </select>
     </div>
     <vue-html2pdf
       :show-layout="true"
@@ -700,15 +714,17 @@
               <div class="w-full">
                 <div class="h-32 border-b-one border-black">
                   <div
-                    class="text-sm mx-64 mt-12 text-center uppercase font-semibold border-b-one border-black"
+                    class="text-sm mx-64 mt-12 text-center normal-case font-semibold border-b-one border-black"
                   >
-                    {{ hr.leave_vp_approving_name }}
+                    <!-- {{ hr.leave_vp_approving_name }} -->
+                    {{ set_vp_name }}
                   </div>
                   <div class="text-sm text-center mx-12">(Signature)</div>
                   <div
-                    class="text-sm mx-64 mt-3 text-center uppercase border-b-one border-black"
+                    class="text-sm mx-64 mt-3 text-center normal-case border-b-one border-black"
                   >
-                    {{ hr.leave_vp_approving_position }}
+                    <!-- {{ hr.leave_vp_approving_position }} -->
+                    {{ set_vp_position }}
                   </div>
                   <div class="text-sm text-center mx-12">(Position)</div>
                 </div>
@@ -757,7 +773,26 @@ export default {
   data() {
     return {
       filename: `${this.leave.first_name} ${this.leave.last_name} - ${this.leave.leave_number} - Leave Form`,
+      vp_name: null,
+      set_vp_name: null,
+      set_vp_position: null,
+      enable_print: false,
     };
+  },
+  watch: {
+    vp_name(e) {
+      if (e === "1") {
+        this.set_vp_name = "Ma. Theresa E. Sarmiento, MBA";
+        this.set_vp_position = "VP-Administrative and Financial Affairs";
+        this.enable_print = true;
+      }
+
+      if (e === "2") {
+        this.set_vp_name = "Juan Dela Cruz, PHD";
+        this.set_vp_position = "VP-Administrative and Support Affairs";
+        this.enable_print = true;
+      }
+    },
   },
   methods: {
     total() {
