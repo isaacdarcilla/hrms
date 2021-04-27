@@ -50,6 +50,12 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
+              Designation
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
               Phone
             </th>
             <th
@@ -148,6 +154,22 @@
               >
                 <div class="capitalize" v-if="contact.position !== null">
                   {{ contact.position }}
+                </div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('employees.edit', contact.id)"
+                tabindex="-1"
+              >
+                <div class="capitalize" v-if="contact.designation !== null">
+                  {{ contact.designation }}
                 </div>
                 <div v-else class="text-sm text-gray-500">
                   No data available

@@ -53,11 +53,12 @@
                       <label class="form-label font-bold"
                         >Position <span class="text-red-600">*</span></label
                       >
-                      <input
-                        autofocus="true"
+                      <v-selectize
                         class="form-input block w-full"
-                        :placeholder="experience.experiences_position"
+                        :options="options"
+                        :limit="10"
                         v-model="form.experiences_position"
+                        placeholder="Type and select a position"
                       />
                       <div
                         v-if="$page.errors.experiences_position !== null"
@@ -258,11 +259,14 @@
 <script>
 import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
+import VSelectize from "@isneezy/vue-selectize";
 import moment from "moment";
+import jobs from "./jobs.json";
 
 export default {
   components: {
     ToggleButton,
+    VSelectize,
   },
   props: {
     modal: {
@@ -275,9 +279,11 @@ export default {
   },
   inject: ["employeeId"],
   directives: { mask },
+  name: "single-item-select",
   data() {
     return {
       sending: false,
+      options: jobs,
       form: {
         experiences_from: null,
         experiences_to: null,

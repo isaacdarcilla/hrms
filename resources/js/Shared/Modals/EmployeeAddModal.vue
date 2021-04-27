@@ -38,7 +38,9 @@
                 <form class="w-full max-w-lg pr-4 pt-5">
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Last Name <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Last Name <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -55,7 +57,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">First Name <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >First Name <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -73,7 +77,9 @@
 
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Middle Name <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Middle Name <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -110,7 +116,10 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Email Address <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Email Address
+                        <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -127,7 +136,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Phone <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Phone <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -166,7 +177,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Department <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Department <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -183,12 +196,21 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Position <span class="text-red-600">*</span></label>
-                      <input
+                      <label class="form-label font-bold"
+                        >Position <span class="text-red-600">*</span></label
+                      >
+                      <!-- <input
                         autofocus="true"
                         class="form-input block w-full"
                         placeholder="Enter position"
                         v-model="form.position"
+                      /> -->
+                      <v-selectize
+                        class="form-input block w-full"
+                        :options="options"
+                        :limit="10"
+                        v-model="form.position"
+                        placeholder="Type and select a position"
                       />
                       <div
                         v-if="$page.errors.position !== null"
@@ -200,7 +222,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Designation <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Designation <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -218,7 +242,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Status of Appoinment <span class="text-red-600">*</span></label
+                        >Status of Appoinment
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         type="radio"
@@ -258,7 +283,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold mb-4">Sex <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold mb-4"
+                        >Sex <span class="text-red-600">*</span></label
+                      >
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -281,7 +308,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Height in Centimeters <span class="text-red-600">*</span></label
+                        >Height in Centimeters
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -300,7 +328,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Weight in Kilograms <span class="text-red-600">*</span></label
+                        >Weight in Kilograms
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -318,7 +347,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Blood Type <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Blood Type <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -507,7 +538,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Birth Date <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Birth Date <span class="text-red-600">*</span></label
+                      >
                       <v-date-picker v-model="form.birth_date">
                         <template v-slot="{ inputValue, togglePopover }">
                           <div class="flex items-center">
@@ -531,7 +564,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Birth Place <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Birth Place <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -548,7 +583,9 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Citizenship <span class="text-red-600">*</span></label>
+                      <label class="form-label font-bold"
+                        >Citizenship <span class="text-red-600">*</span></label
+                      >
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -582,7 +619,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Block Address <span class="text-red-600">*</span></label
+                        >Residential Block Address
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -601,7 +639,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Street Address <span class="text-red-600">*</span></label
+                        >Residential Street Address
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -640,7 +679,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Barangay Address <span class="text-red-600">*</span></label
+                        >Residential Barangay Address
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -659,7 +699,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Municipality Address <span class="text-red-600">*</span></label
+                        >Residential Municipality Address
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -678,7 +719,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Province Address <span class="text-red-600">*</span></label
+                        >Residential Province Address
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -697,7 +739,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Residential Zip Code Address <span class="text-red-600">*</span></label
+                        >Residential Zip Code Address
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -718,7 +761,8 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Block Address <span class="text-red-600">*</span></label
+                          >Permanent Block Address
+                          <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -737,7 +781,8 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Street Address <span class="text-red-600">*</span></label
+                          >Permanent Street Address
+                          <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -776,7 +821,8 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Barangay Address <span class="text-red-600">*</span></label
+                          >Permanent Barangay Address
+                          <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -795,7 +841,8 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Municipality Address <span class="text-red-600">*</span></label
+                          >Permanent Municipality Address
+                          <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -814,7 +861,8 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Province Address <span class="text-red-600">*</span></label
+                          >Permanent Province Address
+                          <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -833,7 +881,8 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full px-3">
                         <label class="form-label font-bold"
-                          >Permanent Zip Code Address <span class="text-red-600">*</span></label
+                          >Permanent Zip Code Address
+                          <span class="text-red-600">*</span></label
                         >
                         <input
                           autofocus="true"
@@ -902,8 +951,13 @@
 <script>
 import { mask } from "vue-the-mask";
 import moment from "moment";
+import VSelectize from "@isneezy/vue-selectize";
+import jobs from "./jobs.json";
 
 export default {
+  components: {
+    VSelectize,
+  },
   props: {
     modal: {
       default: false,
@@ -919,11 +973,13 @@ export default {
       this.$emit("input", checked);
     },
   },
+  name: "single-item-select",
   data() {
     return {
       checked: null,
       sending: false,
       other: false,
+      options: jobs,
       form: {
         first_name: null,
         middle_name: null,
