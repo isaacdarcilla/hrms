@@ -30,6 +30,7 @@ use App\Http\Controllers\CtoCreditController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ServiceRecordController;
 use App\Http\Controllers\IpcrOpcrController;
+use App\Http\Controllers\AdminIpcrOpcrController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -110,6 +111,12 @@ Route::delete('users/{user}', [UsersController::class, 'destroy'])
 Route::put('users/{user}/restore', [UsersController::class, 'restore'])
     ->name('users.restore')
     ->middleware('auth');
+
+// IPCR
+
+Route::get('ipcr/opcr', [AdminIpcrOpcrController::class, 'index'])
+    ->name('ipcr.index')
+    ->middleware('remember', 'auth');
 
 // Employees
 

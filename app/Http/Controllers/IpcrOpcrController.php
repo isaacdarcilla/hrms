@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Notification;
 use App\Models\IpcrOpcr;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
@@ -36,6 +37,11 @@ class IpcrOpcrController extends Controller
             'type' => $request->input('type'),
             'file_name' => $request->input('name'),
             'file_path' => $request->file('file_name') ? $request->file('file_name')->store('ipcr_opcr', 'public') : null,
+        ]);
+
+        Notification::create([
+            'contact_id' => $request->input('contact_id'),
+            'notification' => 'added IPCR/OPCR document.',
         ]);
 
         return Redirect::back()->with('success', $request->input('type').' uploaded.');
