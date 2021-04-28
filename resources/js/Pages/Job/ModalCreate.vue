@@ -31,7 +31,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Plantilla Item Number</label
+                        >Plantilla Item Number
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -50,7 +51,10 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Position Title</label>
+                      <label class="form-label font-bold"
+                        >Position Title
+                        <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -68,7 +72,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Place of Designation</label
+                        >Place of Designation
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -87,7 +92,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Salary/Pay Grade</label
+                        >Salary/Pay Grade
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -105,7 +111,10 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Monthly Salary</label>
+                      <label class="form-label font-bold"
+                        >Monthly Salary
+                        <span class="text-red-600">*</span></label
+                      >
                       <input
                         autofocus="true"
                         class="form-input block w-full"
@@ -123,7 +132,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Education as Qualification</label
+                        >Education as Qualification
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -203,7 +213,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Preferred Qualification
-                        <span class="font-medium">&nbsp;</span></label
+                        <span class="text-red-600">*</span></label
                       >
                       <textarea
                         autofocus="true"
@@ -222,7 +232,10 @@
                   </div>
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold">Deadline of Application</label>
+                      <label class="form-label font-bold"
+                        >Deadline of Application
+                        <span class="text-red-600">*</span></label
+                      >
                       <v-date-picker v-model="form.deadline_at">
                         <template v-slot="{ inputValue, togglePopover }">
                           <div class="flex items-center">
@@ -247,7 +260,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Job Description
+                        >Job Description <span class="text-red-600">*</span>
                       </label>
                       <vue-editor
                         v-model="form.job_description"
@@ -265,7 +278,7 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Core Competencies
+                        >Core Competencies <span class="text-red-600">*</span>
                       </label>
                       <vue-editor
                         v-model="form.core_competencies"
@@ -284,6 +297,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Organizational Competencies
+                        <span class="text-red-600">*</span>
                       </label>
                       <vue-editor
                         v-model="form.organizational_competencies"
@@ -302,6 +316,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Technical Competencies
+                        <span class="text-red-600">*</span>
                       </label>
                       <vue-editor
                         v-model="form.technical_competencies"

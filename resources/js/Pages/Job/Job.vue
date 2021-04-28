@@ -131,6 +131,20 @@
                       are advised to hand in or send through courier/email their
                       application to:
                     </p>
+                    <div class="mt-2 ml-4 text-gray-600 text-sm" id="my-list-2">
+                      <ul>
+                        <li>Application Letter</li>
+                        <li>Letter of Intent and Statement of Authenticity & Veracity of Documents Submitted</li>
+                        <li>Fully accomplished & notarized Personal Data Sheet with recent ID picture & Work Experience Sheet</li>
+                        <li>Certified true copy of Transcript of Records (High School Diploma, Baccaluareate and Post-graduate studies)</li>
+                        <li>Certified true copy of updated Service Record or Certificate of Employment (if applicable)</li>
+                        <li>Certified true copy of Certificates of Trainings/Seminars Attended</li>
+                        <li>Certified true copy of Performance Rating in the last two rating periods (if applicable)</li>
+                        <li>Certified true copy of Certificate of Eligibilty/Rating/License ID</li>
+                        <li>Photocopy of Latest Appointment (if applicable)</li>
+                        <li>Other documents relevant to the position applied for</li>
+                      </ul>
+                    </div>
                     <div class="mt-3 text-gray-700 text-sm normal-case">
                       <span class="font-semibold"
                         >MA. SIONNE MAT T. CRISPINO</span
@@ -276,5 +290,8 @@ export default {
 <style>
 #my-list > ul > li {
   list-style-type: disc;
+}
+#my-list-2 > ul > li {
+  list-style-type: decimal;
 }
 </style>
