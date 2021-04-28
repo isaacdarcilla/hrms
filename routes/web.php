@@ -29,6 +29,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\CtoCreditController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ServiceRecordController;
+use App\Http\Controllers\IpcrOpcrController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -490,6 +491,18 @@ Route::get('personal/leave', [LeaveController::class, 'index'])
 
 Route::get('personal/inquiry', [InquiryController::class, 'index'])
     ->name('employee.inquiry')
+    ->middleware('web', 'employee');
+
+Route::get('personal/ipcr/opcr/{contact}', [IpcrOpcrController::class, 'index'])
+    ->name('employee.ipcr.index')
+    ->middleware('web', 'employee');
+
+Route::put('personal/ipcr/opcr/store', [IpcrOpcrController::class, 'store'])
+    ->name('employee.ipcr.store')
+    ->middleware('web', 'employee');
+
+Route::delete('personal/ipcr/opcr/delete/{id}', [IpcrOpcrController::class, 'destroy'])
+    ->name('employee.ipcr.delete')
     ->middleware('web', 'employee');
 
 Route::get('personal/service/record/{contact}', [EmployeeController::class, 'service_record'])
