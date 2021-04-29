@@ -133,7 +133,10 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="contact.office.office_name !== null">
+                <div
+                  class="capitalize"
+                  v-if="contact.office.office_name !== null"
+                >
                   {{ contact.office.office_name }}
                 </div>
                 <div v-else class="text-sm text-gray-500">
@@ -287,8 +290,21 @@
               >
                 <span>👁️‍🗨️ Main Profile</span>
               </inertia-link>
-              <inertia-link v-if="contact.status_of_appointment == 'Permanent'"
-                class="text-blue-600 hover:text-blue-900"
+              <inertia-link
+                class="text-indigo-600 hover:text-indigo-900"
+                :href="
+                  route('profile.index', {
+                    profile: contact.id,
+                    type: 'teaching',
+                  })
+                "
+                tabindex="-1"
+              >
+                <span>👩‍🏫 Teaching Profile</span>
+              </inertia-link>
+              <inertia-link
+                v-if="contact.status_of_appointment == 'Permanent'"
+                class="text-indigo-600 hover:text-indigo-900"
                 :href="route('service.record.index', contact.id)"
                 tabindex="-1"
               >
@@ -339,7 +355,7 @@ export default {
   provide() {
     return {
       offices: this.offices,
-    }
+    };
   },
   data() {
     return {
