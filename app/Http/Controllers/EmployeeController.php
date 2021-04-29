@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use App\Models\Office;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -143,6 +144,7 @@ class EmployeeController extends Controller
             return Inertia::render('EmployeePanel/Profile', [
                 'employee' => $employee,
                 'notices' => Notice::orderBy('created_at', 'DESC')->take(5)->get(),
+                'offices' => Office::get(),
                 'contact' => [
                     'id' => $contact->id,
                     'first_name' => $contact->first_name,

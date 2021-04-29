@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Children;
+use App\Models\Office;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -18,7 +19,7 @@ class ContactsController extends Controller
         return Inertia::render('Contacts/Index', [
             'filters' => Request::all('search', 'trashed'),
             'contacts' => Auth::user()->account->contacts()
-                ->with('organization')
+                ->with('office')
                 ->orderByName()
                 ->filter(Request::only('search', 'trashed'))
                 ->paginate()
@@ -38,9 +39,10 @@ class ContactsController extends Controller
                         'photo' => $contact->photo,
                         'status' => $contact->status,
                         'deleted_at' => $contact->deleted_at,
-                        'organization' => $contact->organization ? $contact->organization->only('name') : null,
+                        'office' => $contact->office,
                     ];
                 }),
+            'offices' => Office::get(),
         ]);
     }
 
@@ -60,10 +62,11 @@ class ContactsController extends Controller
     {
         Auth::user()->account->contacts()->create(
             Request::validate([
+                'office_id' => ['required'],
                 'first_name' => ['required', 'max:25', 'min:2'],
                 'last_name' => ['required', 'max:25', 'min:2'],
                 'middle_name' => ['required', 'max:25', 'min:2'],
-                'email' => ['required', 'max:50', 'email'],
+                'email' => ['required', 'max:50', 'email', 'unique:contacts'],
                 'phone' => ['required', 'min:11'],
                 'name_extension' => ['nullable', 'max:4'],
                 'telephone' => ['nullable', 'max:25', 'regex:/^[0-9+]+$/'],
@@ -205,6 +208,7 @@ class ContactsController extends Controller
     {
         $contact->update(
             Request::validate([
+                'office_id' => ['required'],
                 'first_name' => ['required', 'max:25', 'min:2'],
                 'last_name' => ['required', 'max:25', 'min:2'],
                 'middle_name' => ['required', 'max:25', 'min:2'],

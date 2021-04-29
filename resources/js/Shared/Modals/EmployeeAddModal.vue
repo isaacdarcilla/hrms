@@ -178,14 +178,22 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Department <span class="text-red-600">*</span></label
+                        >Department/Office
+                        <span class="text-red-600">*</span></label
                       >
-                      <input
-                        autofocus="true"
-                        class="form-input block w-full"
-                        placeholder="Enter department"
+                      <select
                         v-model="form.department"
-                      />
+                        class="form-input block w-full"
+                      >
+                        <option selected disabled>Please select office</option>
+                        <option
+                          v-for="office in offices"
+                          :value="office.id"
+                          :key="office.id"
+                        >
+                          {{ office.office_name }}
+                        </option>
+                      </select>
                       <div
                         v-if="$page.errors.department !== null"
                         class="form-error"
@@ -259,13 +267,6 @@
                         value="Permanent"
                       />
                       Permanent
-                      <input
-                        type="radio"
-                        class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                        v-model="form.status_of_appointment"
-                        value="Contractual"
-                      />
-                      Contractual
                       <input
                         type="radio"
                         class="w-3 h-3 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
@@ -966,11 +967,19 @@ export default {
     showing: Boolean,
     employee: Object,
   },
+  inject: ["offices"],
   directives: { mask },
   watch: {
     checked(checked) {
       this.address(checked);
       this.$emit("input", checked);
+    },
+    form: {
+      handler(e) {
+        console.log(e);
+        this.form.office_id = e.department;
+      },
+      deep: true,
     },
   },
   name: "single-item-select",
@@ -981,6 +990,7 @@ export default {
       other: false,
       options: jobs,
       form: {
+        office_id: null,
         first_name: null,
         middle_name: null,
         last_name: null,
@@ -1029,6 +1039,10 @@ export default {
     this.address(this.checked);
   },
   methods: {
+    onChange(event) {
+      console.log(event.target.selectedOptions[0].text);
+      this.form.department = event.target.selectedOptions[0].text;
+    },
     address(checked) {
       if (checked === true) {
         this.form.permanent_block = this.form.residential_block;

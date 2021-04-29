@@ -183,12 +183,19 @@
                       <label class="form-label font-bold"
                         >Department <span class="text-red-600">*</span></label
                       >
-                      <input
-                        autofocus="true"
+                      <select
                         class="form-input block w-full"
-                        placeholder="Enter department"
                         v-model="form.department"
-                      />
+                      >
+                        <option selected disabled>Please select office</option>
+                        <option
+                          v-for="office in offices"
+                          :value="office.id"
+                          :key="office.id"
+                        >
+                          {{ office.office_name }}
+                        </option>
+                      </select>
                       <div
                         v-if="$page.errors.department !== null"
                         class="form-error"
@@ -971,11 +978,19 @@ export default {
     showing: Boolean,
     employee: Object,
   },
+  inject: ["offices"],
   directives: { mask },
   watch: {
     checked(checked) {
       this.address(checked);
       this.$emit("input", checked);
+    },
+    form: {
+      handler(e) {
+        console.log(e);
+        this.form.office_id = e.department;
+      },
+      deep: true,
     },
   },
   name: "single-item-select",
@@ -986,6 +1001,7 @@ export default {
       options: jobs,
       other: false,
       form: {
+        office_id: null,
         first_name: this.employee.first_name,
         middle_name: this.employee.middle_name,
         last_name: this.employee.last_name,

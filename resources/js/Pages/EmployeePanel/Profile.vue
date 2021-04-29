@@ -302,8 +302,8 @@ export default {
     documents: Array,
     governments: Array,
     references: Array,
+    offices: Array,
   },
-
   remember: "form",
   data() {
     return {
@@ -324,7 +324,11 @@ export default {
     };
   },
   provide() {
-    return { employeeId: this.contact, familyObject: this.family };
+    return {
+      employeeId: this.contact,
+      familyObject: this.family,
+      offices: this.offices,
+    };
   },
   watch: {
     status(status) {

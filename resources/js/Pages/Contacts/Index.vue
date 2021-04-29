@@ -133,8 +133,8 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <div class="capitalize" v-if="contact.department !== null">
-                  {{ contact.department }}
+                <div class="capitalize" v-if="contact.office.office_name !== null">
+                  {{ contact.office.office_name }}
                 </div>
                 <div v-else class="text-sm text-gray-500">
                   No data available
@@ -334,6 +334,12 @@ export default {
   props: {
     contacts: Object,
     filters: Object,
+    offices: Array,
+  },
+  provide() {
+    return {
+      offices: this.offices,
+    }
   },
   data() {
     return {

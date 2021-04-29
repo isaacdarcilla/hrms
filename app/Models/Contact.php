@@ -129,6 +129,16 @@ class Contact extends Model implements AuthenticatableContract, AuthorizableCont
         return $this->hasMany(IpcrOpcr::class);
     }
 
+    public function offices()
+    {
+        return $this->hasMany(Office::class);
+    }
+
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
+
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;
