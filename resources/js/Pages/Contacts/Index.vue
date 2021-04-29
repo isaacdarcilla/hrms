@@ -285,7 +285,7 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <span>👁️‍🗨️ View Profile</span>
+                <span>👁️‍🗨️ Main Profile</span>
               </inertia-link>
               <inertia-link v-if="contact.status_of_appointment == 'Permanent'"
                 class="text-blue-600 hover:text-blue-900"
