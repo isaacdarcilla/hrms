@@ -15,8 +15,10 @@ class ProfileController extends Controller
 {
     public function index($id, $type)
     {
-        return Inertia::render('Contacts/Profile/Index',[
+        return Inertia::render('Contacts/Profile/Teaching',[
+            'contact' => Contact::with('office')->find($id),
             'profile' => Profile::where('contact_id', $id)->where('type', $type)->first(),
+            'type' => ucwords($type),
         ]);
     }
 }
