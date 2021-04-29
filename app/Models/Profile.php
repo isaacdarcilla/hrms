@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Profile extends Model
 {
     use SoftDeletes;
+
+    public function contact()
+    {
+        return $this->belongsTo(Contact::class);
+    }
 }
