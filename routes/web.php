@@ -499,6 +499,10 @@ Route::get('personal/profile/{contact}', [EmployeeController::class, 'profile'])
     ->name('employee.profile')
     ->middleware('web', 'employee');
 
+Route::get('personal/profile/{contact}/type/{type}', [EmployeeController::class, 'teaching_profile'])
+    ->name('employee.profile.teaching')
+    ->middleware('web', 'employee');
+
 Route::get('personal/leave', [LeaveController::class, 'index'])
     ->name('employee.leave')
     ->middleware('web', 'employee');

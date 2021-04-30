@@ -8,6 +8,7 @@ use App\Models\Leave;
 use App\Models\Children;
 use App\Models\EmployeeSetting;
 use App\Models\Setting;
+use App\Models\Profile;
 use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\User;
@@ -62,6 +63,20 @@ class EmployeeController extends Controller
                     'sick' => $contact->credit()->sum('sick_leave'),
                 ],
                 'employee' => $employee,
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
+
+    public function teaching_profile($id, $type) {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/TeachingNonProfile', [
+                'employee' => $employee,
+                'contact' => Contact::with('office')->find($id),
+                'profile' => Profile::where('contact_id', $id)->where('type', $type)->first(),
+                'type' => ucwords($type),
             ]);
         else
             return redirect()->route('login.employee');

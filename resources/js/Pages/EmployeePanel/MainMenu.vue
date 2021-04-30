@@ -92,6 +92,44 @@
         </div>
       </inertia-link>
     </div>
+    <div
+      v-if="$page.employee.status_of_appointment === 'Permanent'"
+      class="mb-4"
+    >
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('employee.profile.teaching', [$page.employee.id, 'teaching'])"
+      >
+        <div
+          :class="
+            isUrl('employee.profile.teaching')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          👩‍🏫 Teaching Profile
+        </div>
+      </inertia-link>
+    </div>
+    <div
+      v-if="$page.employee.status_of_appointment === 'Permanent'"
+      class="mb-4"
+    >
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('employee.profile.teaching', [$page.employee.id, 'non-teaching'])"
+      >
+        <div
+          :class="
+            isUrl('employee.profile.teaching')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          📕 Non Teaching Profile
+        </div>
+      </inertia-link>
+    </div>
     <div class="mb-4">
       <inertia-link
         class="flex items-center group py-3"

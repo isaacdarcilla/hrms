@@ -288,9 +288,10 @@
                 :href="route('employees.edit', contact.id)"
                 tabindex="-1"
               >
-                <span>👁️‍🗨️ Main Profile</span>
-              </inertia-link>
+                <span>👁️‍🗨️ Main Profile</span> </inertia-link
+              ><br />
               <inertia-link
+                v-if="contact.status_of_appointment == 'Permanent'"
                 class="text-indigo-600 hover:text-indigo-900"
                 :href="
                   route('profile.index', {
@@ -300,8 +301,21 @@
                 "
                 tabindex="-1"
               >
-                <span>👩‍🏫 Teaching Profile</span>
-              </inertia-link>
+                <span>👩‍🏫 Teaching Profile</span> </inertia-link
+              ><br />
+              <inertia-link
+                v-if="contact.status_of_appointment == 'Permanent'"
+                class="text-indigo-600 hover:text-indigo-900"
+                :href="
+                  route('profile.index', {
+                    profile: contact.id,
+                    type: 'non-teaching',
+                  })
+                "
+                tabindex="-1"
+              >
+                <span>👩‍🏫 Non Teaching Profile</span> </inertia-link
+              ><br />
               <inertia-link
                 v-if="contact.status_of_appointment == 'Permanent'"
                 class="text-indigo-600 hover:text-indigo-900"

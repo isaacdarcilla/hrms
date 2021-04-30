@@ -2,13 +2,7 @@
   <div>
     <div class="flex items-center justify-between mb-0">
       <h1 class="capitalize mb-8 font-bold text-3xl">
-        <inertia-link
-          class="text-blue-400 hover:text-blue-600"
-          :href="route('employees')"
-          >Employee</inertia-link
-        >
-        <span class="text-indigo-400 font-medium">/</span>
-        {{ form.first_name }} {{ form.last_name }} {{ type }} Profile 👩‍🏫
+        My {{ type }} Profile 👩‍🏫
       </h1>
     </div>
 
@@ -322,7 +316,7 @@
 
 <script>
 import { ToggleButton } from "vue-js-toggle-button";
-import Layout from "@/Shared/Layout";
+import Layout from "@/Pages/EmployeePanel/Layout";
 import LoadingButton from "@/Shared/LoadingButton";
 import SelectInput from "@/Shared/SelectInput";
 import TextInput from "@/Shared/TextInput";
