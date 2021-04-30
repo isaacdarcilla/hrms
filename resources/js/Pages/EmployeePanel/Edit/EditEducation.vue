@@ -13,7 +13,7 @@
           >{{ type }}</inertia-link
         >
         <span class="text-indigo-400 font-medium">/</span>
-        Edit Work
+        Edit Education
         <span class="text-indigo-400 font-medium">/</span>
         {{ employee.first_name }} {{ employee.last_name }} 👤
       </h1>
