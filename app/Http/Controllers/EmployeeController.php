@@ -82,6 +82,20 @@ class EmployeeController extends Controller
             return redirect()->route('login.employee');
     }
 
+    public function profile_edit_work($id, $type) {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/Edit/EditWork', [
+                'employee' => $employee,
+                'contact' => Contact::with('office')->find($id),
+                'profile' => Profile::where('contact_id', $id)->where('type', $type)->first(),
+                'type' => ucwords($type),
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
+
     public function cto_credit(Contact $contact) {
         $employee =  Auth::guard('employee')->user();
 

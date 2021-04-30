@@ -503,6 +503,14 @@ Route::get('personal/profile/{contact}/type/{type}', [EmployeeController::class,
     ->name('employee.profile.teaching')
     ->middleware('web', 'employee');
 
+Route::get('personal/profile/{contact}/type/{type}/edit_work', [EmployeeController::class, 'profile_edit_work'])
+    ->name('employee.profile.teaching.edit')
+    ->middleware('web', 'employee');
+
+Route::get('personal/profile/{contact}/type/{type}/edit_education', [EmployeeController::class, 'profile_edit_education'])
+    ->name('employee.profile.teaching.edit.educ')
+    ->middleware('web', 'employee');
+
 Route::get('personal/leave', [LeaveController::class, 'index'])
     ->name('employee.leave')
     ->middleware('web', 'employee');

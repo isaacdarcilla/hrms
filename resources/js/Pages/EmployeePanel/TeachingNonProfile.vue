@@ -12,12 +12,12 @@
           <h5 class="mx-6 my-5 font-semibold font bg-white">
             👩‍🏫 Basic Information
           </h5>
-          <button
+          <!-- <button
             v-if="$page.employee.user !== null"
             class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
           >
             ✏️ Edit
-          </button>
+          </button> -->
         </div>
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
           <div class="rounded pl-4 pt-4 mx-4">
@@ -124,12 +124,13 @@
       <div class="rounded-xl bg-white shadow-md">
         <div class="flex items-center justify-between mb-0">
           <h5 class="mx-6 my-5 font-semibold font bg-white">👩‍🏫 Work</h5>
-          <button
+          <inertia-link
             v-if="$page.employee.user !== null"
             class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
+            :href="route('employee.profile.teaching.edit', [contact.id, type.toLowerCase()])"
           >
-            ✏️ Edit
-          </button>
+            ✏️ Edit Work
+          </inertia-link>
         </div>
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
           <div class="rounded pl-4 pt-4 mx-4">
@@ -197,12 +198,13 @@
       <div class="rounded-xl bg-white shadow-md">
         <div class="flex items-center justify-between mb-0">
           <h5 class="mx-6 my-5 font-semibold font bg-white">👩‍🏫 Education</h5>
-          <button
+          <inertia-link
             v-if="$page.employee.user !== null"
             class="h-8 text-sm items-center text-blue-600 font-semibold rounded-lg my-2 mx-6"
+            :href="route('employee.profile.teaching.edit.educ', [contact.id, type.toLowerCase()])"
           >
-            ✏️ Edit
-          </button>
+            ✏️ Edit Education
+          </inertia-link>
         </div>
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
           <div class="rounded pl-4 pt-4 mx-4">
