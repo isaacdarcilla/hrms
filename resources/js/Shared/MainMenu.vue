@@ -124,11 +124,11 @@
     <div v-if="$page.auth.user.super === true" class="mb-4">
       <inertia-link
         class="flex items-center group py-3"
-        :href="route('ipcr.index')"
+        :href="route('teaching.nonteaching.list')"
       >
         <div
           :class="
-            isUrl('ipcr.index')
+            isUrl('teaching.nonteaching.list')
               ? 'text-white font-bold'
               : 'text-indigo-300 font-bold group-hover:text-white'
           "

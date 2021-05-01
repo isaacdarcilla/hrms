@@ -139,7 +139,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Position
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.position != null" class="text-blue-600">{{
                   profile.position
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -150,7 +150,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Salary Grade
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.salary_grade != null" class="text-blue-600">{{
                   profile.salary_grade
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -162,7 +162,7 @@
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Monthly Salary
                 <span class="text-blue-600">
-                  <span v-if="profile !== null" class="text-blue-600">{{
+                  <span v-if="profile !== null && profile.monthly_salary != null" class="text-blue-600">{{
                     currency(profile.monthly_salary)
                   }}</span>
                   <span v-else class="text-red-500">No data available</span>
@@ -174,7 +174,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Annual Salary
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.annual_salary != null" class="text-blue-600">{{
                   currency(profile.annual_salary)
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -185,7 +185,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Professional Licensure Passed
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.professional_licensure_passed != null" class="text-blue-600">{{
                   profile.professional_licensure_passed
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -213,7 +213,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Bachelor's Degree
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.bachelors_degree != null" class="text-blue-600">{{
                   profile.bachelors_degree
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -224,7 +224,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Bachelor's Degree Specialization
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.bachelors_specialization != null" class="text-blue-600">{{
                   profile.bachelors_specialization
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -235,7 +235,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Master's Degree
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.masters_degree != null" class="text-blue-600">{{
                   profile.masters_degree
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -247,7 +247,7 @@
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Master's Degree Specialization
                 <span
-                  v-if="profile !== null"
+                  v-if="profile !== null && profile.masters_specialization != null"
                   class="text-blue-600"
                   >{{ profile.masters_specialization }}</span
                 >
@@ -259,7 +259,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Master's Degree Units Earned
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.masters_units_earned != null" class="text-blue-600">{{
                   profile.masters_units_earned
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -270,7 +270,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Doctorate's Degree
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.doctorate_degree != null" class="text-blue-600">{{
                   profile.doctorate_degree
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -281,7 +281,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Doctorate's Degree Specialization
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.doctorate_specialization != null" class="text-blue-600">{{
                   profile.doctorate_specialization
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -292,7 +292,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Doctorate's Degree Units Earned
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.doctorate_units_earned != null" class="text-blue-600">{{
                   profile.doctorate_units_earned
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>
@@ -303,7 +303,7 @@
                 for="name"
                 class="font-semibold text-gray-700 text-sm block pb-1"
                 >Name of School
-                <span v-if="profile !== null" class="text-blue-600">{{
+                <span v-if="profile !== null && profile.name_of_school != null" class="text-blue-600">{{
                   profile.name_of_school
                 }}</span>
                 <span v-else class="text-red-500">No data available</span>

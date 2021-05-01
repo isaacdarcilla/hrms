@@ -21,4 +21,103 @@ class ProfileController extends Controller
             'type' => ucwords($type),
         ]);
     }
+
+    public function list()
+    {
+        return Inertia::render('Teaching/Index',[
+            'profile' => Contact::with('profiles')->paginate(),
+        ]);
+    }
+
+    public function update_education(Request $request, $contact, $type) {
+        $profile = Profile::where('contact_id', $contact)->where('type', $type)->first();
+
+        Request::validate([
+            'bachelors_degree' => ['required', 'min:3'],
+            'bachelors_specialization' => ['required', 'min:3'],	
+            'masters_degree' => ['required', 'min:3'],	
+            'masters_specialization' => ['required', 'min:3'],	
+            'masters_units_earned' => ['required', 'max:4', 'regex:/^[0-9]+$/'],	
+            'doctorate_degree' => ['required', 'min:3'],	
+            'doctorate_specialization' => ['required', 'min:3'],	
+            'doctorate_units_earned' => ['required', 'max:4', 'regex:/^[0-9]+$/'],	
+            'name_of_school' => ['required', 'min:3'],
+        ]);
+
+        if($profile) {
+            Profile::where('id', Request::input('id'))->update([
+                'office_id'	=> Request::input('office_id'),
+                'bachelors_degree' => Request::input('bachelors_degree'),
+                'bachelors_specialization' => Request::input('bachelors_specialization'),	
+                'masters_degree' => Request::input('masters_degree'),	
+                'masters_specialization' => Request::input('masters_specialization'),	
+                'masters_units_earned' => Request::input('masters_units_earned'),	
+                'doctorate_degree' => Request::input('doctorate_degree'),	
+                'doctorate_specialization' => Request::input('doctorate_specialization'),	
+                'doctorate_units_earned' => Request::input('doctorate_units_earned'),
+                'name_of_school' => Request::input('name_of_school'),
+                'tenure_of_employment' => Request::input('tenure_of_employment'),
+            ]);
+
+            return Redirect::back()->with('success', ucwords($type).' profile updated.');
+        } else {
+            Profile::create([
+                'contact_id' => $contact,	
+                'office_id'	=> Request::input('office_id'),
+                'type' => $type,
+                'bachelors_degree' => Request::input('bachelors_degree'),
+                'bachelors_specialization' => Request::input('bachelors_specialization'),	
+                'masters_degree' => Request::input('masters_degree'),	
+                'masters_specialization' => Request::input('masters_specialization'),	
+                'masters_units_earned' => Request::input('masters_units_earned'),	
+                'doctorate_degree' => Request::input('doctorate_degree'),	
+                'doctorate_specialization' => Request::input('doctorate_specialization'),	
+                'doctorate_units_earned' => Request::input('doctorate_units_earned'),
+                'name_of_school' => Request::input('name_of_school'),
+                'tenure_of_employment' => Request::input('tenure_of_employment'),
+            ]);
+
+            return Redirect::back()->with('success', ucwords($type).' profile created.');
+        }
+    }
+
+    public function update_work(Request $request, $contact, $type) {
+        $profile = Profile::where('contact_id', $contact)->where('type', $type)->first();
+
+        Request::validate([				
+            'position' => ['required', 'min:3'],
+            'salary_grade' => ['required', 'min:2', 'regex:/^[0-9]+$/'],	
+            'monthly_salary' => ['required', 'min:3', 'regex:/^[0-9]+$/'],	
+            'annual_salary' => ['required', 'min:3', 'regex:/^[0-9]+$/'],	
+            'professional_licensure_passed' => ['required', 'min:3'],	
+        ]);
+
+        if($profile) {
+            Profile::where('id', Request::input('id'))->update([
+                'office_id'	=> Request::input('office_id'),
+                'position' => Request::input('position'),
+                'salary_grade' => Request::input('salary_grade'),	
+                'monthly_salary' => Request::input('monthly_salary'),	
+                'annual_salary' => Request::input('annual_salary'),	
+                'professional_licensure_passed' => Request::input('professional_licensure_passed'),
+                'tenure_of_employment' => Request::input('tenure_of_employment'),
+            ]);
+
+            return Redirect::back()->with('success', ucwords($type).' profile updated.');
+        } else {
+            Profile::create([
+                'contact_id' => $contact,	
+                'office_id'	=> Request::input('office_id'),
+                'type' => $type,
+                'position' => Request::input('position'),
+                'salary_grade' => Request::input('salary_grade'),	
+                'monthly_salary' => Request::input('monthly_salary'),	
+                'annual_salary' => Request::input('annual_salary'),	
+                'professional_licensure_passed' => Request::input('professional_licensure_passed'),
+                'tenure_of_employment' => Request::input('tenure_of_employment'),
+            ]);
+
+            return Redirect::back()->with('success', ucwords($type).' profile created.');
+        }
+    }
 }

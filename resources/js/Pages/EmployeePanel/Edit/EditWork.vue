@@ -22,72 +22,42 @@
       <form @submit.prevent="submit">
         <div class="p-8 -mr-6 -mb-8 flex flex-wrap">
           <text-input
-            v-model="form.bachelors_degree"
-            :error="errors.bachelors_degree"
+            v-model="form.position"
+            :error="errors.position"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Bachelor's Degree"
-            placeholder="Enter your bachelor's degree"
+            label="Position"
+            placeholder="Enter position"
           />
           <text-input
-            v-model="form.bachelors_specialization"
-            :error="errors.bachelors_specialization"
+            v-model="form.salary_grade"
+            :error="errors.salary_grade"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Bachelor's Specialization"
-            placeholder="Enter your bachelor's specialization"
+            label="Salary Grade"
+            placeholder="Enter salary grade"
           />
           <text-input
-            v-model="form.masters_degree"
-            :error="errors.masters_degree"
+            v-model="form.monthly_salary"
+            :error="errors.monthly_salary"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Master's Specialization"
-            placeholder="Enter your master's degree"
+            label="Monthly Salary"
+            placeholder="Enter monthly salary"
           />
           <text-input
-            v-model="form.masters_specialization"
-            :error="errors.masters_specialization"
+            v-model="form.annual_salary"
+            :error="errors.annual_salary"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Master's Specialization"
-            placeholder="Enter your masters's specialization"
+            label="Annual Salary"
+            placeholder="Enter annual salary"
           />
           <text-input
-            v-model="form.masters_units_earned"
-            :error="errors.masters_units_earned"
+            v-model="form.professional_licensure_passed"
+            :error="errors.professional_licensure_passed"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Master's Unit Earned"
-            placeholder="Enter your masters's unit earned"
-          />
-
-          <text-input
-            v-model="form.doctorate_degree"
-            :error="errors.doctorate_degree"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Doctorate's Specialization"
-            placeholder="Enter your doctorate's degree"
-          />
-          <text-input
-            v-model="form.doctorate_specialization"
-            :error="errors.doctorate_specialization"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Doctorate's Specialization"
-            placeholder="Enter your doctorate's specialization"
-          />
-          <text-input
-            v-model="form.doctorate_units_earned"
-            :error="errors.doctorate_units_earned"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Doctorate's Unit Earned"
-            placeholder="Enter your doctorate's unit earned"
-          />
-
-          <text-input
-            v-model="form.name_of_school"
-            :error="errors.name_of_school"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Name of School"
-            placeholder="Enter name of school where advanced degree earned"
+            label="Prefessional License Passed"
+            placeholder="Enter professional licensure passed"
           />
         </div>
-        
+
         <div
           class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center"
         >
@@ -136,39 +106,42 @@ export default {
     return {
       sending: false,
       form: {
-        bachelors_degree:
-          this.profile != null ? this.profile.bachelors_degree : null,
-        bachelors_specialization:
-          this.profile != null ? this.profile.bachelors_specialization : null,
-        masters_degree:
-          this.profile != null ? this.profile.masters_degree : null,
-        masters_specialization:
-          this.profile != null ? this.profile.masters_specialization : null,
-        masters_units_earned:
-          this.profile != null ? this.profile.masters_units_earned : null,
-        doctorate_degree:
-          this.profile != null ? this.profile.doctorate_degree : null,
-        doctorate_specialization:
-          this.profile != null ? this.profile.doctorate_specialization : null,
-        doctorate_units_earned:
-          this.profile != null ? this.profile.doctorate_units_earned : null,
-        name_of_school:
-          this.profile != null ? this.profile.name_of_school : null,
+        id: this.profile != null ? this.profile.id : null,
+        office_id: this.employee.office_id,
+        tenure_of_employment: this.employee.status_of_appointment,
+        position: this.profile != null ? this.profile.position : null,
+        salary_grade: this.profile != null ? this.profile.salary_grade : null,
+        monthly_salary:
+          this.profile != null ? this.profile.monthly_salary : null,
+        annual_salary: this.profile != null ? this.profile.annual_salary : null,
+        professional_licensure_passed:
+          this.profile != null
+            ? this.profile.professional_licensure_passed
+            : null,
       },
     };
   },
+  watch: {
+    form: {
+      handler(e) {
+        this.form.annual_salary = (e.monthly_salary * 12).toString();
+      },
+      deep: true,
+    },
+  },
   methods: {
     submit() {
-      this.$inertia.post(this.route("users.update", this.user.id), data, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-        onSuccess: () => {
-          if (Object.keys(this.$page.errors).length === 0) {
-            this.form.photo = null;
-            this.form.password = null;
-          }
-        },
-      });
+      this.$inertia.put(
+        this.route("employee.profile.teaching.update.work", [
+          this.employee.id,
+          this.type.toLowerCase(),
+        ]),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
   },
 };

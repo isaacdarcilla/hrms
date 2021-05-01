@@ -87,7 +87,7 @@
             placeholder="Enter name of school where advanced degree earned"
           />
         </div>
-        
+
         <div
           class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex items-center"
         >
@@ -136,6 +136,9 @@ export default {
     return {
       sending: false,
       form: {
+        id: this.profile != null ? this.profile.id : null,
+        office_id: this.employee.office_id,
+        tenure_of_employment: this.employee.status_of_appointment,
         bachelors_degree:
           this.profile != null ? this.profile.bachelors_degree : null,
         bachelors_specialization:
@@ -159,16 +162,17 @@ export default {
   },
   methods: {
     submit() {
-      this.$inertia.post(this.route("users.update", this.user.id), data, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-        onSuccess: () => {
-          if (Object.keys(this.$page.errors).length === 0) {
-            this.form.photo = null;
-            this.form.password = null;
-          }
-        },
-      });
+      this.$inertia.put(
+        this.route("employee.profile.teaching.update.education", [
+          this.employee.id,
+          this.type.toLowerCase(),
+        ]),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
   },
 };

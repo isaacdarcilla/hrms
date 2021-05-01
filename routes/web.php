@@ -125,6 +125,12 @@ Route::get('ipcr/opcr', [AdminIpcrOpcrController::class, 'index'])
     ->name('ipcr.index')
     ->middleware('remember', 'auth');
 
+// Teaching/Non-Teaching List
+
+Route::get('teaching/nonteaching/list', [ProfileController::class, 'list'])
+    ->name('teaching.nonteaching.list')
+    ->middleware('remember', 'auth');
+
 // Employees
 
 Route::get('employees', [ContactsController::class, 'index'])
@@ -509,6 +515,14 @@ Route::get('personal/profile/{contact}/type/{type}/edit_work', [EmployeeControll
 
 Route::get('personal/profile/{contact}/type/{type}/edit_education', [EmployeeController::class, 'profile_edit_education'])
     ->name('employee.profile.teaching.edit.educ')
+    ->middleware('web', 'employee');
+
+Route::put('personal/profile/{contact}/type/{type}/edit_education', [ProfileController::class, 'update_education'])
+    ->name('employee.profile.teaching.update.education')
+    ->middleware('web', 'employee');
+
+Route::put('personal/profile/{contact}/type/{type}/edit_work', [ProfileController::class, 'update_work'])
+    ->name('employee.profile.teaching.update.work')
     ->middleware('web', 'employee');
 
 Route::get('personal/leave', [LeaveController::class, 'index'])
