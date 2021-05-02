@@ -35,4 +35,16 @@ class Profile extends Model
     {
         return $this->belongsTo(Contact::class);
     }
+
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? null, function ($query, $search) {
+            $query->where('type', 'like', '%'.$search.'%');
+        });
+    }
 }

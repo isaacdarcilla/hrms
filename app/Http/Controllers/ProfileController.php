@@ -24,8 +24,16 @@ class ProfileController extends Controller
 
     public function list()
     {
+        $type = Request::get('type') ? 'non-teaching' : 'teaching';
+
         return Inertia::render('Teaching/Index',[
-            'profile' => Contact::with('profiles')->paginate(),
+            'filters' => Request::all('search'),
+            'profiles' => Profile::where('type', $type)
+                ->with('contact')
+                ->with('office')
+                ->orderBy('created_at', 'DESC')
+                ->filter(Request::only('search'))
+                ->paginate(),
         ]);
     }
 
