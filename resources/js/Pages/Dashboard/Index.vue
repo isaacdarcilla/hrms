@@ -61,6 +61,7 @@
           </div>
         </div>
       </button>
+      <p>Statistics</p>
       <button
         :href="route('jobs')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
