@@ -61,7 +61,6 @@
           </div>
         </div>
       </button>
-      <p>Statistics</p>
       <button
         :href="route('jobs')"
         class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
@@ -131,6 +130,44 @@
               class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
             >
               {{ total.staffs }} <span class="text-xs">active</span>
+            </p>
+          </div>
+        </div>
+      </button>
+      <button
+        :href="route('jobs')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Total Teaching Profiles
+            </p>
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.jobs }} <span class="text-xs">vacant</span>
             </p>
           </div>
         </div>
