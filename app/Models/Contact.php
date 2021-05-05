@@ -139,6 +139,11 @@ class Contact extends Model implements AuthenticatableContract, AuthorizableCont
         return $this->hasMany(Profile::class);
     }
 
+    public function psipop()
+    {
+        return $this->hasMany(Psipop::class);
+    }
+
     public function office()
     {
         return $this->belongsTo(Office::class);

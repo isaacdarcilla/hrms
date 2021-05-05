@@ -4,22 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Office extends Model
+class Psipop extends Model
 {
     use SoftDeletes;
+
+    protected $guarded = [];
 
     public function contact()
     {
         return $this->belongsTo(Contact::class);
     }
 
-    public function contacts()
+    public function office()
     {
-        return $this->hasMany(Contact::class);
-    }
-
-    public function psipop()
-    {
-        return $this->hasMany(Psipop::class);
+        return $this->belongsTo(Office::class);
     }
 }
