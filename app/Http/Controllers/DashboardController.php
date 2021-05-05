@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Notice;
 use App\Models\Task;
 use App\Models\Inquiry;
+use App\Models\Profile;
 use App\Models\InquiryReply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,10 @@ class DashboardController extends Controller
                 'applicants' => Applicant::count(),
                 'staffs' => User::count(),
                 'tasks' => Task::where('user_id', $user->id)->where('cleared_at', NULL)->count(),
+                'teaching' => Profile::whereType('teaching')->count(),
+                'non' => Profile::whereType('non-teaching')->count(),
+                'permanent' => Contact::whereStatusOfAppointment('Permanent')->count(),
+                'contractual' => Contact::whereStatusOfAppointment('Contractual')->count(),
             ],
             'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
             'jobs' => Job::orderBy('created_at', 'DESC')->take(3)->get(),

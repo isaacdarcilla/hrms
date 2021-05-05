@@ -24,7 +24,7 @@ class ProfileController extends Controller
 
     public function list()
     {
-        $type = Request::get('type') ? 'non-teaching' : 'teaching';
+        $type = Request::get('type');
 
         return Inertia::render('Teaching/Index',[
             'filters' => Request::all('search'),

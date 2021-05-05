@@ -7,7 +7,33 @@
         class="w-full max-w-md mr-4"
         @reset="reset"
       >
-        <button>Select Filter Options</button>
+        <h3 class="font-semibold">Select Filter Type</h3>
+        <div class="flex items-center space-x-2 my-3">
+          <input
+            type="radio"
+            id="t"
+            name="check"
+            v-model="form.type"
+            value="teaching"
+            class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+          />
+          <label for="t" class="text-md text-gray-900"
+            >Teaching</label
+          >
+        </div>
+        <div class="flex items-center space-x-2 my-3">
+          <input
+            type="radio"
+            id="n"
+            name="check"
+            v-model="form.type"
+            value="non-teaching"
+            class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+          />
+          <label for="n" class="text-md text-gray-900"
+            >Non-Teaching</label
+          >
+        </div>
       </search-filter>
     </div>
     <div class="shadow overflow-x-auto border-b border-gray-200 sm:rounded-lg">
@@ -479,6 +505,7 @@ export default {
     return {
       form: {
         search: this.filters.search,
+        type: 'teaching',
       },
     };
   },

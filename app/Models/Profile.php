@@ -44,7 +44,18 @@ class Profile extends Model
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {
-            $query->where('type', 'like', '%'.$search.'%');
+            $query->where('type', 'like', '%'.$search.'%')
+                  ->orWhere('position', 'like', '%'.$search.'%')
+                  ->orWhere('tenure_of_employment', 'like', '%'.$search.'%')
+                  ->orWhere('salary_grade', 'like', '%'.$search.'%')
+                  ->orWhere('professional_licensure_passed', 'like', '%'.$search.'%')
+                  ->orWhere('professional_licensure_passed', 'like', '%'.$search.'%')
+                  ->orWhere('bachelors_degree', 'like', '%'.$search.'%')
+                  ->orWhere('masters_degree', 'like', '%'.$search.'%')
+                  ->orWhere('doctorate_degree', 'like', '%'.$search.'%')
+                  ->orWhere('bachelors_specialization', 'like', '%'.$search.'%')
+                  ->orWhere('masters_specialization', 'like', '%'.$search.'%')
+                  ->orWhere('doctorate_specialization', 'like', '%'.$search.'%');
         });
     }
 }

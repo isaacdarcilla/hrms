@@ -144,17 +144,20 @@
           >
             <svg
               class="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
               <path
-                fill-rule="evenodd"
-                d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
               ></path>
               <path
-                d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
               ></path>
             </svg>
           </div>
@@ -162,12 +165,125 @@
             <p
               class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
             >
-              Total Teaching Profiles
+              Total teaching profiles
             </p>
             <p
               class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
             >
-              {{ total.jobs }} <span class="text-xs">vacant</span>
+              {{ total.teaching }} <span class="text-xs">profile/s</span>
+            </p>
+          </div>
+        </div>
+      </button>
+    </div>
+    <!-- Level 2 -->
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+      <button
+        :href="route('employees')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-orange-500 dark:text-orange-100 bg-orange-100 dark:bg-orange-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Total non-teaching profiles
+            </p>
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.non }} <span class="text-xs">profile/s</span>
+            </p>
+          </div>
+        </div>
+      </button>
+      <button
+        :href="route('jobs')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Total permanent employees
+            </p>
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.permanent }}
+              <span class="text-xs">permanent employees</span>
+            </p>
+          </div>
+        </div>
+      </button>
+      <button
+        :href="route('users')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-teal-500 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Total contractual employees
+            </p>
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.contractual }} <span class="text-xs">contractual employees</span>
             </p>
           </div>
         </div>
