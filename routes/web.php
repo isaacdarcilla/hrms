@@ -132,6 +132,14 @@ Route::get('psipop', [PsipopController::class, 'index'])
     ->name('psipop.index')
     ->middleware('remember', 'auth');
 
+Route::get('psipop/create', [PsipopController::class, 'create'])
+    ->name('psipop.create')
+    ->middleware('remember', 'auth');
+
+Route::post('psipop/create/store', [PsipopController::class, 'store'])
+    ->name('psipop.store')
+    ->middleware('remember', 'auth');
+
 // Teaching/Non-Teaching List
 
 Route::get('teaching/nonteaching/list', [ProfileController::class, 'list'])

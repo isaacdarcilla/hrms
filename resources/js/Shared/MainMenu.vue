@@ -141,6 +141,26 @@
         </div>
       </inertia-link>
     </div>
+    <div v-if="$page.auth.user.super === true" class="mb-4">
+      <inertia-link
+        class="flex items-center group py-3"
+        :href="route('psipop.index')"
+      >
+        <div
+          :class="
+            isUrl('psipop.index')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          🥳 PSIPOP
+          <!-- <span
+            class="animate-pulse inline-flex items-center justify-center ml-1 px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"
+            >{{ $page.notifiable.leaves }}</span
+          > -->
+        </div>
+      </inertia-link>
+    </div>
     <div v-if="$page.auth.user.can_approve !== '1'" class="mb-4">
       <inertia-link class="flex items-center group py-3" :href="route('users')">
         <div

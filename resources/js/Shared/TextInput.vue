@@ -8,7 +8,7 @@
       ref="input"
       v-bind="$attrs"
       class="form-input"
-      :class="{ error: error }"
+      :class="{ error: 0 }"
       :type="type"
       :value="value"
       @input="$emit('input', $event.target.value)"

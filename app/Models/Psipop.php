@@ -19,4 +19,11 @@ class Psipop extends Model
     {
         return $this->belongsTo(Office::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? null, function ($query, $search) {
+            $query->where('item_number', 'like', '%'.$search.'%');
+        });
+    }
 }
