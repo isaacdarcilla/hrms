@@ -32,6 +32,7 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ServiceRecordController;
 use App\Http\Controllers\IpcrOpcrController;
 use App\Http\Controllers\AdminIpcrOpcrController;
+use App\Http\Controllers\PsipopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -123,6 +124,12 @@ Route::get('employee/profile/{profile}/type/{type}', [ProfileController::class, 
 
 Route::get('ipcr/opcr', [AdminIpcrOpcrController::class, 'index'])
     ->name('ipcr.index')
+    ->middleware('remember', 'auth');
+
+// PSIPOP
+
+Route::get('psipop', [PsipopController::class, 'index'])
+    ->name('psipop.index')
     ->middleware('remember', 'auth');
 
 // Teaching/Non-Teaching List
