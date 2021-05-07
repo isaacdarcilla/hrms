@@ -17,6 +17,24 @@
         <span class="hidden md:inline">New</span>
       </inertia-link>
     </div>
+    <div class="mb-6">
+      Legend:
+      <span
+        class="ml-2 box-content h-1 w-2 p-1 bg-blue-300 text-sm text-gray-700"
+        >10 years current pay date</span
+      ><span
+        class="ml-2 box-content h-1 w-2 p-1 bg-orange-300 text-sm text-gray-700"
+        >10 years incoming pay date</span
+      >
+      <span
+        class="ml-2 box-content h-1 w-2 p-1 bg-yellow-300 text-sm text-gray-700"
+        >5 years previous pay date</span
+      >
+      <span
+        class="ml-2 box-content h-1 w-2 p-1 bg-green-300 text-sm text-gray-700"
+        >5 years current pay date</span
+      >
+    </div>
     <div class="shadow overflow-auto border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
@@ -115,7 +133,13 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Loyalty Pay Date
+              10 Years Loyalty Pay Date
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              5 Years Loyalty Next Pay Date
             </th>
             <th
               scope="col"
@@ -405,6 +429,41 @@
               </inertia-link>
             </td>
             <td
+              v-if="
+                nextPay(psipop.appoint_date).toString().slice(-4) >
+                year().toString()
+              "
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1 bg-orange-300"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div class="capitalize font-semibold">
+                  {{ nextPay(psipop.appoint_date) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-else-if="
+                nextPay(psipop.appoint_date).toString().slice(-4) ===
+                year().toString()
+              "
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1 bg-blue-300"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div class="capitalize font-semibold">
+                  {{ nextPay(psipop.appoint_date) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-else
               class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <inertia-link
@@ -412,10 +471,57 @@
                 :href="route('psipop.index')"
                 tabindex="-1"
               >
-                <div
-                  class="capitalize font-semibold"
-                >
+                <div class="capitalize font-semibold">
                   {{ nextPay(psipop.appoint_date) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-if="
+                nextFive(nextPay(psipop.appoint_date)).toString().slice(-4) ===
+                year().toString()
+              "
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1 bg-green-300"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div class="capitalize font-semibold">
+                  {{ nextFive(nextPay(psipop.appoint_date)) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-else-if="
+                nextFive(nextPay(psipop.appoint_date)).toString().slice(-4) <=
+                  year().toString() &&
+                nextFive(nextPay(psipop.appoint_date)) != 0
+              "
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1 bg-yellow-300"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div class="capitalize font-semibold">
+                  {{ nextFive(nextPay(psipop.appoint_date)) }}
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-else
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div class="capitalize font-semibold">
+                  {{ nextFive(nextPay(psipop.appoint_date)) }}
                 </div>
               </inertia-link>
             </td>
@@ -428,6 +534,7 @@
                 >✏️ Edit</inertia-link
               >
               <span
+                @click="destroy(psipop.id, psipop.item_number)"
                 class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
                 >🗑️ Delete</span
               >
@@ -490,6 +597,9 @@ export default {
     },
   },
   methods: {
+    year() {
+      return moment().year();
+    },
     increment(date) {
       if (date !== null) {
         let diff_from_latest_to_now = moment().diff(
@@ -513,7 +623,17 @@ export default {
     },
     nextPay(appointed) {
       if (appointed !== null) {
-        return this.format(moment(String(appointed)).add(10, 'years'));
+        let ten = this.format(moment(String(appointed)).add(10, "years"));
+        return ten;
+      } else {
+        return 0;
+      }
+    },
+    nextFive(ten) {
+      let last_pay_diff = moment().diff(moment(String(ten)), "years");
+      if (ten !== 0 && last_pay_diff >= 10) {
+        let next = this.format(moment(String(ten)).add(last_pay_diff, "years"));
+        return next;
       } else {
         return 0;
       }
@@ -539,6 +659,18 @@ export default {
         pieces.splice(ii, 0, ",");
       }
       return sign + pieces.join("");
+    },
+    destroy(id, name) {
+      swal({
+        title: "Delete",
+        text: `Are you sure you want to delete ${name}?`,
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          this.$inertia.delete(this.route("psipop.destroy", id));
+        }
+      });
     },
   },
 };

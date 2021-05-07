@@ -17,7 +17,7 @@ class PsipopController extends Controller
             'filters' => Request::all('search'),
             'psipops' => Psipop::orderBy('created_at', 'DESC')
                             ->filter(Request::only('search'))
-                            ->paginate(),
+                            ->paginate(30),
         ]);
     }
 
@@ -89,5 +89,13 @@ class PsipopController extends Controller
         ]);
 
         return Redirect::back()->with('success', 'PSIPOP updated.');
+    }
+
+
+    public function destroy($id)
+    {
+        Psipop::find($id)->delete();
+
+        return Redirect::back()->with('success', 'Psipop deleted.');
     }
 }

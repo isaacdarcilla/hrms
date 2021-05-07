@@ -12,6 +12,7 @@ use App\Models\Task;
 use App\Models\Inquiry;
 use App\Models\Profile;
 use App\Models\InquiryReply;
+use App\Models\Psipop;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -36,6 +37,12 @@ class DashboardController extends Controller
                 'non' => Profile::whereType('non-teaching')->count(),
                 'permanent' => Contact::whereStatusOfAppointment('Permanent')->count(),
                 'contractual' => Contact::whereStatusOfAppointment('Contractual')->count(),
+                'psipop' => [
+                    'filled' => Psipop::whereFilledPosition('1')->count(),
+                    'unfilled' => Psipop::whereFilledPosition('0')->count(),
+                    'pfilled' => Psipop::whereFilledPosition('1')->count() / Psipop::count() * 100,
+                    'punfilled' => Psipop::whereFilledPosition('0')->count() / Psipop::count() * 100,
+                ]
             ],
             'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
             'jobs' => Job::orderBy('created_at', 'DESC')->take(3)->get(),

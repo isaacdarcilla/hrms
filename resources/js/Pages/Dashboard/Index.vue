@@ -170,7 +170,7 @@
             <p
               class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
             >
-              {{ total.teaching }} <span class="text-xs">profile/s</span>
+              {{ total.teaching }} <span class="text-xs">profiles</span>
             </p>
           </div>
         </div>
@@ -210,7 +210,7 @@
             <p
               class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
             >
-              {{ total.non }} <span class="text-xs">profile/s</span>
+              {{ total.non }} <span class="text-xs">profiles</span>
             </p>
           </div>
         </div>
@@ -283,7 +283,88 @@
             <p
               class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
             >
-              {{ total.contractual }} <span class="text-xs">contractual employees</span>
+              {{ total.contractual }}
+              <span class="text-xs">contractual employees</span>
+            </p>
+          </div>
+        </div>
+      </button>
+      <button
+        :href="route('users')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-teal-500 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Total filled position
+            </p>
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.psipop.filled }} <span class="text-xs">filled</span>
+              <span class="text-green-600"
+                >({{ round(total.psipop.pfilled) }}%)</span
+              >
+            </p>
+          </div>
+        </div>
+      </button>
+      <button
+        :href="route('users')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-teal-500 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 13h6M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Total unfilled position
+            </p>
+            <p
+              class="text-lg text-left font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.psipop.unfilled }} <span class="text-xs">unfilled</span>
+              <span class="text-green-600"
+                >({{ round(total.psipop.punfilled) }}%)</span
+              >
             </p>
           </div>
         </div>
@@ -835,6 +916,9 @@ export default {
           },
         }
       );
+    },
+    round(number) {
+      return Math.round((number + Number.EPSILON) * 100) / 100;
     },
   },
 };

@@ -148,6 +148,10 @@ Route::post('psipop/create/store', [PsipopController::class, 'store'])
     ->name('psipop.store')
     ->middleware('remember', 'auth');
 
+Route::delete('psipop/delete/{id}', [PsipopController::class, 'destroy'])
+    ->name('psipop.destroy')
+    ->middleware('remember', 'auth');
+
 // Teaching/Non-Teaching List
 
 Route::get('teaching/nonteaching/list', [ProfileController::class, 'list'])
@@ -498,23 +502,23 @@ Route::delete('employee/leave/credits/{id}', [CreditController::class, 'destroy'
 
 // CTO
 
-Route::get('employee/leave/cto/credits/{contact}', [CtoCreditController::class, 'index'])
+Route::get('employee/leave/cto/credits/{contact}/s', [CtoCreditController::class, 'index'])
     ->name('cto.credits')
     ->middleware('auth');
 
-Route::put('employee/spl/credits/{credit}', [CtoCreditController::class, 'update_sick'])
+Route::put('employee/spl/credits/{credit}/s', [CtoCreditController::class, 'update_sick'])
     ->name('cto.credits.spl.update')
     ->middleware('auth');
 
-Route::put('employee/cto/credits/{credit}', [CtoCreditController::class, 'update_vacation'])
+Route::put('employee/cto/credits/{credit}/s', [CtoCreditController::class, 'update_vacation'])
     ->name('cto.credits.cto.update')
     ->middleware('auth');
 
-Route::post('employee/leave/credits/{contact}', [CtoCreditController::class, 'store'])
+Route::post('employee/leave/credits/{contact}/s', [CtoCreditController::class, 'store'])
     ->name('cto.credits.store')
     ->middleware('auth');
 
-Route::delete('employee/leave/credits/{id}', [CtoCreditController::class, 'destroy'])
+Route::delete('employee/leave/credits/{id}/s', [CtoCreditController::class, 'destroy'])
     ->name('cto.credits.destroy')
     ->middleware('auth');
 
