@@ -6,7 +6,7 @@
         :href="route('psipop.index')"
         >Psipop</inertia-link
       >
-      <span class="text-indigo-400 font-medium">/</span> Create Psipop🥳
+      <span class="text-indigo-400 font-medium">/</span> Create Psipop 📂
     </h1>
     <div class="bg-white rounded shadow overflow-hidden">
       <form @submit.prevent="submit">
@@ -32,93 +32,6 @@
               {{ $page.errors.position }}
             </div>
           </div>
-          <text-input
-            v-model="form.tin_number"
-            :error="errors.tin_number"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="TIN Number *"
-            placeholder="Enter TIN number"
-          />
-          <select-input
-            v-model="form.incumbent_name"
-            :error="errors.incumbent_name"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Incumbent Name *"
-          >
-            <option v-for="e in employees" :key="e.id">{{ e.first_name }}</option>
-          </select-input>
-          <select-input
-            v-model="form.sex"
-            :error="errors.sex"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Sex *"
-          >
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select-input>
-
-          <div class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Birth Date *</label>
-            <v-date-picker v-model="form.birth_date">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select birth date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div v-if="$page.errors.birth_date !== null" class="form-error">
-              {{ $page.errors.birth_date }}
-            </div>
-          </div>
-
-          <div class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Appoint Date *</label>
-            <v-date-picker v-model="form.appoint_date">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select appoint date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div v-if="$page.errors.appoint_date !== null" class="form-error">
-              {{ $page.errors.appoint_date }}
-            </div>
-          </div>
-
-          <div class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Last Promotion Date *</label>
-            <v-date-picker v-model="form.last_promo_date">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select last promotion date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div
-              v-if="$page.errors.last_promo_date !== null"
-              class="form-error"
-            >
-              {{ $page.errors.last_promo_date }}
-            </div>
-          </div>
 
           <text-input
             v-model="form.salary_grade"
@@ -127,19 +40,21 @@
             label="Salary Grade *"
             placeholder="Enter salary grade"
           />
+
+          <text-input
+            v-model="form.monthly_salary"
+            :error="errors.monthly_salary"
+            class="pr-6 pb-8 w-full lg:w-1/2"
+            label="Monthly Salary *"
+            placeholder="Enter monthly salary"
+          />
+
           <text-input
             v-model="form.authorized_salary"
             :error="errors.authorized_salary"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Authorized Salary *"
-            placeholder="Enter authorized salary"
-          />
-          <text-input
-            v-model="form.actual_salary"
-            :error="errors.actual_salary"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Actual Salary *"
-            placeholder="Enter actual salary"
+            label="Annual Salary *"
+            placeholder="Enter annual salary"
           />
         </div>
         <div
@@ -186,19 +101,19 @@ export default {
       form: {
         item_number: null,
         position: null,
-        tin_number: null,
-        incumbent_name: null,
-        sex: null,
-        birth_date: null,
-        appoint_date: null,
-        last_promo_date: null,
         salary_grade: null,
-        step_increment: 0,
-        filled_position: 0,
         authorized_salary: null,
-        actual_salary: null,
+        monthly_salary: null,
       },
     };
+  },
+  watch: {
+    form: {
+      handler(e) {
+        this.form.authorized_salary = (e.monthly_salary * 12).toString();
+      },
+      deep: true,
+    },
   },
   methods: {
     submit() {

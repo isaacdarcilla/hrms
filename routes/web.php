@@ -136,6 +136,14 @@ Route::get('psipop/create', [PsipopController::class, 'create'])
     ->name('psipop.create')
     ->middleware('remember', 'auth');
 
+Route::get('psipop/edit/{id}', [PsipopController::class, 'edit'])
+    ->name('psipop.edit')
+    ->middleware('remember', 'auth');
+
+Route::put('psipop/update/{id}', [PsipopController::class, 'update'])
+    ->name('psipop.update')
+    ->middleware('remember', 'auth');
+
 Route::post('psipop/create/store', [PsipopController::class, 'store'])
     ->name('psipop.store')
     ->middleware('remember', 'auth');
