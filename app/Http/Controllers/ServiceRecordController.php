@@ -18,7 +18,7 @@ class ServiceRecordController extends Controller
         return Inertia::render('ServiceRecord/Index', [
             'filters' => Request::all('search', 'trashed'),
             'employee' => $contact,
-            'service_records' => Auth::user()->service_records()->orderBy('created_at', 'DESC')
+            'service_records' => $contact->service_records()->orderBy('created_at', 'DESC')
                 ->with('contact')
                 ->with('user')
                 ->paginate()

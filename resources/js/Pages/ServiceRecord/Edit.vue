@@ -85,26 +85,15 @@
 
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
-                      <label class="form-label font-bold"
-                        >Designation <span class="text-red-600">*</span></label
-                      >
-                      <select
+                      <label class="form-label">Designation *</label>
+                      <v-selectize
                         v-model="form.designation"
-                        class="form-input block w-full appearance-none"
-                      >
-                        <option disabled selected>Please select status</option>
-                        <option value="Job Order">Job Order</option>
-                        <option value="Contractual">Contractual</option>
-                        <option value="Permanent">Permanent</option>
-                        <option value="Full-time">Full-time</option>
-                        <option value="Casual">Casual</option>
-                        <option value="Part-time">Part-time</option>
-                        <option value="Temporary">Temporary</option>
-                        <option value="Contract of Service">
-                          Contract of Service
-                        </option>
-                      </select>
-
+                        :options="options"
+                        :limit="10"
+                        label="Designation *"
+                        class="form-input block w-full"
+                        placeholder="Type and select designation"
+                      />
                       <div
                         v-if="$page.errors.designation !== null"
                         class="form-error"
@@ -314,10 +303,13 @@
 import { mask } from "vue-the-mask";
 import { ToggleButton } from "vue-js-toggle-button";
 import moment from "moment";
+import VSelectize from "@isneezy/vue-selectize";
+import jobs from "../../Shared/Modals/jobs.json";
 
 export default {
   components: {
     ToggleButton,
+    VSelectize,
   },
   props: {
     modal: {
@@ -331,6 +323,7 @@ export default {
   data() {
     return {
       sending: false,
+      options: jobs,
       form: {
         user_id: this.$page.auth.user.id,
         service_start: null,

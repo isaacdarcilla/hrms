@@ -14,6 +14,183 @@
       </button>
     </div>
 
+    <vue-html2pdf
+      :show-layout="true"
+      :float-layout="false"
+      :enable-download="false"
+      :preview-modal="true"
+      :paginate-elements-by-height="1400"
+      :filename="filename"
+      :pdf-quality="2"
+      :manual-pagination="true"
+      pdf-format="legal"
+      pdf-orientation="portrait"
+      pdf-content-width="mx-auto"
+      @hasStartedGeneration="hasStartedGeneration()"
+      @hasGenerated="hasGenerated($event)"
+      ref="html2Pdf"
+    >
+      <section
+        slot="pdf-content"
+        class="mt-2 bg-white font-sans mx-auto text-black"
+        style="width: 816px; height: 1280px"
+      >
+        <div class="flex mt-6">
+          <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
+          <div class="my-auto">
+            <div class="text-sm italic mt-1">Republic of the Philippines</div>
+            <div class="text-sm font-bold uppercase my-1">
+              Catanduanes State University
+            </div>
+            <div class="text-sm italic mb-1">Virac, Catanduanes</div>
+          </div>
+        </div>
+        <div class="border-t-2 mt-2 border-blue-600"></div>
+        <div class="mx-4 mt-4">
+          <div class="text-center text-lg font-bold uppercase">
+            Service Record
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="h-6 ml-2">
+            <div class="flex justify-items-auto">
+              <div class="w-1/12">
+                <div class="uppercase">Name:</div>
+              </div>
+              <div class="w-7/12 text-center">
+                <div class="capitalize border-b-one border-black">
+                  <div class="flex justify-between">
+                    <div class="w-1/3 uppercase font-semibold">Arcilla</div>
+                    <div class="w-1/3 uppercase font-semibold">Geraldine</div>
+                    <div class="w-1/3 uppercase font-semibold">Magdaraog</div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-5/12 ml-6">
+                <div>If married woman, also give maiden name</div>
+              </div>
+            </div>
+            <div class="flex justify-items-auto">
+              <div class="w-1/12"></div>
+              <div class="w-7/12 text-center">
+                <div class="normal-case">
+                  <div class="flex justify-between">
+                    <div class="w-1/3">Surname</div>
+                    <div class="w-1/3">Given Name</div>
+                    <div class="w-1/3">Middle Name</div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-5/12 ml-6">
+                <div>Nee: Not Applicable</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="h-6 ml-2">
+            <div class="flex justify-items-auto">
+              <div class="w-1/12">
+                <div class="uppercase">Birth:</div>
+              </div>
+              <div class="w-7/12 text-center">
+                <div class="capitalize border-b-one border-black">
+                  <div class="flex justify-between">
+                    <div class="w-1/2">January 28, 1986</div>
+                    <div class="w-1/2">Virac, Catanduanes</div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-5/12 ml-6">
+                <div>Date herein should be checked from birth</div>
+              </div>
+            </div>
+            <div class="flex justify-items-auto">
+              <div class="w-1/12"></div>
+              <div class="w-7/12 text-center">
+                <div class="normal-case">
+                  <div class="flex justify-between">
+                    <div class="w-1/2">Date</div>
+                    <div class="w-1/2">Place</div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-5/12 ml-6 text-justify">
+                <div>certificate or some other reliable documents.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 text-justify" style="text-indent: 50px">
+          This is to certify that the employee named herein above actually
+          rendered service in this Office as shown by the service record below,
+          each line f which is supported by appointment anf oher papers actually
+          issued by this Office and approved by the autorities concerned.
+        </div>
+        <div class="mt-10">
+          <div class="h-6 ml-2">
+            <div class="flex justify-items-auto">
+              <div class="w-3/12 border-t-one border-r-one border-black">
+                <div class="uppercase text-center">
+                  Service <br />(INCL. DATES)
+                </div>
+              </div>
+              <div class="w-4/12 border-t-one border-r-one border-black">
+                <div class="uppercase text-center mt-4">
+                  Record of appointment
+                </div>
+              </div>
+              <div class="w-2/12 border-t-one border-r-one border-black">
+                <div class="uppercase text-center">
+                  Office/Entity/<br />Division
+                </div>
+              </div>
+              <div class="w-1/12 border-t-one border-r-one border-black">
+                <div class="uppercase text-center">LV/ABS W/O</div>
+              </div>
+              <div class="w-2/12 border-t-one border-black">
+                <div class="uppercase text-center mt-4">Separation</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="h-6 ml-2">
+              <div class="flex justify-items-auto">
+                <div class="w-3/12 border-t-one border-r-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-black">From</div>
+                    <div class="w-1/2">To</div>
+                  </div>
+                </div>
+                <div class="w-4/12 border-t-one border-r-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-2/5 border-r-one border-black">Designation</div>
+                    <div class="w-1/5 border-r-one border-black">Status</div>
+                    <div class="w-2/5">Salary</div>
+                  </div>
+                </div>
+                <div class="w-2/12 border-t-one border-r-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-black">Place</div>
+                    <div class="w-1/2">Branch</div>
+                  </div>
+                </div>
+                <div class="w-1/12 border-r-one border-black">
+                  <div class="uppercase text-center">PAY</div>
+                </div>
+                <div class="w-2/12 border-t-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-black">Date</div>
+                    <div class="w-1/2">Cause</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </vue-html2pdf>
+
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
@@ -285,11 +462,7 @@
       :employee="employee"
       :modal.sync="showCreate"
     ></create>
-    <edit
-      :showing="showEdit"
-      :service="service"
-      :modal.sync="showEdit"
-    ></edit>
+    <edit :showing="showEdit" :service="service" :modal.sync="showEdit"></edit>
   </div>
 </template>
 
@@ -304,6 +477,8 @@ import throttle from "lodash/throttle";
 import moment from "moment";
 import Create from "@/Pages/ServiceRecord/Create";
 import Edit from "@/Pages/ServiceRecord/Edit";
+import jobs from "../../Shared/Modals/jobs.json";
+import VueHtml2pdf from "vue-html2pdf";
 
 export default {
   metaInfo: { title: "Service Record" },
@@ -314,6 +489,7 @@ export default {
     SearchFilter,
     Create,
     Edit,
+    VueHtml2pdf,
   },
   props: {
     employee: Object,
@@ -325,6 +501,7 @@ export default {
       showCreate: false,
       showEdit: false,
       service: null,
+      options: jobs,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
