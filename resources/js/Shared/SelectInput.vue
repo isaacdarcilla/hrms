@@ -1,7 +1,7 @@
 <template>
   <div>
     <label v-if="label" class="form-label" :for="id">{{ label }}</label>
-    <select :id="id" ref="input" v-model="selected" v-bind="$attrs" class="form-select" :class="{ error: 0 }">
+    <select :id="id" :disabled="disable" ref="input" v-model="selected" v-bind="$attrs" class="form-select" :class="{ error: 0 }">
       <slot />
     </select>
     <div v-if="error" class="form-error">{{ error }}</div>
@@ -21,10 +21,12 @@ export default {
     value: [String, Number, Boolean],
     label: String,
     error: String,
+    disabled: Boolean,
   },
   data() {
     return {
       selected: this.value,
+      disable: this.disabled,
     }
   },
   watch: {

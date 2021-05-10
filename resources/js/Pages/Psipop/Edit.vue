@@ -40,6 +40,7 @@
             placeholder="Enter TIN number"
           />
           <select-input
+            disabled="true"
             v-model="form.incumbent_name"
             :error="errors.incumbent_name"
             class="pr-6 pb-8 w-full lg:w-1/2"
