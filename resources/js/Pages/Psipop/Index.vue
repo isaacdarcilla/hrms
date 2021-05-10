@@ -34,6 +34,14 @@
         class="ml-2 box-content h-1 w-2 p-1 bg-green-300 text-sm text-gray-700"
         >5 years current pay date</span
       >
+      <span
+        class="ml-2 box-content h-1 w-2 p-1 bg-purple-400 text-sm text-gray-700"
+        >Age 60 to 65</span
+      >
+      <span
+        class="ml-2 box-content h-1 w-2 p-1 bg-red-400 text-sm text-gray-700"
+        >Age 65 and above</span
+      >
     </div>
     <div class="shadow overflow-auto border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
@@ -74,6 +82,12 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Birth Date
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Age
             </th>
             <th
               scope="col"
@@ -263,6 +277,66 @@
                   v-if="psipop.birth_date !== null"
                 >
                   {{ format(psipop.birth_date) }}
+                </div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-if="age(psipop.birth_date).toString() >= 60 && age(psipop.birth_date).toString() <= 64"
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1 bg-purple-400"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div
+                  class="font-semibold"
+                  v-if="psipop.birth_date !== null"
+                >
+                  {{ age(psipop.birth_date) }} y.o.
+                </div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-else-if="age(psipop.birth_date).toString() >= 65"
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1 bg-red-400"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div
+                  class="font-semibold"
+                  v-if="psipop.birth_date !== null"
+                >
+                  {{ age(psipop.birth_date) }} y.o.
+                </div>
+                <div v-else class="text-sm text-gray-500">
+                  No data available
+                </div>
+              </inertia-link>
+            </td>
+            <td
+              v-else
+              class="px-6 py-4 whitespace-nowrap transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                :href="route('psipop.index')"
+                tabindex="-1"
+              >
+                <div
+                  class="font-semibold"
+                  v-if="psipop.birth_date !== null"
+                >
+                  {{ age(psipop.birth_date) }} y.o.
                 </div>
                 <div v-else class="text-sm text-gray-500">
                   No data available
@@ -597,6 +671,9 @@ export default {
     },
   },
   methods: {
+    age(birthday) {
+      return moment().diff(moment(String(birthday), "YYYY-MM-DD"), "years");
+    },
     year() {
       return moment().year();
     },

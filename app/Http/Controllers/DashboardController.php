@@ -42,6 +42,7 @@ class DashboardController extends Controller
                     'unfilled' => Psipop::whereFilledPosition('0')->count(),
                     'pfilled' => Psipop::whereFilledPosition('1')->count() / Psipop::count() * 100,
                     'punfilled' => Psipop::whereFilledPosition('0')->count() / Psipop::count() * 100,
+                    'retirees' =>  DB::statement('select count(*) as total from psipops where birth_date < CURDATE() - INTERVAL 60 YEAR;'),
                 ]
             ],
             'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
