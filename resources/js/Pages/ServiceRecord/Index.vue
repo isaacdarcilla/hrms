@@ -156,35 +156,107 @@
           <div class="mt-2">
             <div class="h-6 ml-2">
               <div class="flex justify-items-auto">
-                <div class="w-3/12 border-t-one border-r-one border-black">
+                <div
+                  class="w-3/12 border-t-one border-b-one border-r-one border-black"
+                >
                   <div class="flex justify-items-auto text-center">
                     <div class="w-1/2 border-r-one border-black">From</div>
                     <div class="w-1/2">To</div>
                   </div>
-                </div>
-                <div class="w-4/12 border-t-one border-r-one border-black">
                   <div class="flex justify-items-auto text-center">
-                    <div class="w-2/5 border-r-one border-black">Designation</div>
+                    <div class="w-1/2 border-r-one border-t-one border-black">
+                      01/02/2020
+                    </div>
+                    <div class="w-1/2 border-t-one border-black">
+                      01/20/2020
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="w-4/12 border-t-one border-b-one border-r-one border-black"
+                >
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-2/5 border-r-one border-black">
+                      Designation
+                    </div>
                     <div class="w-1/5 border-r-one border-black">Status</div>
                     <div class="w-2/5">Salary</div>
                   </div>
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-2/5 border-r-one border-t-one border-black">
+                      Administrative Aide III
+                    </div>
+                    <div class="w-1/5 border-r-one border-t-one border-black">
+                      Perm.
+                    </div>
+                    <div class="w-2/5 border-t-one border-black">
+                      P 1,000,000
+                    </div>
+                  </div>
                 </div>
-                <div class="w-2/12 border-t-one border-r-one border-black">
+                <div
+                  class="w-2/12 border-t-one border-b-one border-r-one border-black"
+                >
                   <div class="flex justify-items-auto text-center">
                     <div class="w-1/2 border-r-one border-black">Place</div>
                     <div class="w-1/2">Branch</div>
                   </div>
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-t-one border-black">
+                      Catanduanes State University, Virac, Cat.
+                    </div>
+                    <div class="w-1/2 border-t-one border-black">Nat'l</div>
+                  </div>
                 </div>
-                <div class="w-1/12 border-r-one border-black">
+                <div class="w-1/12 border-r-one border-b-one border-black">
                   <div class="uppercase text-center">PAY</div>
                 </div>
-                <div class="w-2/12 border-t-one border-black">
+                <div class="w-2/12 border-t-one border-b-one border-black">
                   <div class="flex justify-items-auto text-center">
                     <div class="w-1/2 border-r-one border-black">Date</div>
                     <div class="w-1/2">Cause</div>
                   </div>
                 </div>
               </div>
+              <!-- Start -->
+              <!-- <div class="flex justify-items-auto">
+                <div class="w-3/12 border-b-one border-r-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-black">
+                      01/11/2020
+                    </div>
+                    <div class="w-1/2">01/01/2020</div>
+                  </div>
+                </div>
+                <div class="w-4/12 border-b-one border-r-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-2/5 border-r-one border-black">
+                      Administrative Aide III
+                    </div>
+                    <div class="w-1/5 border-r-one border-black">Perm.</div>
+                    <div class="w-2/5">P 1,000,000</div>
+                  </div>
+                </div>
+                <div class="w-2/12 border-b-one border-r-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-black">
+                      Catanduanes State University, Virac, Cat.
+                    </div>
+                    <div class="w-1/2">Nat'l</div>
+                  </div>
+                </div>
+                <div class="w-1/12 border-r-one border-b-one border-black">
+                  <div class="normal-case text-center">None</div>
+                </div>
+                <div class="w-2/12 border-b-one border-black">
+                  <div class="flex justify-items-auto text-center">
+                    <div class="w-1/2 border-r-one border-black">
+                      01/01/2020
+                    </div>
+                    <div class="w-1/2">RA-12299</div>
+                  </div>
+                </div>
+              </div> -->
             </div>
           </div>
         </div>
