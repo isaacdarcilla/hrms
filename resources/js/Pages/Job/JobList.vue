@@ -128,7 +128,7 @@
                       Interested and qualified applicants should signify their
                       interest in writing, attach the following documents and
                       send to the address below not later than
-                      <span class="font-semibold underline">{{
+                      <span class="font-semibold underline text-red-400">{{
                         formatDate(job.deadline_at)
                       }}</span
                       >.

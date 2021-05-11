@@ -127,7 +127,7 @@
           each line f which is supported by appointment anf oher papers actually
           issued by this Office and approved by the autorities concerned.
         </div>
-        <div class="mt-10">
+        <div class="mt-8">
           <div class="h-6 ml-2">
             <div class="flex justify-items-auto">
               <div class="w-3/12 border-t-one border-r-one border-black">
