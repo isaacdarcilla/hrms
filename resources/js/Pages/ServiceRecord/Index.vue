@@ -15,7 +15,7 @@
     </div>
 
     <vue-html2pdf
-      :show-layout="true"
+      :show-layout="false"
       :float-layout="false"
       :enable-download="false"
       :preview-modal="true"
