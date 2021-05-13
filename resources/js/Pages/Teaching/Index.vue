@@ -17,9 +17,7 @@
             value="teaching"
             class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
           />
-          <label for="t" class="text-md text-gray-900"
-            >Teaching</label
-          >
+          <label for="t" class="text-md text-gray-900">Teaching</label>
         </div>
         <div class="flex items-center space-x-2 my-3">
           <input
@@ -30,11 +28,13 @@
             value="non-teaching"
             class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
           />
-          <label for="n" class="text-md text-gray-900"
-            >Non-Teaching</label
-          >
+          <label for="n" class="text-md text-gray-900">Non-Teaching</label>
         </div>
       </search-filter>
+    </div>
+    <div class="my-5">
+      Currently Viewing:
+      <span class="font-bold">{{ profiles.data[0].type.toUpperCase() }}</span>
     </div>
     <div class="shadow overflow-x-auto border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
@@ -178,6 +178,12 @@
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Name of School
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Action
             </th>
           </tr>
         </thead>
@@ -466,6 +472,17 @@
                 </div>
               </inertia-link>
             </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
+            >
+              <inertia-link
+                :href="
+                  route('profile.index', [profile.contact.id, profile.type])
+                "
+                class="text-indigo-600 cursor-pointer hover:text-indigo-900"
+                >👁️ View</inertia-link
+              >
+            </td>
           </tr>
         </tbody>
         <tr v-if="profiles.data.length === 0">
@@ -505,7 +522,7 @@ export default {
     return {
       form: {
         search: this.filters.search,
-        type: 'teaching',
+        type: "teaching",
       },
     };
   },

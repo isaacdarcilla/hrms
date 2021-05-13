@@ -263,7 +263,7 @@
       </section>
     </vue-html2pdf>
 
-    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+    <div class="shadow overflow-auto border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-white">
           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
@@ -512,12 +512,6 @@
                 v-if="!service.deleted_at"
                 class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
                 >🗑️ Delete</span
-              >
-              <span
-                v-else
-                @click="restore(service.id)"
-                class="text-yellow-600 inline-flex mt-2 cursor-pointer hover:text-yellow-900"
-                >♻️ Restore</span
               >
             </td>
           </tr>
