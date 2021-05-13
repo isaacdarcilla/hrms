@@ -33,6 +33,7 @@ use App\Http\Controllers\ServiceRecordController;
 use App\Http\Controllers\IpcrOpcrController;
 use App\Http\Controllers\AdminIpcrOpcrController;
 use App\Http\Controllers\PsipopController;
+use App\Http\Controllers\ScholarshipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -555,6 +556,19 @@ Route::put('personal/profile/{contact}/type/{type}/edit_work', [ProfileControlle
 Route::get('personal/leave', [LeaveController::class, 'index'])
     ->name('employee.leave')
     ->middleware('web', 'employee');
+
+Route::get('personal/scholarship', [ScholarshipController::class, 'index'])
+    ->name('employee.scholarship')
+    ->middleware('web', 'employee');
+
+Route::get('personal/scholarship/new', [ScholarshipController::class, 'create'])
+    ->name('employee.scholarship.create')
+    ->middleware('web', 'employee');
+
+Route::post('personal/scholarship/store', [ScholarshipController::class, 'store'])
+    ->name('employee.scholarship.store')
+    ->middleware('web', 'employee');
+
 
 Route::get('personal/inquiry', [InquiryController::class, 'index'])
     ->name('employee.inquiry')

@@ -69,7 +69,7 @@
               : 'text-indigo-300 font-bold group-hover:text-white'
           "
         >
-          🗂️ Service Record
+          🗂️ Service
         </div>
       </inertia-link>
     </div>
@@ -98,6 +98,25 @@
     >
       <inertia-link
         class="flex items-center group py-3"
+        :href="route('employee.scholarship')"
+      >
+        <div
+          :class="
+            isUrl('employee.ipcr.index')
+              ? 'text-white font-bold'
+              : 'text-indigo-300 font-bold group-hover:text-white'
+          "
+        >
+          🎓 Scholar
+        </div>
+      </inertia-link>
+    </div>
+    <div
+      v-if="$page.employee.status_of_appointment === 'Permanent'"
+      class="mb-4"
+    >
+      <inertia-link
+        class="flex items-center group py-3"
         :href="route('employee.profile.teaching', [$page.employee.id, 'teaching'])"
       >
         <div
@@ -107,7 +126,7 @@
               : 'text-indigo-300 font-bold group-hover:text-white'
           "
         >
-          👩‍🏫 Teaching Profile
+          👩‍🏫 Teaching
         </div>
       </inertia-link>
     </div>
@@ -126,7 +145,7 @@
               : 'text-indigo-300 font-bold group-hover:text-white'
           "
         >
-          📕 Non Teaching Profile
+          📕 Non Teaching
         </div>
       </inertia-link>
     </div>

@@ -18,7 +18,7 @@
         v-model="vp_name"
         class="form-input w-full mx-auto appearance-none"
       >
-        <option disabled selected>Please VP name</option>
+        <option disabled selected>Please select VP name</option>
         <option value="1">Ma. Theresa E. Sarmiento, MBA</option>
         <option value="2">Juan Dela Cruz, MBA</option>
       </select>
