@@ -34,6 +34,7 @@ use App\Http\Controllers\IpcrOpcrController;
 use App\Http\Controllers\AdminIpcrOpcrController;
 use App\Http\Controllers\PsipopController;
 use App\Http\Controllers\ScholarshipController;
+use App\Http\Controllers\AdminScholarshipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -499,6 +500,16 @@ Route::post('employee/leave/credits/{contact}', [CreditController::class, 'store
 
 Route::delete('employee/leave/credits/{id}', [CreditController::class, 'destroy'])
     ->name('credits.destroy')
+    ->middleware('auth');
+
+// Scholars
+
+Route::get('scholarship', [AdminScholarshipController::class, 'index'])
+    ->name('scholarship.index')
+    ->middleware('auth');
+
+Route::get('scholarship/view/{id}', [AdminScholarshipController::class, 'view'])
+    ->name('scholarship.view')
     ->middleware('auth');
 
 // CTO

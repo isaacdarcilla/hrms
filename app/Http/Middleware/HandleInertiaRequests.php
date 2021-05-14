@@ -7,6 +7,7 @@ use Inertia\Middleware;
 use App\Models\Notification;
 use App\Models\Contact;
 use App\Models\Leave;
+use App\Models\Scholarship;
 use App\Models\Inquiry;
 use App\Models\EmployeeSetting;
 use Illuminate\Support\Facades\DB;
@@ -81,6 +82,7 @@ class HandleInertiaRequests extends Middleware
                 return [
                     'count' => Notification::where('read_at', null)->count(),
                     'tickets' => Inquiry::where('replied', null)->count(),
+                    'scholarships' => Scholarship::whereStatus('Pending')->count(),
                     'leaves' => auth()->check() ? Leave::where('user_id', auth()->user()->id)->where('approved_for', null)->where('disapproved_due_to', null)->where('recommendation', null)->count() : null,
                     'notifications' => DB::table('contacts')
                                         ->join('notifications', 'contacts.id', '=', 'notifications.contact_id')

@@ -20,6 +20,11 @@ class Scholarship extends Model
         return $this->belongsTo(Office::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {
