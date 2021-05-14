@@ -11,23 +11,85 @@
     <div class="bg-white rounded shadow overflow-hidden">
       <form @submit.prevent="submit">
         <div class="p-8 -mr-6 flex flex-wrap">
-          <select-input
-            v-model="form.scholarship_type"
-            :error="errors.scholarship_type"
+          <!-- First -->
+          <text-input
+            v-model="form.type_of_disability"
+            :error="errors.type_of_disability"
             class="pr-6 pb-8 w-full lg:w-1/2"
-            label="Scholarship Type *"
-          >
-            <option @click="form.plan = null" value="1">
-              Local Training Grant
-            </option>
-            <option @click="form.plan = null" value="2">
-              Training Grant Abroad
-            </option>
-            <option @click="form.plan = null" value="3">
-              Sabbatical Leave
-            </option>
-            <option value="4">Advanced Degree Program</option>
-          </select-input>
+            label="Type of Disability (If Any)"
+            placeholder="Enter disability"
+          />
+          <div class="pr-6 pb-8 w-full lg:w-1/2">
+            <label class="form-label">Highest Educational Attainment *</label>
+            <select
+              class="form-input block w-full"
+              v-model="form.highest_educational_attainment"
+            >
+              <option value="Some Elementary">Some Elementary</option>
+              <option value="Elementary Graduate">Elementary Graduate</option>
+              <option value="Some High School">Some High School</option>
+              <option value="High School Graduate">High School Graduate</option>
+              <option value="Some College">Some College</option>
+              <option value="College Graduate">College Graduate</option>
+              <option value="Masters Graduate">Masters Graduate</option>
+              <option value="Doctoral Graduate">Doctoral Graduate</option>
+            </select>
+            <div
+              v-if="$page.errors.highest_educational_attainment !== null"
+              class="form-error"
+            >
+              {{ $page.errors.highest_educational_attainment }}
+            </div>
+          </div>
+          <text-input
+            v-model="form.school_last_attended"
+            :error="errors.school_last_attended"
+            class="pr-6 pb-8 w-full lg:w-1/2"
+            label="Last School Attended *"
+            placeholder="Enter last school attended"
+          />
+          <text-input
+            v-model="form.school_address"
+            :error="errors.school_address"
+            class="pr-6 pb-8 w-full lg:w-1/2"
+            label="School Address *"
+            placeholder="Enter school address"
+          />
+          <text-input
+            v-model="form.degree_program"
+            :error="errors.degree_program"
+            class="pr-6 pb-8 w-full lg:w-1/2"
+            label="Degree Program (Write in full) *"
+            placeholder="Enter degree program"
+          />
+          <text-input
+            v-model="form.weighted_average"
+            :error="errors.weighted_average"
+            class="pr-6 pb-8 w-full lg:w-1/2"
+            label="General Weighted Average (GWA) *"
+            placeholder="Enter gwa"
+          />
+          <!-- End -->
+
+          <div class="pr-6 pb-8 w-full lg:w-1/2">
+            <label class="form-label">Scholarship Type *</label>
+            <select
+              @change="handleType"
+              class="form-input block w-full"
+              v-model="form.scholarship_type"
+            >
+              <option value="1">Local Training Grant</option>
+              <option value="2">Training Grant Abroad</option>
+              <option value="3">Sabbatical Leave</option>
+              <option value="4">Advanced Degree Program</option>
+            </select>
+            <div
+              v-if="$page.errors.scholarship_type !== null"
+              class="form-error"
+            >
+              {{ $page.errors.scholarship_type }}
+            </div>
+          </div>
 
           <!-- Local only  -->
           <text-input
@@ -172,8 +234,8 @@
 
           <text-input
             v-if="form.plan == '1'"
-            v-model="form.school_address"
-            :error="errors.school_address"
+            v-model="form.intended_school_address"
+            :error="errors.intended_school_address"
             class="pr-6 pb-8 w-full lg:w-1/2"
             label="School Address *"
             placeholder="Enter school address"
@@ -525,13 +587,19 @@ export default {
     employee: Object,
   },
   remember: "form",
+  watch: {
+    form: {
+      handler(e) {},
+      deep: true,
+    },
+  },
   data() {
     return {
       sending: false,
       options: jobs,
       form: {
         contact_id: this.employee.id,
-
+        office_id: this.employee.department,
         type_of_disability: null,
         highest_educational_attainment: null,
         school_last_attended: null,
@@ -552,7 +620,7 @@ export default {
         plan: null,
         grantee_agency: null,
         school_intended_to_enroll: null,
-        school_address: null,
+        intended_school_address: null,
         duration_number_of_years: null,
         // scholarship_inclusive_dates: null,
         scholarship_start_inclusive_dates: null,
@@ -566,29 +634,35 @@ export default {
         start_period_of_grant: null,
         end_period_of_grant: null,
         reason_of_applying: null,
-        doc1: null,
-        doc2: null,
-        doc3: null,
-        doc4: null,
-        doc5: null,
-        doc6: null,
-        doc7: null,
-        doc8: null,
-        doc9: null,
-        doc10: null,
-        doc11: null,
-        doc12: null,
-        doc13: null,
-        doc14: null,
-        doc15: null,
-        doc16: null,
-        immediate_head_name: null,
-        vp_name: null,
-        suc_president_name: null,
+        // doc1: null,
+        // doc2: null,
+        // doc3: null,
+        // doc4: null,
+        // doc5: null,
+        // doc6: null,
+        // doc7: null,
+        // doc8: null,
+        // doc9: null,
+        // doc10: null,
+        // doc11: null,
+        // doc12: null,
+        // doc13: null,
+        // doc14: null,
+        // doc15: null,
+        // doc16: null,
+        // immediate_head_name: null,
+        // vp_name: null,
+        // suc_president_name: null,
       },
     };
   },
   methods: {
+    handleType(e) {
+      console.log(e.target.value);
+      if (e.target.value != 4) {
+        this.form.plan = null;
+      }
+    },
     submit() {
       this.$inertia.post(this.route("employee.scholarship.store"), this.form, {
         onStart: () => (this.sending = true),

@@ -22,4 +22,9 @@ class Office extends Model
     {
         return $this->hasMany(Psipop::class);
     }
+
+    public function offices()
+    {
+        return $this->hasMany(Scholarship::class);
+    }
 }

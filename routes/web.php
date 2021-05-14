@@ -565,8 +565,24 @@ Route::get('personal/scholarship/new', [ScholarshipController::class, 'create'])
     ->name('employee.scholarship.create')
     ->middleware('web', 'employee');
 
+Route::get('personal/scholarship/edit/{id}', [ScholarshipController::class, 'edit'])
+    ->name('employee.scholarship.edit')
+    ->middleware('web', 'employee');
+
+Route::get('personal/scholarship/form/{id}', [ScholarshipController::class, 'form'])
+    ->name('employee.scholarship.form')
+    ->middleware('web', 'employee');
+
+Route::put('personal/scholarship/update/{id}', [ScholarshipController::class, 'update'])
+    ->name('employee.scholarship.update')
+    ->middleware('web', 'employee');
+
 Route::post('personal/scholarship/store', [ScholarshipController::class, 'store'])
     ->name('employee.scholarship.store')
+    ->middleware('web', 'employee');
+
+Route::delete('personal/scholarship/{id}/store', [ScholarshipController::class, 'destroy'])
+    ->name('employee.scholarship.destroy')
     ->middleware('web', 'employee');
 
 
