@@ -177,8 +177,18 @@
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
               >
                 <inertia-link
+                  :href="route('employee.scholarship.form', scholar.id)"
                   class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
                   >👁️‍🗨️ View Form</inertia-link
+                ></span
+              >
+              <span
+                class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
+              >
+                <inertia-link
+                  :href="route('employee.scholarship.edit', scholar.id)"
+                  class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
+                  >✏️ Edit</inertia-link
                 ></span
               >
               <span
