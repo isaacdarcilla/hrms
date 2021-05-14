@@ -93,10 +93,19 @@
                     >Pending</span
                   >
                 </div>
-                <div v-else class="normal-case font-semibold text-green-600">
+                <div
+                  v-else-if="scholar.status === 'Approved'"
+                  class="normal-case font-semibold text-green-600"
+                >
                   <span
                     class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
                     >Approved</span
+                  >
+                </div>
+                <div v-else class="normal-case font-semibold text-green-600">
+                  <span
+                    class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
+                    >Disapproved</span
                   >
                 </div>
               </inertia-link>
@@ -176,11 +185,13 @@
                 ></span
               >
               <span
+                v-if="scholar.status == 'Pending'"
                 @click="approve(scholar.id, scholar.scholarship_number)"
                 class="text-green-600 cursor-pointer hover:text-green-700"
                 >✅ Approve</span
               >
               <span
+                v-if="scholar.status == 'Pending'"
                 @click="disapprove(scholar.id, scholar.scholarship_number)"
                 class="text-red-600 cursor-pointer hover:text-red-700"
                 >❌ Disapprove</span
@@ -267,7 +278,7 @@ export default {
         dangerMode: false,
       }).then((willApprove) => {
         if (willApprove) {
-          this.$inertia.delete(this.route("scholarship.approve", id));
+          this.$inertia.put(this.route("scholarship.approve", id));
         }
       });
     },
@@ -279,7 +290,7 @@ export default {
         dangerMode: true,
       }).then((willDisapprove) => {
         if (willDisapprove) {
-          this.$inertia.delete(this.route("scholarship.disapprove", id));
+          this.$inertia.put(this.route("scholarship.disapprove", id));
         }
       });
     },

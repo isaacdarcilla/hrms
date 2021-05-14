@@ -512,6 +512,14 @@ Route::get('scholarship/view/{id}', [AdminScholarshipController::class, 'view'])
     ->name('scholarship.view')
     ->middleware('auth');
 
+Route::put('scholarship/approve/{id}', [AdminScholarshipController::class, 'approve'])
+    ->name('scholarship.approve')
+    ->middleware('auth');
+
+Route::put('scholarship/disapprove/{id}', [AdminScholarshipController::class, 'disapprove'])
+    ->name('scholarship.disapprove')
+    ->middleware('auth');
+
 // CTO
 
 Route::get('employee/leave/cto/credits/{contact}/s', [CtoCreditController::class, 'index'])
