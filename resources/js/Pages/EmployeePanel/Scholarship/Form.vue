@@ -1,13 +1,21 @@
 <template>
   <div>
-    <h1 class="mb-8 font-bold text-3xl">
-      <inertia-link
-        class="text-indigo-400 hover:text-indigo-600"
-        :href="route('employee.scholarship')"
-        >Scholarship</inertia-link
+    <div class="flex justify-between">
+      <h1 class="mb-8 font-bold text-3xl">
+        <inertia-link
+          class="text-indigo-400 hover:text-indigo-600"
+          :href="route('employee.scholarship')"
+          >Scholarship</inertia-link
+        >
+        <span class="text-indigo-400 font-medium">/</span> Form 92 🎓
+      </h1>
+      <button
+        @click="printPdf()"
+        class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
       >
-      <span class="text-indigo-400 font-medium">/</span> Form 92 🎓
-    </h1>
+        <span>🖨️ Print Form</span>
+      </button>
+    </div>
     <div>
       <vue-html2pdf
         :show-layout="true"
@@ -27,7 +35,7 @@
         <section
           slot="pdf-content"
           class="mt-2 bg-white font-sans mx-auto text-black"
-          style="width: 816px; height: 1280px"
+          style="width: 800px; height: 1280px"
         >
           <div class="flex mt-6">
             <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
@@ -365,9 +373,213 @@
                   <div class="w-4/12 ml-16 font-normal italic">
                     Grantee Institution/Agency:
                   </div>
-                  <div class="w-10/12 mr-6 border-b border-black text-center">
+                  <div class="w-10/12 mr-3 border-b border-black text-center">
                     Sample Agency
                   </div>
+                </div>
+                <div class="flex">
+                  <div class="w-6/12 ml-16 font-normal italic">
+                    School Intended to Enrol/Enrolled in:
+                  </div>
+                  <div class="w-8/12 mr-3 border-b border-black text-center">
+                    Sample Agency
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="w-3/12 ml-16 font-normal italic">
+                    School Address:
+                  </div>
+                  <div class="w-full mr-3 border-b border-black text-center">
+                    Sample Agency
+                  </div>
+                </div>
+
+                <div class="flex ml-16">
+                  <div class="w-full italic text-sm font-normal">
+                    Duration: <span class="text-sm">(No. of Terms/Years)</span>
+                  </div>
+                  <div class="w-full text-sm text-center">
+                    <div class="border-b border-black mr-2">2</div>
+                  </div>
+                  <div class="w-full italic text-sm font-normal">
+                    Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
+                  </div>
+                  <div class="w-full text-sm text-center">
+                    <div class="border-b border-black mr-3">Jan 2, 1970</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-full pl-2 py-1 border-t border-l border-r border-black font-semibold"
+              >
+                <div class="flex">
+                  <div
+                    class="text-sm h-2 border my-auto mr-4 ml-10 border-black p-1"
+                  ></div>
+                  <div>Plan B: College-Sponsored Scholarship</div>
+                </div>
+                <div class="flex">
+                  <div class="w-6/12 ml-16 font-normal italic">
+                    School Intended to Enrol/Enrolled in:
+                  </div>
+                  <div class="w-8/12 mr-3 border-b border-black text-center">
+                    Sample Agency
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="w-3/12 ml-16 font-normal italic">
+                    School Address:
+                  </div>
+                  <div class="w-full mr-3 border-b border-black text-center">
+                    Sample Agency
+                  </div>
+                </div>
+
+                <div class="flex ml-16">
+                  <div class="w-3/4 font-normal italic">
+                    School Type:
+                    <span class="italic text-sm font-normal"
+                      >(Please tick)</span
+                    >
+                  </div>
+                  <div class="w-1/4 text-sm text-center">
+                    <div class="border-b border-black mx-2">✓</div>
+                  </div>
+                  <div class="w-2/4 font-normal italic">Public Institution</div>
+                  <div class="w-1/4 text-sm text-center">
+                    <div class="border-b border-black mx-2">✓</div>
+                  </div>
+                  <div class="w-full font-normal italic">
+                    CHED Recognized Private Institution
+                  </div>
+                </div>
+
+                <div class="flex ml-16">
+                  <div class="w-full italic text-sm font-normal">
+                    Duration: <span class="text-sm">(No. of Terms/Years)</span>
+                  </div>
+                  <div class="w-full text-sm text-center">
+                    <div class="border-b border-black mr-2">2</div>
+                  </div>
+                  <div class="w-full italic text-sm font-normal">
+                    Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
+                  </div>
+                  <div class="w-full text-sm text-center">
+                    <div class="border-b border-black mr-3">Jan 2, 1970</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-full pl-2 py-1 border-t border-l border-r border-black font-semibold"
+              >
+                <div class="flex">
+                  <div
+                    class="text-sm h-2 border my-auto mr-4 ml-10 border-black p-1"
+                  ></div>
+                  <div>Plan C: Study Leave</div>
+                </div>
+
+                <div class="flex ml-16">
+                  <div class="w-full italic text-sm font-normal">
+                    Duration: <span class="text-sm">(No. of Terms/Years)</span>
+                  </div>
+                  <div class="w-full text-sm text-center">
+                    <div class="border-b border-black mr-2">2</div>
+                  </div>
+                  <div class="w-full italic text-sm font-normal">
+                    Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
+                  </div>
+                  <div class="w-full text-sm text-center">
+                    <div class="border-b border-black mr-3">Jan 2, 1970</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-full pl-2 py-1 border-t border-l border-r border-black font-semibold"
+              >
+                <div class="flex">
+                  <div
+                    class="text-sm h-2 border my-auto mr-4 ml-10 border-black p-1"
+                  ></div>
+                  <div>Plan D: Thesis/Dissertation Assistance</div>
+                </div>
+
+                <div class="ml-16">
+                  <div class="flex">
+                    <div
+                      class="text-sm h-2 border my-auto mx-4 border-black p-1"
+                    ></div>
+                    <div class="w-2/12 font-normal">Thesis Title:</div>
+                    <div class="w-10/12 text-sm text-center">
+                      <div class="border-b border-black mr-3">2</div>
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <div
+                      class="text-sm h-2 border my-auto mx-4 border-black p-1"
+                    ></div>
+                    <div class="w-3/12 font-normal">Dissertation Title:</div>
+                    <div class="w-10/12 text-sm text-center">
+                      <div class="border-b border-black mr-3">2</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-b border-l border-r border-black"
+              >
+                Have you been a recipient of<br />scholarship before?
+              </div>
+              <div
+                class="w-8/12 pl-2 py-1 border-t border-b border-r border-black"
+              >
+                <div class="flex">
+                  <div
+                    class="text-sm h-2 border my-auto mx-4 border-black p-1"
+                  ></div>
+                  <div class="w-6/12 font-normal">Yes, Sponsoring Agency:</div>
+                  <div class="w-11/12 text-sm text-center">
+                    <div class="border-b border-black mr-3">2</div>
+                  </div>
+                </div>
+                <div class="flex ml-10">
+                  <div class="w-8/12 font-normal">
+                    Period of Grant (MM/YYYY):
+                  </div>
+                  <div class="w-11/12 text-sm text-center">
+                    <div class="border-b border-black mr-3">2</div>
+                  </div>
+                </div>
+                <div class="flex">
+                  <div
+                    class="text-sm h-2 border my-auto mx-4 border-black p-1"
+                  ></div>
+                  <div class="w-3/12 font-normal">No:</div>
+                  <div class="w-11/12 text-sm text-center">
+                    <div class="border-b border-black mr-3">2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-b-2 border-black mt-3"></div>
+            <div class="flex">
+              <div class="w-4/12">
+                <div class="text-sm italic text-left">CSU-F-HRM-92</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-sm text-center italic">Rev.0</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-sm text-right italic">
+                  Effectivity Date: February 17, 2021
                 </div>
               </div>
             </div>
@@ -486,6 +698,10 @@ export default {
       if (e.target.value != 4) {
         this.form.plan = null;
       }
+    },
+    printPdf() {
+      console.log(true);
+      this.$refs.html2Pdf.generatePdf();
     },
     submit() {
       this.$inertia.put(
