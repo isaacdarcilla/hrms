@@ -176,10 +176,12 @@
                 ></span
               >
               <span
+                @click="approve(scholar.id, scholar.scholarship_number)"
                 class="text-green-600 cursor-pointer hover:text-green-700"
                 >✅ Approve</span
               >
               <span
+                @click="disapprove(scholar.id, scholar.scholarship_number)"
                 class="text-red-600 cursor-pointer hover:text-red-700"
                 >❌ Disapprove</span
               >
@@ -257,15 +259,27 @@ export default {
         return value;
       }
     },
-    destroy(id, name) {
+    approve(id, name) {
       swal({
-        title: "Delete",
-        text: `Are you sure you want to delete ${name}?`,
+        title: "Approve",
+        text: `Are you sure you want to approve ${name}?`,
+        buttons: true,
+        dangerMode: false,
+      }).then((willApprove) => {
+        if (willApprove) {
+          this.$inertia.delete(this.route("scholarship.approve", id));
+        }
+      });
+    },
+    disapprove(id, name) {
+      swal({
+        title: "Disapprove",
+        text: `Are you sure you want to approve ${name}?`,
         buttons: true,
         dangerMode: true,
-      }).then((willDelete) => {
-        if (willDelete) {
-          this.$inertia.delete(this.route("employee.scholarship.destroy", id));
+      }).then((willDisapprove) => {
+        if (willDisapprove) {
+          this.$inertia.delete(this.route("scholarship.disapprove", id));
         }
       });
     },

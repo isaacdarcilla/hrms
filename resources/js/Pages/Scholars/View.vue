@@ -13,6 +13,7 @@
         <div class="p-8 -mr-6 flex flex-wrap">
           <!-- First -->
           <text-input
+            disabled="true"
             v-model="form.type_of_disability"
             :error="errors.type_of_disability"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -22,6 +23,7 @@
           <div class="pr-6 pb-8 w-full lg:w-1/2">
             <label class="form-label">Highest Educational Attainment *</label>
             <select
+              disabled
               class="form-input block w-full"
               v-model="form.highest_educational_attainment"
             >
@@ -42,6 +44,7 @@
             </div>
           </div>
           <text-input
+            disabled="true"
             v-model="form.school_last_attended"
             :error="errors.school_last_attended"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -49,6 +52,7 @@
             placeholder="Enter last school attended"
           />
           <text-input
+            disabled="true"
             v-model="form.school_address"
             :error="errors.school_address"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -56,6 +60,7 @@
             placeholder="Enter school address"
           />
           <text-input
+            disabled="true"
             v-model="form.degree_program"
             :error="errors.degree_program"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -63,6 +68,7 @@
             placeholder="Enter degree program"
           />
           <text-input
+            disabled="true"
             v-model="form.weighted_average"
             :error="errors.weighted_average"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -74,6 +80,7 @@
           <div class="pr-6 pb-8 w-full lg:w-1/2">
             <label class="form-label">Scholarship Type *</label>
             <select
+              disabled
               @change="handleType"
               class="form-input block w-full"
               v-model="form.scholarship_type"
@@ -98,6 +105,7 @@
               form.scholarship_type == '2' ||
               form.scholarship_type == '3'
             "
+            disabled="true"
             v-model="form.duration_number_of_months"
             :error="errors.duration_number_of_months"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -113,59 +121,26 @@
             "
             class="pr-6 pb-8 w-full lg:w-1/2"
           >
-            <label class="form-label">Inclusive Date (Start) *</label>
-            <v-date-picker v-model="form.start_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select start date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div
-              v-if="$page.errors.start_inclusive_dates !== null"
-              class="form-error"
-            >
-              {{ $page.errors.start_inclusive_dates }}
+            <label class="form-label">Inclusive Date *</label>
+            <div class="flex items-center">
+              <input
+                v-model="form.scholarship_inclusive_dates"
+                class="form-input block w-full"
+                readonly
+                placeholder="Select start date"
+              />
             </div>
-          </div>
-          <div
-            v-if="
-              form.scholarship_type == '1' ||
-              form.scholarship_type == '2' ||
-              form.scholarship_type == '3'
-            "
-            class="pr-6 pb-8 w-full lg:w-1/2"
-          >
-            <label class="form-label">Inclusive Date (End) *</label>
-            <v-date-picker v-model="form.end_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select end date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
             <div
-              v-if="$page.errors.end_inclusive_dates !== null"
+              v-if="$page.errors.scholarship_inclusive_dates !== null"
               class="form-error"
             >
-              {{ $page.errors.end_inclusive_dates }}
+              {{ $page.errors.scholarship_inclusive_dates }}
             </div>
           </div>
 
           <!-- Tranining grant abroad only -->
           <text-input
+            disabled="true"
             v-if="form.scholarship_type == '2'"
             v-model="form.sponsoring_agency"
             :error="errors.sponsoring_agency"
@@ -176,6 +151,7 @@
 
           <!-- Advanced degree only -->
           <select-input
+            disabled="true"
             v-if="form.scholarship_type == '4'"
             v-model="form.degree_type"
             :error="errors.degree_type"
@@ -187,6 +163,7 @@
           </select-input>
 
           <text-input
+            disabled="true"
             v-if="form.scholarship_type == '4'"
             v-model="form.degree_name"
             :error="errors.degree_name"
@@ -198,6 +175,7 @@
           <!--  -->
 
           <select-input
+            disabled="true"
             v-if="form.scholarship_type == '4'"
             v-model="form.plan"
             :error="errors.plan"
@@ -215,6 +193,7 @@
           <!-- Plan A only -->
 
           <text-input
+            disabled="true"
             v-if="form.plan == '1'"
             v-model="form.grantee_agency"
             :error="errors.grantee_agency"
@@ -224,6 +203,7 @@
           />
 
           <text-input
+            disabled="true"
             v-if="form.plan == '1'"
             v-model="form.school_intended_to_enroll"
             :error="errors.school_intended_to_enroll"
@@ -233,6 +213,7 @@
           />
 
           <text-input
+            disabled="true"
             v-if="form.plan == '1'"
             v-model="form.intended_school_address"
             :error="errors.intended_school_address"
@@ -242,6 +223,7 @@
           />
 
           <text-input
+            disabled="true"
             v-if="form.plan == '1'"
             v-model="form.duration_number_of_years"
             :error="errors.duration_number_of_years"
@@ -251,48 +233,21 @@
           />
 
           <div v-if="form.plan == '1'" class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Inclusive Date (Start) *</label>
-            <v-date-picker v-model="form.scholarship_start_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select start date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div
-              v-if="$page.errors.scholarship_start_inclusive_dates !== null"
-              class="form-error"
-            >
-              {{ $page.errors.scholarship_start_inclusive_dates }}
+            <label class="form-label">Inclusive Date *</label>
+            <div class="flex items-center">
+              <input
+                disabled="true"
+                v-model="form.scholarship_inclusive_dates"
+                class="form-input block w-full"
+                readonly
+                placeholder="Select start date"
+              />
             </div>
-          </div>
-
-          <div v-if="form.plan == '1'" class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Inclusive Date (End) *</label>
-            <v-date-picker v-model="form.scholarship_end_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select end date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
             <div
-              v-if="$page.errors.scholarship_end_inclusive_dates !== null"
+              v-if="$page.errors.scholarship_inclusive_dates !== null"
               class="form-error"
             >
-              {{ $page.errors.scholarship_end_inclusive_dates }}
+              {{ $page.errors.scholarship_inclusive_dates }}
             </div>
           </div>
 
@@ -301,6 +256,7 @@
           <!-- Plan B only -->
 
           <text-input
+            disabled="true"
             v-if="form.plan == '2'"
             v-model="form.school_intended_to_enroll"
             :error="errors.school_intended_to_enroll"
@@ -310,6 +266,7 @@
           />
 
           <text-input
+            disabled="true"
             v-if="form.plan == '2'"
             v-model="form.school_address"
             :error="errors.school_address"
@@ -319,6 +276,7 @@
           />
 
           <select-input
+            disabled="true"
             v-if="form.plan == '2'"
             v-model="form.school_type"
             :error="errors.school_type"
@@ -330,6 +288,7 @@
           </select-input>
 
           <text-input
+            disabled="true"
             v-if="form.plan == '2'"
             v-model="form.duration_number_of_years"
             :error="errors.duration_number_of_years"
@@ -339,48 +298,21 @@
           />
 
           <div v-if="form.plan == '2'" class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Inclusive Date (Start) *</label>
-            <v-date-picker v-model="form.scholarship_start_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select start date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div
-              v-if="$page.errors.scholarship_start_inclusive_dates !== null"
-              class="form-error"
-            >
-              {{ $page.errors.scholarship_start_inclusive_dates }}
+            <label class="form-label">Inclusive Date *</label>
+            <div class="flex items-center">
+              <input
+                disabled="true"
+                v-model="form.scholarship_inclusive_dates"
+                class="form-input block w-full"
+                readonly
+                placeholder="Select start date"
+              />
             </div>
-          </div>
-
-          <div v-if="form.plan == '2'" class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Inclusive Date (End) *</label>
-            <v-date-picker v-model="form.scholarship_end_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select end date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
             <div
-              v-if="$page.errors.scholarship_end_inclusive_dates !== null"
+              v-if="$page.errors.scholarship_inclusive_dates !== null"
               class="form-error"
             >
-              {{ $page.errors.scholarship_end_inclusive_dates }}
+              {{ $page.errors.scholarship_inclusive_dates }}
             </div>
           </div>
 
@@ -389,6 +321,7 @@
           <!-- Plan C only -->
 
           <text-input
+            disabled="true"
             v-if="form.plan == '3'"
             v-model="form.duration_number_of_years"
             :error="errors.duration_number_of_years"
@@ -398,48 +331,21 @@
           />
 
           <div v-if="form.plan == '3'" class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Inclusive Date (Start) *</label>
-            <v-date-picker v-model="form.scholarship_start_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select start date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div
-              v-if="$page.errors.scholarship_start_inclusive_dates !== null"
-              class="form-error"
-            >
-              {{ $page.errors.scholarship_start_inclusive_dates }}
+            <label class="form-label">Inclusive Date *</label>
+            <div class="flex items-center">
+              <input
+                disabled="true"
+                v-model="form.scholarship_inclusive_dates"
+                class="form-input block w-full"
+                readonly
+                placeholder="Select start date"
+              />
             </div>
-          </div>
-
-          <div v-if="form.plan == '3'" class="pr-6 pb-8 w-full lg:w-1/2">
-            <label class="form-label">Inclusive Date (End) *</label>
-            <v-date-picker v-model="form.scholarship_end_inclusive_dates">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select end date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
             <div
-              v-if="$page.errors.scholarship_end_inclusive_dates !== null"
+              v-if="$page.errors.scholarship_inclusive_dates !== null"
               class="form-error"
             >
-              {{ $page.errors.scholarship_end_inclusive_dates }}
+              {{ $page.errors.scholarship_inclusive_dates }}
             </div>
           </div>
 
@@ -449,6 +355,7 @@
 
           <select-input
             v-if="form.plan == '4'"
+            disabled="true"
             v-model="form.thesis_or_dissertation"
             :error="errors.thesis_or_dissertation"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -460,6 +367,7 @@
 
           <text-input
             v-if="form.plan == '4'"
+            disabled="true"
             v-model="form.thesis_or_dissertation_name"
             :error="errors.thesis_or_dissertation_name"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -469,6 +377,7 @@
           <!-- End -->
 
           <select-input
+            disabled="true"
             v-model="form.recipient_before"
             :error="errors.recipient_before"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -480,6 +389,7 @@
           </select-input>
 
           <text-input
+            disabled="true"
             v-if="form.recipient_before == 'Yes'"
             v-model="form.sponsoring_agency_before"
             :error="errors.sponsoring_agency_before"
@@ -492,55 +402,26 @@
             v-if="form.recipient_before == 'Yes'"
             class="pr-6 pb-8 w-full lg:w-1/2"
           >
-            <label class="form-label">Period of Grant (Start) *</label>
-            <v-date-picker v-model="form.start_period_of_grant">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select start date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
-            <div
-              v-if="$page.errors.start_period_of_grant !== null"
-              class="form-error"
-            >
-              {{ $page.errors.start_period_of_grant }}
+            <label class="form-label">Period of Grant *</label>
+            <div class="flex items-center">
+              <input
+                disabled="true"
+                v-model="form.period_of_grant"
+                class="form-input block w-full"
+                readonly
+                placeholder="Select start date"
+              />
             </div>
-          </div>
-
-          <div
-            v-if="form.recipient_before == 'Yes'"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-          >
-            <label class="form-label">Period of Grant (End) *</label>
-            <v-date-picker v-model="form.end_period_of_grant">
-              <template v-slot="{ inputValue, togglePopover }">
-                <div class="flex items-center">
-                  <input
-                    @focus="togglePopover"
-                    :value="format(inputValue)"
-                    class="form-input block w-full"
-                    readonly
-                    placeholder="Select end date"
-                  />
-                </div>
-              </template>
-            </v-date-picker>
             <div
-              v-if="$page.errors.end_period_of_grant !== null"
+              v-if="$page.errors.period_of_grant !== null"
               class="form-error"
             >
-              {{ $page.errors.end_period_of_grant }}
+              {{ $page.errors.period_of_grant }}
             </div>
           </div>
 
           <textarea-input
+            disabled="true"
             v-model="form.reason_of_applying"
             :error="errors.reason_of_applying"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -572,7 +453,7 @@ import VSelectize from "@isneezy/vue-selectize";
 import jobs from "../../Shared/Modals/jobs.json";
 
 export default {
-  metaInfo: { title: "Edit Scholarship" },
+  metaInfo: { title: "View Scholarship" },
   layout: Layout,
   components: {
     LoadingButton,
@@ -602,7 +483,8 @@ export default {
         contact_id: this.employee.id,
         office_id: this.employee.department,
         type_of_disability: this.scholar.contact.type_of_disability,
-        highest_educational_attainment: this.scholar.contact.highest_educational_attainment,
+        highest_educational_attainment: this.scholar.contact
+          .highest_educational_attainment,
         school_last_attended: this.scholar.contact.school_last_attended,
         school_address: this.scholar.contact.school_address,
         degree_program: this.scholar.contact.degree_program,
@@ -623,17 +505,13 @@ export default {
         school_intended_to_enroll: this.scholar.school_intended_to_enroll,
         intended_school_address: this.scholar.school_address,
         duration_number_of_years: this.scholar.duration_number_of_years,
-        // scholarship_inclusive_dates
-        scholarship_start_inclusive_dates: this.scholar.scholarship_start_inclusive_dates,
-        scholarship_end_inclusive_dates: this.scholar.scholarship_end_inclusive_dates,
+        scholarship_inclusive_dates: this.scholar.scholarship_inclusive_dates,
         school_type: this.scholar.school_type,
         thesis_or_dissertation: this.scholar.thesis_or_dissertation,
         thesis_or_dissertation_name: this.scholar.thesis_or_dissertation_name,
         recipient_before: this.scholar.recipient_before,
         sponsoring_agency_before: this.scholar.sponsoring_agency_before,
-        // period_of_grant
-        start_period_of_grant: this.scholar.start_period_of_grant,
-        end_period_of_grant: this.scholar.end_period_of_grant,
+        period_of_grant: this.scholar.period_of_grant,
         reason_of_applying: this.scholar.reason_of_applying,
         // doc1: null,
         // doc2: null,
@@ -665,10 +543,14 @@ export default {
       }
     },
     submit() {
-      this.$inertia.put(this.route("employee.scholarship.update", this.scholar.id), this.form, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-      });
+      this.$inertia.put(
+        this.route("employee.scholarship.update", this.scholar.id),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
     format(value) {
       if (value) {

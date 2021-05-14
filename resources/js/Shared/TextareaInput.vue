@@ -1,7 +1,7 @@
 <template>
   <div>
     <label v-if="label" class="form-label" :for="id">{{ label }}</label>
-    <textarea :id="id" ref="input" v-bind="$attrs" class="form-textarea" :class="{ error: error }" :value="value" @input="$emit('input', $event.target.value)" />
+    <textarea :id="id" :disabled="disabled" ref="input" v-bind="$attrs" class="form-textarea" :class="{ error: error }" :value="value" @input="$emit('input', $event.target.value)" />
     <div v-if="error" class="form-error">{{ error }}</div>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
     value: String,
     label: String,
     error: String,
+    disabled: String,
   },
   methods: {
     focus() {

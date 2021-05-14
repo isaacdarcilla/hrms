@@ -4,6 +4,7 @@
       label
     }}</label>
     <input
+      :disabled="disabled"
       :id="id"
       ref="input"
       v-bind="$attrs"
@@ -34,6 +35,7 @@ export default {
     value: String,
     label: String,
     error: String,
+    disabled: String,
   },
   methods: {
     focus() {
