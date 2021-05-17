@@ -99,13 +99,13 @@
                 >
                   <span
                     class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-600 bg-green-300 rounded-full"
-                    >Approved</span
+                    >Accepted</span
                   >
                 </div>
                 <div v-else class="normal-case font-semibold text-green-600">
                   <span
                     class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-600 bg-red-300 rounded-full"
-                    >Disapproved</span
+                    >Declined</span
                   >
                 </div>
               </inertia-link>
@@ -188,13 +188,13 @@
                 v-if="scholar.status == 'Pending'"
                 @click="approve(scholar.id, scholar.scholarship_number)"
                 class="text-green-600 cursor-pointer hover:text-green-700"
-                >✅ Approve</span
+                >✅ Accept</span
               >
               <span
                 v-if="scholar.status == 'Pending'"
                 @click="disapprove(scholar.id, scholar.scholarship_number)"
                 class="text-red-600 cursor-pointer hover:text-red-700"
-                >❌ Disapprove</span
+                >❌ Decline</span
               >
             </td>
           </tr>
@@ -273,7 +273,7 @@ export default {
     approve(id, name) {
       swal({
         title: "Approve",
-        text: `Are you sure you want to approve ${name}?`,
+        text: `Are you sure you want to accept ${name}?`,
         buttons: true,
         dangerMode: false,
       }).then((willApprove) => {
@@ -285,7 +285,7 @@ export default {
     disapprove(id, name) {
       swal({
         title: "Disapprove",
-        text: `Are you sure you want to approve ${name}?`,
+        text: `Are you sure you want to decline ${name}?`,
         buttons: true,
         dangerMode: true,
       }).then((willDisapprove) => {

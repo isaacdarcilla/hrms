@@ -32,7 +32,7 @@
         @hasGenerated="hasGenerated($event)"
         ref="html2Pdf"
       >
-        <section
+        <!-- <section
           slot="pdf-content"
           class="mt-2 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -570,7 +570,7 @@
               </div>
             </div>
             <div class="border-b-2 border-black mt-3"></div>
-            <div class="flex">
+            <div class="flex pb-20">
               <div class="w-4/12">
                 <div class="text-sm italic text-left">CSU-F-HRM-92</div>
               </div>
@@ -584,8 +584,250 @@
               </div>
             </div>
           </div>
-        </section></vue-html2pdf
-      >
+        </section> -->
+        <section
+          slot="pdf-content"
+          class="mt-16 bg-white font-sans mx-auto text-black"
+          style="width: 800px; height: 1280px"
+        >
+          <div class="flex mt-6">
+            <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
+            <div class="my-auto">
+              <div class="text-sm italic mt-1">Republic of the Philippines</div>
+              <div class="text-sm font-bold uppercase my-1">
+                Catanduanes State University
+              </div>
+              <div class="text-sm italic mb-1">Virac, Catanduanes</div>
+            </div>
+          </div>
+          <div class="border-t-2 mt-2 border-blue-600"></div>
+          <div class="mt-4">
+            <div class="flex">
+              <div
+                class="w-full pl-2 py-1 border-t border-l border-r border-black"
+              >
+                State briefly your reason/s in applying for staff development
+                program:
+                <span class="italic text-sm"
+                  >(Is the need and priority attached to the area of
+                  specialization?)</span
+                >
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-full pl-2 py-1 border-t border-l border-r border-black"
+              >
+                <span class="uppercase font-semibold"
+                  >Documentary Requirements:</span
+                >
+                <span class="italic text-sm"
+                  >(Note: Fully accomplished Form with complete supporting
+                  documents to be submmited not less than one (1) month prior to
+                  target date of intake)</span
+                >
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-full pl-2 py-1 border-t border-l border-r border-black"
+              >
+                <span class="font-semibold"
+                  >Note to Immediate Supervisor: Please check if documents are
+                  attached as required by the program applied for.</span
+                >
+              </div>
+            </div>
+            <div
+              class="w-full pl-2 py-1 border-t border-l border-r border-black"
+            >
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  1. Fully accomplished Scholarship Application Form
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  2. Certificate of Good Moral Character issued by HRM Services
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  3. Certificate of No Pending Administrative Case issued by
+                  Legal Services
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  4. Certificate of I/OPCRF Rating (At least VS for 2 rating
+                  periods preceding filing of application)
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  5. Updated Service Record (Permanent appointment @ 3 yrs.
+                  continuous service)
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  6. Photocopy of PSA Birth Cerificate
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  7. Certification as to scholastic standing of last educational
+                  attainment (TOR)
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  8. CSC Form 41: Medical Certificate (Certification as to
+                  physical and mental health)
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  9. Copy of Letter of Admission/Certificate of Enrolment
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  10. Certification that the employee undergone Proposal Defense
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  11. Copy of Approved Research Proposal
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  12. Copy of Approved Program of Work
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  13. Certification that the employee did not previously enjoy
+                  scholarship grant from CatSU, issued by HRM Services
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  14. Certification on Completion of Academic Requirements (CAR)
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  15. Certification that the employee is done with Comprehensive
+                  Exam
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div class="w-full text-sm font-normal">
+                  16. Result/Report on Exam/Interview/Background Check by the
+                  University Staff Development Committe, as deemed necessary
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-8/12 pl-2 py-1 border-t font-semibold border-l text-center text-sm border-black"
+              >
+                Program
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t font-semibold border-l border-r text-center text-sm border-black"
+              >
+                Documentary Requirements
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>
+                      Advanced Degree - Plan A: Outside Agency-Sponsored
+                      Fellowship/Scholarship
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>2 yr (MA), 3 yr (PhD)</li>
+                    <li>Subject to 1 academic year extension</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-r text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>
+                      Items Numbers 1-9
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </vue-html2pdf>
     </div>
   </div>
 </template>
@@ -601,6 +843,7 @@ import moment from "moment";
 import VSelectize from "@isneezy/vue-selectize";
 import VueHtml2pdf from "vue-html2pdf";
 import jobs from "../../../Shared/Modals/jobs.json";
+import FirstPage from "./FirstPage.vue";
 
 export default {
   metaInfo: { title: "Form 96" },
@@ -613,6 +856,7 @@ export default {
     FileInput,
     VSelectize,
     VueHtml2pdf,
+    FirstPage,
   },
   props: {
     errors: Object,
@@ -721,3 +965,9 @@ export default {
   },
 };
 </script>
+
+<style>
+ul {
+  list-style-type: disc;
+}
+</style>
