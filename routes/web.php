@@ -604,6 +604,10 @@ Route::delete('personal/scholarship/{id}/store', [ScholarshipController::class, 
     ->name('employee.scholarship.destroy')
     ->middleware('web', 'employee');
 
+Route::get('personal/scholarship/documents/{id}', [ScholarshipController::class, 'documents'])
+    ->name('employee.scholarship.documents')
+    ->middleware('web', 'employee');
+
 
 Route::get('personal/inquiry', [InquiryController::class, 'index'])
     ->name('employee.inquiry')

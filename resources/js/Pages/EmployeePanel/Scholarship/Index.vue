@@ -56,7 +56,7 @@
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Plan
+              Applied On
             </th>
             <th
               scope="col"
@@ -169,20 +169,16 @@
                 :href="route('employee.scholarship')"
                 class="px-6 py-2 whitespace-nowrap text-sm text-gray-900"
               >
-                <div v-if="scholar.plan == '1'">
-                  Plan A: Outside Agency-Sponsored Fellowship/Scholarship
+                <div>
+                  {{ format(scholar.created_at) }}
                 </div>
-                <div v-else-if="scholar.plan == '2'">
-                  Plan B: College-Sponsored Scholarship
-                </div>
-                <div v-else-if="scholar.plan == '3'">Plan C: Study Leave</div>
-                <div v-else>Plan D: Thesis/Dissertation Assistance</div>
               </inertia-link>
             </td>
             <td
               class="px-6 py-2 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <span
+                v-if="scholar.status == 'Approved'"
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
               >
                 <inertia-link
@@ -191,7 +187,18 @@
                   >👁️‍🗨️ View Form</inertia-link
                 ></span
               >
+              <!-- <span
+                v-if="scholar.status == 'Approved'"
+                class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
+              >
+                <inertia-link
+                  :href="route('employee.scholarship.documents', scholar.id)"
+                  class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
+                  >⬆️ Documentary Requirements</inertia-link
+                ></span
+              > -->
               <span
+                v-if="scholar.status == 'Pending'"
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
               >
                 <inertia-link
@@ -201,6 +208,7 @@
                 ></span
               >
               <span
+                v-if="scholar.status == 'Pending'"
                 @click="destroy(scholar.id, scholar.scholarship_number)"
                 class="text-red-600 inline-flex mt-2 cursor-pointer hover:text-red-900"
                 >🗑️ Delete</span

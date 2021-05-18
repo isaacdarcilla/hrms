@@ -32,7 +32,7 @@
         @hasGenerated="hasGenerated($event)"
         ref="html2Pdf"
       >
-        <!-- <section
+        <section
           slot="pdf-content"
           class="mt-2 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -75,7 +75,11 @@
                 >
               </div>
               <div class="w-8/12 py-2 pl-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto capitalize">
+                  {{ scholar.contact.last_name }}
+                  {{ scholar.contact.first_name }}
+                  {{ scholar.contact.middle_name }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -85,7 +89,9 @@
                 Rank/Position:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto capitalize">
+                  {{ scholar.contact.position }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -95,7 +101,9 @@
                 Department/College/Unit/Office:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto capitalize">
+                  {{ scholar.office.office_name }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -108,7 +116,15 @@
                 >
               </div>
               <div class="w-8/12 py-2 pl-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto capitalize">
+                  {{ scholar.contact.permanent_block }}
+                  {{ scholar.contact.permanent_street }}
+                  {{ scholar.contact.permanent_village }}
+                  {{ scholar.contact.permanent_barangay }}
+                  {{ scholar.contact.permanent_city }}
+                  {{ scholar.contact.permanent_province }}
+                  {{ scholar.contact.permanent_zipcode }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -121,7 +137,15 @@
                 >
               </div>
               <div class="w-8/12 py-2 pl-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto capitalize">
+                  {{ scholar.contact.residential_block }}
+                  {{ scholar.contact.residential_street }}
+                  {{ scholar.contact.residential_village }}
+                  {{ scholar.contact.residential_barangay }}
+                  {{ scholar.contact.residential_city }}
+                  {{ scholar.contact.residential_province }}
+                  {{ scholar.contact.residential_zipcode }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -131,7 +155,7 @@
                 Email Address:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto">{{ scholar.contact.email }}</div>
               </div>
             </div>
             <div class="flex">
@@ -143,7 +167,7 @@
                   <div class="w-2/4 text-sm italic">(Month, Day, Year)</div>
                   <div class="w-2/4 text-sm text-center">
                     <div class="border-b border-black mx-2">
-                      January 1, 1970
+                      {{ format(scholar.contact.birth_date) }}
                     </div>
                   </div>
                 </div>
@@ -152,11 +176,23 @@
                 Sex: <span class="italic text-sm">(Please tick/check)</span>
                 <div class="flex">
                   <div class="w-1/2 text-sm text-center">
-                    <div class="border-b border-black mx-2">✓</div>
+                    <div
+                      v-if="scholar.contact.sex == 'Male'"
+                      class="border-b border-black mx-2"
+                    >
+                      ✓
+                    </div>
+                    <div v-else class="border-b border-black mx-2">&nbsp;</div>
                   </div>
                   <div class="w-1/2">Male</div>
                   <div class="w-1/2 text-sm text-center">
-                    <div class="border-b border-black mx-2">✓</div>
+                    <div
+                      v-if="scholar.contact.sex == 'Female'"
+                      class="border-b border-black mx-2"
+                    >
+                      ✓
+                    </div>
+                    <div v-else class="border-b border-black mx-2">&nbsp;</div>
                   </div>
                   <div class="w-1/2">Female</div>
                 </div>
@@ -164,7 +200,7 @@
               <div class="w-4/12 py-1 pl-2 border-t border-r border-black">
                 Cellphone Number:
                 <div class="w-4/4 text-center">
-                  <div class="mx-2">0920309628</div>
+                  <div class="mx-2">{{ scholar.contact.phone }}</div>
                 </div>
               </div>
             </div>
@@ -175,7 +211,7 @@
                 Type of Disability, if any:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto">{{ scholar.contact.type_of_disability }}</div>
               </div>
             </div>
             <div class="flex">
@@ -185,7 +221,7 @@
                 Highest Educational Attainment:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto">{{ scholar.contact.highest_educational_attainment }}</div>
               </div>
             </div>
             <div class="flex">
@@ -196,7 +232,8 @@
                 School Address:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto">{{ scholar.contact.school_last_attended }}</div>
+                <div class="my-auto">{{ scholar.contact.school_address }}</div>
               </div>
             </div>
             <div class="flex">
@@ -207,7 +244,7 @@
                 <span class="italic text-sm">(Pls. write in full)</span>
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto">{{ scholar.contact.degree_program }}</div>
               </div>
             </div>
             <div class="flex">
@@ -219,7 +256,7 @@
               <div
                 class="w-8/12 pl-2 py-1 border-t border-b border-r border-black"
               >
-                <div class="my-auto">Mark Zuck Bird</div>
+                <div class="my-auto">{{ scholar.contact.weighted_average }}</div>
               </div>
             </div>
             <div class="pt-5">
@@ -395,16 +432,16 @@
                 </div>
 
                 <div class="flex ml-16">
-                  <div class="w-full italic text-sm font-normal">
+                  <div class="w-5/12 italic text-sm font-normal">
                     Duration: <span class="text-sm">(No. of Terms/Years)</span>
                   </div>
-                  <div class="w-full text-sm text-center">
+                  <div class="w-3/12 text-sm text-center">
                     <div class="border-b border-black mr-2">2</div>
                   </div>
-                  <div class="w-full italic text-sm font-normal">
+                  <div class="w-4/12 italic text-sm font-normal">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
-                  <div class="w-full text-sm text-center">
+                  <div class="w-4/12 text-sm text-center">
                     <div class="border-b border-black mr-3">Jan 2, 1970</div>
                   </div>
                 </div>
@@ -457,16 +494,16 @@
                 </div>
 
                 <div class="flex ml-16">
-                  <div class="w-full italic text-sm font-normal">
+                  <div class="w-5/12 italic text-sm font-normal">
                     Duration: <span class="text-sm">(No. of Terms/Years)</span>
                   </div>
-                  <div class="w-full text-sm text-center">
+                  <div class="w-3/12 text-sm text-center">
                     <div class="border-b border-black mr-2">2</div>
                   </div>
-                  <div class="w-full italic text-sm font-normal">
+                  <div class="w-4/12 italic text-sm font-normal">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
-                  <div class="w-full text-sm text-center">
+                  <div class="w-4/12 text-sm text-center">
                     <div class="border-b border-black mr-3">Jan 2, 1970</div>
                   </div>
                 </div>
@@ -484,16 +521,16 @@
                 </div>
 
                 <div class="flex ml-16">
-                  <div class="w-full italic text-sm font-normal">
+                  <div class="w-5/12 italic text-sm font-normal">
                     Duration: <span class="text-sm">(No. of Terms/Years)</span>
                   </div>
-                  <div class="w-full text-sm text-center">
+                  <div class="w-3/12 text-sm text-center">
                     <div class="border-b border-black mr-2">2</div>
                   </div>
-                  <div class="w-full italic text-sm font-normal">
+                  <div class="w-4/12 italic text-sm font-normal">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
-                  <div class="w-full text-sm text-center">
+                  <div class="w-4/12 text-sm text-center">
                     <div class="border-b border-black mr-3">Jan 2, 1970</div>
                   </div>
                 </div>
@@ -584,7 +621,7 @@
               </div>
             </div>
           </div>
-        </section> -->
+        </section>
         <section
           slot="pdf-content"
           class="mt-16 bg-white font-sans mx-auto text-black"
@@ -818,10 +855,266 @@
               >
                 <div class="ml-4">
                   <ul class="list-disc">
+                    <li>Items Numbers 1-9</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
                     <li>
-                      Items Numbers 1-9
+                      Advanced Degree - Plan B: College Sponsored Scholarship
                     </li>
                   </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>2 yr (MA), 3 yr (PhD)</li>
+                    <li>Subject to 1 academic year extension</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-r text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Items Numbers 1-9</li>
+                    <li>
+                      Not more than 45 years old for Masters, 50 year old for
+                      Doctorate
+                    </li>
+                    <li>
+                      GWA at least 2 for Masters, 1.5 for Doctorate; may be
+                      waived when board licensed
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Advanced Degree - Plan C: Study Leave</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>1 sem. - 2 yr @ CatSU</li>
+                    <li>
+                      Thesis/dissertation writing for 1 sem. - 1 yr (MA); 1 yr -
+                      1/2 yr (PhD)
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-r text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Items Numbers 1-10</li>
+                    <li>Items Numbers 11-12, if intention is to write</li>
+                    <li>
+                      Not more than 45 years old for Masters, 50 year old for
+                      Doctorate
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>
+                      Advanced Degree - Plan D: Thesis/Dissertation Assistance
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Thesis/dissertation writing on his/her own</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-r text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Items Numbers 1-6, 10-15</li>
+                    <li>Not more than 55 years old</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Sabbatical Leave</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Leave with pay</li>
+                    <li>A least a rank of Associate Prof. I</li>
+                    <li>Study/research/travel program by CatSU</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-r text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Items Numbers 1-6</li>
+                    <li>VS I/O/D PCR Rating for 7 continuous years</li>
+                    <li>At least 7 years in service</li>
+                    <li>45-60 years old</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Training Grant Abroad</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Foreign org. sponsored</li>
+                    <li>
+                      Covers free airfare or land/sea travel expenses,
+                      accomodation, other privileges
+                    </li>
+                    <li>Non-degree</li>
+                    <li>Not to exceed 1 year</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-r text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Items Numbers 1-9</li>
+                    <li>At least 2 years in service</li>
+                    <li>Not more than 55 years old</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-b text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Local Training Grant</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-b text-sm border-black"
+              >
+                <div class="ml-4">
+                  <ul class="list-disc">
+                    <li>Non degree w/in PH</li>
+                    <li>CatSU sponsored</li>
+                    <li>Not to exceed 1 year</li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="w-4/12 pl-2 py-1 border-t border-l border-b border-r text-sm border-black"
+              >
+                <div class="ml-4"></div>
+              </div>
+            </div>
+
+            <div class="flex mt-10">
+              <div class="w-2/12"></div>
+              <div class="w-5/12"></div>
+              <div class="w-4/12 border-t border-black text-center">
+                (Complete Name & Signature)
+              </div>
+              <div class="w-1/12"></div>
+            </div>
+            <div class="flex mt-10">
+              <div class="w-4/12 ml-6">Endorsed by:</div>
+              <div class="w-4/12">Recommending Approval:</div>
+              <div class="w-4/12">Approved:</div>
+            </div>
+            <div class="flex mt-10">
+              <div class="w-4/12 mx-6 border-t border-black text-center">
+                Name & Signature of the Immediate Head
+              </div>
+              <div class="w-4/12 mx-6 border-t border-black text-center">
+                Name & Signature of the Vice President
+              </div>
+              <div class="w-4/12 mx-6 border-t border-black text-center">
+                Name & Signature of the SUC President
+              </div>
+            </div>
+            <div class="flex mt-10">
+              <div class="w-1/12 ml-6">Cc:</div>
+              <div class="w-5/12">
+                Chairperson, Staff Development Committee Members, Staff
+                Development Committee AO-V, HRMS
+              </div>
+            </div>
+            <div class="border-b-2 border-black mt-3"></div>
+            <div class="flex pb-20">
+              <div class="w-4/12">
+                <div class="text-sm italic text-left">CSU-F-HRM-92</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-sm text-center italic">Rev.0</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-sm text-right italic">
+                  Effectivity Date: February 17, 2021
                 </div>
               </div>
             </div>

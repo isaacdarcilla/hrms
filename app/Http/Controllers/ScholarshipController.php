@@ -242,4 +242,27 @@ class ScholarshipController extends Controller
 
         return Redirect::back()->with('success', 'Successfully updated application.');
     }
+
+    public function documents($id) {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/Scholarship/Documents', [
+                'employee' => $employee,
+                'filters' => Request::all('search'),
+                'scholars' => Scholarship::where('contact_id', auth()->guard('employee')->user()->id)
+                                ->with('contact')
+                                ->with('office')
+                                ->filter(Request::only('search'))
+                                ->orderBy('created_at', 'DESC')
+                                ->paginate(),
+                'scholar' => Scholarship::whereContactId(auth()->guard('employee')->user()->id)
+                                ->whereId($id)
+                                ->with('contact')
+                                ->with('office')
+                                ->first(),
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
 }
