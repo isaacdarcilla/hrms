@@ -16,212 +16,464 @@
           selecting the To Be Followed option. However, if documents was not
           followed and completed, this can have conflict.
         </div>
-        <div class="p-8 -mr-6 flex flex-wrap">
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.scholarship_type == '3' ||
-              scholar.scholarship_type == '2' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4'
-            "
-            v-model="form.item_number_2"
-            :error="errors.item_number_2"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certificate of Good Moral *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.scholarship_type == '3' ||
-              scholar.scholarship_type == '2' ||
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4'
-            "
-            v-model="form.item_number_3"
-            :error="errors.item_number_3"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certificate of No Pending Administrative Case *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.scholarship_type == '3' ||
-              scholar.scholarship_type == '2' ||
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4'
-            "
-            v-model="form.item_number_4"
-            :error="errors.item_number_4"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certificate of I/OPCRF Rating *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.scholarship_type == '3' ||
-              scholar.scholarship_type == '2' ||
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4'
-            "
-            v-model="form.item_number_5"
-            :error="errors.item_number_5"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Updated Service Record *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.scholarship_type == '3' ||
-              scholar.scholarship_type == '2' ||
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4'
-            "
-            v-model="form.item_number_6"
-            :error="errors.item_number_6"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Photocopy of PSA Birth Cerificate *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.scholarship_type == '2'
-            "
-            v-model="form.item_number_7"
-            :error="errors.item_number_7"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certification as to scholastic standing of last educational attainment (TOR) *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.scholarship_type == '2'
-            "
-            v-model="form.item_number_8"
-            :error="errors.item_number_8"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Medical Certificate *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '1' ||
-              scholar.plan == '2' ||
-              scholar.plan == '3' ||
-              scholar.scholarship_type == '2'
-            "
-            v-model="form.item_number_9"
-            :error="errors.item_number_9"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Copy of Letter of Admission/Certificate of Enrolment *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4' ||
-              scholar.plan == '3'
-            "
-            v-model="form.item_number_10"
-            :error="errors.item_number_10"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certification that the employee undergone Proposal Defense *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4' ||
-              scholar.plan == '3'
-            "
-            v-model="form.item_number_11"
-            :error="errors.item_number_11"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Copy of Approved Research Proposal *"
-          />
-          <file-input
-            v-if="
-              scholar.scholarship_type == '4' ||
-              scholar.plan == '3' ||
-              scholar.plan == '4' ||
-              scholar.plan == '3'
-            "
-            v-model="form.item_number_12"
-            :error="errors.item_number_12"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Copy of Approved Program of Work *"
-          />
-          <file-input
-            v-if="scholar.scholarship_type == '4' || scholar.plan == '4'"
-            v-model="form.item_number_13"
-            :error="errors.item_number_13"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certification that the employee did not previously enjoy scholarship grant from CatSU *"
-          />
-          <file-input
-            v-if="scholar.scholarship_type == '4' || scholar.plan == '4'"
-            v-model="form.item_number_14"
-            :error="errors.item_number_14"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certification on Completion of Academic Requirements (CAR) *"
-          />
-          <file-input
-            v-if="scholar.scholarship_type == '4' || scholar.plan == '4'"
-            v-model="form.item_number_15"
-            :error="errors.item_number_15"
-            class="pr-6 pb-8 w-full lg:w-1/2"
-            type="file"
-            accept="image/*"
-            label="Certification that the employee is done with Comprehensive Exam *"
-          />
+        <div>
+          <!-- First -->
+          <div
+            class="p-8 -mr-6 flex flex-wrap"
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '1'"
+          >
+            <file-input
+              v-model="form.item_number_2"
+              :error="errors.item_number_2"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of Good Moral *"
+            />
+            <file-input
+              v-model="form.item_number_3"
+              :error="errors.item_number_3"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of No Pending Administrative Case *"
+            />
+            <file-input
+              v-model="form.item_number_4"
+              :error="errors.item_number_4"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of I/OPCRF Rating *"
+            />
+            <file-input
+              v-model="form.item_number_5"
+              :error="errors.item_number_5"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Updated Service Record *"
+            />
+            <file-input
+              v-model="form.item_number_6"
+              :error="errors.item_number_6"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Photocopy of PSA Birth Cerificate *"
+            />
+            <file-input
+              v-model="form.item_number_7"
+              :error="errors.item_number_7"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification as to scholastic standing of last educational attainment (TOR) *"
+            />
+            <file-input
+              v-model="form.item_number_8"
+              :error="errors.item_number_8"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Medical Certificate *"
+            />
+            <file-input
+              v-model="form.item_number_9"
+              :error="errors.item_number_9"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Letter of Admission/Certificate of Enrolment *"
+            />
+          </div>
+          <!-- End first -->
+
+          <!-- Second -->
+          <div
+            class="p-8 -mr-6 flex flex-wrap"
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '2'"
+          >
+            <file-input
+              v-model="form.item_number_2"
+              :error="errors.item_number_2"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of Good Moral *"
+            />
+            <file-input
+              v-model="form.item_number_3"
+              :error="errors.item_number_3"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of No Pending Administrative Case *"
+            />
+            <file-input
+              v-model="form.item_number_4"
+              :error="errors.item_number_4"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of I/OPCRF Rating *"
+            />
+            <file-input
+              v-model="form.item_number_5"
+              :error="errors.item_number_5"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Updated Service Record *"
+            />
+            <file-input
+              v-model="form.item_number_6"
+              :error="errors.item_number_6"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Photocopy of PSA Birth Cerificate *"
+            />
+            <file-input
+              v-model="form.item_number_7"
+              :error="errors.item_number_7"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification as to scholastic standing of last educational attainment (TOR) *"
+            />
+            <file-input
+              v-model="form.item_number_8"
+              :error="errors.item_number_8"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Medical Certificate *"
+            />
+            <file-input
+              v-model="form.item_number_9"
+              :error="errors.item_number_9"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Letter of Admission/Certificate of Enrolment *"
+            />
+          </div>
+          <!-- End second -->
+
+          <!-- Third -->
+          <div
+            class="p-8 -mr-6 flex flex-wrap"
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '3'"
+          >
+            <file-input
+              v-model="form.item_number_2"
+              :error="errors.item_number_2"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of Good Moral *"
+            />
+            <file-input
+              v-model="form.item_number_3"
+              :error="errors.item_number_3"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of No Pending Administrative Case *"
+            />
+            <file-input
+              v-model="form.item_number_4"
+              :error="errors.item_number_4"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of I/OPCRF Rating *"
+            />
+            <file-input
+              v-model="form.item_number_5"
+              :error="errors.item_number_5"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Updated Service Record *"
+            />
+            <file-input
+              v-model="form.item_number_6"
+              :error="errors.item_number_6"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Photocopy of PSA Birth Cerificate *"
+            />
+            <file-input
+              v-model="form.item_number_7"
+              :error="errors.item_number_7"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification as to scholastic standing of last educational attainment (TOR) *"
+            />
+            <file-input
+              v-model="form.item_number_8"
+              :error="errors.item_number_8"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Medical Certificate *"
+            />
+            <file-input
+              v-model="form.item_number_9"
+              :error="errors.item_number_9"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Letter of Admission/Certificate of Enrolment *"
+            />
+            <file-input
+              v-model="form.item_number_10"
+              :error="errors.item_number_10"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification that the employee undergone Proposal Defense *"
+            />
+            <file-input
+              v-model="form.item_number_11"
+              :error="errors.item_number_11"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Approved Research Proposal *"
+            />
+            <file-input
+              v-model="form.item_number_12"
+              :error="errors.item_number_12"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Approved Program of Work *"
+            />
+          </div>
+          <!-- End third -->
+
+          <!-- Fourth -->
+          <div
+            class="p-8 -mr-6 flex flex-wrap"
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '4'"
+          >
+            <file-input
+              v-model="form.item_number_2"
+              :error="errors.item_number_2"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of Good Moral *"
+            />
+            <file-input
+              v-model="form.item_number_3"
+              :error="errors.item_number_3"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of No Pending Administrative Case *"
+            />
+            <file-input
+              v-model="form.item_number_4"
+              :error="errors.item_number_4"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of I/OPCRF Rating *"
+            />
+            <file-input
+              v-model="form.item_number_5"
+              :error="errors.item_number_5"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Updated Service Record *"
+            />
+            <file-input
+              v-model="form.item_number_6"
+              :error="errors.item_number_6"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Photocopy of PSA Birth Cerificate *"
+            />
+            <file-input
+              v-model="form.item_number_10"
+              :error="errors.item_number_10"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification that the employee undergone Proposal Defense *"
+            />
+            <file-input
+              v-model="form.item_number_11"
+              :error="errors.item_number_11"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Approved Research Proposal *"
+            />
+            <file-input
+              v-model="form.item_number_12"
+              :error="errors.item_number_12"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Approved Program of Work *"
+            />
+            <file-input
+              v-model="form.item_number_13"
+              :error="errors.item_number_13"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification that the employee did not previously enjoy scholarship grant from CatSU *"
+            />
+            <file-input
+              v-model="form.item_number_14"
+              :error="errors.item_number_14"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification on Completion of Academic Requirements (CAR) *"
+            />
+            <file-input
+              v-model="form.item_number_15"
+              :error="errors.item_number_15"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification that the employee is done with Comprehensive Exam *"
+            />
+          </div>
+          <!-- End forth -->
+
+          <!-- Sabbatical -->
+          <div
+            class="p-8 -mr-6 flex flex-wrap"
+            v-if="scholar.scholarship_type == '3'"
+          >
+            <file-input
+              v-model="form.item_number_2"
+              :error="errors.item_number_2"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of Good Moral *"
+            />
+            <file-input
+              v-model="form.item_number_3"
+              :error="errors.item_number_3"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of No Pending Administrative Case *"
+            />
+            <file-input
+              v-model="form.item_number_4"
+              :error="errors.item_number_4"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of I/OPCRF Rating *"
+            />
+            <file-input
+              v-model="form.item_number_5"
+              :error="errors.item_number_5"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Updated Service Record *"
+            />
+            <file-input
+              v-model="form.item_number_6"
+              :error="errors.item_number_6"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Photocopy of PSA Birth Cerificate *"
+            />
+          </div>
+          <!-- End -->
+
+          <!-- Abroad -->
+          <div
+            class="p-8 -mr-6 flex flex-wrap"
+            v-if="scholar.scholarship_type == '2'"
+          >
+            <file-input
+              v-model="form.item_number_2"
+              :error="errors.item_number_2"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of Good Moral *"
+            />
+            <file-input
+              v-model="form.item_number_3"
+              :error="errors.item_number_3"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of No Pending Administrative Case *"
+            />
+            <file-input
+              v-model="form.item_number_4"
+              :error="errors.item_number_4"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certificate of I/OPCRF Rating *"
+            />
+            <file-input
+              v-model="form.item_number_5"
+              :error="errors.item_number_5"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Updated Service Record *"
+            />
+            <file-input
+              v-model="form.item_number_6"
+              :error="errors.item_number_6"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Photocopy of PSA Birth Cerificate *"
+            />
+            <file-input
+              v-model="form.item_number_7"
+              :error="errors.item_number_7"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Certification as to scholastic standing of last educational attainment (TOR) *"
+            />
+            <file-input
+              v-model="form.item_number_8"
+              :error="errors.item_number_8"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Medical Certificate *"
+            />
+            <file-input
+              v-model="form.item_number_9"
+              :error="errors.item_number_9"
+              class="pr-6 pb-8 w-full lg:w-1/2"
+              type="file"
+              accept="image/*"
+              label="Copy of Letter of Admission/Certificate of Enrolment *"
+            />
+          </div>
+          <!-- End -->
+
           <!-- <file-input
-            v-if="scholar.scholarship_type == '4' || scholar.plan == '4'"
             v-model="form.item_number_16"
             :error="errors.item_number_16"
             class="pr-6 pb-8 w-full lg:w-1/2"
@@ -296,7 +548,7 @@ export default {
         item_number_13: null,
         item_number_14: null,
         item_number_15: null,
-        item_number_16: null,
+        // item_number_16: null,
       },
     };
   },
@@ -323,7 +575,7 @@ export default {
       data.append("item_number_13", this.form.item_number_13 || "");
       data.append("item_number_14", this.form.item_number_14 || "");
       data.append("item_number_15", this.form.item_number_15 || "");
-      data.append("item_number_16", this.form.item_number_16 || "");
+      // data.append("item_number_16", this.form.item_number_16 || "");
       data.append("_method", "put");
 
       this.$inertia.post(

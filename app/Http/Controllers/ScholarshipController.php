@@ -283,7 +283,7 @@ class ScholarshipController extends Controller
             'item_number_13' => ['required', 'image', 'mimes:png,jpeg,jpg'],
             'item_number_14' => ['required', 'image', 'mimes:png,jpeg,jpg'],
             'item_number_15' => ['required', 'image', 'mimes:png,jpeg,jpg'],
-            'item_number_16' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            // 'item_number_16' => ['required', 'image', 'mimes:png,jpeg,jpg'],
         ]);
     }
 }
