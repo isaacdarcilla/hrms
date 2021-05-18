@@ -53,6 +53,7 @@ class HandleInertiaRequests extends Middleware
                         'email' => $request->user()->email,
                         'super' => $request->user()->owner,
                         'can_approve' => $request->user()->can_approve,
+                        'can_accept' => $request->user()->can_accept,
                         'account' => [
                             'id' => $request->user()->account->id,
                             'name' => $request->user()->account->name,

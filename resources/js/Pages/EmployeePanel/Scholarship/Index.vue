@@ -187,7 +187,7 @@
                   >👁️‍🗨️ View Form</inertia-link
                 ></span
               >
-              <!-- <span
+              <span
                 v-if="scholar.status == 'Approved'"
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
               >
@@ -196,7 +196,7 @@
                   class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
                   >⬆️ Documentary Requirements</inertia-link
                 ></span
-              > -->
+              >
               <span
                 v-if="scholar.status == 'Pending'"
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"

@@ -179,18 +179,20 @@
                   >👁️‍🗨️ View Details</inertia-link
                 ></span
               >
-              <span
-                v-if="scholar.status == 'Pending'"
-                @click="approve(scholar.id, scholar.scholarship_number)"
-                class="text-green-600 cursor-pointer hover:text-green-700"
-                >✅ Accept</span
-              >
-              <span
-                v-if="scholar.status == 'Pending'"
-                @click="disapprove(scholar.id, scholar.scholarship_number)"
-                class="text-red-600 cursor-pointer hover:text-red-700"
-                >❌ Decline</span
-              >
+              <div v-if="$page.auth.user.can_accept === '1'">
+                <span
+                  v-if="scholar.status == 'Pending'"
+                  @click="approve(scholar.id, scholar.scholarship_number)"
+                  class="text-green-600 cursor-pointer hover:text-green-700"
+                  >✅ Accept</span
+                >
+                <span
+                  v-if="scholar.status == 'Pending'"
+                  @click="disapprove(scholar.id, scholar.scholarship_number)"
+                  class="text-red-600 cursor-pointer hover:text-red-700"
+                  >❌ Decline</span
+                >
+              </div>
             </td>
           </tr>
         </tbody>

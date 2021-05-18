@@ -265,4 +265,25 @@ class ScholarshipController extends Controller
         else
             return redirect()->route('login.employee');
     }
+
+    public function store_documents()
+    {
+        Request::validate([
+            'item_number_2' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_3' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_4' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_5' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_6' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_7' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_8' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_9' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_10' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_11' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_12' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_13' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_14' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_15' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+            'item_number_16' => ['required', 'image', 'mimes:png,jpeg,jpg'],
+        ]);
+    }
 }

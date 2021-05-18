@@ -608,6 +608,9 @@ Route::get('personal/scholarship/documents/{id}', [ScholarshipController::class,
     ->name('employee.scholarship.documents')
     ->middleware('web', 'employee');
 
+Route::put('personal/scholarship/store/documents', [ScholarshipController::class, 'store_documents'])
+    ->name('employee.scholarship.store.documents')
+    ->middleware('web', 'employee');
 
 Route::get('personal/inquiry', [InquiryController::class, 'index'])
     ->name('employee.inquiry')
