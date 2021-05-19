@@ -107,7 +107,7 @@
               : 'text-indigo-300 font-bold group-hover:text-white'
           "
         >
-          🎓 Scholar
+          🎓 Scholarship
         </div>
       </inertia-link>
     </div>
