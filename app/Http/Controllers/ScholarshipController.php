@@ -307,6 +307,16 @@ class ScholarshipController extends Controller
                     'item_number_8' => 'required|image|mimes:png,jpeg,jpg',
                     'item_number_9' => Request::input('doc9') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
                 ]);
+                Scholarship::whereId($id)->update([
+                    'doc2' =>  Request::file('item_number_2') ? Request::file('item_number_2')->store('scholars', 'public') : null,
+                    'doc3' =>  Request::file('item_number_3') ? Request::file('item_number_3')->store('scholars', 'public') : null,
+                    'doc4' =>  Request::file('item_number_4') ? Request::file('item_number_4')->store('scholars', 'public') : null,
+                    'doc5' =>  Request::file('item_number_5') ? Request::file('item_number_5')->store('scholars', 'public') : null,
+                    'doc6' =>  Request::file('item_number_6') ? Request::file('item_number_6')->store('scholars', 'public') : null,
+                    'doc7' =>  Request::file('item_number_7') ? Request::file('item_number_7')->store('scholars', 'public') : null,
+                    'doc8' =>  Request::file('item_number_8') ? Request::file('item_number_8')->store('scholars', 'public') : null,
+                    'doc9' =>  Request::file('item_number_9') ? Request::file('item_number_9')->store('scholars', 'public') : null,
+                ]);
                 return Redirect::back()->with('success', 'Documents uploaded.');
                 break;
             case ($type == '4' && $plan == '3');
@@ -320,6 +330,17 @@ class ScholarshipController extends Controller
                     'item_number_8' => 'required|image|mimes:png,jpeg,jpg',
                     'item_number_9' => Request::input('doc9') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
                     'item_number_10' => 'required|image|mimes:png,jpeg,jpg',
+                ]);
+                Scholarship::whereId($id)->update([
+                    'doc2' =>  Request::file('item_number_2') ? Request::file('item_number_2')->store('scholars', 'public') : null,
+                    'doc3' =>  Request::file('item_number_3') ? Request::file('item_number_3')->store('scholars', 'public') : null,
+                    'doc4' =>  Request::file('item_number_4') ? Request::file('item_number_4')->store('scholars', 'public') : null,
+                    'doc5' =>  Request::file('item_number_5') ? Request::file('item_number_5')->store('scholars', 'public') : null,
+                    'doc6' =>  Request::file('item_number_6') ? Request::file('item_number_6')->store('scholars', 'public') : null,
+                    'doc7' =>  Request::file('item_number_7') ? Request::file('item_number_7')->store('scholars', 'public') : null,
+                    'doc8' =>  Request::file('item_number_8') ? Request::file('item_number_8')->store('scholars', 'public') : null,
+                    'doc9' =>  Request::file('item_number_9') ? Request::file('item_number_9')->store('scholars', 'public') : null,
+                    'doc10' =>  Request::file('item_number_10') ? Request::file('item_number_10')->store('scholars', 'public') : null,
                 ]);
                 return Redirect::back()->with('success', 'Documents uploaded.');
                 break;
@@ -337,6 +358,19 @@ class ScholarshipController extends Controller
                     'item_number_14' => Request::input('doc14') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
                     'item_number_15' => Request::input('doc15') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
                 ]);
+                Scholarship::whereId($id)->update([
+                    'doc2' =>  Request::file('item_number_2') ? Request::file('item_number_2')->store('scholars', 'public') : null,
+                    'doc3' =>  Request::file('item_number_3') ? Request::file('item_number_3')->store('scholars', 'public') : null,
+                    'doc4' =>  Request::file('item_number_4') ? Request::file('item_number_4')->store('scholars', 'public') : null,
+                    'doc5' =>  Request::file('item_number_5') ? Request::file('item_number_5')->store('scholars', 'public') : null,
+                    'doc6' =>  Request::file('item_number_6') ? Request::file('item_number_6')->store('scholars', 'public') : null,
+                    'doc10' =>  Request::file('item_number_10') ? Request::file('item_number_10')->store('scholars', 'public') : null,
+                    'doc11' =>  Request::file('item_number_11') ? Request::file('item_number_11')->store('scholars', 'public') : null,
+                    'doc12' =>  Request::file('item_number_12') ? Request::file('item_number_12')->store('scholars', 'public') : null,
+                    'doc13' =>  Request::file('item_number_13') ? Request::file('item_number_13')->store('scholars', 'public') : null,
+                    'doc14' =>  Request::file('item_number_14') ? Request::file('item_number_14')->store('scholars', 'public') : null,
+                    'doc15' =>  Request::file('item_number_15') ? Request::file('item_number_15')->store('scholars', 'public') : null,
+                ]);
                 return Redirect::back()->with('success', 'Documents uploaded.');
                 break;
             case ($type == '3');
@@ -346,6 +380,13 @@ class ScholarshipController extends Controller
                     'item_number_4' => Request::input('doc4') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
                     'item_number_5' => 'required|image|mimes:png,jpeg,jpg',
                     'item_number_6' => 'required|image|mimes:png,jpeg,jpg',
+                ]);
+                Scholarship::whereId($id)->update([
+                    'doc2' =>  Request::file('item_number_2') ? Request::file('item_number_2')->store('scholars', 'public') : null,
+                    'doc3' =>  Request::file('item_number_3') ? Request::file('item_number_3')->store('scholars', 'public') : null,
+                    'doc4' =>  Request::file('item_number_4') ? Request::file('item_number_4')->store('scholars', 'public') : null,
+                    'doc5' =>  Request::file('item_number_5') ? Request::file('item_number_5')->store('scholars', 'public') : null,
+                    'doc6' =>  Request::file('item_number_6') ? Request::file('item_number_6')->store('scholars', 'public') : null,
                 ]);
                 return Redirect::back()->with('success', 'Documents uploaded.');
                 break;
@@ -359,6 +400,17 @@ class ScholarshipController extends Controller
                     'item_number_7' => Request::input('doc7') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
                     'item_number_8' => 'required|image|mimes:png,jpeg,jpg',
                     'item_number_9' => Request::input('doc9') == true ? 'nullable' : 'required|image|mimes:png,jpeg,jpg',
+                ]);
+                Scholarship::whereId($id)->update([
+                    'doc2' =>  Request::file('item_number_2') ? Request::file('item_number_2')->store('scholars', 'public') : null,
+                    'doc3' =>  Request::file('item_number_3') ? Request::file('item_number_3')->store('scholars', 'public') : null,
+                    'doc4' =>  Request::file('item_number_4') ? Request::file('item_number_4')->store('scholars', 'public') : null,
+                    'doc5' =>  Request::file('item_number_5') ? Request::file('item_number_5')->store('scholars', 'public') : null,
+                    'doc6' =>  Request::file('item_number_6') ? Request::file('item_number_6')->store('scholars', 'public') : null,
+                    'doc7' =>  Request::file('item_number_7') ? Request::file('item_number_7')->store('scholars', 'public') : null,
+                    'doc8' =>  Request::file('item_number_8') ? Request::file('item_number_8')->store('scholars', 'public') : null,
+                    'doc9' =>  Request::file('item_number_9') ? Request::file('item_number_9')->store('scholars', 'public') : null,
+                    'doc10' =>  Request::file('item_number_10') ? Request::file('item_number_10')->store('scholars', 'public') : null,
                 ]);
                 return Redirect::back()->with('success', 'Documents uploaded.');
                 break;
