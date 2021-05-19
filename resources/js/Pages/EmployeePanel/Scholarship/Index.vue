@@ -188,7 +188,6 @@
                 ></span
               >
               <span
-                v-if="scholar.status == 'Approved'"
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
               >
                 <inertia-link

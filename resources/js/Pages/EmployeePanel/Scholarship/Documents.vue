@@ -17,7 +17,7 @@
           followed and completed, this can have conflict.
         </div>
         <div>
-          <!-- First -->
+          <!-- First 4-1 -->
           <div
             class="p-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '4' && scholar.plan == '1'"
@@ -86,6 +86,66 @@
               accept="image/*"
               label="Copy of Letter of Admission/Certificate of Enrolment *"
             />
+            <div class="flex-row">
+              <div class="my-5 text-yellow-800 font-semibold">
+                Check the box below if you want the corresponding documents to
+                be uploaded later.
+              </div>
+
+              <div class="flex py-1 items-center space-x-2">
+                <input
+                  v-model="form.remember"
+                  type="checkbox"
+                  id="remember"
+                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                />
+                <label
+                  for="remember"
+                  class="text-sm font-semibold text-gray-900"
+                  >Certificate of No Pending Administrative Case</label
+                >
+              </div>
+              <div class="flex py-1 items-center space-x-2">
+                <input
+                  v-model="form.remember"
+                  type="checkbox"
+                  id="remember"
+                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                />
+                <label
+                  for="remember"
+                  class="text-sm font-semibold text-gray-900"
+                  >Certificate of I/OPCRF Rating</label
+                >
+              </div>
+              <div class="flex py-1 items-center space-x-2">
+                <input
+                  v-model="form.remember"
+                  type="checkbox"
+                  id="remember"
+                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                />
+                <label
+                  for="remember"
+                  class="text-sm font-semibold text-gray-900"
+                  >Certification as to scholastic standing of last educational
+                  attainment (TOR)</label
+                >
+              </div>
+              <div class="flex py-1 items-center space-x-2">
+                <input
+                  v-model="form.remember"
+                  type="checkbox"
+                  id="remember"
+                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                />
+                <label
+                  for="remember"
+                  class="text-sm font-semibold text-gray-900"
+                  >Copy of Letter of Admission/Certificate of Enrolment</label
+                >
+              </div>
+            </div>
           </div>
           <!-- End first -->
 
