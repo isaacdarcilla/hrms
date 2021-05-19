@@ -13,13 +13,13 @@
       <form @submit.prevent="submit">
         <div class="ml-8 mt-6 text-blue-600 font-semibold">
           Note: You can upload scanned documents. You can skip a document by
-          selecting the To Be Followed option. However, if documents was not
+          selecting the checkbox option below. However, if documents was not
           followed and completed, this can have conflict.
         </div>
         <div>
           <!-- First 4-1 -->
           <div
-            class="p-8 -mr-6 flex flex-wrap"
+            class="pl-8 pr-8 pt-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '4' && scholar.plan == '1'"
           >
             <file-input
@@ -31,6 +31,7 @@
               label="Certificate of Good Moral *"
             />
             <file-input
+              v-if="!form.doc3"
               v-model="form.item_number_3"
               :error="errors.item_number_3"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -39,6 +40,7 @@
               label="Certificate of No Pending Administrative Case *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_4"
               :error="errors.item_number_4"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -60,9 +62,10 @@
               class="pr-6 pb-8 w-full lg:w-1/2"
               type="file"
               accept="image/*"
-              label="Photocopy of PSA Birth Cerificate *"
+              label="Photocopy of PSA Birth Certificate *"
             />
             <file-input
+              v-if="!form.doc7"
               v-model="form.item_number_7"
               :error="errors.item_number_7"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -79,6 +82,7 @@
               label="Medical Certificate *"
             />
             <file-input
+              v-if="!form.doc9"
               v-model="form.item_number_9"
               :error="errors.item_number_9"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -86,72 +90,63 @@
               accept="image/*"
               label="Copy of Letter of Admission/Certificate of Enrolment *"
             />
-            <div class="flex-row">
-              <div class="my-5 text-yellow-800 font-semibold">
-                Check the box below if you want the corresponding documents to
-                be uploaded later.
-              </div>
+          </div>
+          <div
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '1'"
+            class="flex-row ml-10 mb-6"
+          >
+            <div class="my-5 text-yellow-800 font-semibold">
+              Check the box below if you want the corresponding documents to be
+              uploaded later.
+            </div>
 
-              <div class="flex py-1 items-center space-x-2">
-                <input
-                  v-model="form.remember"
-                  type="checkbox"
-                  id="remember"
-                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                />
-                <label
-                  for="remember"
-                  class="text-sm font-semibold text-gray-900"
-                  >Certificate of No Pending Administrative Case</label
-                >
-              </div>
-              <div class="flex py-1 items-center space-x-2">
-                <input
-                  v-model="form.remember"
-                  type="checkbox"
-                  id="remember"
-                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                />
-                <label
-                  for="remember"
-                  class="text-sm font-semibold text-gray-900"
-                  >Certificate of I/OPCRF Rating</label
-                >
-              </div>
-              <div class="flex py-1 items-center space-x-2">
-                <input
-                  v-model="form.remember"
-                  type="checkbox"
-                  id="remember"
-                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                />
-                <label
-                  for="remember"
-                  class="text-sm font-semibold text-gray-900"
-                  >Certification as to scholastic standing of last educational
-                  attainment (TOR)</label
-                >
-              </div>
-              <div class="flex py-1 items-center space-x-2">
-                <input
-                  v-model="form.remember"
-                  type="checkbox"
-                  id="remember"
-                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                />
-                <label
-                  for="remember"
-                  class="text-sm font-semibold text-gray-900"
-                  >Copy of Letter of Admission/Certificate of Enrolment</label
-                >
-              </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc3"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of No Pending Administrative Case</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc4"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of I/OPCRF Rating</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc7"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certification as to scholastic standing of last educational
+                attainment (TOR)</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc9"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Copy of Letter of Admission/Certificate of Enrolment</label
+              >
             </div>
           </div>
           <!-- End first -->
 
           <!-- Second -->
           <div
-            class="p-8 -mr-6 flex flex-wrap"
+            class="pl-8 pr-8 pt-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '4' && scholar.plan == '2'"
           >
             <file-input
@@ -163,6 +158,7 @@
               label="Certificate of Good Moral *"
             />
             <file-input
+              v-if="!form.doc3"
               v-model="form.item_number_3"
               :error="errors.item_number_3"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -171,6 +167,7 @@
               label="Certificate of No Pending Administrative Case *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_4"
               :error="errors.item_number_4"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -192,9 +189,10 @@
               class="pr-6 pb-8 w-full lg:w-1/2"
               type="file"
               accept="image/*"
-              label="Photocopy of PSA Birth Cerificate *"
+              label="Photocopy of PSA Birth Certificate *"
             />
             <file-input
+              v-if="!form.doc7"
               v-model="form.item_number_7"
               :error="errors.item_number_7"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -211,6 +209,7 @@
               label="Medical Certificate *"
             />
             <file-input
+              v-if="!form.doc9"
               v-model="form.item_number_9"
               :error="errors.item_number_9"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -219,11 +218,62 @@
               label="Copy of Letter of Admission/Certificate of Enrolment *"
             />
           </div>
+          <div
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '2'"
+            class="flex-row ml-10 mb-6"
+          >
+            <div class="my-5 text-yellow-800 font-semibold">
+              Check the box below if you want the corresponding documents to be
+              uploaded later.
+            </div>
+
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc3"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of No Pending Administrative Case</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc4"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of I/OPCRF Rating</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc7"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certification as to scholastic standing of last educational
+                attainment (TOR)</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc9"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Copy of Letter of Admission/Certificate of Enrolment</label
+              >
+            </div>
+          </div>
           <!-- End second -->
 
           <!-- Third -->
           <div
-            class="p-8 -mr-6 flex flex-wrap"
+            class="pl-8 pr-8 pt-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '4' && scholar.plan == '3'"
           >
             <file-input
@@ -235,6 +285,7 @@
               label="Certificate of Good Moral *"
             />
             <file-input
+              v-if="!form.doc3"
               v-model="form.item_number_3"
               :error="errors.item_number_3"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -243,6 +294,7 @@
               label="Certificate of No Pending Administrative Case *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_4"
               :error="errors.item_number_4"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -264,9 +316,10 @@
               class="pr-6 pb-8 w-full lg:w-1/2"
               type="file"
               accept="image/*"
-              label="Photocopy of PSA Birth Cerificate *"
+              label="Photocopy of PSA Birth Certificate *"
             />
             <file-input
+              v-if="!form.doc7"
               v-model="form.item_number_7"
               :error="errors.item_number_7"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -283,6 +336,7 @@
               label="Medical Certificate *"
             />
             <file-input
+              v-if="!form.doc9"
               v-model="form.item_number_9"
               :error="errors.item_number_9"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -298,7 +352,7 @@
               accept="image/*"
               label="Certification that the employee undergone Proposal Defense *"
             />
-            <file-input
+            <!-- <file-input
               v-model="form.item_number_11"
               :error="errors.item_number_11"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -313,13 +367,64 @@
               type="file"
               accept="image/*"
               label="Copy of Approved Program of Work *"
-            />
+            /> -->
+          </div>
+          <div
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '3'"
+            class="flex-row ml-10 mb-6"
+          >
+            <div class="my-5 text-yellow-800 font-semibold">
+              Check the box below if you want the corresponding documents to be
+              uploaded later.
+            </div>
+
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc3"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of No Pending Administrative Case</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc4"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of I/OPCRF Rating</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc7"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certification as to scholastic standing of last educational
+                attainment (TOR)</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc9"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Copy of Letter of Admission/Certificate of Enrolment</label
+              >
+            </div>
           </div>
           <!-- End third -->
 
           <!-- Fourth -->
           <div
-            class="p-8 -mr-6 flex flex-wrap"
+            class="pl-8 pr-8 pt-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '4' && scholar.plan == '4'"
           >
             <file-input
@@ -331,6 +436,7 @@
               label="Certificate of Good Moral *"
             />
             <file-input
+              v-if="!form.doc3"
               v-model="form.item_number_3"
               :error="errors.item_number_3"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -339,6 +445,7 @@
               label="Certificate of No Pending Administrative Case *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_4"
               :error="errors.item_number_4"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -360,7 +467,7 @@
               class="pr-6 pb-8 w-full lg:w-1/2"
               type="file"
               accept="image/*"
-              label="Photocopy of PSA Birth Cerificate *"
+              label="Photocopy of PSA Birth Certificate *"
             />
             <file-input
               v-model="form.item_number_10"
@@ -395,6 +502,7 @@
               label="Certification that the employee did not previously enjoy scholarship grant from CatSU *"
             />
             <file-input
+              v-if="!form.doc14"
               v-model="form.item_number_14"
               :error="errors.item_number_14"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -403,6 +511,7 @@
               label="Certification on Completion of Academic Requirements (CAR) *"
             />
             <file-input
+              v-if="!form.doc15"
               v-model="form.item_number_15"
               :error="errors.item_number_15"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -411,11 +520,63 @@
               label="Certification that the employee is done with Comprehensive Exam *"
             />
           </div>
+          <div
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '4'"
+            class="flex-row ml-10 mb-6"
+          >
+            <div class="my-5 text-yellow-800 font-semibold">
+              Check the box below if you want the corresponding documents to be
+              uploaded later.
+            </div>
+
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc3"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of No Pending Administrative Case</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc4"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of I/OPCRF Rating</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc14"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certification on Completion of Academic Requirements
+                (CAR)</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc15"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certification that the employee is done with Comprehensive
+                Exam</label
+              >
+            </div>
+          </div>
           <!-- End forth -->
 
           <!-- Sabbatical -->
           <div
-            class="p-8 -mr-6 flex flex-wrap"
+            class="pl-8 pr-8 pt-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '3'"
           >
             <file-input
@@ -427,6 +588,7 @@
               label="Certificate of Good Moral *"
             />
             <file-input
+              v-if="!form.doc3"
               v-model="form.item_number_3"
               :error="errors.item_number_3"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -435,6 +597,7 @@
               label="Certificate of No Pending Administrative Case *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_4"
               :error="errors.item_number_4"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -456,14 +619,44 @@
               class="pr-6 pb-8 w-full lg:w-1/2"
               type="file"
               accept="image/*"
-              label="Photocopy of PSA Birth Cerificate *"
+              label="Photocopy of PSA Birth Certificate *"
             />
+          </div>
+          <div
+            v-if="scholar.scholarship_type == '3'"
+            class="flex-row ml-10 mb-6"
+          >
+            <div class="my-5 text-yellow-800 font-semibold">
+              Check the box below if you want the corresponding documents to be
+              uploaded later.
+            </div>
+
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc3"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of No Pending Administrative Case</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc4"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of I/OPCRF Rating</label
+              >
+            </div>
           </div>
           <!-- End -->
 
           <!-- Abroad -->
           <div
-            class="p-8 -mr-6 flex flex-wrap"
+            class="pl-8 pr-8 pt-8 -mr-6 flex flex-wrap"
             v-if="scholar.scholarship_type == '2'"
           >
             <file-input
@@ -475,6 +668,7 @@
               label="Certificate of Good Moral *"
             />
             <file-input
+              v-if="!form.doc3"
               v-model="form.item_number_3"
               :error="errors.item_number_3"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -483,6 +677,7 @@
               label="Certificate of No Pending Administrative Case *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_4"
               :error="errors.item_number_4"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -504,9 +699,10 @@
               class="pr-6 pb-8 w-full lg:w-1/2"
               type="file"
               accept="image/*"
-              label="Photocopy of PSA Birth Cerificate *"
+              label="Photocopy of PSA Birth Certificate *"
             />
             <file-input
+              v-if="!form.doc7"
               v-model="form.item_number_7"
               :error="errors.item_number_7"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -523,6 +719,7 @@
               label="Medical Certificate *"
             />
             <file-input
+              v-if="!form.doc4"
               v-model="form.item_number_9"
               :error="errors.item_number_9"
               class="pr-6 pb-8 w-full lg:w-1/2"
@@ -530,6 +727,57 @@
               accept="image/*"
               label="Copy of Letter of Admission/Certificate of Enrolment *"
             />
+          </div>
+          <div
+            v-if="scholar.scholarship_type == '2'"
+            class="flex-row ml-10 mb-6"
+          >
+            <div class="my-5 text-yellow-800 font-semibold">
+              Check the box below if you want the corresponding documents to be
+              uploaded later.
+            </div>
+
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc3"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of No Pending Administrative Case</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc4"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certificate of I/OPCRF Rating</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc7"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Certification as to scholastic standing of last educational
+                attainment (TOR)</label
+              >
+            </div>
+            <div class="flex py-1 items-center space-x-2">
+              <input
+                v-model="form.doc9"
+                type="checkbox"
+                class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+              />
+              <label class="text-sm font-semibold text-gray-900"
+                >Copy of Letter of Admission/Certificate of Enrolment</label
+              >
+            </div>
           </div>
           <!-- End -->
 
@@ -594,6 +842,9 @@ export default {
       options: jobs,
       form: {
         contact_id: this.employee.id,
+        scholarship_id: this.scholar.id,
+        type: this.scholar.scholarship_type,
+        plan: this.scholar.plan,
         item_number_2: null,
         item_number_3: null,
         item_number_4: null,
@@ -608,7 +859,20 @@ export default {
         item_number_13: null,
         item_number_14: null,
         item_number_15: null,
-        // item_number_16: null,
+        doc2: null,
+        doc3: null,
+        doc4: null,
+        doc5: null,
+        doc6: null,
+        doc7: null,
+        doc8: null,
+        doc9: null,
+        doc10: null,
+        doc11: null,
+        doc12: null,
+        doc13: null,
+        doc14: null,
+        doc15: null,
       },
     };
   },
@@ -635,7 +899,23 @@ export default {
       data.append("item_number_13", this.form.item_number_13 || "");
       data.append("item_number_14", this.form.item_number_14 || "");
       data.append("item_number_15", this.form.item_number_15 || "");
-      // data.append("item_number_16", this.form.item_number_16 || "");
+      data.append("doc2", this.form.doc2 || "");
+      data.append("doc3", this.form.doc3 || "");
+      data.append("doc4", this.form.doc4 || "");
+      data.append("doc5", this.form.doc5 || "");
+      data.append("doc6", this.form.doc6 || "");
+      data.append("doc7", this.form.doc7 || "");
+      data.append("doc8", this.form.doc8 || "");
+      data.append("doc9", this.form.doc9 || "");
+      data.append("doc10", this.form.doc10 || "");
+      data.append("doc11", this.form.doc11 || "");
+      data.append("doc12", this.form.doc12 || "");
+      data.append("doc13", this.form.doc13 || "");
+      data.append("doc14", this.form.doc14 || "");
+      data.append("doc15", this.form.doc15 || "");
+      data.append("plan", this.form.plan || "");
+      data.append("type", this.form.type || "");
+      data.append("id", this.form.scholarship_id || "");
       data.append("_method", "put");
 
       this.$inertia.post(
