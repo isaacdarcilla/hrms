@@ -429,6 +429,246 @@
             placeholder="State briefly your reason for applying for staff development program."
           />
         </div>
+
+        <!-- Docs -->
+
+        <div
+          v-if="scholar.scholarship_type == '4' && scholar.plan == '1'"
+          class="flex-row mx-10 mb-6"
+        >
+          <div class="my-5 text-blue-600 font-semibold">
+            Uploaded Document Requirements
+          </div>
+          <div class="flex flex-wrap">
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Certificate of Good Moral
+                </div>
+                <div
+                  @click="image('doc2')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc2`"
+                :src="
+                  scholar.doc2 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc2
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc2}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Certificate of No Pending Administrative Case
+                </div>
+                <div
+                  @click="image('doc3')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc3`"
+                :src="
+                  scholar.doc3 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc3
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc3}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Certificate of I/OPCRF Rating
+                </div>
+                <div
+                  @click="image('doc4')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc4`"
+                :src="
+                  scholar.doc4 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc4
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc4}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Updated Service Record
+                </div>
+                <div
+                  @click="image('doc5')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc5`"
+                :src="
+                  scholar.doc5 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc5
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc5}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Photocopy of PSA Birth Cerificate
+                </div>
+                <div
+                  @click="image('doc6')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc6`"
+                :src="
+                  scholar.doc6 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc6
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc6}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Certification as to scholastic standing of last educational
+                  attainment (TOR)
+                </div>
+                <div
+                  @click="image('doc7')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc6`"
+                :src="
+                  scholar.doc7 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc7
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc7}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Medical Certificate
+                </div>
+                <div
+                  @click="image('doc8')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc8`"
+                :src="
+                  scholar.doc8 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc8
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc8}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+            <div class="px-2 w-6/12 sm:w-4/12">
+              <div class="flex justify-between">
+                <div class="my-2 font-semibold text-sm">
+                  Copy of Letter of Admission/Certificate of Enrolment
+                </div>
+                <div
+                  @click="image('doc9')"
+                  class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                >
+                  Full View
+                </div>
+              </div>
+              <img
+                hidden
+                v-viewer="options2"
+                :id="'p' + `doc9`"
+                :src="
+                  scholar.doc9 === null
+                    ? `/img/no-image.png`
+                    : `/storage/` + scholar.doc9
+                "
+              />
+              <img
+                :src="`/storage/${scholar.doc9}`"
+                alt="..."
+                class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- End -->
         <!-- <div
           class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex justify-end items-center"
         >
@@ -451,6 +691,11 @@ import FileInput from "@/Shared/FileInput";
 import moment from "moment";
 import VSelectize from "@isneezy/vue-selectize";
 import jobs from "../../Shared/Modals/jobs.json";
+import "viewerjs/dist/viewer.css";
+import Viewer from "v-viewer";
+import Vue from "vue";
+
+Vue.use(Viewer);
 
 export default {
   metaInfo: { title: "View Scholarship" },
@@ -479,6 +724,7 @@ export default {
     return {
       sending: false,
       options: jobs,
+      options2: { movable: false, toolbar: true, navbar: false, title: false },
       form: {
         contact_id: this.employee.id,
         office_id: this.employee.department,
@@ -513,22 +759,22 @@ export default {
         sponsoring_agency_before: this.scholar.sponsoring_agency_before,
         period_of_grant: this.scholar.period_of_grant,
         reason_of_applying: this.scholar.reason_of_applying,
-        // doc1: null,
-        // doc2: null,
-        // doc3: null,
-        // doc4: null,
-        // doc5: null,
-        // doc6: null,
-        // doc7: null,
-        // doc8: null,
-        // doc9: null,
-        // doc10: null,
-        // doc11: null,
-        // doc12: null,
-        // doc13: null,
-        // doc14: null,
-        // doc15: null,
-        // doc16: null,
+        doc1: null,
+        doc2: null,
+        doc3: null,
+        doc4: null,
+        doc5: null,
+        doc6: null,
+        doc7: null,
+        doc8: null,
+        doc9: null,
+        doc10: null,
+        doc11: null,
+        doc12: null,
+        doc13: null,
+        doc14: null,
+        doc15: null,
+        doc16: null,
         // immediate_head_name: null,
         // vp_name: null,
         // suc_president_name: null,
@@ -556,6 +802,11 @@ export default {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");
       }
+    },
+    image(value) {
+      let image = `#p${value}`;
+      const viewer = this.$el.querySelector(image).$viewer;
+      viewer.show();
     },
   },
 };
