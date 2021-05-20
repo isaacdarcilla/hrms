@@ -211,7 +211,9 @@
                 Type of Disability, if any:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">{{ scholar.contact.type_of_disability }}</div>
+                <div class="my-auto">
+                  {{ scholar.contact.type_of_disability }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -221,7 +223,9 @@
                 Highest Educational Attainment:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">{{ scholar.contact.highest_educational_attainment }}</div>
+                <div class="my-auto">
+                  {{ scholar.contact.highest_educational_attainment }}
+                </div>
               </div>
             </div>
             <div class="flex">
@@ -232,7 +236,9 @@
                 School Address:
               </div>
               <div class="w-8/12 pl-2 py-1 border-t border-r border-black">
-                <div class="my-auto">{{ scholar.contact.school_last_attended }}</div>
+                <div class="my-auto">
+                  {{ scholar.contact.school_last_attended }}
+                </div>
                 <div class="my-auto">{{ scholar.contact.school_address }}</div>
               </div>
             </div>
@@ -256,7 +262,9 @@
               <div
                 class="w-8/12 pl-2 py-1 border-t border-b border-r border-black"
               >
-                <div class="my-auto">{{ scholar.contact.weighted_average }}</div>
+                <div class="my-auto">
+                  {{ scholar.contact.weighted_average }}
+                </div>
               </div>
             </div>
             <div class="pt-5">
@@ -270,6 +278,7 @@
                 class="w-4/12 pl-2 py-1 border-t border-l border-r border-black font-semibold"
               >
                 <div class="flex">
+                  <div v-if="scholar.scholarship_type == '1'">✓</div>
                   <div
                     class="text-sm h-2 border my-auto mx-4 border-black p-1"
                   ></div>
@@ -282,13 +291,25 @@
                     Duration: <span class="text-sm">(No. of Months)</span>
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mr-2">2</div>
+                    <div
+                      v-if="scholar.scholarship_type == '1'"
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.duration_number_of_months }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                   <div class="w-2/4 italic text-sm">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mr-2">Jan 2, 1970</div>
+                    <div
+                      v-if="scholar.scholarship_type == '1'"
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.scholarship_inclusive_dates }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                 </div>
               </div>
@@ -298,6 +319,7 @@
                 class="w-4/12 pl-2 py-1 border-t border-l border-r border-black font-semibold"
               >
                 <div class="flex">
+                  <div v-if="scholar.scholarship_type == '2'">✓</div>
                   <div
                     class="text-sm h-2 border my-auto mx-4 border-black p-1"
                   ></div>
@@ -310,13 +332,25 @@
                     Duration: <span class="text-sm">(No. of Months)</span>
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mr-2">2</div>
+                    <div
+                      v-if="scholar.scholarship_type == '2'"
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.duration_number_of_months }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                   <div class="w-2/4 italic text-sm">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mr-2">Jan 2, 1970</div>
+                    <div
+                      v-if="scholar.scholarship_type == '2'"
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.scholarship_inclusive_dates }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                 </div>
                 <div class="flex">
@@ -324,7 +358,13 @@
                     Sponsoring Institution/Agency:
                   </div>
                   <div class="w-8/12 text-center">
-                    <div class="border-b border-black mx-2">Sample Agency</div>
+                    <div
+                      v-if="scholar.scholarship_type == '2'"
+                      class="border-b border-black mx-2"
+                    >
+                      {{ scholar.sponsoring_agency }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                 </div>
               </div>
@@ -334,6 +374,7 @@
                 class="w-4/12 pl-2 py-1 border-t border-l border-r border-black font-semibold"
               >
                 <div class="flex">
+                  <div v-if="scholar.scholarship_type == '3'">✓</div>
                   <div
                     class="text-sm h-2 border my-auto mx-4 border-black p-1"
                   ></div>
@@ -346,13 +387,25 @@
                     Duration: <span class="text-sm">(No. of Months)</span>
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mr-2">2</div>
+                    <div
+                      v-if="scholar.scholarship_type == '3'"
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.duration_number_of_months }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                   <div class="w-2/4 italic text-sm">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mr-2">Jan 2, 1970</div>
+                    <div
+                      v-if="scholar.scholarship_type == '3'"
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.scholarship_inclusive_dates }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                 </div>
               </div>
@@ -579,12 +632,21 @@
                 class="w-8/12 pl-2 py-1 border-t border-b border-r border-black"
               >
                 <div class="flex">
+                  <div class="p-1" v-if="scholar.recipient_before == 'Yes'">
+                    ✓
+                  </div>
                   <div
                     class="text-sm h-2 border my-auto mx-4 border-black p-1"
                   ></div>
                   <div class="w-6/12 font-normal">Yes, Sponsoring Agency:</div>
                   <div class="w-11/12 text-sm text-center">
-                    <div class="border-b border-black mr-3">2</div>
+                    <div
+                      v-if="scholar.recipient_before == 'Yes'"
+                      class="border-b border-black mr-3"
+                    >
+                      {{ scholar.sponsoring_agency_before }}
+                    </div>
+                    <div v-else class="border-b border-black mr-3">&nbsp;</div>
                   </div>
                 </div>
                 <div class="flex ml-10">
@@ -592,17 +654,26 @@
                     Period of Grant (MM/YYYY):
                   </div>
                   <div class="w-11/12 text-sm text-center">
-                    <div class="border-b border-black mr-3">2</div>
+                    <div
+                      v-if="scholar.recipient_before == 'Yes'"
+                      class="border-b border-black mr-3"
+                    >
+                      {{ scholar.period_of_grant }}
+                    </div>
+                    <div v-else class="border-b border-black mr-3">&nbsp;</div>
                   </div>
                 </div>
                 <div class="flex">
+                  <div class="p-1" v-if="scholar.recipient_before == 'No'">
+                    ✓
+                  </div>
                   <div
                     class="text-sm h-2 border my-auto mx-4 border-black p-1"
                   ></div>
                   <div class="w-3/12 font-normal">No:</div>
-                  <div class="w-11/12 text-sm text-center">
+                  <!-- <div class="w-11/12 text-sm text-center">
                     <div class="border-b border-black mr-3">2</div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -1253,6 +1324,11 @@ export default {
     format(value) {
       if (value) {
         return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
+    formatDate(value) {
+      if (value) {
+        return moment(String(value)).format("MM/YYYY");
       }
     },
   },
