@@ -311,8 +311,8 @@
 
           <text-input
             v-if="form.plan == '2'"
-            v-model="form.school_address"
-            :error="errors.school_address"
+            v-model="form.intended_school_address"
+            :error="errors.intended_school_address"
             class="pr-6 pb-8 w-full lg:w-1/2"
             label="School Address *"
             placeholder="Enter school address"

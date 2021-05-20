@@ -573,7 +573,8 @@
                         scholar.scholarship_type == '4' && scholar.plan == '1'
                       "
                       class="border-b border-black mr-3"
-                    >{{ scholar.scholarship_inclusive_dates }}
+                    >
+                      {{ scholar.scholarship_inclusive_dates }}
                     </div>
                     <div v-else class="border-b border-black mr-3">&nbsp;</div>
                   </div>
@@ -586,6 +587,14 @@
               >
                 <div class="flex">
                   <div
+                    class="p-1 my-auto"
+                    v-if="
+                      scholar.scholarship_type == '4' && scholar.plan == '2'
+                    "
+                  >
+                    ✓
+                  </div>
+                  <div
                     class="text-sm h-2 border my-auto mr-4 ml-10 border-black p-1"
                   ></div>
                   <div>Plan B: College-Sponsored Scholarship</div>
@@ -594,16 +603,38 @@
                   <div class="w-6/12 ml-16 font-normal italic">
                     School Intended to Enrol/Enrolled in:
                   </div>
-                  <div class="w-8/12 mr-3 border-b border-black text-center">
-                    Sample Agency
+                  <div
+                    v-if="
+                      scholar.scholarship_type == '4' && scholar.plan == '2'
+                    "
+                    class="w-8/12 mr-3 border-b border-black text-center"
+                  >
+                    {{ scholar.school_intended_to_enroll }}
+                  </div>
+                  <div
+                    v-else
+                    class="w-8/12 mr-3 border-b border-black text-center"
+                  >
+                    &nbsp;
                   </div>
                 </div>
                 <div class="flex">
                   <div class="w-3/12 ml-16 font-normal italic">
                     School Address:
                   </div>
-                  <div class="w-full mr-3 border-b border-black text-center">
-                    Sample Agency
+                  <div
+                    v-if="
+                      scholar.scholarship_type == '4' && scholar.plan == '2'
+                    "
+                    class="w-full mr-3 border-b border-black text-center"
+                  >
+                    {{ scholar.school_address }}
+                  </div>
+                  <div
+                    v-else
+                    class="w-full mr-3 border-b border-black text-center"
+                  >
+                    &nbsp;
                   </div>
                 </div>
 
@@ -615,11 +646,31 @@
                     >
                   </div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mx-2">✓</div>
+                    <div
+                      v-if="
+                        scholar.scholarship_type == '4' &&
+                        scholar.plan == '2' &&
+                        scholar.school_type == '1'
+                      "
+                      class="border-b border-black mx-2"
+                    >
+                      ✓
+                    </div>
+                    <div v-else class="border-b border-black mx-2">&nbsp;</div>
                   </div>
                   <div class="w-2/4 font-normal italic">Public Institution</div>
                   <div class="w-1/4 text-sm text-center">
-                    <div class="border-b border-black mx-2">✓</div>
+                    <div
+                      v-if="
+                        scholar.scholarship_type == '4' &&
+                        scholar.plan == '2' &&
+                        scholar.school_type == '2'
+                      "
+                      class="border-b border-black mx-2"
+                    >
+                      ✓
+                    </div>
+                    <div v-else class="border-b border-black mx-2">&nbsp;</div>
                   </div>
                   <div class="w-full font-normal italic">
                     CHED Recognized Private Institution
@@ -631,17 +682,35 @@
                     Duration: <span class="text-sm">(No. of Terms/Years)</span>
                   </div>
                   <div class="w-3/12 text-sm text-center">
-                    <div class="border-b border-black mr-2">2</div>
+                    <div
+                      v-if="
+                        scholar.scholarship_type == '4' && scholar.plan == '2'
+                      "
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.duration_number_of_years }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                   <div class="w-4/12 italic text-sm font-normal">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
                   <div class="w-4/12 text-sm text-center">
-                    <div class="border-b border-black mr-3">Jan 2, 1970</div>
+                    <div
+                      v-if="
+                        scholar.scholarship_type == '4' && scholar.plan == '2'
+                      "
+                      class="border-b border-black mr-3"
+                    >
+                      {{ scholar.scholarship_inclusive_dates }}
+                    </div>
+                    <div v-else class="border-b border-black mr-3">&nbsp;</div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- PLAN C NA! -->
             <div class="flex">
               <div
                 class="w-full pl-2 py-1 border-t border-l border-r border-black font-semibold"
