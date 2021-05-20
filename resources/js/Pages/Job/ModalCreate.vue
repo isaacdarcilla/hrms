@@ -331,6 +331,41 @@
                       </div>
                     </div>
                   </div>
+                  <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                      <input
+                        id="resume"
+                        type="file"
+                        accept="pdf/*"
+                        class="hidden"
+                        ref="file"
+                        @change="change"
+                      />
+                      <div
+                        @click="browse()"
+                        class="border-4 border-dashed bg-gray-200 hover:bg-gray-400 cursor-pointer"
+                      >
+                        <div
+                          v-if="!file_name"
+                          class="my-6 mx-auto text-center font-normal hover:font-semibold"
+                        >
+                          Attach notice of vacant position document
+                        </div>
+                        <div
+                          v-else
+                          class="my-6 mx-auto text-center font-normal hover:font-semibold"
+                        >
+                          {{ file_name }}
+                        </div>
+                      </div>
+                      <div
+                        v-if="$page.errors.document !== null"
+                        class="form-error"
+                      >
+                        {{ $page.errors.document }}
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -387,6 +422,8 @@ export default {
         [{ list: "ordered" }, { list: "bullet" }],
       ],
       sending: false,
+      file: null,
+      file_name: null,
       form: {
         position: null,
         department: null,
@@ -400,6 +437,7 @@ export default {
         job_description: null,
         preferred_qualification: null,
         deadline_at: null,
+        document: null,
         core_competencies:
           "<p><br></p><ul><li>Exemplifying integrity</li><li>Delivering service excellence</li><li>Solving problems and making decisions</li></ul>",
         organizational_competencies: null,
@@ -408,8 +446,45 @@ export default {
     };
   },
   methods: {
+    browse() {
+      this.$refs.file.click();
+    },
+    change(event) {
+      var data = event.target.files[0];
+      this.form.document = event.target.files[0];
+      this.file_name = data.name;
+      this.$emit("input", this.form.document);
+    },
     save() {
-      this.$inertia.post(this.route("jobs.store"), this.form, {
+      const data = new FormData();
+      data.append("position", this.form.position || "");
+      data.append("department", this.form.department || "");
+      data.append("item_number", this.form.item_number || "");
+      data.append("education", this.form.education || "");
+      data.append("experience", this.form.experience || "");
+      data.append("training", this.form.training || "");
+      data.append("eligibility", this.form.eligibility || "");
+      data.append("salary_grade", this.form.salary_grade || "");
+      data.append("monthly_salary", this.form.monthly_salary || "");
+      data.append("job_description", this.form.job_description || "");
+      data.append(
+        "preferred_qualification",
+        this.form.preferred_qualification || ""
+      );
+      data.append("deadline_at", this.form.deadline_at || "");
+      data.append("document", this.form.document || "");
+      data.append("core_competencies", this.form.core_competencies || "");
+      data.append(
+        "organizational_competencies",
+        this.form.organizational_competencies || ""
+      );
+      data.append(
+        "technical_competencies",
+        this.form.technical_competencies || ""
+      );
+      data.append("_method", "PUT");
+
+      this.$inertia.post(this.route("jobs.store"), data, {
         onStart: () => (this.sending = true),
         onFinish: () => (this.sending = false),
       });

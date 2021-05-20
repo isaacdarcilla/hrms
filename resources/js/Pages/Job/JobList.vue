@@ -141,15 +141,39 @@
                     <div class="mt-2 ml-4 text-gray-600 text-sm" id="my-list-2">
                       <ul>
                         <li>Application Letter</li>
-                        <li>Letter of Intent and Statement of Authenticity & Veracity of Documents Submitted</li>
-                        <li>Fully accomplished & notarized Personal Data Sheet with recent ID picture & Work Experience Sheet</li>
-                        <li>Certified true copy of Transcript of Records (High School Diploma, Baccaluareate and Post-graduate studies)</li>
-                        <li>Certified true copy of updated Service Record or Certificate of Employment (if applicable)</li>
-                        <li>Certified true copy of Certificates of Trainings/Seminars Attended</li>
-                        <li>Certified true copy of Performance Rating in the last two rating periods (if applicable)</li>
-                        <li>Certified true copy of Certificate of Eligibilty/Rating/License ID</li>
+                        <li>
+                          Letter of Intent and Statement of Authenticity &
+                          Veracity of Documents Submitted
+                        </li>
+                        <li>
+                          Fully accomplished & notarized Personal Data Sheet
+                          with recent ID picture & Work Experience Sheet
+                        </li>
+                        <li>
+                          Certified true copy of Transcript of Records (High
+                          School Diploma, Baccaluareate and Post-graduate
+                          studies)
+                        </li>
+                        <li>
+                          Certified true copy of updated Service Record or
+                          Certificate of Employment (if applicable)
+                        </li>
+                        <li>
+                          Certified true copy of Certificates of
+                          Trainings/Seminars Attended
+                        </li>
+                        <li>
+                          Certified true copy of Performance Rating in the last
+                          two rating periods (if applicable)
+                        </li>
+                        <li>
+                          Certified true copy of Certificate of
+                          Eligibilty/Rating/License ID
+                        </li>
                         <li>Photocopy of Latest Appointment (if applicable)</li>
-                        <li>Other documents relevant to the position applied for</li>
+                        <li>
+                          Other documents relevant to the position applied for
+                        </li>
                       </ul>
                     </div>
                     <div class="mt-3 text-gray-700 text-sm normal-case">
@@ -167,6 +191,20 @@
                         class="text-blue-600"
                         >csu_hrmservices@yahoo.com</a
                       >
+                    </div>
+                    <div class="mt-6">
+                      <a :href="`/storage/${job.document}`" target="_blank"
+                        class="bg-blue-300 hover:bg-blue-400 text-blue-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                      >
+                        <svg
+                          class="fill-current w-4 h-4 mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                        </svg>
+                        <span>Download File</span>
+                      </a>
                     </div>
                   </div>
                   <div class="flex justify-between items-center mt-6">

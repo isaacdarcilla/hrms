@@ -354,7 +354,7 @@ Route::get('lists/jobs', [JobController::class, 'list'])
 Route::get('job/offer/{link}', [JobController::class, 'job'])
     ->name('jobs.job');
 
-Route::post('jobs', [JobController::class, 'store'])
+Route::put('jobs', [JobController::class, 'store'])
     ->name('jobs.store')
     ->middleware('auth');
 

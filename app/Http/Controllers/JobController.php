@@ -56,7 +56,7 @@ class JobController extends Controller
             'experience' => ['nullable', 'max:255', 'min:2'],
             'training' => ['nullable', 'max:255', 'min:2'],
             'eligibility' => ['nullable', 'max:255', 'min:2'],
-            'salary_grade' => ['required', 'max:255', 'min:2', 'regex:/^[0-9+]+$/'],
+            'salary_grade' => ['required', 'max:255', 'min:1', 'regex:/^[0-9+]+$/'],
             'monthly_salary' => ['required', 'max:255', 'min:2', 'regex:/^[0-9+]+$/'],
             'deadline_at' => ['required'],
             'job_description' => ['required', 'min:6'],
@@ -64,6 +64,7 @@ class JobController extends Controller
             'core_competencies' => ['required'],
             'organizational_competencies' => ['required'],
             'technical_competencies' => ['required'],
+            'document' => ['required', 'mimes:jpeg,jpg,png,pdf', 'max:20000']
         ]);
 
         $job_link = strtolower(str_replace(' ', '-', Request::input('position'))).'-'.Str::random(5);
@@ -85,6 +86,7 @@ class JobController extends Controller
             'technical_competencies' => Request::input('technical_competencies'),
             'deadline_at' => Request::input('deadline_at'),
             'job_link' => $job_link,
+            'document' =>  Request::file('document') ? Request::file('document')->store('jobs', 'public') : null,
         ]);
 
         return Redirect::back()->with('success', 'Job added.');

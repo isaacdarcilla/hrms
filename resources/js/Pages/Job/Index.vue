@@ -95,12 +95,12 @@
             >
               Action
             </th>
-            <th
+            <!-- <th
               scope="col"
               class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
               Form
-            </th>
+            </th> -->
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
@@ -270,7 +270,7 @@
                 >♻️ Restore</span
               >
             </td>
-            <td
+            <!-- <td
               class="px-1 py-4 whitespace-nowrap text-sm font-medium transition duration-500 ease-in-out transform hover:-translate-y-1"
             >
               <span
@@ -278,7 +278,7 @@
                 class="text-indigo-600 cursor-pointer hover:text-indigo-900"
                 >👁️ View</span
               >
-            </td>
+            </td> -->
           </tr>
         </tbody>
         <tr v-if="jobs.data.length === 0">
