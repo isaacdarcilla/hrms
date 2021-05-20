@@ -445,6 +445,56 @@
           </div>
         </div>
       </button>
+      <button
+        :href="route('users')"
+        class="min-w-0 cursor-pointer hover:bg-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        <div class="p-4 flex items-center">
+          <div
+            class="p-3 rounded-full text-teal-500 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 mr-4"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p
+              class="mb-2 text-left text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+              Scholarship
+            </p>
+            <p
+              class="text-lg font-semibold text-gray-700 dark:text-gray-200"
+            >
+              {{ total.scholarship_applications }}
+              <span class="text-xs">pending</span>,
+              {{ total.scholarship_applications_accepted }}
+              <span class="text-xs">accepted</span>
+              ,
+              {{ total.scholarship_applications_declined }}
+              <span class="text-xs">declined</span>
+              ,
+              {{ total.scholarship_applications_overall }}
+              <span class="text-xs">overall</span>
+            </p>
+          </div>
+        </div>
+      </button>
     </div>
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
       <div class="h-64">

@@ -13,6 +13,7 @@ use App\Models\Inquiry;
 use App\Models\Profile;
 use App\Models\InquiryReply;
 use App\Models\Psipop;
+use App\Models\Scholarship;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -44,7 +45,11 @@ class DashboardController extends Controller
                     'punfilled' => Psipop::whereFilledPosition('0')->count() / Psipop::count() * 100,
                     'retirees' =>  DB::select('select count(*) as total from psipops where birth_date < CURDATE() - INTERVAL 60 YEAR;'),
                     'retired' =>  DB::select('select count(*) as total from psipops where birth_date < CURDATE() - INTERVAL 65 YEAR;'),
-                ]
+                ],
+                'scholarship_applications' => Scholarship::whereStatus('Pending')->count(),
+                'scholarship_applications_accepted' => Scholarship::whereStatus('Approved')->count(),
+                'scholarship_applications_declined' => Scholarship::whereStatus('Disapproved')->count(),
+                'scholarship_applications_overall' => Scholarship::count(),
             ],
             'notices' => Notice::orderBy('created_at', 'DESC')->take(3)->get(),
             'jobs' => Job::orderBy('created_at', 'DESC')->take(3)->get(),

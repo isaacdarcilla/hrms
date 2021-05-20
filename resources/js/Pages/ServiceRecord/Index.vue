@@ -8,7 +8,7 @@
         <span>➕ Create</span>
         <span class="hidden md:inline">Record</span>
       </button>
-      <button class="btn-indigo rounded-lg">
+      <button @click="printPdf()" class="btn-indigo rounded-lg">
         <span>🖨️ Print</span>
         <span class="hidden md:inline">Service Record</span>
       </button>
@@ -16,11 +16,10 @@
 
     <vue-html2pdf
       :show-layout="false"
-      :float-layout="false"
+      :float-layout="true"
       :enable-download="false"
       :preview-modal="true"
       :paginate-elements-by-height="1400"
-      :filename="filename"
       :pdf-quality="2"
       :manual-pagination="true"
       pdf-format="legal"
@@ -33,7 +32,7 @@
       <section
         slot="pdf-content"
         class="mt-2 bg-white font-sans mx-auto text-black"
-        style="width: 816px; height: 1280px"
+        style="width: 800px; height: 1280px"
       >
         <div class="flex mt-6">
           <img class="mx-3 rounded-full" src="/img/logo.jpg" width="60px" />
@@ -59,10 +58,19 @@
               </div>
               <div class="w-7/12 text-center">
                 <div class="capitalize border-b-one border-black">
-                  <div class="flex justify-between">
-                    <div class="w-1/3 uppercase font-semibold">Arcilla</div>
-                    <div class="w-1/3 uppercase font-semibold">Geraldine</div>
-                    <div class="w-1/3 uppercase font-semibold">Magdaraog</div>
+                  <div
+                    v-if="service_records.data[0]"
+                    class="flex justify-between"
+                  >
+                    <div class="w-1/3 uppercase font-semibold">
+                      {{ service_records.data[0].contact.last_name }}
+                    </div>
+                    <div class="w-1/3 uppercase font-semibold">
+                      {{ service_records.data[0].contact.first_name }}
+                    </div>
+                    <div class="w-1/3 uppercase font-semibold">
+                      {{ service_records.data[0].contact.middle_name }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -95,9 +103,18 @@
               </div>
               <div class="w-7/12 text-center">
                 <div class="capitalize border-b-one border-black">
-                  <div class="flex justify-between">
-                    <div class="w-1/2">January 28, 1986</div>
-                    <div class="w-1/2">Virac, Catanduanes</div>
+                  <div
+                    v-if="service_records.data[0]"
+                    class="flex justify-between"
+                  >
+                    <div class="w-1/2">
+                      {{
+                        formatDate(service_records.data[0].contact.birth_date)
+                      }}
+                    </div>
+                    <div class="w-1/2">
+                      {{ service_records.data[0].contact.birth_place }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -127,136 +144,563 @@
           each line f which is supported by appointment anf oher papers actually
           issued by this Office and approved by the autorities concerned.
         </div>
-        <div class="mt-8">
-          <div class="h-6 ml-2">
-            <div class="flex justify-items-auto">
-              <div class="w-3/12 border-t-one border-r-one border-black">
-                <div class="uppercase text-center">
-                  Service <br />(INCL. DATES)
-                </div>
+        <div class="mt-6">
+          <div class="flex">
+            <div
+              class="w-2/12 py-1 border-t border-l text-center border-r border-black"
+            >
+              SERVICE <br />
+              (INCL. DATES)
+            </div>
+            <div class="w-4/12 border-t text-center border-r border-black">
+              &nbsp; <br />
+              RECORD OF APPOINTMENT
+            </div>
+            <div class="w-3/12 py-1 border-t text-center border-r border-black">
+              OFFICE/ENTITY/<br />DIVISION
+            </div>
+            <div class="w-1/12 py-1 border-t text-center border-r border-black">
+              LV/ABS<br />W/O
+            </div>
+            <div class="w-2/12 py-1 border-t text-center border-r border-black">
+              &nbsp; <br />
+              SEPARATION
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-1/12 py-1 border-t border-b border-l text-center border-r border-black"
+            >
+              From
+            </div>
+            <div
+              class="w-1/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              To
+            </div>
+            <div
+              class="w-2/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Designation
+            </div>
+            <div
+              class="w-1/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Status
+            </div>
+            <div
+              class="w-1/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Salary
+            </div>
+            <div
+              class="w-2/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Station/Place
+            </div>
+            <div
+              class="w-1/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Branch
+            </div>
+            <div class="w-1/12 py-1 text-center border-r border-b border-black">
+              PAY
+            </div>
+            <div
+              class="w-1/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Date
+            </div>
+            <div
+              class="w-1/12 py-1 border-t border-b text-center border-r border-black"
+            >
+              Cause
+            </div>
+          </div>
+          <div v-if="service_records.data[0]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[0].service_start) }}
               </div>
-              <div class="w-4/12 border-t-one border-r-one border-black">
-                <div class="uppercase text-center mt-4">
-                  Record of appointment
-                </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[0].service_end) }}
               </div>
-              <div class="w-2/12 border-t-one border-r-one border-black">
-                <div class="uppercase text-center">
-                  Office/Entity/<br />Division
-                </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[0].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[0].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[0].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[0].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[0].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[0].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[0].separation_date) }}
               </div>
-              <div class="w-1/12 border-t-one border-r-one border-black">
-                <div class="uppercase text-center">LV/ABS W/O</div>
-              </div>
-              <div class="w-2/12 border-t-one border-black">
-                <div class="uppercase text-center mt-4">Separation</div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[0].separation_cause }}
               </div>
             </div>
           </div>
-          <div class="mt-2">
-            <div class="h-6 ml-2">
-              <div class="flex justify-items-auto">
-                <div
-                  class="w-3/12 border-t-one border-b-one border-r-one border-black"
-                >
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-black">From</div>
-                    <div class="w-1/2">To</div>
-                  </div>
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-t-one border-black">
-                      01/02/2020
-                    </div>
-                    <div class="w-1/2 border-t-one border-black">
-                      01/20/2020
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="w-4/12 border-t-one border-b-one border-r-one border-black"
-                >
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-2/5 border-r-one border-black">
-                      Designation
-                    </div>
-                    <div class="w-1/5 border-r-one border-black">Status</div>
-                    <div class="w-2/5">Salary</div>
-                  </div>
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-2/5 border-r-one border-t-one border-black">
-                      Administrative Aide III
-                    </div>
-                    <div class="w-1/5 border-r-one border-t-one border-black">
-                      Perm.
-                    </div>
-                    <div class="w-2/5 border-t-one border-black">
-                      P 1,000,000
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="w-2/12 border-t-one border-b-one border-r-one border-black"
-                >
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-black">Place</div>
-                    <div class="w-1/2">Branch</div>
-                  </div>
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-t-one border-black">
-                      Catanduanes State University, Virac, Cat.
-                    </div>
-                    <div class="w-1/2 border-t-one border-black">Nat'l</div>
-                  </div>
-                </div>
-                <div class="w-1/12 border-r-one border-b-one border-black">
-                  <div class="uppercase text-center">PAY</div>
-                </div>
-                <div class="w-2/12 border-t-one border-b-one border-black">
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-black">Date</div>
-                    <div class="w-1/2">Cause</div>
-                  </div>
+          <div v-if="service_records.data[1]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[1].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[1].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[1].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[1].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[1].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[1].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[1].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[1].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[1].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[1].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div v-if="service_records.data[2]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[2].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[2].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[2].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[2].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[2].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[2].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[2].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[2].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[2].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[2].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div v-if="service_records.data[3]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[3].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[3].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[3].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[3].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[3].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[3].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[3].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[3].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[3].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[3].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div v-if="service_records.data[4]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[4].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[4].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[4].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[4].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[4].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[4].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[4].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[4].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[4].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[4].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div v-if="service_records.data[5]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[5].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[5].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[5].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[5].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[5].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[5].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[5].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[5].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[5].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[5].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div v-if="service_records.data[6]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[6].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[6].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[6].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[6].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[6].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[6].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[6].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[6].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[6].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[6].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div v-if="service_records.data[7]" class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l text-center border-r border-black"
+            >
+              <div class="text-xs">
+                {{ format(service_records.data[7].service_start) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[7].service_end) }}
+              </div>
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[7].designation }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[7].status }}
+            </div>
+            <div class="w-1/12 text-sm py-2 text-center border-r border-black">
+              {{ currency(service_records.data[7].salary) }}
+            </div>
+            <div
+              class="w-2/12 py-2 text-center border-r capitalize border-black"
+            >
+              {{ service_records.data[7].station_or_place }}
+            </div>
+            <div
+              class="w-1/12 py-2 capitalize text-center border-r border-black"
+            >
+              {{ service_records.data[7].branch }}
+            </div>
+            <div
+              class="w-1/12 py-2 text-center capitalize border-r border-black"
+            >
+              {{ service_records.data[7].pay }}
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs">
+                {{ format(service_records.data[7].separation_date) }}
+              </div>
+            </div>
+            <div class="w-1/12 py-2 text-center border-r border-black">
+              <div class="text-xs capitalize">
+                {{ service_records.data[7].separation_cause }}
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-1/12 mx-auto py-2 border-l border-b text-center border-r border-black"
+            >
+              &nbsp;
+            </div>
+            <div class="w-1/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div class="w-2/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div class="w-1/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div
+              class="w-1/12 text-sm py-2 border-b text-center border-r border-black"
+            >
+              &nbsp;
+            </div>
+            <div class="w-2/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div class="w-1/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div class="w-1/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div class="w-1/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+            <div class="w-1/12 py-2 text-center border-b border-r border-black">
+              &nbsp;
+            </div>
+          </div>
+          <div class="inset-x-0 bottom-0">
+            <div class="mt-8 text-justify" style="text-indent: 50px">
+              Issued in compliance with Executive Order No. 54, dated August 10,
+              1954 and in accordance with Circular No. 58, dated August 10 1954
+              of the system.
+            </div>
+            <div class="mt-12 flex justify-between">
+              <div class="w-4/12"></div>
+              <div class="w-8/12 uppercase text-center">Certified Correct:</div>
+            </div>
+            <div class="mt-12 flex justify-between">
+              <div class="w-6/12 text-center align-middle">{{ moment() }}</div>
+              <div class="w-6/12 uppercase text-center">
+                <span class="font-semibold">MA. SIONNE MAY T. CRISPINO</span
+                ><br />
+                <span class="italic">Administrative Officer V</span><br />
+                <span class="italic">HRM Service</span>
+              </div>
+            </div>
+            <div class="border-b-2 border-blue-600 mt-12"></div>
+            <div class="flex pb-20">
+              <div class="w-4/12">
+                <div class="text-sm italic text-left">CSU-F-HRM-24</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-sm text-center italic">Rev.0</div>
+              </div>
+              <div class="w-4/12">
+                <div class="text-sm text-right italic">
+                  Effectivity Date: June 1, 2015
                 </div>
               </div>
-              <!-- Start -->
-              <!-- <div class="flex justify-items-auto">
-                <div class="w-3/12 border-b-one border-r-one border-black">
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-black">
-                      01/11/2020
-                    </div>
-                    <div class="w-1/2">01/01/2020</div>
-                  </div>
-                </div>
-                <div class="w-4/12 border-b-one border-r-one border-black">
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-2/5 border-r-one border-black">
-                      Administrative Aide III
-                    </div>
-                    <div class="w-1/5 border-r-one border-black">Perm.</div>
-                    <div class="w-2/5">P 1,000,000</div>
-                  </div>
-                </div>
-                <div class="w-2/12 border-b-one border-r-one border-black">
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-black">
-                      Catanduanes State University, Virac, Cat.
-                    </div>
-                    <div class="w-1/2">Nat'l</div>
-                  </div>
-                </div>
-                <div class="w-1/12 border-r-one border-b-one border-black">
-                  <div class="normal-case text-center">None</div>
-                </div>
-                <div class="w-2/12 border-b-one border-black">
-                  <div class="flex justify-items-auto text-center">
-                    <div class="w-1/2 border-r-one border-black">
-                      01/01/2020
-                    </div>
-                    <div class="w-1/2">RA-12299</div>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
@@ -590,6 +1034,13 @@ export default {
     },
   },
   methods: {
+    printPdf() {
+      console.log(true);
+      this.$refs.html2Pdf.generatePdf();
+    },
+    moment() {
+      return moment().format("MMMM D, YYYY");
+    },
     showEditModal(item) {
       this.service = item;
       this.showEdit = true;
