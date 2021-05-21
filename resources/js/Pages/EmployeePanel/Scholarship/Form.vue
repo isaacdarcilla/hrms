@@ -9,12 +9,24 @@
         >
         <span class="text-indigo-400 font-medium">/</span> Form 92 🎓
       </h1>
-      <button
-        @click="printPdf()"
-        class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+      <div class="flex">
+        <button v-if="scholar.doc2 == null" class="btn-danger h-10 rounded-lg">
+          <span class="font-semibold">No Document Uploaded</span>
+        </button>
+        <button
+          v-else
+          @click="printPdf()"
+          class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+        >
+          <span>🖨️ Print Form</span>
+        </button>
+      </div>
+    </div>
+    <div v-if="scholar.doc2 == null" class="btn-danger h-10 rounded-lg">
+      <span class="font-semibold"
+        >INFO: No document uploaded, please upload documentary requirements first to
+        be able to print the form.</span
       >
-        <span>🖨️ Print Form</span>
-      </button>
     </div>
     <div>
       <vue-html2pdf
@@ -1395,11 +1407,25 @@
               <div class="w-4/12">Approved:</div>
             </div>
             <div class="flex mt-6">
-              <div v-if="scholar.user != null" class="w-4/12 mx-6 text-center uppercase font-semibold">{{ scholar.user.first_name }} {{ scholar.user.last_name }}</div>
-              <div v-else class="w-4/12 mx-6 text-center uppercase font-semibold">&nbsp;</div>
-              
-              <div class="w-4/12 mx-6 text-center uppercase font-semibold">Juan Dela Cruz 1</div>
-              <div class="w-4/12 mx-6 text-center uppercase font-semibold">Juan Dela Cruz 2</div>
+              <div
+                v-if="scholar.user != null"
+                class="w-4/12 mx-6 text-center uppercase font-semibold"
+              >
+                {{ scholar.user.first_name }} {{ scholar.user.last_name }}
+              </div>
+              <div
+                v-else
+                class="w-4/12 mx-6 text-center uppercase font-semibold"
+              >
+                &nbsp;
+              </div>
+
+              <div class="w-4/12 mx-6 text-center uppercase font-semibold">
+                Juan Dela Cruz 1
+              </div>
+              <div class="w-4/12 mx-6 text-center uppercase font-semibold">
+                Juan Dela Cruz 2
+              </div>
             </div>
             <div class="flex">
               <div class="w-4/12 mx-6 border-t border-black text-center">
