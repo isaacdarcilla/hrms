@@ -271,7 +271,12 @@
                           <option value="Study Leave">Study Leave</option>
                           <option value="Paternity Leave">Paternity Leave</option>
                           <option value="CTO">Compensatory Time Off Leave</option>
-                          <option value="R.A. 9262">R.A. 9262</option>
+                          <option value="R.A. 9262">10-Day VAWC Leave (R.A. 9262)</option>
+                          <option value="Special Privilege Leave">Special Privilege Leave</option>
+                          <option value="Rehabilitaion Privilege">Rehabilitaion Privilege</option>
+                          <option value="Special Leave Benefits for Women">Special Leave Benefits for Women</option>
+                          <option value="Special Emergency Leave">Special Emergency Leave</option>
+                          <option value="Adoption Leave">Adoption Leave</option>
                         </select>
                       </div>
                       <div
