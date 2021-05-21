@@ -717,6 +717,14 @@
               >
                 <div class="flex">
                   <div
+                    class="p-1 my-auto"
+                    v-if="
+                      scholar.scholarship_type == '4' && scholar.plan == '3'
+                    "
+                  >
+                    ✓
+                  </div>
+                  <div
                     class="text-sm h-2 border my-auto mr-4 ml-10 border-black p-1"
                   ></div>
                   <div>Plan C: Study Leave</div>
@@ -727,13 +735,29 @@
                     Duration: <span class="text-sm">(No. of Terms/Years)</span>
                   </div>
                   <div class="w-3/12 text-sm text-center">
-                    <div class="border-b border-black mr-2">2</div>
+                    <div
+                      v-if="
+                        scholar.scholarship_type == '4' && scholar.plan == '3'
+                      "
+                      class="border-b border-black mr-2"
+                    >
+                      {{ scholar.duration_number_of_years }}
+                    </div>
+                    <div v-else class="border-b border-black mr-2">&nbsp;</div>
                   </div>
                   <div class="w-4/12 italic text-sm font-normal">
                     Inclusive Dates: <span class="text-sm">(MM/YYYY)</span>
                   </div>
                   <div class="w-4/12 text-sm text-center">
-                    <div class="border-b border-black mr-3">Jan 2, 1970</div>
+                    <div
+                      v-if="
+                        scholar.scholarship_type == '4' && scholar.plan == '3'
+                      "
+                      class="border-b border-black mr-3"
+                    >
+                      {{ scholar.scholarship_inclusive_dates }}
+                    </div>
+                    <div v-else class="border-b border-black mr-3">&nbsp;</div>
                   </div>
                 </div>
               </div>
@@ -744,6 +768,14 @@
               >
                 <div class="flex">
                   <div
+                    class="p-1 my-auto"
+                    v-if="
+                      scholar.scholarship_type == '4' && scholar.plan == '4'
+                    "
+                  >
+                    ✓
+                  </div>
+                  <div
                     class="text-sm h-2 border my-auto mr-4 ml-10 border-black p-1"
                   ></div>
                   <div>Plan D: Thesis/Dissertation Assistance</div>
@@ -752,20 +784,70 @@
                 <div class="ml-16">
                   <div class="flex">
                     <div
+                      class="p-1 my-auto"
+                      v-if="
+                        scholar.scholarship_type == '4' &&
+                        scholar.plan == '4' &&
+                        scholar.thesis_or_dissertation == '1'
+                      "
+                    >
+                      ✓
+                    </div>
+                    <div
                       class="text-sm h-2 border my-auto mx-4 border-black p-1"
                     ></div>
                     <div class="w-2/12 font-normal">Thesis Title:</div>
                     <div class="w-10/12 text-sm text-center">
-                      <div class="border-b border-black mr-3">2</div>
+                      <div
+                        v-if="
+                          scholar.scholarship_type == '4' &&
+                          scholar.plan == '4' &&
+                          scholar.thesis_or_dissertation == '1'
+                        "
+                        class="border-b border-black mr-3"
+                      >
+                        {{ scholar.thesis_or_dissertation_name }}
+                      </div>
+                      <div
+                        v-else
+                        class="border-b border-black mr-3"
+                      >
+                        &nbsp;
+                      </div>
                     </div>
                   </div>
                   <div class="flex">
+                    <div
+                      class="p-1 my-auto"
+                      v-if="
+                        scholar.scholarship_type == '4' &&
+                        scholar.plan == '4' &&
+                        scholar.thesis_or_dissertation == '2'
+                      "
+                    >
+                      ✓
+                    </div>
                     <div
                       class="text-sm h-2 border my-auto mx-4 border-black p-1"
                     ></div>
                     <div class="w-3/12 font-normal">Dissertation Title:</div>
                     <div class="w-10/12 text-sm text-center">
-                      <div class="border-b border-black mr-3">2</div>
+                      <div
+                        v-if="
+                          scholar.scholarship_type == '4' &&
+                          scholar.plan == '4' &&
+                          scholar.thesis_or_dissertation == '2'
+                        "
+                        class="border-b border-black mr-3"
+                      >
+                        {{ scholar.thesis_or_dissertation_name }}
+                      </div>
+                      <div
+                        v-else
+                        class="border-b border-black mr-3"
+                      >
+                        &nbsp;
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -115,7 +115,7 @@ class ScholarshipController extends Controller
             'scholarship_start_inclusive_dates' => $plan == '1' || $plan == '2' || $plan == '3' ? 'required' : 'nullable',
             'scholarship_end_inclusive_dates' => $plan == '1' || $plan == '2'|| $plan == '3' ? 'required|after:scholarship_start_inclusive_dates' : 'nullable',
             'school_type' => $plan == '2' ? 'required' : 'nullable',
-            'thesis_or_dissertation' => $plan == '4' ? 'required|min:3' : 'nullable',
+            'thesis_or_dissertation' => $plan == '4' ? 'required' : 'nullable',
             'thesis_or_dissertation_name' => $plan == '4' ? 'required|min:3' : 'nullable',
             'recipient_before' => 'required',
             'sponsoring_agency_before' => $before == 'Yes' ? 'required|min:3' : 'nullable',
