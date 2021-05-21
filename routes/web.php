@@ -512,11 +512,11 @@ Route::get('scholarship/view/{id}', [AdminScholarshipController::class, 'view'])
     ->name('scholarship.view')
     ->middleware('auth');
 
-Route::put('scholarship/approve/{id}', [AdminScholarshipController::class, 'approve'])
+Route::put('scholarship/approve/{id}/{user_id}', [AdminScholarshipController::class, 'approve'])
     ->name('scholarship.approve')
     ->middleware('auth');
 
-Route::put('scholarship/disapprove/{id}', [AdminScholarshipController::class, 'disapprove'])
+Route::put('scholarship/disapprove/{id}/{user_id}', [AdminScholarshipController::class, 'disapprove'])
     ->name('scholarship.disapprove')
     ->middleware('auth');
 

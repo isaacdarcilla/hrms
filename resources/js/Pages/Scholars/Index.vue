@@ -275,7 +275,7 @@ export default {
         dangerMode: false,
       }).then((willApprove) => {
         if (willApprove) {
-          this.$inertia.put(this.route("scholarship.approve", id));
+          this.$inertia.put(this.route("scholarship.approve", [id, this.$page.auth.user.id]));
         }
       });
     },
@@ -287,7 +287,7 @@ export default {
         dangerMode: true,
       }).then((willDisapprove) => {
         if (willDisapprove) {
-          this.$inertia.put(this.route("scholarship.disapprove", id));
+          this.$inertia.put(this.route("scholarship.disapprove", [id, this.$page.auth.user.id]));
         }
       });
     },

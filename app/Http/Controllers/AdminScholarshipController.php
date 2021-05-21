@@ -36,19 +36,21 @@ class AdminScholarshipController extends Controller
         ]);
     }
 
-    public function approve($id) 
+    public function approve($id, $user_id) 
     {
         Scholarship::whereId($id)->update([
             'status' => 'Approved',
+            'user_id' => $user_id,
         ]);
 
         return Redirect::back()->with('success', 'Scholarship approved.');
     }
 
-    public function disapprove($id) 
+    public function disapprove($id, $user_id) 
     {
         Scholarship::whereId($id)->update([
             'status' => 'Disapproved',
+            'user_id' => $user_id,
         ]);
 
         return Redirect::back()->with('success', 'Scholarship disapproved.');

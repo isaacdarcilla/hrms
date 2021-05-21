@@ -23,6 +23,7 @@ class ScholarshipController extends Controller
                 'scholars' => Scholarship::where('contact_id', auth()->guard('employee')->user()->id)
                                 ->with('contact')
                                 ->with('office')
+                                ->with('user')
                                 ->filter(Request::only('search'))
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(),
@@ -64,6 +65,7 @@ class ScholarshipController extends Controller
                 'scholars' => Scholarship::where('contact_id', auth()->guard('employee')->user()->id)
                                 ->with('contact')
                                 ->with('office')
+                                ->with('user')
                                 ->filter(Request::only('search'))
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(),
@@ -71,6 +73,7 @@ class ScholarshipController extends Controller
                                 ->whereId($id)
                                 ->with('contact')
                                 ->with('office')
+                                ->with('user')
                                 ->first(),
             ]);
         else

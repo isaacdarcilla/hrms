@@ -808,10 +808,7 @@
                       >
                         {{ scholar.thesis_or_dissertation_name }}
                       </div>
-                      <div
-                        v-else
-                        class="border-b border-black mr-3"
-                      >
+                      <div v-else class="border-b border-black mr-3">
                         &nbsp;
                       </div>
                     </div>
@@ -842,10 +839,7 @@
                       >
                         {{ scholar.thesis_or_dissertation_name }}
                       </div>
-                      <div
-                        v-else
-                        class="border-b border-black mr-3"
-                      >
+                      <div v-else class="border-b border-black mr-3">
                         &nbsp;
                       </div>
                     </div>
@@ -1377,8 +1371,17 @@
                 <div class="ml-4"></div>
               </div>
             </div>
-
             <div class="flex mt-10">
+              <div class="w-2/12"></div>
+              <div class="w-5/12"></div>
+              <div class="w-4/12 text-center uppercase font-semibold">
+                {{ scholar.contact.first_name }}
+                {{ scholar.contact.middle_name }}
+                {{ scholar.contact.last_name }}
+              </div>
+              <div class="w-1/12"></div>
+            </div>
+            <div class="flex">
               <div class="w-2/12"></div>
               <div class="w-5/12"></div>
               <div class="w-4/12 border-t border-black text-center">
@@ -1386,12 +1389,19 @@
               </div>
               <div class="w-1/12"></div>
             </div>
-            <div class="flex mt-10">
+            <div class="flex mt-6">
               <div class="w-4/12 ml-6">Endorsed by:</div>
               <div class="w-4/12">Recommending Approval:</div>
               <div class="w-4/12">Approved:</div>
             </div>
-            <div class="flex mt-10">
+            <div class="flex mt-6">
+              <div v-if="scholar.user != null" class="w-4/12 mx-6 text-center uppercase font-semibold">{{ scholar.user.first_name }} {{ scholar.user.last_name }}</div>
+              <div v-else class="w-4/12 mx-6 text-center uppercase font-semibold">&nbsp;</div>
+              
+              <div class="w-4/12 mx-6 text-center uppercase font-semibold">Juan Dela Cruz 1</div>
+              <div class="w-4/12 mx-6 text-center uppercase font-semibold">Juan Dela Cruz 2</div>
+            </div>
+            <div class="flex">
               <div class="w-4/12 mx-6 border-t border-black text-center">
                 Name & Signature of the Immediate Head
               </div>

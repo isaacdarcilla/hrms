@@ -293,7 +293,8 @@
               <div class="px-2 w-6/12 sm:w-4/12">
                 <div class="flex justify-between">
                   <div class="my-2 font-semibold text-sm">
-                    Certification as to scholastic standing of last educational attainment (TOR)
+                    Certification as to scholastic standing of last educational
+                    attainment (TOR)
                   </div>
                   <div
                     @click="image('doc7')"
@@ -654,7 +655,8 @@
               <div class="px-2 w-6/12 sm:w-4/12">
                 <div class="flex justify-between">
                   <div class="my-2 font-semibold text-sm">
-                    Certification as to scholastic standing of last educational attainment (TOR)
+                    Certification as to scholastic standing of last educational
+                    attainment (TOR)
                   </div>
                   <div
                     @click="image('doc7')"
@@ -888,6 +890,269 @@
               >
             </div>
           </div>
+          <div
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '3'"
+            class="flex-row mx-10 mb-6"
+          >
+            <div class="my-5 text-blue-600 font-semibold">
+              Uploaded Document Requirements
+            </div>
+            <div class="flex flex-wrap">
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of Good Moral
+                  </div>
+                  <div
+                    @click="image('doc2')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc2`"
+                  :src="
+                    scholar.doc2 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc2
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc2}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of No Pending Administrative Case
+                  </div>
+                  <div
+                    @click="image('doc3')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc3`"
+                  :src="
+                    scholar.doc3 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc3
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc3}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of I/OPCRF Rating
+                  </div>
+                  <div
+                    @click="image('doc4')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc4`"
+                  :src="
+                    scholar.doc4 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc4
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc4}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Updated Service Record
+                  </div>
+                  <div
+                    @click="image('doc5')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc5`"
+                  :src="
+                    scholar.doc5 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc5
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc5}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Photocopy of PSA Birth Cerificate
+                  </div>
+                  <div
+                    @click="image('doc6')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc6`"
+                  :src="
+                    scholar.doc6 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc6
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc6}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certification as to scholastic standing of last educational
+                    attainment (TOR)
+                  </div>
+                  <div
+                    @click="image('doc7')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc6`"
+                  :src="
+                    scholar.doc7 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc7
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc7}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Medical Certificate
+                  </div>
+                  <div
+                    @click="image('doc8')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc8`"
+                  :src="
+                    scholar.doc8 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc8
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc8}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Copy of Letter of Admission/Certificate of Enrolment
+                  </div>
+                  <div
+                    @click="image('doc9')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc9`"
+                  :src="
+                    scholar.doc9 == null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc9
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc9}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certification that the employee undergone Proposal Defense
+                  </div>
+                  <div
+                    @click="image('doc10')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc10`"
+                  :src="
+                    scholar.doc9 == null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc10
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc10}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+            </div>
+          </div>
           <!-- End third -->
 
           <!-- Fourth -->
@@ -1040,6 +1305,324 @@
               >
             </div>
           </div>
+          <div
+            v-if="scholar.scholarship_type == '4' && scholar.plan == '4'"
+            class="flex-row mx-10 mb-6"
+          >
+            <div class="my-5 text-blue-600 font-semibold">
+              Uploaded Document Requirements
+            </div>
+            <div class="flex flex-wrap">
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of Good Moral
+                  </div>
+                  <div
+                    @click="image('doc2')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc2`"
+                  :src="
+                    scholar.doc2 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc2
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc2}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of No Pending Administrative Case
+                  </div>
+                  <div
+                    @click="image('doc3')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc3`"
+                  :src="
+                    scholar.doc3 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc3
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc3}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of I/OPCRF Rating
+                  </div>
+                  <div
+                    @click="image('doc4')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc4`"
+                  :src="
+                    scholar.doc4 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc4
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc4}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Updated Service Record
+                  </div>
+                  <div
+                    @click="image('doc5')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc5`"
+                  :src="
+                    scholar.doc5 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc5
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc5}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Photocopy of PSA Birth Cerificate
+                  </div>
+                  <div
+                    @click="image('doc6')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc6`"
+                  :src="
+                    scholar.doc6 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc6
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc6}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certification that the employee undergone Proposal Defense
+                  </div>
+                  <div
+                    @click="image('doc10')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc10`"
+                  :src="
+                    scholar.doc10 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc10
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc10}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Copy of Approved Research Proposal
+                  </div>
+                  <div
+                    @click="image('doc11')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc11`"
+                  :src="
+                    scholar.doc11 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc11
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc11}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                     Copy of Approved Program of Work
+                  </div>
+                  <div
+                    @click="image('doc12')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc12`"
+                  :src="
+                    scholar.doc12 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc12
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc12}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certification that the employee did not previously enjoy scholarship grant 
+                  </div>
+                  <div
+                    @click="image('doc13')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc13`"
+                  :src="
+                    scholar.doc13 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc13
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc13}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                     Certification on Completion of Academic Requirements (CAR) 
+                  </div>
+                  <div
+                    @click="image('doc14')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc14`"
+                  :src="
+                    scholar.doc14 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc14
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc14}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                     Certification that the employee is done with Comprehensive Exam
+                  </div>
+                  <div
+                    @click="image('doc15')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc15`"
+                  :src="
+                    scholar.doc15 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc15
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc15}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+            </div>
+          </div>
           <!-- End forth -->
 
           <!-- Sabbatical -->
@@ -1118,6 +1701,156 @@
               <label class="text-sm font-semibold text-gray-900"
                 >Certificate of I/OPCRF Rating</label
               >
+            </div>
+          </div>
+          <div
+            v-if="scholar.scholarship_type == '3'"
+            class="flex-row mx-10 mb-6"
+          >
+            <div class="my-5 text-blue-600 font-semibold">
+              Uploaded Document Requirements
+            </div>
+            <div class="flex flex-wrap">
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of Good Moral
+                  </div>
+                  <div
+                    @click="image('doc2')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc2`"
+                  :src="
+                    scholar.doc2 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc2
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc2}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of No Pending Administrative Case
+                  </div>
+                  <div
+                    @click="image('doc3')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc3`"
+                  :src="
+                    scholar.doc3 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc3
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc3}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Certificate of I/OPCRF Rating
+                  </div>
+                  <div
+                    @click="image('doc4')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc4`"
+                  :src="
+                    scholar.doc4 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc4
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc4}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Updated Service Record
+                  </div>
+                  <div
+                    @click="image('doc5')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc5`"
+                  :src="
+                    scholar.doc5 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc5
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc5}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
+              <div class="px-2 w-6/12 sm:w-4/12">
+                <div class="flex justify-between">
+                  <div class="my-2 font-semibold text-sm">
+                    Photocopy of PSA Birth Cerificate
+                  </div>
+                  <div
+                    @click="image('doc6')"
+                    class="my-2 text-blue-600 text-sm font-semibold cursor-pointer underline"
+                  >
+                    Full View
+                  </div>
+                </div>
+                <img
+                  hidden
+                  v-viewer="options2"
+                  :id="'p' + `doc6`"
+                  :src="
+                    scholar.doc6 === null
+                      ? `/img/no-image.png`
+                      : `/storage/` + scholar.doc6
+                  "
+                />
+                <img
+                  :src="`/storage/${scholar.doc6}`"
+                  alt="..."
+                  class="shadow rounded max-w-full h-auto align-middle border-blue-400 border"
+                />
+              </div>
             </div>
           </div>
           <!-- End -->
@@ -1398,7 +2131,8 @@
               <div class="px-2 w-6/12 sm:w-4/12">
                 <div class="flex justify-between">
                   <div class="my-2 font-semibold text-sm">
-                    Certification as to scholastic standing of last educational attainment (TOR)
+                    Certification as to scholastic standing of last educational
+                    attainment (TOR)
                   </div>
                   <div
                     @click="image('doc7')"
