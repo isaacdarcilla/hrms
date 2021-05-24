@@ -165,9 +165,9 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm">Mandatory/Force Leave</span>
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
+                    >(Sec. 25, Rule XVI, Omnibus Rules Implementing E.O. No.
                     292)</span
                   >
                 </div>
@@ -177,9 +177,9 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm">Sick Leave</span>
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
+                    >(Sec. 43, Rule XVI, Omnibus Rules Implementing E.O. No.
                     292)</span
                   >
                 </div>
@@ -189,9 +189,31 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm">Maternity Leave</span>
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
+                    >(R.A NO. 11210 / IRR issued by CSC, DOLE and SSS)</span
+                  >
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div>
+                  <span class="text-sm">Paternity Leave</span>
+                  <span class="text-xs"
+                    >(R.A No. 8187 /CSC MC No. 71, s. 1998, as ammended)</span
+                  >
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div>
+                  <span class="text-sm">Special Privilege Leave</span>
+                  <span class="text-xs"
+                    >(Sec. 21, Rule XVI, Omnibus Rules Implementing E.O. No.
                     292)</span
                   >
                 </div>
@@ -201,9 +223,20 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm">Solo Parent Leave</span>
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
+                    >(R.A No. 8972 / CSC MC No. 8, s. 2004)</span
+                  >
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div>
+                  <span class="text-sm">Study Leave</span>
+                  <span class="text-xs"
+                    >(Sec. 68, Rule XVI, Omnibus Rules Implementing E.O. No.
                     292)</span
                   >
                 </div>
@@ -213,9 +246,20 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm">10-Day VAWC Leave</span>
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
+                    >(R.A No. 9262 / CSC MC No. 15, s. 2005)</span
+                  >
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div>
+                  <span class="text-sm">Rehabilitation Privilege</span>
+                  <span class="text-xs"
+                    >(Sec. 55, Rule XVI, Omnibus Rules Implementing E.O. No.
                     292)</span
                   >
                 </div>
@@ -225,10 +269,9 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm">Special Leave Benefits for Women</span>
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
+                    >(R.A No. 9710 / CSC MC No. 25, s. 2010)</span
                   >
                 </div>
               </div>
@@ -237,10 +280,11 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
+                  <span class="text-sm"
+                    >Special Emergency (Calamity) Leave</span
+                  >
                   <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
+                    >(CSC MC No. 2, s. 2012, as ammended)</span
                   >
                 </div>
               </div>
@@ -249,67 +293,365 @@
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
-                  <span class="text-sm">Vacation Leave</span>
-                  <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
-                  >
-                </div>
-              </div>
-              <div class="flex">
-                <div
-                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
-                ></div>
-                <div>
-                  <span class="text-sm">Vacation Leave</span>
-                  <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
-                  >
-                </div>
-              </div>
-              <div class="flex">
-                <div
-                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
-                ></div>
-                <div>
-                  <span class="text-sm">Vacation Leave</span>
-                  <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
-                  >
-                </div>
-              </div>
-              <div class="flex">
-                <div
-                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
-                ></div>
-                <div>
-                  <span class="text-sm">Vacation Leave</span>
-                  <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
-                  >
-                </div>
-              </div>
-              <div class="flex">
-                <div
-                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
-                ></div>
-                <div>
-                  <span class="text-sm">Vacation Leave</span>
-                  <span class="text-xs"
-                    >(Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
-                    292)</span
-                  >
+                  <span class="text-sm">Adoption Leave</span>
+                  <span class="text-xs">(R.A No. 8552)</span>
                 </div>
               </div>
               <div class="mx-2 my-3">Others</div>
-              <div class="w-8/12 mx-2 border-b border-black text-center">Other Sample Leaves</div>
+              <div class="w-8/12 mx-2 border-b border-black text-center">
+                Other Sample Leaves
+              </div>
+            </div>
+
+            <div
+              class="w-5/12 pl-2 py-px border-t border-l border-r border-black"
+            >
+              <div class="flex">
+                <div class="uppercase mb-4">6.B. Details of Leave</div>
+              </div>
+              <div class="italic text-sm mx-2 mb-2">
+                In case of Vacation/Special Privilege Leave:
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-6/12">Within the Philippines</div>
+                <div
+                  class="text-xs w-6/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  Residence
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-5/12">Abroad (Specify)</div>
+                <div
+                  class="text-xs w-7/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  Residence
+                </div>
+              </div>
+
+              <!-- Sick Leave -->
+
+              <div class="italic text-sm mx-2 mb-2 mt-3">
+                In case of Sick Leave:
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-7/12">In Hospital (Specify Illness)</div>
+                <div
+                  class="text-xs w-5/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  N/A
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-7/12">Out Patient (Specify Illness)</div>
+                <div
+                  class="text-xs w-5/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  N/A
+                </div>
+              </div>
+
+              <div class="mx-2 border-b border-black my-4"></div>
+
+              <!-- Special -->
+              <div class="italic text-sm mx-2 mb-2 mt-3">
+                In case of Special Leave Benefits for Women:
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-4/12">(Specify Illness)</div>
+                <div
+                  class="text-xs w-8/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  N/A
+                </div>
+              </div>
+
+              <div class="mx-2 border-b border-black my-4"></div>
+
+              <!-- Study -->
+
+              <div class="italic text-sm mx-2 mb-2 mt-3">
+                In case of Study Leave:
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">Completion of Master's Degree</div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">BAR/Board Examination Review</div>
+              </div>
+
+              <!-- Other -->
+
+              <div class="italic text-sm mx-2 mb-2 mt-3">Other Purpose:</div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">Monetization of Leave Credits</div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">Terminal Leave</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="w-7/12 pl-2 py-px border-t border-l border-black">
+              <div class="uppercase mb-4">
+                6.C. Number of Working Days Applied For
+              </div>
+              <div class="border-b border-black w-8/12 ml-8 text-center mb-3">
+                2 days
+              </div>
+              <div class="uppercase mb-4 ml-8">Inclusive Dates</div>
+              <div class="border-b border-black w-8/12 ml-8 text-center">
+                April 28 - 29, 2021
+              </div>
             </div>
             <div
               class="w-5/12 pl-2 py-px border-t border-l border-r border-black"
+            >
+              <div class="uppercase mb-4">6.D. Commutation</div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">Not Requested</div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">Requested</div>
+              </div>
+              <div class="flex-row mt-8">
+                <div class="border-b border-black mx-6 text-center">
+                  ISAAC D. ARCILLA
+                </div>
+                <div class="text-center">(Signature of Applicant)</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-px border-t border-l border-r border-black"
             ></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-1 border-t border-l border-r border-black text-center uppercase font-semibold"
+            >
+              6. Details of Action On Application
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-px border-t border-l border-r border-black"
+            ></div>
+          </div>
+          <div class="flex">
+            <div class="w-7/12 pl-2 py-px border-t border-l border-black">
+              <div class="uppercase mb-4">
+                7.A. Certification of Leave Credits
+              </div>
+              <div class="mt-3 text-center">
+                <span>As of</span>
+                <span class="border-b border-black text-center font-semibold"
+                  >March 2021</span
+                >
+              </div>
+              <div class="flex mt-3 mx-4">
+                <div class="w-4/12 border-t border-l border-r border-black">
+                  &nbsp;
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-black text-center text-sm"
+                >
+                  Vacation Leave
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-black text-center text-sm"
+                >
+                  Sick Leave
+                </div>
+              </div>
+              <div class="flex mx-4">
+                <div
+                  class="w-4/12 border-t border-l border-r border-black text-center text-sm"
+                >
+                  Total Earned
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-black text-center text-sm"
+                >
+                  2
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-black text-center text-sm"
+                >
+                  1
+                </div>
+              </div>
+              <div class="flex mx-4">
+                <div
+                  class="w-4/12 border-t border-l border-r border-black text-center text-sm"
+                >
+                  Less this application
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-black text-center text-sm"
+                >
+                  1
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-black text-center text-sm"
+                >
+                  2
+                </div>
+              </div>
+              <div class="flex mx-4">
+                <div
+                  class="w-4/12 border-t border-l border-r border-b border-black text-center text-sm"
+                >
+                  Balance
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-b border-black text-center text-sm"
+                >
+                  4
+                </div>
+                <div
+                  class="w-4/12 border-t border-r border-b border-black text-center text-sm"
+                >
+                  45
+                </div>
+              </div>
+              <div class="flex-row mt-8 mb-4">
+                <div class="border-b border-black mx-6 text-center">
+                  JUAN DELA CRUZ
+                </div>
+                <div class="text-center">(Authorized Officer)</div>
+              </div>
+            </div>
+            <div
+              class="w-5/12 pl-2 py-px border-t border-l border-r border-black"
+            >
+              <div class="uppercase mb-4">7.B. Recommendation</div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">For Approval</div>
+              </div>
+              <div class="flex">
+                <div
+                  class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-full">For disapproval due to</div>
+                <div
+                  class="text-xs w-full border-b border-black ml-2 mr-6 font-semibold text-center"
+                >
+                  N/A
+                </div>
+              </div>
+
+              <div class="mx-6 border-b border-black">&nbsp;</div>
+              <div class="mx-6 border-b border-black">&nbsp;</div>
+              <div class="mx-6 border-b border-black">&nbsp;</div>
+
+              <div class="flex-row mt-8 mb-4">
+                <div class="border-b border-black mx-6 text-center">
+                  ISAAC D. ARCILLA
+                </div>
+                <div class="text-center">(Authorized Officer)</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-px border-t border-l border-r border-black"
+            ></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-1 border-t border-l border-r border-black text-center uppercase font-semibold"
+            >
+              6. Details of Action On Application
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-px border-t border-l border-r border-black"
+            ></div>
+          </div>
+          <div class="flex">
+            <div class="w-7/12 pl-2 py-px border-t border-l border-black">
+              <div class="uppercase mb-4">7.C. APPROVED FOR:</div>
+              <div class="flex">
+                <div class="w-10 border-b border-black text-center ml-6 mr-2">
+                  2
+                </div>
+                <div>days with pay</div>
+              </div>
+              <div class="flex">
+                <div class="w-10 border-b border-black text-center ml-6 mr-2">
+                  2
+                </div>
+                <div>days without pay</div>
+              </div>
+              <div class="flex">
+                <div class="w-10 border-b border-black text-center ml-6 mr-2">
+                  2
+                </div>
+                <div>others (Specify)</div>
+              </div>
+            </div>
+            <div class="w-5/12 pl-2 py-px border-t border-r border-black">
+              <div class="uppercase mb-4">7.D. DISAPPROVED DUE TO:</div>
+              <div class="flex">
+                <div class="w-full border-b border-black mx-6">2</div>
+              </div>
+              <div class="flex">
+                <div class="w-full border-b border-black mx-6">2</div>
+              </div>
+              <div class="flex">
+                <div class="w-full border-b border-black mx-6">2</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full pl-2 py-4 border-l border-r border-black"
+            ></div>
+          </div>
+          <div class="flex-row mb-12 mx-auto border border-t-0 border-black">
+            <div class="w-6/12 border-b border-black text-center mx-auto">
+              ISAAC D. ARCILLA
+            </div>
+            <div class="text-center mb-12">(Authorized Official)</div>
           </div>
         </div>
       </section>
