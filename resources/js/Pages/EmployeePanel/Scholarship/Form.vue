@@ -14,6 +14,13 @@
           <span class="font-semibold">No Document Uploaded</span>
         </button>
         <button
+          v-else-if="vp == null || suc == null || vp == '' || suc == ''"
+          @click="showEditName()"
+          class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+        >
+          <span>Edit VP and SUC name</span>
+        </button>
+        <button
           v-else
           @click="printPdf()"
           class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
@@ -24,8 +31,8 @@
     </div>
     <div v-if="scholar.doc2 == null" class="btn-danger h-10 rounded-lg">
       <span class="font-semibold"
-        >INFO: No document uploaded, please upload documentary requirements first to
-        be able to print the form.</span
+        >INFO: No document uploaded, please upload documentary requirements
+        first to be able to print the form.</span
       >
     </div>
     <div>
@@ -991,7 +998,7 @@
             >
               <div class="flex">
                 <div
-                  class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   1. Fully accomplished Scholarship Application Form
@@ -999,7 +1006,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc2 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   2. Certificate of Good Moral Character issued by HRM Services
@@ -1007,7 +1019,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc3 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   3. Certificate of No Pending Administrative Case issued by
@@ -1016,7 +1033,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc4 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   4. Certificate of I/OPCRF Rating (At least VS for 2 rating
@@ -1025,7 +1047,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc5 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   5. Updated Service Record (Permanent appointment @ 3 yrs.
@@ -1034,7 +1061,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc6 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   6. Photocopy of PSA Birth Cerificate
@@ -1042,7 +1074,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc7 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   7. Certification as to scholastic standing of last educational
@@ -1051,7 +1088,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc8 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   8. CSC Form 41: Medical Certificate (Certification as to
@@ -1060,7 +1102,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc9 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   9. Copy of Letter of Admission/Certificate of Enrolment
@@ -1068,7 +1115,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc10 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   10. Certification that the employee undergone Proposal Defense
@@ -1076,7 +1128,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc11 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   11. Copy of Approved Research Proposal
@@ -1084,7 +1141,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc12 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   12. Copy of Approved Program of Work
@@ -1092,7 +1154,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc13 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   13. Certification that the employee did not previously enjoy
@@ -1101,7 +1168,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc14 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   14. Certification on Completion of Academic Requirements (CAR)
@@ -1109,7 +1181,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="scholar.doc15 == null"
                   class="text-sm h-2 border my-auto mx-6 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm bg-black h-2 border my-auto mx-6 border-black p-1"
                 ></div>
                 <div class="w-full text-sm font-normal">
                   15. Certification that the employee is done with Comprehensive
@@ -1421,10 +1498,10 @@
               </div>
 
               <div class="w-4/12 mx-6 text-center uppercase font-semibold">
-                Juan Dela Cruz 1
+                {{ vp }}
               </div>
               <div class="w-4/12 mx-6 text-center uppercase font-semibold">
-                Juan Dela Cruz 2
+                {{ suc }}
               </div>
             </div>
             <div class="flex">
@@ -1508,6 +1585,8 @@ export default {
     return {
       sending: false,
       options: jobs,
+      vp: null,
+      suc: null,
       form: {
         contact_id: this.employee.id,
         office_id: this.employee.department,
@@ -1600,6 +1679,18 @@ export default {
       if (value) {
         return moment(String(value)).format("MM/YYYY");
       }
+    },
+    showEditName() {
+      swal("Enter VP name e.g. Juan Dela Cruz, MBA:", {
+        content: "input",
+      }).then((value) => {
+        this.vp = value;
+        swal("Enter SUC name e.g. Juan Dela Cruz, MBA:", {
+          content: "input",
+        }).then((value) => {
+          this.suc = value;
+        });
+      });
     },
   },
 };
