@@ -17,11 +17,16 @@ class AdminScholarshipController extends Controller
     {
         return Inertia::render('Scholars/Index', [
             'filters' => Request::all('search', 'trashed'),
-            'scholars' => Scholarship::orderBy('created_at', 'DESC')
+            'scholars' => auth()->user()->office_id == null ? Scholarship::orderBy('created_at', 'DESC')
                     ->filter(Request::only('search', 'trashed'))
                     ->with('contact')
                     ->with('office')
-                    ->paginate()
+                    ->paginate() : 
+                    Scholarship::whereOfficeId(auth()->user()->office_id)
+                    ->filter(Request::only('search', 'trashed'))
+                    ->with('contact')
+                    ->with('office')
+                    ->paginate(),
         ]);
     }
 

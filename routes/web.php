@@ -636,6 +636,10 @@ Route::get('personal/leaves/form/{leave}/view', [EmployeeController::class, 'for
     ->name('leaves.form.employee')
     ->middleware('web', 'employee');
 
+Route::get('personal/leaves/form/{leave}/view/new', [EmployeeController::class, 'formEmployeeNew'])
+    ->name('leaves.form.employee.new')
+    ->middleware('web', 'employee');
+
 Route::put('personal/inquiry/{contact}', [InquiryController::class, 'store'])
     ->name('employee.inquiry.store')
     ->middleware('web', 'employee');
