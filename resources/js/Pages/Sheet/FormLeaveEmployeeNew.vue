@@ -12,7 +12,7 @@
     </div>
     <div class="pt-3 mx-auto">
       <label class="form-label font-bold"
-        >Select VP Name first <span class="text-red-600">*</span></label
+        >Select Authorized Official <span class="text-red-600">*</span></label
       >
       <select
         v-model="vp_name"
