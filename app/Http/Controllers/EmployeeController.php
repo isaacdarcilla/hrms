@@ -336,4 +336,16 @@ class EmployeeController extends Controller
 
         return redirect()->route('login.employee');
     }
+
+    public function pds($contact) 
+    {
+        $employee =  Auth::guard('employee')->user();
+
+        if($employee)
+            return Inertia::render('EmployeePanel/Pds/Pds', [
+                'employee' => $employee,
+            ]);
+        else
+            return redirect()->route('login.employee');
+    }
 }

@@ -552,6 +552,10 @@ Route::get('personal/profile/{contact}', [EmployeeController::class, 'profile'])
     ->name('employee.profile')
     ->middleware('web', 'employee');
 
+Route::get('personal/profile/{contact}/form/pds', [EmployeeController::class, 'pds'])
+    ->name('employee.profile.pds')
+    ->middleware('web', 'employee');
+
 Route::get('personal/profile/{contact}/type/{type}', [EmployeeController::class, 'teaching_profile'])
     ->name('employee.profile.teaching')
     ->middleware('web', 'employee');
