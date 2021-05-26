@@ -78,7 +78,7 @@
               <div class="flex-row">
                 <p class="uppercase">1. Office/Department:</p>
                 <p class="font-semibold text-center mx-auto">
-                  Human Resource Management
+                  {{ office.office_name }}
                 </p>
               </div>
             </div>
@@ -90,7 +90,10 @@
                   <p>(First)</p>
                   <p class="mx-4">(Middle)</p>
                 </div>
-                <p class="font-semibold mx-8">Dela Cruz, Juan D.</p>
+                <p class="font-semibold mx-8">
+                  {{ leave.last_name }}, {{ leave.first_name }}
+                  {{ leave.middle_initial }}.
+                </p>
               </div>
             </div>
           </div>
@@ -101,7 +104,7 @@
                 <div
                   class="mx-auto border-b border-black font-semibold text-sm"
                 >
-                  September 17, 2021
+                  {{ formatDate(leave.date_of_filing) }}
                 </div>
               </div>
             </div>
@@ -109,9 +112,9 @@
               <div class="flex my-2">
                 <p class="uppercase">4. Position:</p>
                 <div
-                  class="mx-auto border-b border-black font-semibold text-sm"
+                  class="mx-auto border-b capitalize border-black font-semibold text-sm"
                 >
-                  Administrative Assitant I
+                  {{ leave.position }}
                 </div>
               </div>
             </div>
@@ -121,7 +124,7 @@
                 <div
                   class="mx-auto border-b border-black font-semibold text-sm"
                 >
-                  P 1,000,000.00
+                  {{ currency(leave.monthly_salary) }}
                 </div>
               </div>
             </div>
@@ -150,7 +153,15 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave == 'CTO' ||
+                    leave.type_of_leave == 'Vacation'
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Vacation Leave</span>
@@ -162,7 +173,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'FL'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Mandatory/Force Leave</span>
@@ -174,7 +190,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Sick'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Sick Leave</span>
@@ -186,7 +207,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Maternity'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Maternity Leave</span>
@@ -197,7 +223,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Paternity Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Paternity Leave</span>
@@ -208,7 +239,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Special Privilege Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Special Privilege Leave</span>
@@ -220,7 +256,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'SPL'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Solo Parent Leave</span>
@@ -231,7 +272,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Study Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Study Leave</span>
@@ -243,7 +289,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == '10-Day VAWC Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">10-Day VAWC Leave</span>
@@ -254,7 +305,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Rehabilitaion Privilege'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Rehabilitation Privilege</span>
@@ -266,7 +322,14 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave == 'Special Leave Benefits for Women'
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Special Leave Benefits for Women</span>
@@ -277,7 +340,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Special Emergency Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm"
@@ -290,7 +358,12 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.type_of_leave == 'Adoption Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div>
                   <span class="text-sm">Adoption Leave</span>
@@ -314,24 +387,54 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Vacation' &&
+                    leave.vacation_leave_location === 'Within the Philippines'
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-6/12">Within the Philippines</div>
                 <div
                   class="text-xs w-6/12 border-b border-black mx-2 font-semibold text-center"
                 >
-                  Residence
+                  &nbsp;
                 </div>
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Vacation' &&
+                    leave.vacation_leave_location !==
+                      'Within the Philippines' &&
+                    leave.vacation_leave_location !== null
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-5/12">Abroad (Specify)</div>
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Vacation' &&
+                    leave.vacation_leave_location !==
+                      'Within the Philippines' &&
+                    leave.vacation_leave_location !== null
+                  "
                   class="text-xs w-7/12 border-b border-black mx-2 font-semibold text-center"
                 >
-                  Residence
+                  {{ leave.vacation_leave_location }}
+                </div>
+                <div
+                  v-else
+                  class="text-xs w-7/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  &nbsp;
                 </div>
               </div>
 
@@ -342,24 +445,64 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Sick' &&
+                    leave.sick_leave_location.split(/::/)[0] === 'inhospital' &&
+                    leave.sick_leave_location !== null
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-7/12">In Hospital (Specify Illness)</div>
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Sick' &&
+                    leave.sick_leave_location.split(/::/)[0] === 'inhospital' &&
+                    leave.sick_leave_location.split(/::/)[1] !== 'null'
+                  "
                   class="text-xs w-5/12 border-b border-black mx-2 font-semibold text-center"
                 >
-                  N/A
+                  {{ leave.sick_leave_location.split(/::/)[1] }}
+                </div>
+                <div
+                  v-else
+                  class="text-xs w-5/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  &nbsp;
                 </div>
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Sick' &&
+                    leave.sick_leave_location.split(/::/)[0] === 'outpatient' &&
+                    leave.sick_leave_location !== null
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-7/12">Out Patient (Specify Illness)</div>
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Sick' &&
+                    leave.sick_leave_location.split(/::/)[0] === 'outpatient' &&
+                    leave.sick_leave_location.split(/::/)[1] !== 'null'
+                  "
                   class="text-xs w-5/12 border-b border-black mx-2 font-semibold text-center"
                 >
-                  N/A
+                  {{ leave.sick_leave_location.split(/::/)[1] }}
+                </div>
+                <div
+                  v-else
+                  class="text-xs w-5/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  &nbsp;
                 </div>
               </div>
 
@@ -371,13 +514,31 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Special Leave Benefits for Women'
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-4/12">(Specify Illness)</div>
                 <div
+                  v-if="
+                    leave.type_of_leave ===
+                      'Special Leave Benefits for Women' &&
+                    leave.special_leave_benefits_for_women !== null
+                  "
                   class="text-xs w-8/12 border-b border-black mx-2 font-semibold text-center"
                 >
-                  N/A
+                  {{ leave.special_leave_benefits_for_women }}
+                </div>
+                <div
+                  v-else
+                  class="text-xs w-8/12 border-b border-black mx-2 font-semibold text-center"
+                >
+                  &nbsp;
                 </div>
               </div>
 
@@ -390,13 +551,31 @@
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Study Leave' &&
+                    leave.study_leave_location ===
+                      `Completion of Master's Degree`
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">Completion of Master's Degree</div>
               </div>
               <div class="flex">
                 <div
+                  v-if="
+                    leave.type_of_leave === 'Study Leave' &&
+                    leave.study_leave_location ===
+                      'BAR/Board Examination Review'
+                  "
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">BAR/Board Examination Review</div>
               </div>
@@ -406,13 +585,23 @@
               <div class="italic text-sm mx-2 mb-2 mt-3">Other Purpose:</div>
               <div class="flex">
                 <div
+                  v-if="leave.other_purpose === 'Monetization of Leave Credits'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">Monetization of Leave Credits</div>
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.other_purpose === 'Terminal Leave'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">Terminal Leave</div>
               </div>
@@ -423,12 +612,16 @@
               <div class="uppercase mb-4">
                 6.C. Number of Working Days Applied For
               </div>
-              <div class="border-b border-black w-8/12 ml-8 text-center mb-3">
-                2 days
+              <div
+                class="border-b border-black w-8/12 text-sm ml-8 text-center mb-3"
+              >
+                {{ leave.number_of_working_days }} day/s
               </div>
               <div class="uppercase mb-4 ml-8">Inclusive Dates</div>
-              <div class="border-b border-black w-8/12 ml-8 text-center">
-                April 28 - 29, 2021
+              <div
+                class="border-b text-sm border-black w-8/12 ml-8 text-center"
+              >
+                {{ dates() }}
               </div>
             </div>
             <div
@@ -437,19 +630,33 @@
               <div class="uppercase mb-4">6.D. Commutation</div>
               <div class="flex">
                 <div
+                  v-if="leave.commutation === 'Not Requested'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">Not Requested</div>
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.commutation === 'Requested'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">Requested</div>
               </div>
               <div class="flex-row mt-8">
-                <div class="border-b border-black mx-6 text-center">
-                  ISAAC D. ARCILLA
+                <div
+                  class="border-b border-black mx-6 text-center uppercase font-semibold"
+                >
+                  {{ $page.employee.first_name }}
+                  {{ leave.middle_initial }}
+                  {{ $page.employee.last_name }}
                 </div>
                 <div class="text-center">(Signature of Applicant)</div>
               </div>
@@ -479,8 +686,12 @@
               </div>
               <div class="mt-3 text-center">
                 <span>As of</span>
-                <span class="border-b border-black text-center font-semibold"
-                  >March 2021</span
+                <span
+                  v-if="certification !== null"
+                  class="border-b border-black text-center font-semibold"
+                >
+                  {{ format(certification.updated_at) }}
+                  &nbsp;</span
                 >
               </div>
               <div class="flex mt-3 mx-4">
@@ -507,12 +718,12 @@
                 <div
                   class="w-4/12 border-t border-r border-black text-center text-sm"
                 >
-                  2
+                  &nbsp;
                 </div>
                 <div
                   class="w-4/12 border-t border-r border-black text-center text-sm"
                 >
-                  1
+                  &nbsp;
                 </div>
               </div>
               <div class="flex mx-4">
@@ -524,12 +735,12 @@
                 <div
                   class="w-4/12 border-t border-r border-black text-center text-sm"
                 >
-                  1
+                  &nbsp;
                 </div>
                 <div
                   class="w-4/12 border-t border-r border-black text-center text-sm"
                 >
-                  2
+                  &nbsp;
                 </div>
               </div>
               <div class="flex mx-4">
@@ -541,17 +752,19 @@
                 <div
                   class="w-4/12 border-t border-r border-b border-black text-center text-sm"
                 >
-                  4
+                  {{ totals.vacation }}
                 </div>
                 <div
                   class="w-4/12 border-t border-r border-b border-black text-center text-sm"
                 >
-                  45
+                  {{ totals.sick }}
                 </div>
               </div>
               <div class="flex-row mt-8 mb-4">
-                <div class="border-b border-black mx-6 text-center">
-                  JUAN DELA CRUZ
+                <div
+                  class="border-b border-black mx-6 text-center uppercase font-semibold"
+                >
+                  {{ hr.leave_hr_approving_name }}
                 </div>
                 <div class="text-center">(Authorized Officer)</div>
               </div>
@@ -562,29 +775,50 @@
               <div class="uppercase mb-4">7.B. Recommendation</div>
               <div class="flex">
                 <div
+                  v-if="leave.recommendation === 'Approved'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                ></div>
+                <div
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
                 ></div>
                 <div class="text-sm w-full">For Approval</div>
               </div>
               <div class="flex">
                 <div
+                  v-if="leave.recommendation === 'Disapproved'"
                   class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                 ></div>
-                <div class="text-sm w-full">For disapproval due to</div>
                 <div
-                  class="text-xs w-full border-b border-black ml-2 mr-6 font-semibold text-center"
+                  v-else
+                  class="text-sm h-2 border my-auto mx-2 border-black p-1"
+                ></div>
+                <div class="text-sm w-6/12">For disapproval due to</div>
+                <!-- <div
+                  class="text-xs w-5/12 border-b border-black ml-2 mr-6 font-semibold text-center"
                 >
                   N/A
-                </div>
+                </div> -->
               </div>
 
-              <div class="mx-6 border-b border-black">&nbsp;</div>
+              <div
+                class="mx-6 border-b border-black"
+                v-if="
+                  leave.recommendation === 'Disapproved' &&
+                  leave.disapproved_due_to !== null
+                "
+              >
+                {{ leave.disapproved_due_to }}
+              </div>
+              <div v-else class="mx-6 border-b border-black">&nbsp;</div>
               <div class="mx-6 border-b border-black">&nbsp;</div>
               <div class="mx-6 border-b border-black">&nbsp;</div>
 
-              <div class="flex-row mt-8 mb-4">
-                <div class="border-b border-black mx-6 text-center">
-                  ISAAC D. ARCILLA
+              <div class="flex-row mt-8 mb-5">
+                <div
+                  class="border-b border-black mx-6 uppercase font-semibold text-center"
+                >
+                  {{ oic.officer_in_charge }}
                 </div>
                 <div class="text-center">(Authorized Officer)</div>
               </div>
@@ -612,19 +846,19 @@
               <div class="uppercase mb-4">7.C. APPROVED FOR:</div>
               <div class="flex">
                 <div class="w-10 border-b border-black text-center ml-6 mr-2">
-                  2
+                  {{ leave.number_of_working_days }}
                 </div>
                 <div>days with pay</div>
               </div>
               <div class="flex">
                 <div class="w-10 border-b border-black text-center ml-6 mr-2">
-                  2
+                  &nbsp;
                 </div>
                 <div>days without pay</div>
               </div>
               <div class="flex">
                 <div class="w-10 border-b border-black text-center ml-6 mr-2">
-                  2
+                  &nbsp;
                 </div>
                 <div>others (Specify)</div>
               </div>
@@ -632,24 +866,22 @@
             <div class="w-5/12 pl-2 py-px border-t border-r border-black">
               <div class="uppercase mb-4">7.D. DISAPPROVED DUE TO:</div>
               <div class="flex">
-                <div class="w-full border-b border-black mx-6">2</div>
+                <div class="w-full border-b border-black mx-6">&nbsp;</div>
               </div>
               <div class="flex">
-                <div class="w-full border-b border-black mx-6">2</div>
+                <div class="w-full border-b border-black mx-6">&nbsp;</div>
               </div>
               <div class="flex">
-                <div class="w-full border-b border-black mx-6">2</div>
+                <div class="w-full border-b border-black mx-6">&nbsp;</div>
               </div>
             </div>
           </div>
           <div class="flex">
-            <div
-              class="w-full pl-2 py-4 border-l border-r border-black"
-            ></div>
+            <div class="w-full pl-2 py-4 border-l border-r border-black"></div>
           </div>
           <div class="flex-row mb-12 mx-auto border border-t-0 border-black">
-            <div class="w-6/12 border-b border-black text-center mx-auto">
-              ISAAC D. ARCILLA
+            <div class="w-6/12 border-b uppercase font-semibold border-black text-center mx-auto">
+              {{ set_vp_name }}
             </div>
             <div class="text-center mb-12">(Authorized Official)</div>
           </div>
@@ -677,6 +909,7 @@ export default {
     oic: Object,
     hr: Object,
     employee: Object,
+    office: Object,
   },
   data() {
     return {

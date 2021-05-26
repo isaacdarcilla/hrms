@@ -202,6 +202,7 @@ class EmployeeController extends Controller
                                         ->first(),
                 'hr' => Setting::where('id', 1)->first(),
                 'employee' => $employee,
+                'office' => Office::whereId($employee->office_id)->first(),
             ]);
         else
             return redirect()->route('login.employee');

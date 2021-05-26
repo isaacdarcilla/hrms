@@ -246,7 +246,7 @@
                 class="text-gray-600 inline-flex mt-0 cursor-pointer hover:text-blue-600"
               >
                 <inertia-link
-                  :href="route('leaves.form.employee', leave.id)"
+                  :href="route('leaves.form.employee.new', leave.id)"
                   class="text-indigo-600 inline-flex mt-0 cursor-pointer hover:text-indigo-900"
                   >👁️‍🗨️ View Form</inertia-link
                 ></span
