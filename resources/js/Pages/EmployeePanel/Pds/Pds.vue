@@ -34,6 +34,8 @@
         @hasGenerated="hasGenerated($event)"
         ref="html2Pdf"
       >
+        <!-- Page 1 -->
+
         <section
           slot="pdf-content"
           class="mt-2 bg-white font-sans mx-auto text-black"
@@ -1242,6 +1244,268 @@
             CS FORM 212 (Revised 2017), Page 1 of 4
           </div>
         </section>
+
+        <!-- End Page 1 -->
+
+        <!-- Page 2 -->
+
+        <section
+          slot="pdf-content"
+          class="mt-12 bg-white font-sans mx-auto text-black"
+          style="width: 800px; height: 1280px"
+        >
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l border-r border-black font-semibold italic text-base bg-gray-500"
+            >
+              IV. CIVIL SERVICE ELIGIBILITY
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-l border-r border-black"
+            >
+              27. CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/
+              CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center">RATING<br />(If Applicable)</div>
+            </div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center">DATE OF EXAMINATION / CONFERMENT</div>
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center my-auto">
+                PLACE OF EXAMINATION / CONFERMENT
+              </div>
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center text-xs mt-4">
+                LICENSE (if applicable)
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-2 py-1 text-center border-l border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs py-1 border-t border-r border-black"
+            >
+              <div class="text-center text-xs">NUMBER</div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t border-r border-black"
+            >
+              <div class="text-center text-xs">Date of Validity</div>
+            </div>
+          </div>
+          <div v-for="n in 7" :key="n" class="flex">
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 border-t py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
+            >
+              <div class="text-center text-xs">09312412</div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
+            >
+              <div class="text-center text-xs">12/12/2021</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l text-center text-red-600 text-xs border-r border-black font-semibold italic bg-gray-300"
+            >
+              (Continue on separate sheet if necessary)
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l border-r border-black font-semibold italic text-base bg-gray-500"
+            >
+              V. WORK EXPERIENCE <br />
+              <span class="text-xs italic"
+                >(Include private employment. Start from your recent work)
+                Description of duties should be indicated in the attached Work
+                Experience sheet.</span
+              >
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-l border-r border-black"
+            >
+              28. INCLUSIVE DATES (mm/dd/yyyy)
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center">
+                POSITION TITLE <br />(Write in full/Do not abbreviate)
+              </div>
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-2 py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center">
+                DEPARTMENT / AGENCY / OFFICE / COMPANY <br />(Write in full/Do
+                not abbreviate)
+              </div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center my-auto">MONTHLY SALARY</div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center text-xs">
+                SALARY/ JOB/ PAY GRADE (if applicable)
+              </div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center text-xs">STATUS OF APPOINT<br />MENT</div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
+            >
+              <div class="text-center text-xs">GOV'T SERVICE <br />(Y/ N)</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t border-l border-r border-black"
+            >
+              From
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              To
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-2 py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+          </div>
+          <div v-for="n in 28" :key="n" class="flex">
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-2 text-center border-t border-l border-r border-black"
+            >
+              12/12/2021
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-2 text-center border-t border-r border-black"
+            >
+              12/12/2021
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-2 text-center border-t border-r border-black"
+            >
+              Sample Position
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs text-center border-t py-2 border-r border-black"
+            >
+              Dyan Lang
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+            >
+              P 26,000.00
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+            >
+              SG-13
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+            >
+              Permanent
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+            >
+              Y
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l text-center text-red-600 text-xs border-r border-black font-semibold italic bg-gray-300"
+            >
+              (Continue on separate sheet if necessary)
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-b border-l font-semibold italic border-r border-black"
+            >
+              SIGNATURE
+            </div>
+            <div
+              class="w-5/12 bg-gray-300 text-xs mx-auto py-2 border-t-2 border-r border-b border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-b font-semibold italic border-r border-black"
+            >
+              DATE
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-b border-black"
+            ></div>
+          </div>
+          <div class="float-right text-xs italic">
+            CS FORM 212 (Revised 2017), Page 2 of 4
+          </div>
+        </section>
+        <!-- End Page 2 -->
       </vue-html2pdf>
     </div>
   </div>
