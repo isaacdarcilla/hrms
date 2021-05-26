@@ -969,7 +969,7 @@
               </div>
             </div>
             <div
-              class="w-2/12 bg-gray-300 text-xs  py-1 border-t-2 border-r border-black"
+              class="w-2/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
             >
               <div class="text-center">PERIOD OF ATTENDANCE</div>
             </div>
@@ -986,12 +986,260 @@
               <div class="text-center text-xxs">YEAR GRADUATED</div>
             </div>
             <div
-              class="w-1/12 bg-gray-300 text-xs  py-1 border-t-2 border-r border-black"
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-black"
             >
               <div class="text-center text-xxs">
                 SCHOLARSHIP/ ACADEMIC HONORS RECEIVED
               </div>
             </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-3 py-1 border-l border-r border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-2 py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t border-r border-black"
+            >
+              <div class="text-center">From</div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-t border-r border-black"
+            >
+              <div class="text-center">To</div>
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
+            ></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 text-xs pl-3 py-1 border-t border-l border-r border-black"
+            >
+              <div>ELEMENTARY</div>
+            </div>
+            <div
+              class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 text-xs pl-3 py-1 border-t border-l border-r border-black"
+            >
+              <div>SECONDARY</div>
+            </div>
+            <div
+              class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 text-xs pl-3 py-1 border-t border-l border-r border-black"
+            >
+              <div>VOCATIONAL / TRADE COURSE</div>
+            </div>
+            <div
+              class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 text-xs pl-3 py-1 border-t border-l border-r border-black"
+            >
+              <div>COLLEGE</div>
+            </div>
+            <div
+              class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 text-xs pl-3 py-1 border-t border-l border-r border-black"
+            >
+              <div>GRADUATE STUDIES</div>
+            </div>
+            <div
+              class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div class="w-1/12 text-xs py-1 border-t border-r border-black">
+              <div class="text-center">01/01/2021</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+            <div
+              class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
+            >
+              <div>Sample</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l border-r border-b border-black font-semibold italic text-xs text-center text-red-600 bg-gray-300"
+            >
+              (Continue on separate sheet if necessary)
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-b border-l font-semibold italic border-r border-black"
+            >
+              SIGNATURE
+            </div>
+            <div
+              class="w-5/12 bg-gray-300 text-xs mx-auto py-2 border-t-2 border-r border-b border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-b font-semibold italic border-r border-black"
+            >
+              DATE
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-b border-black"
+            ></div>
+          </div>
+          <div class="float-right text-xs italic">
+            CS FORM 212 (Revised 2017), Page 1 of 4
           </div>
         </section>
       </vue-html2pdf>
