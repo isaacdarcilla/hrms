@@ -691,7 +691,7 @@
       </div>
     </div>
 
-    <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+    <div class="overflow-auto border-b border-gray-200 sm:rounded-lg">
       <div class="bg-white px-6 py-4 font-semibold text-base">
         Support Tickets and Inquiries
         <span

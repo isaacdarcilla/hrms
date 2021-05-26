@@ -802,7 +802,7 @@
               </div>
 
               <div
-                class="mx-6 border-b border-black"
+                class="mx-6 border-b border-black text-xs"
                 v-if="
                   leave.recommendation === 'Disapproved' &&
                   leave.disapproved_due_to !== null
