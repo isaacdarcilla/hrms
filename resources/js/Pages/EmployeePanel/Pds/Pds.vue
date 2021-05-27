@@ -1795,7 +1795,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -1803,7 +1803,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -1825,7 +1825,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -1833,7 +1833,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -1872,7 +1872,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -1880,7 +1880,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -1919,7 +1919,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -1927,7 +1927,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -1966,7 +1966,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -1974,7 +1974,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2015,7 +2015,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2023,7 +2023,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2062,7 +2062,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2070,7 +2070,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2111,7 +2111,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2119,7 +2119,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2158,7 +2158,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2166,7 +2166,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2218,7 +2218,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2226,7 +2226,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2261,7 +2261,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2269,7 +2269,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2304,7 +2304,7 @@
               <div class="flex">
                 <div class="flex mx-3">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">YES</span>
@@ -2312,7 +2312,7 @@
                 </div>
                 <div class="flex mr-6">
                   <div
-                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                    class="text-sm h-2 border my-auto ml-2 mr-3 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">NO</span>
@@ -2333,6 +2333,113 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-9/12 border-t-2 border-l border-r-2 py-2 border-black text-xs bg-gray-300"
+            >
+              <div class="pl-3">
+                41. REFERENCES
+                <span class="text-red-600"
+                  >(Person not related by consanguinity or affinity to applicant
+                  /appointee)</span
+                >
+              </div>
+            </div>
+            <div
+              class="w-3/12 border-t-2 border-r py-2 border-black text-xs"
+            ></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-4/12 border-t-2 border-l text-center border-r py-2 border-black text-xs bg-gray-300"
+            >
+              NAME
+            </div>
+            <div
+              class="w-3/12 border-t-2 text-center border-r py-2 border-black text-xs bg-gray-300"
+            >
+              ADDRESS
+            </div>
+            <div
+              class="w-2/12 border-t-2 text-center border-r-2 py-2 border-black text-xs bg-gray-300"
+            >
+              TEL. NO.
+            </div>
+            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-4/12 border-t-2 border-l text-center border-r py-2 border-black text-xs"
+            >
+              Sample
+            </div>
+            <div
+              class="w-3/12 border-t-2 text-center border-r py-2 border-black text-xs"
+            >
+              Sample
+            </div>
+            <div
+              class="w-2/12 border-t-2 text-center border-r-2 py-2 border-black text-xs"
+            >
+              092141415446
+            </div>
+            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-4/12 border-t border-l text-center border-r py-2 border-black text-xs"
+            >
+              Sample
+            </div>
+            <div
+              class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
+            >
+              Sample
+            </div>
+            <div
+              class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
+            >
+              092141415446
+            </div>
+            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-4/12 border-t border-l text-center border-r py-2 border-black text-xs"
+            >
+              Sample
+            </div>
+            <div
+              class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
+            >
+              Sample
+            </div>
+            <div
+              class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
+            >
+              092141415446
+            </div>
+            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-9/12 border-t-2 border-b-2 border-l border-r-2 py-2 border-black text-xs bg-gray-300"
+            >
+              <div class="px-3 text-justify">
+                42. I declare under oath that I have personally accomplished
+                this Personal Data Sheet which is a true, correct and complete
+                statement pursuant to the provisions of pertinent laws, rules
+                and regulations of the Republic of the Philippines. I authorize
+                the agency head/authorized representative to verify/validate the
+                contents stated herein. I agree that any misrepresentation made
+                in this document and its attachments shall cause the filing of
+                administrative/criminal case/s against me.
+              </div>
+            </div>
+            <div
+              class="w-3/12 border-t-0 border-r py-2 border-black text-xs"
+            ></div>
           </div>
         </section>
 
