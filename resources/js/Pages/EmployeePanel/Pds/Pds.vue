@@ -1319,25 +1319,21 @@
           </div>
           <div v-for="n in 7" :key="n" class="flex">
             <div
-              class="w-3/12 bg-gray-300 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
+              class="w-3/12 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
             ></div>
             <div
-              class="w-1/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
+              class="w-1/12 text-xs py-2 border-t border-r border-black"
             ></div>
             <div
-              class="w-2/12 bg-gray-300 text-xs pl-2 border-t py-1 border-r border-black"
+              class="w-2/12 text-xs pl-2 border-t py-1 border-r border-black"
             ></div>
             <div
-              class="w-3/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
+              class="w-3/12 text-xs py-2 border-t border-r border-black"
             ></div>
-            <div
-              class="w-2/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
-            >
+            <div class="w-2/12 text-xs py-2 border-t border-r border-black">
               <div class="text-center text-xs">09312412</div>
             </div>
-            <div
-              class="w-1/12 bg-gray-300 text-xs py-2 border-t border-r border-black"
-            >
+            <div class="w-1/12 text-xs py-2 border-t border-r border-black">
               <div class="text-center text-xs">12/12/2021</div>
             </div>
           </div>
@@ -1436,42 +1432,42 @@
           </div>
           <div v-for="n in 28" :key="n" class="flex">
             <div
-              class="w-1/12 bg-gray-300 text-xs py-2 text-center border-t border-l border-r border-black"
+              class="w-1/12 text-xs py-2 text-center border-t border-l border-r border-black"
             >
               12/12/2021
             </div>
             <div
-              class="w-1/12 bg-gray-300 text-xs py-2 text-center border-t border-r border-black"
+              class="w-1/12 text-xs py-2 text-center border-t border-r border-black"
             >
               12/12/2021
             </div>
             <div
-              class="w-3/12 bg-gray-300 text-xs py-2 text-center border-t border-r border-black"
+              class="w-3/12 text-xs py-2 text-center border-t border-r border-black"
             >
               Sample Position
             </div>
             <div
-              class="w-3/12 bg-gray-300 text-xs text-center border-t py-2 border-r border-black"
+              class="w-3/12 text-xs text-center border-t py-2 border-r border-black"
             >
               Dyan Lang
             </div>
             <div
-              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
             >
               P 26,000.00
             </div>
             <div
-              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
             >
               SG-13
             </div>
             <div
-              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
             >
               Permanent
             </div>
             <div
-              class="w-1/12 bg-gray-300 text-xs text-center py-2 border-t border-r border-black"
+              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
             >
               Y
             </div>
@@ -1506,6 +1502,263 @@
           </div>
         </section>
         <!-- End Page 2 -->
+
+        <!-- Page 3 -->
+
+        <section
+          slot="pdf-content"
+          class="mt-16 bg-white font-sans mx-auto text-black"
+          style="width: 800px; height: 1280px"
+        >
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l border-r border-black font-semibold italic text-base bg-gray-500"
+            >
+              VI. VOLUNTARY WORK OR INVOLVEMENT IN CIVIC / NON-GOVERNMENT /
+              PEOPLE / VOLUNTARY ORGANIZATION/S
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-5/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-l border-r border-black"
+            >
+              29. NAME & ADDRESS OF ORGANIZATION <br />(Write in full)
+            </div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-r border-black"
+            >
+              INCLUSIVE DATES <br />(mm/dd/yyyy)
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t-2 border-r border-black"
+            >
+              NUMBER OF HOURS
+            </div>
+            <div
+              class="w-4/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-r border-black"
+            >
+              POSITION / NATURE OF WORK
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-5/12 bg-gray-300 text-xs pl-2 py-1 text-center border-l border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t border-r border-black"
+            >
+              From
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t border-r border-black"
+            >
+              To
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-r border-black"
+            ></div>
+            <div
+              class="w-4/12 bg-gray-300 text-xs pl-2 py-1 text-center border-r border-black"
+            ></div>
+          </div>
+          <div v-for="n in 7" :key="n" class="flex">
+            <div
+              class="w-5/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
+            >
+              Sample
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              12/12/2021
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              12/12/2021
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
+            >
+              24
+            </div>
+            <div
+              class="w-4/12 text-xs pl-2 py-2 text-center border-r border-t border-black"
+            >
+              Sample
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l text-center text-red-600 text-xs border-r border-black font-semibold italic bg-gray-300"
+            >
+              (Continue on separate sheet if necessary)
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l border-r border-black font-semibold italic text-base bg-gray-500"
+            >
+              VII. LEARNING AND DEVELOPMENT (L&D) INTERVENTIONS/TRAINING
+              PROGRAMS ATTENDED
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-5/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-l border-r border-black"
+            >
+              30. TITLE OF LEARNING AND DEVELOPMENT INTERVENTIONS/TRAINING
+              PROGRAMS <br />(Write in full)
+            </div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-r border-black"
+            >
+              INCLUSIVE DATES OF ATTENDANCE <br />(mm/dd/yyyy)
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t-2 border-r border-black"
+            >
+              NUMBER OF HOURS
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t-2 border-r border-black"
+            >
+              Type of LD ( Managerial/ Supervisory/ Technical/etc)
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t-2 border-r border-black"
+            >
+              POSITION / NATURE OF WORK
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-5/12 bg-gray-300 text-xs pl-2 py-1 text-center border-l border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t border-r border-black"
+            >
+              From
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t border-r border-black"
+            >
+              To
+            </div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-0 py-1 text-center border-r border-black"
+            ></div>
+            <div
+              class="w-1/12 bg-gray-300 text-xs pl-2 py-1 text-center border-r border-black"
+            ></div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs pl-2 py-1 text-center border-r border-black"
+            ></div>
+          </div>
+          <div v-for="n in 20" :key="n" class="flex">
+            <div
+              class="w-5/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
+            >
+              Sample
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              12/12/2021
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              12/12/2021
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
+            >
+              24
+            </div>
+            <div
+              class="w-1/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
+            >
+              Managerial
+            </div>
+            <div
+              class="w-3/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
+            >
+              Sample
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l text-center text-red-600 text-xs border-r border-black font-semibold italic bg-gray-300"
+            >
+              (Continue on separate sheet if necessary)
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-full border-t-2 border-l border-r border-black font-semibold italic text-base bg-gray-500"
+            >
+              VIII. OTHER INFORMATION
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-4/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-l border-r border-black"
+            >
+              31. SPECIAL SKILLS and HOBBIES
+            </div>
+            <div
+              class="w-4/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-r border-black"
+            >
+              32. NON-ACADEMIC DISTINCTIONS / RECOGNITION <br />(Write in full)
+            </div>
+            <div
+              class="w-4/12 bg-gray-300 text-xs pl-2 py-1 text-center border-t-2 border-r border-black"
+            >
+              33. MEMBERSHIP IN ASSOCIATION/ORGANIZATION <br />(Write in full)
+            </div>
+          </div>
+          <div v-for="n in 7" :key="n" class="flex">
+            <div
+              class="w-4/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
+            >
+              Sample
+            </div>
+            <div
+              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              Sample
+            </div>
+            <div
+              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              Sample
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-2/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-b border-l font-semibold italic border-r border-black"
+            >
+              SIGNATURE
+            </div>
+            <div
+              class="w-5/12 bg-gray-300 text-xs mx-auto py-2 border-t-2 border-r border-b border-black"
+            ></div>
+            <div
+              class="w-2/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-b font-semibold italic border-r border-black"
+            >
+              DATE
+            </div>
+            <div
+              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-b border-black"
+            ></div>
+          </div>
+          <div class="float-right text-xs italic">
+            CS FORM 212 (Revised 2017), Page 3 of 4
+          </div>
+        </section>
+
+        <!-- End Page 3 -->
       </vue-html2pdf>
     </div>
   </div>
