@@ -37,6 +37,7 @@
         <!-- Page 1 -->
 
         <section
+          hidden
           slot="pdf-content"
           class="mt-2 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -1250,6 +1251,7 @@
         <!-- Page 2 -->
 
         <section
+          hidden
           slot="pdf-content"
           class="mt-12 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -1506,6 +1508,7 @@
         <!-- Page 3 -->
 
         <section
+          hidden
           slot="pdf-content"
           class="mt-16 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -1759,6 +1762,581 @@
         </section>
 
         <!-- End Page 3 -->
+
+        <!-- Page 4 -->
+
+        <section
+          slot="pdf-content"
+          class="mt-16 bg-white font-sans mx-auto text-black"
+          style="width: 800px; height: 1280px"
+        >
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t-2 border-l border-r border-black"
+            >
+              34. Are you related by consanguinity or affinity to the appointing
+              or recommending authority, or to the chief of bureau or office or
+              to the person who has immediate supervision over you in the
+              Office, Bureau or Department where you will be apppointed,
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t-2 border-r border-black"
+            ></div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              a. within the third degree?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              b. within the fourth degree (for Local Government Unit - Career
+              Employees)?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t border-l border-r border-black"
+            >
+              35. a. Have you ever been found guilty of any administrative
+              offense?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Have you been criminally charged
+              before any court?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t border-l border-r border-black"
+            >
+              36. Have you ever been convicted of any crime or violation of any
+              law, decree, ordinance or regulation by any court or tribunal?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t border-l border-r border-black"
+            >
+              37. Have you ever been separated from the service in any of the
+              following modes: resignation, retirement, dropped from the rolls,
+              dismissal, termination, end of term, finished contract or phased
+              out (abolition) in the public or private sector?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t border-l border-r border-black"
+            >
+              38. a. Have you ever been a candidate in a national or local
+              election held within the last year (except Barangay election)?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Have you resigned from the
+              government service during the three (3)-month period before the
+              last election to promote/actively campaign for a national or local
+              candidate?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details:</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t border-l border-r border-black"
+            >
+              39. Have you acquired the status of an immigrant or permanent
+              resident of another country?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5">If YES, give details (country):</div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="mx-5 border-black border-b text-center">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-t border-l border-r border-black"
+            >
+              40. Pursuant to: (a) Indigenous People's Act (RA 8371); (b) Magna
+              Carta for Disabled Persons (RA 7277); and (c) Solo Parents Welfare
+              Act of 2000 (RA 8972), please answer the following items:
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
+            ></div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Are you a member of any
+              indigenous group?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="flex">
+                <div class="w-3/5 mx-5">If YES, please specify ID No:</div>
+                <div class="w-2/5 mx-5 border-black border-b text-center">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Are you a person with disability?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="flex">
+                <div class="w-3/5 mx-5">If YES, please specify ID No:</div>
+                <div class="w-2/5 mx-5 border-black border-b text-center">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Are you a solo parent?
+            </div>
+            <div
+              class="w-5/12 text-xs pl-2 py-1 text-center border-r border-black"
+            >
+              <div class="flex">
+                <div class="flex mx-3">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">YES</span>
+                  </div>
+                </div>
+                <div class="flex mr-6">
+                  <div
+                    class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div>
+                    <span class="text-xs">NO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+            ></div>
+            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+              <div class="flex">
+                <div class="w-3/5 mx-5">If YES, please specify ID No:</div>
+                <div class="w-2/5 mx-5 border-black border-b text-center">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End Page 4 -->
       </vue-html2pdf>
     </div>
   </div>
