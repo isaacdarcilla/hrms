@@ -35,7 +35,10 @@ module.exports = {
             },
             margin: {
                 "22": "5.5rem"
-            }
+            },
+            padding: {
+                "0.5": 	"0.55rem"
+            },
         }
     },
     corePlugins: {

@@ -2441,6 +2441,46 @@
               class="w-3/12 border-t-0 border-r py-2 border-black text-xs"
             ></div>
           </div>
+
+          <div class="border-black border-r border-l h-56.50">
+            <div class="flex pt-2">
+              <div
+                class="mx-2 border-black py-1 text-justify text-xxs border-t-2 border-r-2 border-l-2 h-24 w-4/12"
+              >
+                <div class="w-full border-black border-b pb-1">
+                  Government Issued ID (i.e.Passport, GSIS, SSS, PRC, Driver's
+                  License, etc.)
+                  <span class="italic"
+                    >PLEASE INDICATE ID Number and Date of Issuance</span
+                  >
+                </div>
+                <div class="w-full text-xs border-black border-b py-1">
+                  Government Issued ID:
+                  <span class="font-semibold">Drivers License</span>
+                </div>
+                <div class="w-full text-xs border-black border-b py-1">
+                  ID/License/Passport No.:
+                  <span class="font-semibold">090381214</span>
+                </div>
+                <div class="w-full text-xs border-black border-b-2 pt-1 pb-0.5">
+                  Date/Place of Issuance:
+                  <span class="font-semibold">12/12/2021</span>
+                </div>
+              </div>
+
+              <div
+                class="mx-2 pt-2 border-black border-t-2 border-r-2 border-l-2 h-24 w-5/12"
+              >
+                fa
+              </div>
+
+              <div
+                class="mx-2 pt-2 border-black border-t-2 border-r-2 border-l-2 h-24 w-3/12"
+              >
+                s
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- End Page 4 -->
