@@ -93,7 +93,7 @@
             <div
               class="w-10/12 text-xs py-1 pl-1 border-t-2 border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ employee.last_name }}</div>
             </div>
           </div>
           <div class="flex">
@@ -105,14 +105,14 @@
             <div
               class="w-7/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Juan</div>
+              <div class="my-auto capitalize">{{ employee.first_name }}</div>
             </div>
             <div
               class="w-3/12 bg-gray-300 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
                 <div>NAME EXTENSION (JR., SR)</div>
-                <div class="my-auto capitalize">Jr.</div>
+                <div class="my-auto capitalize">{{ employee.name_extension }}</div>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@
             <div
               class="w-10/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Paz</div>
+              <div class="my-auto capitalize">{{ employee.middle_name }}</div>
             </div>
           </div>
           <div class="flex">
