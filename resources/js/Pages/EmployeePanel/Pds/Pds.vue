@@ -37,7 +37,6 @@
         <!-- Page 1 -->
 
         <section
-          hidden
           slot="pdf-content"
           class="mt-2 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -1251,7 +1250,6 @@
         <!-- Page 2 -->
 
         <section
-          hidden
           slot="pdf-content"
           class="mt-12 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -1508,7 +1506,6 @@
         <!-- Page 3 -->
 
         <section
-          hidden
           slot="pdf-content"
           class="mt-16 bg-white font-sans mx-auto text-black"
           style="width: 800px; height: 1280px"
@@ -1768,7 +1765,7 @@
         <section
           slot="pdf-content"
           class="mt-16 bg-white font-sans mx-auto text-black"
-          style="width: 800px; height: 1280px"
+          style="width: 800px; height: 1300px"
         >
           <div class="flex">
             <div
@@ -1844,15 +1841,15 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
-            <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
+            <div class="w-5/12 text-xs pl-2 py-0 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
             </div>
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5 border-black border-b text-center">&nbsp;</div>
@@ -1891,7 +1888,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
@@ -1938,7 +1935,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
@@ -1985,7 +1982,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
@@ -2034,7 +2031,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
@@ -2081,7 +2078,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
@@ -2130,7 +2127,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details:</div>
@@ -2177,7 +2174,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="mx-5">If YES, give details (country):</div>
@@ -2237,7 +2234,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="flex">
@@ -2280,7 +2277,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="flex">
@@ -2323,7 +2320,7 @@
           </div>
           <div class="flex">
             <div
-              class="w-7/12 bg-gray-300 text-xs pl-5 py-1 border-l border-r border-black"
+              class="w-7/12 bg-gray-300 text-xs pl-5 py-0 border-l border-r border-black"
             ></div>
             <div class="w-5/12 text-xs pl-2 py-1 border-r border-black">
               <div class="flex">
@@ -2442,7 +2439,7 @@
             ></div>
           </div>
 
-          <div class="border-black border-r border-l h-56.50">
+          <div class="border-black border-r border-l border-b-2 h-56.50">
             <div class="flex pt-2">
               <div
                 class="mx-2 border-black py-1 text-justify text-xxs border-t-2 border-r-2 border-l-2 h-24 w-4/12"
@@ -2469,17 +2466,65 @@
               </div>
 
               <div
-                class="mx-2 pt-2 border-black border-t-2 border-r-2 border-l-2 h-24 w-5/12"
+                class="mx-2 border-black py-1 text-justify text-xxs border-t-2 border-r-2 border-l-2 h-24 w-5/12"
               >
-                fa
+                <div class="w-full border-black border-b h-10"></div>
+                <div
+                  class="w-full border-black border-b h-4 pt-1 bg-gray-300 text-center"
+                >
+                  Signature (Sign inside the box)
+                </div>
+                <div
+                  class="w-full text-xs font-semibold border-black border-b h-4 text-center"
+                >
+                  12/12/2021
+                </div>
+                <div
+                  class="w-full border-black border-b-2 h-4 pt-1 pb-3 bg-gray-300 text-center"
+                >
+                  Date Accomplished
+                </div>
               </div>
 
               <div
-                class="mx-2 pt-2 border-black border-t-2 border-r-2 border-l-2 h-24 w-3/12"
+                class="mx-2 border-black py-1 text-justify text-xxs border-t-2 border-r-2 border-l-2 h-24 w-3/12"
               >
-                s
+                <div class="w-full border-black h-10"></div>
+                <div class="w-full border-black h-4 pt-1 text-center"></div>
+                <div
+                  class="w-full text-xs font-semibold border-black border-b h-4 text-center"
+                ></div>
+                <div
+                  class="w-full border-black border-b-2 h-4 pt-1 pb-3 bg-gray-300 text-center"
+                >
+                  Right Thumbmark
+                </div>
               </div>
             </div>
+            <div class="text-x5 text-center mt-3">
+              SUBSCRIBED AND SWORN to before me this
+              <span class="w-24 border-black border-b"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+              >, affiant exhibiting his/her validly issued government ID as
+              indicated above.
+            </div>
+            <div
+              class="mx-auto mt-3 border-black py-1 text-justify text-xs border-t-2 border-r-2 border-l-2 h-24 w-5/12"
+            >
+              <div class="w-full border-black h-10"></div>
+              <div class="w-full border-black h-4 pt-1 text-center"></div>
+              <div
+                class="w-full text-xs font-semibold border-black border-b h-4 text-center"
+              ></div>
+              <div
+                class="w-full border-black border-b-2 h-4 pt-1 pb-3 bg-gray-300 text-center"
+              >
+                Person Administering Oath
+              </div>
+            </div>
+          </div>
+          <div class="float-right text-xs italic">
+            CS FORM 212 (Revised 2017), Page 4 of 4
           </div>
         </section>
 

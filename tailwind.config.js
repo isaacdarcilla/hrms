@@ -22,13 +22,14 @@ module.exports = {
             }),
             fill: theme => theme("colors"),
             fontSize: {
-                xxs: ".55rem"
+                xxs: ".55rem",
+                x5: ".60rem",
             },
             width: {
                 "0.5/12": "4.1666665%"
             },
             height: {
-                "56.50": "14.5rem"
+                "56.50": "16rem"
             },
             borderWidth: {
                 one: "1px"
@@ -37,7 +38,7 @@ module.exports = {
                 "22": "5.5rem"
             },
             padding: {
-                "0.5": 	"0.55rem"
+                "0.5": 	"0.50rem"
             },
         }
     },
