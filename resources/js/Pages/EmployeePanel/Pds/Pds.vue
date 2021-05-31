@@ -112,7 +112,9 @@
             >
               <div class="flex-row">
                 <div>NAME EXTENSION (JR., SR)</div>
-                <div class="my-auto capitalize">{{ employee.name_extension }}</div>
+                <div class="my-auto capitalize">
+                  {{ employee.name_extension }}
+                </div>
               </div>
             </div>
           </div>
@@ -140,7 +142,9 @@
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">September 20, 1997</div>
+              <div class="my-auto capitalize">
+                {{ formatDate(employee.birth_date) }}
+              </div>
             </div>
             <div
               class="w-3/12 bg-gray-300 text-xs pl-2 py-1 border-t border-r border-black"
@@ -153,13 +157,23 @@
               <div class="flex-row">
                 <div class="flex">
                   <div
+                    v-if="employee.citizenship == 'Filipino'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Filipino</span>
                   </div>
                   <div
+                    v-if="employee.citizenship != 'Filipino'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Dual Citizenship</span>
@@ -167,13 +181,13 @@
                 </div>
                 <div class="flex float-right mt-2">
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">by birth</span>
                   </div>
                   <div
-                    class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">by naturalization</span>
@@ -193,7 +207,7 @@
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Virac, Catanduanes</div>
+              <div class="my-auto capitalize">{{ employee.birth_place }}</div>
             </div>
             <div
               class="w-3/12 bg-gray-300 text-xs pl-2 py-1 border-r text-center border-black"
@@ -222,7 +236,12 @@
               <div class="flex justify-between">
                 <div class="flex mx-3">
                   <div
+                    v-if="employee.sex == 'Male'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Male</span>
@@ -230,7 +249,12 @@
                 </div>
                 <div class="flex mr-6">
                   <div
+                    v-if="employee.sex == 'Female'"
                     class="text-sm h-2 border bg-black my-auto ml-2 mr-3 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Female</span>
@@ -247,7 +271,7 @@
               class="w-4/12 text-xs pl-2 py-1 border-r border-t border-black"
             >
               <div class="flex">
-                <div class="text-xs">America</div>
+                <div class="text-xs">&nbsp;</div>
               </div>
             </div>
           </div>
@@ -265,7 +289,12 @@
               <div class="flex justify-between">
                 <div class="flex mx-3">
                   <div
+                    v-if="employee.civil_status == 'Single'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Single</span>
@@ -273,7 +302,12 @@
                 </div>
                 <div class="flex mr-6">
                   <div
+                    v-if="employee.civil_status == 'Married'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Married</span>
@@ -283,7 +317,12 @@
               <div class="flex justify-between">
                 <div class="flex mx-3">
                   <div
+                    v-if="employee.civil_status == 'Widowed'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Widowed</span>
@@ -291,7 +330,12 @@
                 </div>
                 <div class="flex mr-3">
                   <div
+                    v-if="employee.civil_status == 'Separated'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
+                  ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
                   ></div>
                   <div>
                     <span class="text-xs">Separated</span>
@@ -301,10 +345,20 @@
               <div class="flex justify-between">
                 <div class="flex mx-3">
                   <div
+                    v-if="employee.civil_status == 'Divorced'"
                     class="text-sm h-2 border bg-black my-auto mx-2 border-black p-1"
                   ></div>
+                  <div
+                    v-else
+                    class="text-sm h-2 border my-auto mx-2 border-black p-1"
+                  ></div>
                   <div>
-                    <span class="text-xs">Other/s:</span>
+                    <span class="text-xs">Other/s: </span
+                    ><span
+                      v-if="employee.civil_status == 'Divorced'"
+                      class="font-semibold"
+                      >{{ employee.civil_status }}</span
+                    >
                   </div>
                 </div>
               </div>
@@ -319,8 +373,12 @@
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row">
                 <div class="flex justify-evenly">
-                  <div class="my-auto capitalize">#37</div>
-                  <div class="my-auto capitalize">Salvacion St.,</div>
+                  <div class="my-auto capitalize">
+                    {{ employee.residential_block }}
+                  </div>
+                  <div class="my-auto capitalize">
+                    {{ employee.residential_street }}
+                  </div>
                 </div>
                 <div class="border-gray-500 border-t"></div>
                 <div class="flex justify-evenly">
@@ -330,8 +388,12 @@
               </div>
               <div class="flex-row border-black border-t">
                 <div class="flex justify-evenly">
-                  <div class="my-auto capitalize">#37</div>
-                  <div class="my-auto capitalize">Salvacion St.,</div>
+                  <div class="my-auto capitalize">
+                    {{ employee.residential_village }}
+                  </div>
+                  <div class="my-auto capitalize">
+                    {{ employee.residential_barangay }}
+                  </div>
                 </div>
                 <div class="border-gray-500 border-t"></div>
                 <div class="flex justify-evenly">
@@ -353,7 +415,7 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>1.4</div>
+                <div>{{ employee.height }}</div>
               </div>
             </div>
             <div
@@ -362,8 +424,12 @@
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row">
                 <div class="flex justify-evenly">
-                  <div class="my-auto capitalize">#37</div>
-                  <div class="my-auto capitalize">Salvacion St.,</div>
+                  <div class="my-auto capitalize">
+                    {{ employee.residential_city }}
+                  </div>
+                  <div class="my-auto capitalize">
+                    {{ employee.residential_province }}
+                  </div>
                 </div>
                 <div class="border-gray-500 border-t"></div>
                 <div class="flex justify-evenly">
@@ -385,7 +451,7 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>56</div>
+                <div>{{ employee.weight }}</div>
               </div>
             </div>
             <div
@@ -397,7 +463,7 @@
             </div>
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row text-center">
-                <div>4800</div>
+                <div>{{ employee.residential_zipcode }}</div>
               </div>
             </div>
           </div>
@@ -413,7 +479,7 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>A+</div>
+                <div>{{ employee.blood_type }}</div>
               </div>
             </div>
             <div
@@ -426,8 +492,12 @@
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row">
                 <div class="flex justify-evenly">
-                  <div class="my-auto capitalize">#37</div>
-                  <div class="my-auto capitalize">Salvacion St.,</div>
+                  <div class="my-auto capitalize">
+                    {{ employee.permanent_block }}
+                  </div>
+                  <div class="my-auto capitalize">
+                    {{ employee.permanent_street }}
+                  </div>
                 </div>
                 <div class="border-gray-500 border-t"></div>
                 <div class="flex justify-evenly">
@@ -449,7 +519,10 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>1.4</div>
+                <div v-if="employee.gsis_id != null">
+                  {{ employee.gsis_id }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
             <div
@@ -458,8 +531,12 @@
             <div class="w-5/12 text-xs border-r border-black">
               <div class="flex-row border-black border-t">
                 <div class="flex justify-evenly">
-                  <div class="my-auto capitalize">#37</div>
-                  <div class="my-auto capitalize">Salvacion St.,</div>
+                  <div class="my-auto capitalize">
+                    {{ employee.permanent_village }}
+                  </div>
+                  <div class="my-auto capitalize">
+                    {{ employee.permanent_barangay }}
+                  </div>
                 </div>
                 <div class="border-gray-500 border-t"></div>
                 <div class="flex justify-evenly">
@@ -481,7 +558,10 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>56</div>
+                <div v-if="employee.pagibig_id != null">
+                  {{ employee.pagibig_id }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
             <div
@@ -490,8 +570,12 @@
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row">
                 <div class="flex justify-evenly">
-                  <div class="my-auto capitalize">#37</div>
-                  <div class="my-auto capitalize">Salvacion St.,</div>
+                  <div class="my-auto capitalize">
+                    {{ employee.permanent_city }}
+                  </div>
+                  <div class="my-auto capitalize">
+                    {{ employee.permanent_province }}
+                  </div>
                 </div>
                 <div class="border-gray-500 border-t"></div>
                 <div class="flex justify-evenly">
@@ -513,7 +597,10 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>56</div>
+                <div v-if="employee.philhealth_id != null">
+                  {{ employee.philhealth_id }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
             <div
@@ -525,7 +612,7 @@
             </div>
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row text-center">
-                <div>4800</div>
+                <div>{{ employee.permanent_zipcode }}</div>
               </div>
             </div>
           </div>
@@ -541,7 +628,10 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>56</div>
+                <div v-if="employee.sss_id != null">
+                  {{ employee.sss_id }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
             <div
@@ -553,7 +643,10 @@
             </div>
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row ml-2">
-                <div>092030952931</div>
+                <div v-if="employee.telephone != null">
+                  {{ employee.telephone }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
           </div>
@@ -569,7 +662,10 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>56</div>
+                <div v-if="employee.tin_id != null">
+                  {{ employee.tin_id }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
             <div
@@ -581,7 +677,7 @@
             </div>
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row ml-2">
-                <div>092030952931</div>
+                <div>{{ employee.phone }}</div>
               </div>
             </div>
           </div>
@@ -597,7 +693,10 @@
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
-                <div>56</div>
+                <div v-if="employee.agency_employee_id != null">
+                  {{ employee.agency_employee_id }}
+                </div>
+                <div v-else>N/A</div>
               </div>
             </div>
             <div
@@ -609,7 +708,7 @@
             </div>
             <div class="w-5/12 text-xs pt-1 border-t border-r border-black">
               <div class="flex-row ml-2">
-                <div>092030952931</div>
+                <div>{{ employee.email }}</div>
               </div>
             </div>
           </div>
@@ -2537,6 +2636,7 @@
 <script>
 import Layout from "@/Pages/EmployeePanel/Layout";
 import VueHtml2pdf from "vue-html2pdf";
+import moment from "moment";
 
 export default {
   metaInfo: { title: "PDS Form" },
@@ -2551,6 +2651,24 @@ export default {
     printPdf() {
       console.log(true);
       this.$refs.html2Pdf.generatePdf();
+    },
+    format(value) {
+      if (value) {
+        return moment(String(value)).format("MMMM D, YYYY");
+      }
+    },
+    formatDate(value) {
+      if (value) {
+        return moment(String(value)).format("MM/DD/YYYY");
+      }
+    },
+    currency(price, sign = "₱ ") {
+      const pieces = parseFloat(price).toFixed(2).split("");
+      let ii = pieces.length - 3;
+      while ((ii -= 3) > 0) {
+        pieces.splice(ii, 0, ",");
+      }
+      return sign + pieces.join("");
     },
   },
 };
