@@ -2978,57 +2978,42 @@
             </div>
             <div class="w-3/12 border-r py-2 border-black text-xs"></div>
           </div>
-          <div class="flex">
+          <div v-for="(n, i) in 3" :key="i" class="flex">
             <div
-              class="w-4/12 border-t-2 border-l text-center border-r py-2 border-black text-xs"
-            >
-              Sample
-            </div>
-            <div
-              class="w-3/12 border-t-2 text-center border-r py-2 border-black text-xs"
-            >
-              Sample
-            </div>
-            <div
-              class="w-2/12 border-t-2 text-center border-r-2 py-2 border-black text-xs"
-            >
-              092141415446
-            </div>
-            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
-          </div>
-          <div class="flex">
-            <div
+              v-if="reference[i] != null"
               class="w-4/12 border-t border-l text-center border-r py-2 border-black text-xs"
             >
-              Sample
+              {{ reference[i].name }}
             </div>
             <div
-              class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
-            >
-              Sample
-            </div>
-            <div
-              class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
-            >
-              092141415446
-            </div>
-            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
-          </div>
-          <div class="flex">
-            <div
+              v-else
               class="w-4/12 border-t border-l text-center border-r py-2 border-black text-xs"
             >
-              Sample
+              N/A
             </div>
             <div
+              v-if="reference[i] != null"
               class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
             >
-              Sample
+              {{ reference[i].address }}
             </div>
             <div
+              v-else
+              class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
+            >
+              N/A
+            </div>
+            <div
+              v-if="reference[i] != null"
               class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
             >
-              092141415446
+              {{ reference[i].telephone_number }}
+            </div>
+            <div
+              v-else
+              class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
+            >
+              N/A
             </div>
             <div class="w-3/12 border-r py-2 border-black text-xs"></div>
           </div>
@@ -3066,15 +3051,15 @@
                 </div>
                 <div class="w-full text-xs border-black border-b py-1">
                   Government Issued ID:
-                  <span class="font-semibold">Drivers License</span>
+                  <span class="font-semibold">{{ gid.government_issued_id }}</span>
                 </div>
                 <div class="w-full text-xs border-black border-b py-1">
                   ID/License/Passport No.:
-                  <span class="font-semibold">090381214</span>
+                  <span class="font-semibold">{{ gid.id_number }}</span>
                 </div>
                 <div class="w-full text-xs border-black border-b-2 pt-1 pb-0.5">
                   Date/Place of Issuance:
-                  <span class="font-semibold">12/12/2021</span>
+                  <span class="font-semibold">{{ formatDate(gid.date_of_issuance )}}</span>
                 </div>
               </div>
 
@@ -3090,7 +3075,7 @@
                 <div
                   class="w-full text-xs font-semibold border-black border-b h-4 text-center"
                 >
-                  12/12/2021
+                  &nbsp;
                 </div>
                 <div
                   class="w-full border-black border-b-2 h-4 pt-1 pb-3 bg-gray-300 text-center"
@@ -3167,6 +3152,8 @@ export default {
     volunteer: Array,
     training: Array,
     other: Object,
+    reference: Array,
+    gid: Object,
   },
   methods: {
     printPdf() {

@@ -15,12 +15,14 @@ use App\Models\Background;
 use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\Education;
+use App\Models\Reference;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Experience;
 use App\Models\Task;
 use App\Models\Notice;
 use App\Models\Skill;
+use App\Models\GovernmentId;
 use App\Models\Recognition;
 use App\Models\Membership;
 use Illuminate\Support\Facades\Request;
@@ -376,6 +378,8 @@ class EmployeeController extends Controller
                     'recognition' => Recognition::whereContactId(Auth::guard('employee')->user()->id)->get(),
                     'member' => Membership::whereContactId(Auth::guard('employee')->user()->id)->get(),
                 ],
+                'reference' => Reference::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                'gid' => GovernmentId::whereContactId(Auth::guard('employee')->user()->id)->first(),
             ]);
         else
             return redirect()->route('login.employee');
