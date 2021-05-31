@@ -1714,7 +1714,7 @@
               <div class="text-center text-xs">Date of Validity</div>
             </div>
           </div>
-          <div v-for="n in 7" :key="n" class="flex">
+          <div v-for="(i, n) in 7" :key="n" class="flex">
             <div
               v-if="cs[n] != null"
               class="w-3/12 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
@@ -1723,9 +1723,9 @@
             </div>
             <div
               v-else
-                class="w-3/12 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
-              >
-                N/A
+              class="w-3/12 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
+            >
+              N/A
             </div>
             <div
               v-if="cs[n] != null"
@@ -1735,9 +1735,9 @@
             </div>
             <div
               v-else
-                class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
-              >
-                N/A
+              class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              N/A
             </div>
             <div
               v-if="cs[n] != null"
@@ -1747,9 +1747,9 @@
             </div>
             <div
               v-else
-                class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
-              >
-                N/A
+              class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              N/A
             </div>
             <div
               v-if="cs[n] != null"
@@ -1759,9 +1759,9 @@
             </div>
             <div
               v-else
-                class="w-3/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
-              >
-                N/A
+              class="w-3/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              N/A
             </div>
             <div
               v-if="cs[n] != null"
@@ -1773,9 +1773,9 @@
             </div>
             <div
               v-else
-                class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
-              >
-                N/A
+              class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              N/A
             </div>
             <div
               v-if="cs[n] != null"
@@ -1787,9 +1787,9 @@
             </div>
             <div
               v-else
-                class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
-              >
-                N/A
+              class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              N/A
             </div>
           </div>
           <div class="flex">
@@ -1885,46 +1885,102 @@
               class="w-1/12 bg-gray-300 text-xs py-1 border-r border-black"
             ></div>
           </div>
-          <div v-for="n in 28" :key="n" class="flex">
+          <div v-for="(i, n) in 28" :key="n" class="flex">
             <div
+              v-if="work[n] != null"
               class="w-1/12 text-xs py-2 text-center border-t border-l border-r border-black"
             >
-              12/12/2021
+              {{ formatDate(work[n].experiences_from) }}
             </div>
             <div
+              v-else
+              class="w-1/12 text-xs py-2 text-center border-t border-l border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="work[n] != null"
               class="w-1/12 text-xs py-2 text-center border-t border-r border-black"
             >
-              12/12/2021
+              {{ formatDate(work[n].experiences_to) }}
             </div>
             <div
+              v-else
+              class="w-1/12 text-xs py-2 text-center border-t  border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="work[n] != null"
               class="w-3/12 text-xs py-2 text-center border-t border-r border-black"
             >
-              Sample Position
+              {{ work[n].experiences_position }}
             </div>
             <div
+              v-else
+              class="w-3/12 text-xs py-2 text-center border-t  border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="work[n] != null"
               class="w-3/12 text-xs text-center border-t py-2 border-r border-black"
             >
-              Dyan Lang
+              {{ work[n].experiences_company }}
             </div>
             <div
+              v-else
+              class="w-3/12 text-xs py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="work[n] != null"
+              class="w-1/12 text-xxs text-center py-2 border-t border-r border-black"
+            >
+              {{ currency(work[n].experiences_monthly_salary) }}
+            </div>
+            <div
+              v-else
+              class="w-1/12 text-xs py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="work[n] != null"
               class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
             >
-              P 26,000.00
+              {{ work[n].experiences_salary_grade }}
             </div>
             <div
-              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
+              v-else
+              class="w-1/12 text-xs py-2 text-center border-t border-r border-black"
             >
-              SG-13
+              N/A
             </div>
             <div
-              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
+              v-if="work[n] != null"
+              class="w-1/12 text-xxs text-center py-2 border-t border-r border-black"
             >
-              Permanent
+              {{ work[n].experiences_status_of_appointment }}
             </div>
             <div
+              v-else
+              class="w-1/12 text-xs py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="work[n] != null && work[n].experiences_government == '1'"
               class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
             >
               Y
+            </div>
+            <div
+              v-else
+              class="w-1/12 text-xs text-center py-2 border-t border-r border-black"
+            >
+              N
             </div>
           </div>
           <div class="flex">
