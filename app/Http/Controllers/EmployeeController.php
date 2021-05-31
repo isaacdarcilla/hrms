@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Credit;
 use App\Models\Leave;
+use App\Models\Training;
 use App\Models\Children;
 use App\Models\EmployeeSetting;
 use App\Models\Setting;
 use App\Models\Profile;
+use App\Models\Volunteer;
 use App\Models\Background;
 use App\Models\Job;
 use App\Models\Applicant;
@@ -18,6 +20,9 @@ use App\Models\Service;
 use App\Models\Experience;
 use App\Models\Task;
 use App\Models\Notice;
+use App\Models\Skill;
+use App\Models\Recognition;
+use App\Models\Membership;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -364,6 +369,13 @@ class EmployeeController extends Controller
                 ],
                 'cs' => Service::whereContactId(Auth::guard('employee')->user()->id)->get(),
                 'work' => Experience::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                'volunteer' => Volunteer::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                'training' => Training::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                'other' => [
+                    'skill' => Skill::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                    'recognition' => Recognition::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                    'member' => Membership::whereContactId(Auth::guard('employee')->user()->id)->get(),
+                ],
             ]);
         else
             return redirect()->route('login.employee');

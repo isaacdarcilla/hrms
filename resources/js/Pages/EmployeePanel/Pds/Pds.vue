@@ -1906,7 +1906,7 @@
             </div>
             <div
               v-else
-              class="w-1/12 text-xs py-2 text-center border-t  border-r border-black"
+              class="w-1/12 text-xs py-2 text-center border-t border-r border-black"
             >
               N/A
             </div>
@@ -1918,7 +1918,7 @@
             </div>
             <div
               v-else
-              class="w-3/12 text-xs py-2 text-center border-t  border-r border-black"
+              class="w-3/12 text-xs py-2 text-center border-t border-r border-black"
             >
               N/A
             </div>
@@ -2005,8 +2005,10 @@
               DATE
             </div>
             <div
-              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-b border-black"
-            ></div>
+              class="w-3/12 bg-gray-300 text-center text-xs py-2 border-t-2 border-r border-b border-black"
+            >
+              {{ date() }}
+            </div>
           </div>
           <div class="float-right text-xs italic">
             CS FORM 212 (Revised 2017), Page 2 of 4
@@ -2072,31 +2074,66 @@
               class="w-4/12 bg-gray-300 text-xs pl-2 py-1 text-center border-r border-black"
             ></div>
           </div>
-          <div v-for="n in 7" :key="n" class="flex">
+          <div v-for="(i, n) in 7" :key="n" class="flex">
             <div
+              v-if="volunteer[n] != null"
               class="w-5/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
             >
-              Sample
+              {{ volunteer[n].volunteers_organization }}
             </div>
             <div
+              v-else
+              class="w-5/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="volunteer[n] != null"
               class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
             >
-              12/12/2021
+              {{ formatDate(volunteer[n].volunteers_from) }}
             </div>
             <div
+              v-else
               class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
             >
-              12/12/2021
+              N/A
             </div>
             <div
+              v-if="volunteer[n] != null"
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              {{ formatDate(volunteer[n].volunteers_to) }}
+            </div>
+            <div
+              v-else
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="volunteer[n] != null"
               class="w-1/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
             >
-              24
+              {{ volunteer[n].volunteers_number_of_hours }}
             </div>
             <div
+              v-else
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="volunteer[n] != null"
               class="w-4/12 text-xs pl-2 py-2 text-center border-r border-t border-black"
             >
-              Sample
+              {{ volunteer[n].volunteers_nature_of_work }}
+            </div>
+            <div
+              v-else
+              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
             </div>
           </div>
           <div class="flex">
@@ -2139,7 +2176,7 @@
             <div
               class="w-3/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t-2 border-r border-black"
             >
-              POSITION / NATURE OF WORK
+              CONDUCTED/ SPONSORED BY <br/> (Write in full)
             </div>
           </div>
           <div class="flex">
@@ -2166,36 +2203,78 @@
               class="w-3/12 bg-gray-300 text-xs pl-2 py-1 text-center border-r border-black"
             ></div>
           </div>
-          <div v-for="n in 20" :key="n" class="flex">
+          <div v-for="(n, i) in 20" :key="i" class="flex">
             <div
+              v-if="training[i] != null"
               class="w-5/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
             >
-              Sample
+              {{ training[i].trainings_name }}
             </div>
             <div
+              v-else
+              class="w-5/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="training[i] != null"
               class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
             >
-              12/12/2021
+              {{ formatDate(training[i].trainings_from) }}
             </div>
             <div
+              v-else
               class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
             >
-              12/12/2021
+              N/A
             </div>
             <div
+              v-if="training[i] != null"
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              {{ formatDate(training[i].trainings_to) }}
+            </div>
+            <div
+              v-else
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="training[i] != null"
               class="w-1/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
             >
-              24
+              {{ training[i].trainings_number_of_hours }}
             </div>
             <div
+              v-else
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="training[i] != null"
               class="w-1/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
             >
-              Managerial
+              {{ training[i].trainings_type }}
             </div>
             <div
+              v-else
+              class="w-1/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="training[i] != null"
               class="w-3/12 text-xs pl-0 py-2 text-center border-r border-t border-black"
             >
-              Sample
+              {{ training[i].trainings_sponsored_by }}
+            </div>
+            <div
+              v-else
+              class="w-3/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
             </div>
           </div>
           <div class="flex">
@@ -2229,21 +2308,42 @@
               33. MEMBERSHIP IN ASSOCIATION/ORGANIZATION <br />(Write in full)
             </div>
           </div>
-          <div v-for="n in 7" :key="n" class="flex">
+          <div v-for="(n, i) in 7" :key="i" class="flex">
             <div
+              v-if="other.skill[i] != null"
               class="w-4/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
             >
-              Sample
+              {{ other.skill[i].skills_name }}
             </div>
             <div
-              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+              v-else
+              class="w-4/12 text-xs pl-0 py-2 text-center border-l border-t border-r border-black"
             >
-              Sample
+              N/A
             </div>
             <div
+              v-if="other.recognition[i] != null"
               class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
             >
-              Sample
+              {{ other.recognition[i].recognitions_name }}
+            </div>
+            <div
+              v-else
+              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
+            </div>
+            <div
+              v-if="other.member[i] != null"
+              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              {{ other.member[i].memberships_name }}
+            </div>
+            <div
+              v-else
+              class="w-4/12 text-xs pl-0 py-2 text-center border-t border-r border-black"
+            >
+              N/A
             </div>
           </div>
           <div class="flex">
@@ -2261,8 +2361,10 @@
               DATE
             </div>
             <div
-              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-b border-black"
-            ></div>
+              class="w-3/12 bg-gray-300 text-center text-xs py-2 border-t-2 border-r border-b border-black"
+            >
+              {{ date() }}
+            </div>
           </div>
           <div class="float-right text-xs italic">
             CS FORM 212 (Revised 2017), Page 3 of 4
@@ -3062,6 +3164,9 @@ export default {
     education: Object,
     cs: Array,
     work: Array,
+    volunteer: Array,
+    training: Array,
+    other: Object,
   },
   methods: {
     printPdf() {
