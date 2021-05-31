@@ -2176,7 +2176,8 @@
             <div
               class="w-3/12 bg-gray-300 text-xs pl-0 py-1 text-center border-t-2 border-r border-black"
             >
-              CONDUCTED/ SPONSORED BY <br/> (Write in full)
+              CONDUCTED/ SPONSORED BY <br />
+              (Write in full)
             </div>
           </div>
           <div class="flex">
@@ -2944,97 +2945,110 @@
               </div>
             </div>
           </div>
+
+          <!-- Photo -->
+
           <div class="flex">
-            <div
-              class="w-9/12 border-t-2 border-l border-r-2 py-2 border-black text-xs bg-gray-300"
-            >
-              <div class="pl-3">
-                41. REFERENCES
-                <span class="text-red-600"
-                  >(Person not related by consanguinity or affinity to applicant
-                  /appointee)</span
+            <div class="w-9/12">
+              <div class="flex">
+                <div
+                  class="w-full border-t-2 border-l border-r-2 py-2 border-black text-xs bg-gray-300"
                 >
+                  <div class="pl-3">
+                    41. REFERENCES
+                    <span class="text-red-600"
+                      >(Person not related by consanguinity or affinity to
+                      applicant /appointee)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div
+                  class="w-full border-t-2 border-l text-center border-r py-2 border-black text-xs bg-gray-300"
+                >
+                  NAME
+                </div>
+                <div
+                  class="w-full border-t-2 text-center border-r py-2 border-black text-xs bg-gray-300"
+                >
+                  ADDRESS
+                </div>
+                <div
+                  class="w-full border-t-2 text-center border-r-2 py-2 border-black text-xs bg-gray-300"
+                >
+                  TEL. NO.
+                </div>
+              </div>
+              <div v-for="(n, i) in 3" :key="i" class="flex">
+                <div
+                  v-if="reference[i] != null"
+                  class="w-full border-t border-l text-center border-r py-2 border-black text-xs"
+                >
+                  {{ reference[i].name }}
+                </div>
+                <div
+                  v-else
+                  class="w-full border-t border-l text-center border-r py-2 border-black text-xs"
+                >
+                  N/A
+                </div>
+                <div
+                  v-if="reference[i] != null"
+                  class="w-full border-t text-center border-r py-2 border-black text-xs"
+                >
+                  {{ reference[i].address }}
+                </div>
+                <div
+                  v-else
+                  class="w-full border-t text-center border-r py-2 border-black text-xs"
+                >
+                  N/A
+                </div>
+                <div
+                  v-if="reference[i] != null"
+                  class="w-full border-t text-center border-r-2 py-2 border-black text-xs"
+                >
+                  {{ reference[i].telephone_number }}
+                </div>
+                <div
+                  v-else
+                  class="w-full border-t text-center border-r-2 py-2 border-black text-xs"
+                >
+                  N/A
+                </div>
+              </div>
+              <div class="flex">
+                <div
+                  class="w-full border-t-2 border-b-2 border-l border-r-2 py-2 border-black text-xs bg-gray-300"
+                >
+                  <div class="px-3 text-justify">
+                    42. I declare under oath that I have personally accomplished
+                    this Personal Data Sheet which is a true, correct and
+                    complete statement pursuant to the provisions of pertinent
+                    laws, rules and regulations of the Republic of the
+                    Philippines. I authorize the agency head/authorized
+                    representative to verify/validate the contents stated
+                    herein. I agree that any misrepresentation made in this
+                    document and its attachments shall cause the filing of
+                    administrative/criminal case/s against me.
+                  </div>
+                </div>
               </div>
             </div>
-            <div
-              class="w-3/12 border-t-2 border-r py-2 border-black text-xs"
-            ></div>
-          </div>
-          <div class="flex">
-            <div
-              class="w-4/12 border-t-2 border-l text-center border-r py-2 border-black text-xs bg-gray-300"
-            >
-              NAME
-            </div>
-            <div
-              class="w-3/12 border-t-2 text-center border-r py-2 border-black text-xs bg-gray-300"
-            >
-              ADDRESS
-            </div>
-            <div
-              class="w-2/12 border-t-2 text-center border-r-2 py-2 border-black text-xs bg-gray-300"
-            >
-              TEL. NO.
-            </div>
-            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
-          </div>
-          <div v-for="(n, i) in 3" :key="i" class="flex">
-            <div
-              v-if="reference[i] != null"
-              class="w-4/12 border-t border-l text-center border-r py-2 border-black text-xs"
-            >
-              {{ reference[i].name }}
-            </div>
-            <div
-              v-else
-              class="w-4/12 border-t border-l text-center border-r py-2 border-black text-xs"
-            >
-              N/A
-            </div>
-            <div
-              v-if="reference[i] != null"
-              class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
-            >
-              {{ reference[i].address }}
-            </div>
-            <div
-              v-else
-              class="w-3/12 border-t text-center border-r py-2 border-black text-xs"
-            >
-              N/A
-            </div>
-            <div
-              v-if="reference[i] != null"
-              class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
-            >
-              {{ reference[i].telephone_number }}
-            </div>
-            <div
-              v-else
-              class="w-2/12 border-t text-center border-r-2 py-2 border-black text-xs"
-            >
-              N/A
-            </div>
-            <div class="w-3/12 border-r py-2 border-black text-xs"></div>
-          </div>
-          <div class="flex">
-            <div
-              class="w-9/12 border-t-2 border-b-2 border-l border-r-2 py-2 border-black text-xs bg-gray-300"
-            >
-              <div class="px-3 text-justify">
-                42. I declare under oath that I have personally accomplished
-                this Personal Data Sheet which is a true, correct and complete
-                statement pursuant to the provisions of pertinent laws, rules
-                and regulations of the Republic of the Philippines. I authorize
-                the agency head/authorized representative to verify/validate the
-                contents stated herein. I agree that any misrepresentation made
-                in this document and its attachments shall cause the filing of
-                administrative/criminal case/s against me.
+            <div class="w-3/12 border-black border-t-2 border-r">
+              <div class="border-black border-2 mx-10 mt-8 h-40">
+                <div class="text-center text-xxs mt-4 mx-3">
+                  ID picture taken within the last 6 months 4.5 cm. X 3.5 cm
+                  (passport size)
+                </div>
+                <div class="text-center text-xxs mt-4 mx-3">
+                  Computer generated or photocopied picture is not acceptable
+                </div>
               </div>
+              <div class="text-center text-sm mb-4">Photo</div>
             </div>
-            <div
-              class="w-3/12 border-t-0 border-r py-2 border-black text-xs"
-            ></div>
           </div>
 
           <div class="border-black border-r border-l border-b-2 h-56.50">
@@ -3051,7 +3065,9 @@
                 </div>
                 <div class="w-full text-xs border-black border-b py-1">
                   Government Issued ID:
-                  <span class="font-semibold">{{ gid.government_issued_id }}</span>
+                  <span class="font-semibold">{{
+                    gid.government_issued_id
+                  }}</span>
                 </div>
                 <div class="w-full text-xs border-black border-b py-1">
                   ID/License/Passport No.:
@@ -3059,7 +3075,9 @@
                 </div>
                 <div class="w-full text-xs border-black border-b-2 pt-1 pb-0.5">
                   Date/Place of Issuance:
-                  <span class="font-semibold">{{ formatDate(gid.date_of_issuance )}}</span>
+                  <span class="font-semibold">{{
+                    formatDate(gid.date_of_issuance)
+                  }}</span>
                 </div>
               </div>
 
