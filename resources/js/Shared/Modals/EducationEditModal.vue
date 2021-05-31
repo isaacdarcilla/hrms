@@ -88,6 +88,20 @@
                         value="Tertiary Education"
                       />
                       Tertiary Education
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.education_level"
+                        value="Vocational Education"
+                      />
+                      Vocational Education
+                      <input
+                        type="radio"
+                        class="w-3 h-3 ml-2 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                        v-model="form.education_level"
+                        value=" Graduate Studies"
+                      />
+                      Graduate Studies
                       <div
                         v-if="$page.errors.education_level !== null"
                         class="form-error"

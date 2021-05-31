@@ -10,12 +10,12 @@
         <span class="text-indigo-400 font-medium">/</span> PDS
       </h1>
       <div class="flex">
-        <butto
+        <button
           @click="printPdf()"
           class="btn-indigo h-10 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
         >
           <span>🖨️ Print Form</span>
-        </butto>
+        </button>
       </div>
     </div>
     <div>
@@ -1163,33 +1163,40 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.primary != null">{{ education.primary.education_school_name }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.primary != null">{{ education.primary.education_course }}</div>
+              <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.primary != null">{{ formatDate(education.primary.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.primary != null">{{ formatDate(education.primary.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.primary != null && education.primary.education_highest_level_earned != null">{{ education.primary.education_highest_level_earned }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.primary != null">{{ education.primary.education_year_graduated }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.primary != null">{{ education.primary.education_honors_received }}</div>
+              <div v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -1201,33 +1208,40 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.secondary != null">{{ education.secondary.education_school_name }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.secondary != null">{{ education.secondary.education_course }}</div>
+              <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.secondary != null">{{ formatDate(education.secondary.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.secondary != null">{{ formatDate(education.secondary.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.secondary != null && education.secondary.education_highest_level_earned != null">{{ education.secondary.education_highest_level_earned }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.secondary != null">{{ education.secondary.education_year_graduated }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.secondary != null">{{ education.secondary.education_honors_received }}</div>
+              <div v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -1239,33 +1253,40 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.vocational != null">{{ education.vocational.education_school_name }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.vocational != null">{{ education.vocational.education_course }}</div>
+              <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.vocational != null">{{ formatDate(education.vocational.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.vocational != null">{{ formatDate(education.vocational.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.vocational != null && education.vocational.education_highest_level_earned != null">{{ education.vocational.education_highest_level_earned }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.vocational != null">{{ education.vocational.education_year_graduated }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.vocational != null">{{ education.vocational.education_honors_received }}</div>
+              <div v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -1277,33 +1298,40 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.tertiary != null">{{ education.tertiary.education_school_name }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.tertiary != null">{{ education.tertiary.education_course }}</div>
+              <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.tertiary != null">{{ formatDate(education.tertiary.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.tertiary != null">{{ formatDate(education.tertiary.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.tertiary != null && education.tertiary.education_highest_level_earned != null">{{ education.tertiary.education_highest_level_earned }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.tertiary != null">{{ education.tertiary.education_year_graduated }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.tertiary != null">{{ education.tertiary.education_honors_received }}</div>
+              <div v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -1315,38 +1343,45 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.graduate != null">{{ education.graduate.education_school_name }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.graduate != null">{{ education.graduate.education_course }}</div>
+              <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.graduate != null">{{ formatDate(education.graduate.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center">01/01/2021</div>
+              <div class="text-center" v-if="education.graduate != null">{{ formatDate(education.graduate.from) }}</div>
+              <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.graduate != null && education.graduate.education_highest_level_earned != null">{{ education.graduate.education_highest_level_earned }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.graduate != null">{{ education.graduate.education_year_graduated }}</div>
+              <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div>Sample</div>
+              <div v-if="education.graduate != null">{{ education.graduate.education_honors_received }}</div>
+              <div v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
             <div
-              class="w-full border-t-2 border-l border-r border-b border-black font-semibold italic text-xs text-center text-red-600 bg-gray-300"
+              class="w-full border-t-2 border-l border-r border-black font-semibold italic text-xs text-center text-red-600 bg-gray-300"
             >
               (Continue on separate sheet if necessary)
             </div>
@@ -1366,8 +1401,8 @@
               DATE
             </div>
             <div
-              class="w-3/12 bg-gray-300 text-xs py-1 border-t-2 border-r border-b border-black"
-            ></div>
+              class="w-3/12 bg-gray-300 text-xs mx-auto text-center py-2  border-t-2 border-r border-b border-black"
+            >{{ date() }}</div>
           </div>
           <div class="float-right text-xs italic">
             CS FORM 212 (Revised 2017), Page 1 of 4
@@ -2677,11 +2712,15 @@ export default {
   props: {
     employee: Object,
     family: Object,
+    education: Object,
   },
   methods: {
     printPdf() {
       console.log(true);
       this.$refs.html2Pdf.generatePdf();
+    },
+    date() {
+      return moment().format("MMMM D, YYYY");
     },
     format(value) {
       if (value) {

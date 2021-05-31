@@ -12,6 +12,7 @@ use App\Models\Profile;
 use App\Models\Background;
 use App\Models\Job;
 use App\Models\Applicant;
+use App\Models\Education;
 use App\Models\User;
 use App\Models\Task;
 use App\Models\Notice;
@@ -351,7 +352,14 @@ class EmployeeController extends Controller
                     'parents' => $background,
                     'children' => Children::whereContactId(Auth::guard('employee')->user()->id)
                                             ->whereBackgroundId($background->id)->get(),
-                ]
+                ],
+                'education' => [
+                    'primary' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Primary Education')->first(),
+                    'secondary' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Secondary Education')->first(),
+                    'tertiary' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Tertiary Education')->first(),
+                    'vocational' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Vocational Education')->first(),
+                    'graduate' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Graduate Studies')->first()
+                ],
             ]);
         else
             return redirect()->route('login.employee');
