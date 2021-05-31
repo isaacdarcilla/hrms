@@ -728,7 +728,7 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t-2 border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.spouse_last_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 bg-gray-300 pl-1 border-t-2 border-r border-black"
@@ -752,25 +752,28 @@
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.spouse_first_name }}</div>
             </div>
             <div
               class="w-2/12 bg-gray-300 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
                 <div class="text-xxs">NAME EXTENSION (JR., SR)</div>
-                <div class="my-auto capitalize">Jr.</div>
+                <div class="my-auto capitalize" v-if="family.parents.spouse_name_extension != null">{{ family.parents.spouse_name_extension }}</div>
+                <div class="my-auto capitalize" v-else>&nbsp;</div>
               </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[0] != null">{{ family.children[0].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[0] != null">{{ formatDate(family.children[0].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -782,17 +785,19 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.spouse_middle_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[1] != null">{{ family.children[1].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[1] != null">{{ formatDate(family.children[1].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -804,17 +809,20 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize" v-if="family.parents.spouse_occupation != null">{{ family.parents.spouse_occupation }}</div>
+              <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[2] != null">{{ family.children[2].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[2] != null">{{ formatDate(family.children[2].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -826,17 +834,20 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize" v-if="family.parents.spouse_business_name != null">{{ family.parents.spouse_business_name }}</div>
+              <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[3] != null">{{ family.children[3].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[3] != null">{{ formatDate(family.children[3].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -848,17 +859,20 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize" v-if="family.parents.spouse_business_address != null">{{ family.parents.spouse_business_address }}</div>
+              <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[4] != null">{{ family.children[4].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[4] != null">{{ formatDate(family.children[4].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -870,17 +884,20 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize" v-if="family.parents.spouse_telephone != null">{{ family.parents.spouse_telephone }}</div>
+              <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[5] != null">{{ family.children[5].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[5] != null">{{ formatDate(family.children[5].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -892,17 +909,19 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.father_last_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[6] != null">{{ family.children[6].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[6] != null">{{ formatDate(family.children[6].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -914,25 +933,28 @@
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.father_first_name }}</div>
             </div>
             <div
               class="w-2/12 bg-gray-300 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
                 <div class="text-xxs">NAME EXTENSION (JR., SR)</div>
-                <div class="my-auto capitalize">Jr.</div>
+                <div class="my-auto capitalize" v-if="family.parents.father_name_extension != null">{{ family.parents.father_name_extension }}</div>
+                <div class="my-auto capitalize" v-else>&nbsp;</div>
               </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[7] != null">{{ family.children[7].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[7] != null">{{ formatDate(family.children[7].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -944,17 +966,19 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.father_middle_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[8] != null">{{ family.children[8].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[8] != null">{{ formatDate(family.children[8].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -966,17 +990,19 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.mother_first_name }} {{ family.parents.mother_middle_name }} {{ family.parents.mother_last_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[9] != null">{{ family.children[9].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[9] != null">{{ formatDate(family.children[9].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -988,17 +1014,19 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.mother_last_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[10] != null">{{ family.children[10].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[10] != null">{{ formatDate(family.children[10].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -1010,17 +1038,19 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.mother_first_name }}</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto">John Doe</div>
+              <div class="my-auto" v-if="family.children[11] != null">{{ family.children[11].children_name }}</div>
+              <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center">September 20, 1997</div>
+              <div class="my-auto text-center" v-if="family.children[11] != null">{{ formatDate(family.children[11].children_birth_date ) }}</div>
+              <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
           <div class="flex">
@@ -1032,7 +1062,7 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">Dela Cruz</div>
+              <div class="my-auto capitalize">{{ family.parents.mother_middle_name }}</div>
             </div>
             <div
               class="w-5/12 bg-gray-200 text-xs py-1 pl-1 border-t border-r border-black"
@@ -2646,6 +2676,7 @@ export default {
   },
   props: {
     employee: Object,
+    family: Object,
   },
   methods: {
     printPdf() {

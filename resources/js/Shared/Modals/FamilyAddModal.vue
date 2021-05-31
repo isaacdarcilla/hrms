@@ -28,7 +28,10 @@
                   >
                     ➕ Add Family Background
                   </h3>
-                  <button @click="closeModal" class="text-sm ml-2 pr-5 text-red-600">
+                  <button
+                    @click="closeModal"
+                    class="text-sm ml-2 pr-5 text-red-600"
+                  >
                     Close
                   </button>
                 </div>
@@ -36,7 +39,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Spouse First Name <span class="text-red-600">*</span></label
+                        >Spouse First Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -56,7 +60,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Spouse Middle Name <span class="text-red-600">*</span></label
+                        >Spouse Middle Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -76,7 +81,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Spouse Last Name <span class="text-red-600">*</span></label
+                        >Spouse Last Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -160,7 +166,7 @@
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
                         >Spouse Phone Number
-                        <span class="font-medium">&nbsp;</span></label
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -181,7 +187,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Father First Name <span class="text-red-600">*</span></label
+                        >Father First Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -201,7 +208,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Father Middle Name <span class="text-red-600">*</span></label
+                        >Father Middle Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -221,7 +229,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Father Last Name <span class="text-red-600">*</span></label
+                        >Father Last Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -262,7 +271,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Mother First Name <span class="text-red-600">*</span></label
+                        >Mother First Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -282,7 +292,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Mother Middle Name <span class="text-red-600">*</span></label
+                        >Mother Middle Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -302,7 +313,8 @@
                   <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                       <label class="form-label font-bold"
-                        >Mother Last Name <span class="text-red-600">*</span></label
+                        >Mother Last Name
+                        <span class="text-red-600">*</span></label
                       >
                       <input
                         autofocus="true"
@@ -389,10 +401,14 @@ export default {
   },
   methods: {
     save() {
-      this.$inertia.post(this.route("family.store", this.employee.id), this.form, {
-        onStart: () => (this.sending = true),
-        onFinish: () => (this.sending = false),
-      });
+      this.$inertia.post(
+        this.route("family.store", this.employee.id),
+        this.form,
+        {
+          onStart: () => (this.sending = true),
+          onFinish: () => (this.sending = false),
+        }
+      );
     },
     closeModal() {
       this.$emit("update:modal");

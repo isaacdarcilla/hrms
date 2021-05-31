@@ -9,6 +9,7 @@ use App\Models\Children;
 use App\Models\EmployeeSetting;
 use App\Models\Setting;
 use App\Models\Profile;
+use App\Models\Background;
 use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\User;
@@ -341,10 +342,16 @@ class EmployeeController extends Controller
     public function pds($contact) 
     {
         $employee =  Auth::guard('employee')->user();
+        $background = Background::whereContactId(Auth::guard('employee')->user()->id)->first();
 
         if($employee)
             return Inertia::render('EmployeePanel/Pds/Pds', [
                 'employee' => $employee,
+                'family' => [
+                    'parents' => $background,
+                    'children' => Children::whereContactId(Auth::guard('employee')->user()->id)
+                                            ->whereBackgroundId($background->id)->get(),
+                ]
             ]);
         else
             return redirect()->route('login.employee');
