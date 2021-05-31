@@ -3005,6 +3005,7 @@ export default {
     family: Object,
     education: Object,
     cs: Array,
+    work: Array,
   },
   methods: {
     printPdf() {
