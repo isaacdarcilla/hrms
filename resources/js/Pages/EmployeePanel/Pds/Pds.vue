@@ -728,7 +728,9 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t-2 border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.spouse_last_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.spouse_last_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 bg-gray-300 pl-1 border-t-2 border-r border-black"
@@ -752,27 +754,41 @@
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.spouse_first_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.spouse_first_name }}
+              </div>
             </div>
             <div
               class="w-2/12 bg-gray-300 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
                 <div class="text-xxs">NAME EXTENSION (JR., SR)</div>
-                <div class="my-auto capitalize" v-if="family.parents.spouse_name_extension != null">{{ family.parents.spouse_name_extension }}</div>
+                <div
+                  class="my-auto capitalize"
+                  v-if="family.parents.spouse_name_extension != null"
+                >
+                  {{ family.parents.spouse_name_extension }}
+                </div>
                 <div class="my-auto capitalize" v-else>&nbsp;</div>
               </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[0] != null">{{ family.children[0].children_name }}</div>
+              <div class="my-auto" v-if="family.children[0] != null">
+                {{ family.children[0].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[0] != null">{{ formatDate(family.children[0].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[0] != null"
+              >
+                {{ formatDate(family.children[0].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -785,18 +801,27 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.spouse_middle_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.spouse_middle_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[1] != null">{{ family.children[1].children_name }}</div>
+              <div class="my-auto" v-if="family.children[1] != null">
+                {{ family.children[1].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[1] != null">{{ formatDate(family.children[1].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[1] != null"
+              >
+                {{ formatDate(family.children[1].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -809,19 +834,31 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize" v-if="family.parents.spouse_occupation != null">{{ family.parents.spouse_occupation }}</div>
+              <div
+                class="my-auto capitalize"
+                v-if="family.parents.spouse_occupation != null"
+              >
+                {{ family.parents.spouse_occupation }}
+              </div>
               <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[2] != null">{{ family.children[2].children_name }}</div>
+              <div class="my-auto" v-if="family.children[2] != null">
+                {{ family.children[2].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[2] != null">{{ formatDate(family.children[2].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[2] != null"
+              >
+                {{ formatDate(family.children[2].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -834,19 +871,31 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize" v-if="family.parents.spouse_business_name != null">{{ family.parents.spouse_business_name }}</div>
+              <div
+                class="my-auto capitalize"
+                v-if="family.parents.spouse_business_name != null"
+              >
+                {{ family.parents.spouse_business_name }}
+              </div>
               <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[3] != null">{{ family.children[3].children_name }}</div>
+              <div class="my-auto" v-if="family.children[3] != null">
+                {{ family.children[3].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[3] != null">{{ formatDate(family.children[3].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[3] != null"
+              >
+                {{ formatDate(family.children[3].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -859,19 +908,31 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize" v-if="family.parents.spouse_business_address != null">{{ family.parents.spouse_business_address }}</div>
+              <div
+                class="my-auto capitalize"
+                v-if="family.parents.spouse_business_address != null"
+              >
+                {{ family.parents.spouse_business_address }}
+              </div>
               <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[4] != null">{{ family.children[4].children_name }}</div>
+              <div class="my-auto" v-if="family.children[4] != null">
+                {{ family.children[4].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[4] != null">{{ formatDate(family.children[4].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[4] != null"
+              >
+                {{ formatDate(family.children[4].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -884,19 +945,31 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize" v-if="family.parents.spouse_telephone != null">{{ family.parents.spouse_telephone }}</div>
+              <div
+                class="my-auto capitalize"
+                v-if="family.parents.spouse_telephone != null"
+              >
+                {{ family.parents.spouse_telephone }}
+              </div>
               <div class="my-auto capitalize" v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[5] != null">{{ family.children[5].children_name }}</div>
+              <div class="my-auto" v-if="family.children[5] != null">
+                {{ family.children[5].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[5] != null">{{ formatDate(family.children[5].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[5] != null"
+              >
+                {{ formatDate(family.children[5].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -909,18 +982,27 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.father_last_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.father_last_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[6] != null">{{ family.children[6].children_name }}</div>
+              <div class="my-auto" v-if="family.children[6] != null">
+                {{ family.children[6].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[6] != null">{{ formatDate(family.children[6].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[6] != null"
+              >
+                {{ formatDate(family.children[6].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -933,27 +1015,41 @@
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.father_first_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.father_first_name }}
+              </div>
             </div>
             <div
               class="w-2/12 bg-gray-300 text-xs py-1 pl-1 border-t border-r border-black"
             >
               <div class="flex-row">
                 <div class="text-xxs">NAME EXTENSION (JR., SR)</div>
-                <div class="my-auto capitalize" v-if="family.parents.father_name_extension != null">{{ family.parents.father_name_extension }}</div>
+                <div
+                  class="my-auto capitalize"
+                  v-if="family.parents.father_name_extension != null"
+                >
+                  {{ family.parents.father_name_extension }}
+                </div>
                 <div class="my-auto capitalize" v-else>&nbsp;</div>
               </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[7] != null">{{ family.children[7].children_name }}</div>
+              <div class="my-auto" v-if="family.children[7] != null">
+                {{ family.children[7].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[7] != null">{{ formatDate(family.children[7].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[7] != null"
+              >
+                {{ formatDate(family.children[7].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -966,18 +1062,27 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.father_middle_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.father_middle_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[8] != null">{{ family.children[8].children_name }}</div>
+              <div class="my-auto" v-if="family.children[8] != null">
+                {{ family.children[8].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[8] != null">{{ formatDate(family.children[8].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[8] != null"
+              >
+                {{ formatDate(family.children[8].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -990,18 +1095,29 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.mother_first_name }} {{ family.parents.mother_middle_name }} {{ family.parents.mother_last_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.mother_first_name }}
+                {{ family.parents.mother_middle_name }}
+                {{ family.parents.mother_last_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[9] != null">{{ family.children[9].children_name }}</div>
+              <div class="my-auto" v-if="family.children[9] != null">
+                {{ family.children[9].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[9] != null">{{ formatDate(family.children[9].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[9] != null"
+              >
+                {{ formatDate(family.children[9].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -1014,18 +1130,27 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.mother_last_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.mother_last_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[10] != null">{{ family.children[10].children_name }}</div>
+              <div class="my-auto" v-if="family.children[10] != null">
+                {{ family.children[10].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[10] != null">{{ formatDate(family.children[10].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[10] != null"
+              >
+                {{ formatDate(family.children[10].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -1038,18 +1163,27 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.mother_first_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.mother_first_name }}
+              </div>
             </div>
             <div
               class="w-3/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto" v-if="family.children[11] != null">{{ family.children[11].children_name }}</div>
+              <div class="my-auto" v-if="family.children[11] != null">
+                {{ family.children[11].children_name }}
+              </div>
               <div class="my-auto" v-else>N/A</div>
             </div>
             <div
               class="w-2/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto text-center" v-if="family.children[11] != null">{{ formatDate(family.children[11].children_birth_date ) }}</div>
+              <div
+                class="my-auto text-center"
+                v-if="family.children[11] != null"
+              >
+                {{ formatDate(family.children[11].children_birth_date) }}
+              </div>
               <div class="my-auto text-center" v-else>N/A</div>
             </div>
           </div>
@@ -1062,7 +1196,9 @@
             <div
               class="w-5/12 text-xs py-1 pl-1 border-t border-r border-black"
             >
-              <div class="my-auto capitalize">{{ family.parents.mother_middle_name }}</div>
+              <div class="my-auto capitalize">
+                {{ family.parents.mother_middle_name }}
+              </div>
             </div>
             <div
               class="w-5/12 bg-gray-200 text-xs py-1 pl-1 border-t border-r border-black"
@@ -1163,39 +1299,58 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.primary != null">{{ education.primary.education_school_name }}</div>
+              <div v-if="education.primary != null">
+                {{ education.primary.education_school_name }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.primary != null">{{ education.primary.education_course }}</div>
+              <div v-if="education.primary != null">
+                {{ education.primary.education_course }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.primary != null">{{ formatDate(education.primary.from) }}</div>
+              <div class="text-center" v-if="education.primary != null">
+                {{ formatDate(education.primary.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.primary != null">{{ formatDate(education.primary.from) }}</div>
+              <div class="text-center" v-if="education.primary != null">
+                {{ formatDate(education.primary.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.primary != null && education.primary.education_highest_level_earned != null">{{ education.primary.education_highest_level_earned }}</div>
+              <div
+                v-if="
+                  education.primary != null &&
+                  education.primary.education_highest_level_earned != null
+                "
+              >
+                {{ education.primary.education_highest_level_earned }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.primary != null">{{ education.primary.education_year_graduated }}</div>
+              <div v-if="education.primary != null">
+                {{ education.primary.education_year_graduated }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.primary != null">{{ education.primary.education_honors_received }}</div>
+              <div v-if="education.primary != null">
+                {{ education.primary.education_honors_received }}
+              </div>
               <div v-else>N/A</div>
             </div>
           </div>
@@ -1208,39 +1363,58 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.secondary != null">{{ education.secondary.education_school_name }}</div>
+              <div v-if="education.secondary != null">
+                {{ education.secondary.education_school_name }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.secondary != null">{{ education.secondary.education_course }}</div>
+              <div v-if="education.secondary != null">
+                {{ education.secondary.education_course }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.secondary != null">{{ formatDate(education.secondary.from) }}</div>
+              <div class="text-center" v-if="education.secondary != null">
+                {{ formatDate(education.secondary.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.secondary != null">{{ formatDate(education.secondary.from) }}</div>
+              <div class="text-center" v-if="education.secondary != null">
+                {{ formatDate(education.secondary.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.secondary != null && education.secondary.education_highest_level_earned != null">{{ education.secondary.education_highest_level_earned }}</div>
+              <div
+                v-if="
+                  education.secondary != null &&
+                  education.secondary.education_highest_level_earned != null
+                "
+              >
+                {{ education.secondary.education_highest_level_earned }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.secondary != null">{{ education.secondary.education_year_graduated }}</div>
+              <div v-if="education.secondary != null">
+                {{ education.secondary.education_year_graduated }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.secondary != null">{{ education.secondary.education_honors_received }}</div>
+              <div v-if="education.secondary != null">
+                {{ education.secondary.education_honors_received }}
+              </div>
               <div v-else>N/A</div>
             </div>
           </div>
@@ -1253,39 +1427,58 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.vocational != null">{{ education.vocational.education_school_name }}</div>
+              <div v-if="education.vocational != null">
+                {{ education.vocational.education_school_name }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.vocational != null">{{ education.vocational.education_course }}</div>
+              <div v-if="education.vocational != null">
+                {{ education.vocational.education_course }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.vocational != null">{{ formatDate(education.vocational.from) }}</div>
+              <div class="text-center" v-if="education.vocational != null">
+                {{ formatDate(education.vocational.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.vocational != null">{{ formatDate(education.vocational.from) }}</div>
+              <div class="text-center" v-if="education.vocational != null">
+                {{ formatDate(education.vocational.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.vocational != null && education.vocational.education_highest_level_earned != null">{{ education.vocational.education_highest_level_earned }}</div>
+              <div
+                v-if="
+                  education.vocational != null &&
+                  education.vocational.education_highest_level_earned != null
+                "
+              >
+                {{ education.vocational.education_highest_level_earned }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.vocational != null">{{ education.vocational.education_year_graduated }}</div>
+              <div v-if="education.vocational != null">
+                {{ education.vocational.education_year_graduated }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.vocational != null">{{ education.vocational.education_honors_received }}</div>
+              <div v-if="education.vocational != null">
+                {{ education.vocational.education_honors_received }}
+              </div>
               <div v-else>N/A</div>
             </div>
           </div>
@@ -1298,39 +1491,58 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.tertiary != null">{{ education.tertiary.education_school_name }}</div>
+              <div v-if="education.tertiary != null">
+                {{ education.tertiary.education_school_name }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.tertiary != null">{{ education.tertiary.education_course }}</div>
+              <div v-if="education.tertiary != null">
+                {{ education.tertiary.education_course }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.tertiary != null">{{ formatDate(education.tertiary.from) }}</div>
+              <div class="text-center" v-if="education.tertiary != null">
+                {{ formatDate(education.tertiary.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.tertiary != null">{{ formatDate(education.tertiary.from) }}</div>
+              <div class="text-center" v-if="education.tertiary != null">
+                {{ formatDate(education.tertiary.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.tertiary != null && education.tertiary.education_highest_level_earned != null">{{ education.tertiary.education_highest_level_earned }}</div>
+              <div
+                v-if="
+                  education.tertiary != null &&
+                  education.tertiary.education_highest_level_earned != null
+                "
+              >
+                {{ education.tertiary.education_highest_level_earned }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.tertiary != null">{{ education.tertiary.education_year_graduated }}</div>
+              <div v-if="education.tertiary != null">
+                {{ education.tertiary.education_year_graduated }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.tertiary != null">{{ education.tertiary.education_honors_received }}</div>
+              <div v-if="education.tertiary != null">
+                {{ education.tertiary.education_honors_received }}
+              </div>
               <div v-else>N/A</div>
             </div>
           </div>
@@ -1343,39 +1555,58 @@
             <div
               class="w-2/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.graduate != null">{{ education.graduate.education_school_name }}</div>
+              <div v-if="education.graduate != null">
+                {{ education.graduate.education_school_name }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-3/12 text-xs pl-2 py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.graduate != null">{{ education.graduate.education_course }}</div>
+              <div v-if="education.graduate != null">
+                {{ education.graduate.education_course }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.graduate != null">{{ formatDate(education.graduate.from) }}</div>
+              <div class="text-center" v-if="education.graduate != null">
+                {{ formatDate(education.graduate.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div class="w-1/12 text-xs py-1 border-t border-r border-black">
-              <div class="text-center" v-if="education.graduate != null">{{ formatDate(education.graduate.from) }}</div>
+              <div class="text-center" v-if="education.graduate != null">
+                {{ formatDate(education.graduate.from) }}
+              </div>
               <div v-else class="text-center">N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.graduate != null && education.graduate.education_highest_level_earned != null">{{ education.graduate.education_highest_level_earned }}</div>
+              <div
+                v-if="
+                  education.graduate != null &&
+                  education.graduate.education_highest_level_earned != null
+                "
+              >
+                {{ education.graduate.education_highest_level_earned }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.graduate != null">{{ education.graduate.education_year_graduated }}</div>
+              <div v-if="education.graduate != null">
+                {{ education.graduate.education_year_graduated }}
+              </div>
               <div v-else>N/A</div>
             </div>
             <div
               class="w-1/12 text-xs py-1 text-center border-t border-r border-black"
             >
-              <div v-if="education.graduate != null">{{ education.graduate.education_honors_received }}</div>
+              <div v-if="education.graduate != null">
+                {{ education.graduate.education_honors_received }}
+              </div>
               <div v-else>N/A</div>
             </div>
           </div>
@@ -1401,8 +1632,10 @@
               DATE
             </div>
             <div
-              class="w-3/12 bg-gray-300 text-xs mx-auto text-center py-2  border-t-2 border-r border-b border-black"
-            >{{ date() }}</div>
+              class="w-3/12 bg-gray-300 text-xs mx-auto text-center py-2 border-t-2 border-r border-b border-black"
+            >
+              {{ date() }}
+            </div>
           </div>
           <div class="float-right text-xs italic">
             CS FORM 212 (Revised 2017), Page 1 of 4
@@ -1483,22 +1716,80 @@
           </div>
           <div v-for="n in 7" :key="n" class="flex">
             <div
+              v-if="cs[n] != null"
               class="w-3/12 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
-            ></div>
-            <div
-              class="w-1/12 text-xs py-2 border-t border-r border-black"
-            ></div>
-            <div
-              class="w-2/12 text-xs pl-2 border-t py-1 border-r border-black"
-            ></div>
-            <div
-              class="w-3/12 text-xs py-2 border-t border-r border-black"
-            ></div>
-            <div class="w-2/12 text-xs py-2 border-t border-r border-black">
-              <div class="text-center text-xs">09312412</div>
+            >
+              {{ cs[n].eligibility_name }}
             </div>
-            <div class="w-1/12 text-xs py-2 border-t border-r border-black">
-              <div class="text-center text-xs">12/12/2021</div>
+            <div
+              v-else
+                class="w-3/12 text-xs pl-3 py-2 border-t text-center border-l border-r border-black"
+              >
+                N/A
+            </div>
+            <div
+              v-if="cs[n] != null"
+              class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              {{ cs[n].eligibility_rating }}
+            </div>
+            <div
+              v-else
+                class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+              >
+                N/A
+            </div>
+            <div
+              v-if="cs[n] != null"
+              class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              {{ formatDate(cs[n].eligibility_date_of_exam) }}
+            </div>
+            <div
+              v-else
+                class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+              >
+                N/A
+            </div>
+            <div
+              v-if="cs[n] != null"
+              class="w-3/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              {{ cs[n].eligibility_place_of_exam }}
+            </div>
+            <div
+              v-else
+                class="w-3/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+              >
+                N/A
+            </div>
+            <div
+              v-if="cs[n] != null"
+              class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              <div class="text-center text-xs">
+                {{ cs[n].eligibility_license_number }}
+              </div>
+            </div>
+            <div
+              v-else
+                class="w-2/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+              >
+                N/A
+            </div>
+            <div
+              v-if="cs[n] != null"
+              class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+            >
+              <div class="text-center text-xs">
+                {{ formatDate(cs[n].eligibility_license_expiration) }}
+              </div>
+            </div>
+            <div
+              v-else
+                class="w-1/12 text-xs pl-3 py-2 border-t text-center border-r border-black"
+              >
+                N/A
             </div>
           </div>
           <div class="flex">
@@ -2713,6 +3004,7 @@ export default {
     employee: Object,
     family: Object,
     education: Object,
+    cs: Array,
   },
   methods: {
     printPdf() {

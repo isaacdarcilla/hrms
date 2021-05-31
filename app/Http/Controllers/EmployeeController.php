@@ -14,6 +14,7 @@ use App\Models\Job;
 use App\Models\Applicant;
 use App\Models\Education;
 use App\Models\User;
+use App\Models\Service;
 use App\Models\Task;
 use App\Models\Notice;
 use Illuminate\Support\Facades\Request;
@@ -360,6 +361,7 @@ class EmployeeController extends Controller
                     'vocational' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Vocational Education')->first(),
                     'graduate' => Education::whereContactId(Auth::guard('employee')->user()->id)->whereEducationLevel('Graduate Studies')->first()
                 ],
+                'cs' => Service::whereContactId(Auth::guard('employee')->user()->id)->get(),
             ]);
         else
             return redirect()->route('login.employee');
