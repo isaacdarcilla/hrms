@@ -5,9 +5,9 @@
         <inertia-link
           class="text-indigo-400 hover:text-indigo-600"
           :href="route('employee.profile', employee.id)"
-          >Form</inertia-link
+          >My Profile</inertia-link
         >
-        <span class="text-indigo-400 font-medium">/</span> PDS
+        <span class="text-indigo-400 font-medium">/</span> PDS 🗃️
       </h1>
       <div class="flex">
         <button

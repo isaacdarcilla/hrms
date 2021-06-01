@@ -6,13 +6,22 @@
           <span class="text-blue-600">My Profile</span> /
           {{ employee.first_name }}
         </div>
-        <button
-          @click="showPasswordModal"
-          class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
-        >
-          <span>✏️ Edit</span>
-          <span class="hidden md:inline">Password</span>
-        </button>
+        <div class="flex">
+          <inertia-link
+            :href="route('employee.profile.pds', employee.id)"
+            class="mx-2 btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+          >
+            <span>👁️ View</span>
+            <span class="hidden md:inline">PDS</span>
+          </inertia-link>
+          <button
+            @click="showPasswordModal"
+            class="btn-indigo rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1"
+          >
+            <span>✏️ Edit</span>
+            <span class="hidden md:inline">Password</span>
+          </button>
+        </div>
       </div>
       <div
         v-if="notices.length !== 0"
