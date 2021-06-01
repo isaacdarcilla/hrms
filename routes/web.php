@@ -37,17 +37,6 @@ use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\AdminScholarshipController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Route::get('/sym', function () {
 //     $target = '/home/catandua/public_html/hrms_laravel/storage/app/public';
 //     $shortcut = '/home/catandua/public_html/hrms/storage';
