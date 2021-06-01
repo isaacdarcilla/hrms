@@ -1,5 +1,7 @@
 # Your HR on the Go 🚀
 
+### Human Resource Management for Government Institution.
+
 ![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot/Screenshot.png)
 
 ```diff
@@ -16,8 +18,13 @@
 * Manage leave credits.
 * Leave management and forms.
 * Tickets and inquiries.
-* Tasks and todos.
-* Print documents.
+* Tasks and todo.
+* Print Service records.
+* Print PDS.
+* Teaching/Non-teaching profiles.
+* Multi-user.
+* Employee Scholarship.
+
 
 
 ```diff
