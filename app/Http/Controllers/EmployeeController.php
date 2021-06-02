@@ -342,13 +342,6 @@ class EmployeeController extends Controller
         }
     }
 
-    public function employee_logout()
-    {
-        Auth::guard('employee')->logout();
-
-        return redirect()->route('login.employee');
-    }
-
     public function pds($contact) 
     {
         $employee =  Auth::guard('employee')->user();
@@ -383,5 +376,12 @@ class EmployeeController extends Controller
             ]);
         else
             return redirect()->route('login.employee');
+    }
+
+    public function employee_logout()
+    {
+        Auth::guard('employee')->logout();
+
+        return redirect()->route('login.employee');
     }
 }
