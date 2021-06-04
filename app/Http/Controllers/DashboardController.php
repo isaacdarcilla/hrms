@@ -41,8 +41,8 @@ class DashboardController extends Controller
                 'psipop' => [
                     'filled' => Psipop::whereFilledPosition('1')->count(),
                     'unfilled' => Psipop::whereFilledPosition('0')->count(),
-                    'pfilled' => Psipop::whereFilledPosition('1')->count() / Psipop::count() * 100,
-                    'punfilled' => Psipop::whereFilledPosition('0')->count() / Psipop::count() * 100,
+                    'pfilled' => Psipop::whereFilledPosition('1')->count() != 0 ? Psipop::whereFilledPosition('1')->count() / Psipop::count() * 100 : 0,
+                    'punfilled' => Psipop::whereFilledPosition('0')->count() != 0 ? Psipop::whereFilledPosition('0')->count() / Psipop::count() * 100 : 0,
                     'retirees' =>  DB::select('select count(*) as total from psipops where birth_date < CURDATE() - INTERVAL 60 YEAR;'),
                     'retired' =>  DB::select('select count(*) as total from psipops where birth_date < CURDATE() - INTERVAL 65 YEAR;'),
                 ],
