@@ -382,6 +382,6 @@ class EmployeeController extends Controller
     {
         Auth::guard('employee')->logout();
 
-        return redirect()->route('login.employee');
+        return redirect()->route('login.employee'); 
     }
 }
