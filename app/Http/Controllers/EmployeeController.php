@@ -191,7 +191,7 @@ class EmployeeController extends Controller
 
     public function formEmployeeNew(Leave $leave) {
         $employee =  Auth::guard('employee')->user();
-
+ 
         if($employee)
             return Inertia::render('Sheet/FormLeaveEmployeeNew', [
                 'leave' => $leave,
