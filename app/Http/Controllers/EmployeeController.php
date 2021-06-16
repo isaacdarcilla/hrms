@@ -186,7 +186,7 @@ class EmployeeController extends Controller
                 'employee' => $employee,
             ]);
         else
-            return redirect()->route('login.employee');
+            return redirect()->route('login.employee'); 
     }
 
     public function formEmployeeNew(Leave $leave) {
