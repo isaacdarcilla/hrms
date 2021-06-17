@@ -188,7 +188,7 @@ class EmployeeController extends Controller
         else
             return redirect()->route('login.employee'); 
     }
-
+ 
     public function formEmployeeNew(Leave $leave) {
         $employee =  Auth::guard('employee')->user();
  
