@@ -3065,17 +3065,17 @@
                 </div>
                 <div class="w-full text-xs border-black border-b py-1">
                   Government Issued ID:
-                  <span class="font-semibold">{{
+                  <span v-if="gid != null" class="font-semibold">{{
                     gid.government_issued_id
                   }}</span>
                 </div>
                 <div class="w-full text-xs border-black border-b py-1">
                   ID/License/Passport No.:
-                  <span class="font-semibold">{{ gid.id_number }}</span>
+                  <span v-if="gid != null" class="font-semibold">{{ gid.id_number }}</span>
                 </div>
                 <div class="w-full text-xs border-black border-b-2 pt-1 pb-0.5">
                   Date/Place of Issuance:
-                  <span class="font-semibold">{{
+                  <span v-if="gid != null" class="font-semibold">{{
                     formatDate(gid.date_of_issuance)
                   }}</span>
                 </div>
