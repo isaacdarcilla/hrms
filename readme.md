@@ -9,7 +9,7 @@
 ``` 
 
 * Staff and employee login.
-* Create, update and list employees.
+* Create, update and list employees. 
 * Create job postings.
 * Easy apply on jobs.
 * Easy recruitment processing.
