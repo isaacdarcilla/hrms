@@ -15,7 +15,7 @@
 * Easy recruitment processing.
 * Notice board and notifications.
 * Manage staffs
-* Manage leave credits.
+* Manage leave credits. 
 * Leave management and forms.
 * Tickets and inquiries.
 * Tasks and todo.
