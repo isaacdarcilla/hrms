@@ -7,7 +7,7 @@
 ```diff  
 - ✨ Features  
 ``` 
-
+ 
 * Staff and employee login.
 * Create, update and list employees. 
 * Create job postings. 
