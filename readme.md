@@ -2,7 +2,7 @@
  
 ### Human Resource Management for Government Institution.
 
-![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot/Screenshot.png)
+![](https://github.com/isaacdarcilla/hrms/blob/main/screenshot/Screenshot.png) 
   
 ```diff  
 - ✨ Features  
